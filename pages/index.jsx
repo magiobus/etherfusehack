@@ -54,7 +54,7 @@ export default function MainPage() {
             idea o aprender algo nuevo.
           </p>
           <div className="mt-10 sm:flex sm:justify-center lg:justify-start">
-            <div className="rounded-md shadow w-1/2 mx-auto">
+            <div className="rounded-md shadow w-1/2 md:w-1/4 mx-auto">
               <Link href="/events">
                 <a className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-happy-yellow-600 hover:bg-happy-yellow-700 md:py-4 md:text-lg md:px-10">
                   Ver Eventos
