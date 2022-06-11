@@ -2,12 +2,13 @@ import { NextSeo } from "next-seo";
 
 //EDIT ME PLEASE
 const data = {
-  siteName: "Molus.co",
-  title: "Molus.co Starter",
-  description: "Molus.co NextJs Starter Description",
-  url: "https://molus.co",
+  siteName: "Super Happy Dev House MX",
+  title: "Super Happy Dev House MX",
+  description:
+    "SHDH es un evento informal para desarrolladores, creativos y curiosos de la tecnología. Ven a divertirte, construir tu idea o aprender algo nuevo.",
+  url: "https://superhappydevhouse.mx",
   imageUrl: "/og.jpeg",
-  twitter: "@moluscomx",
+  twitter: "@shdh",
 };
 
 const Seo = ({
