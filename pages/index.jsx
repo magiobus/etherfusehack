@@ -3,13 +3,13 @@ import Link from "next/link";
 
 const BigChar = ({children}) => {
   return (
-    <span className="text-happy-yellow text-6xl font-bold">{children}</span>
+    <span className="text-happy-yellow text-4xl sm:text-5xl font-bold">{children}</span>
   );
 }
 
 const Stairs = ({children}) => {
   return (
-    <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 text-left grid grid-cols-4 grid-rows-4 grid-flow-col"> 
+    <div className="text-3xl sm:text-4xl tracking-tight font-extrabold text-gray-900 text-left grid grid-cols-4 grid-rows-4 grid-flow-col"> 
       {children.map((c, idx) => {
         return (
           <div className="text-center" style={{
@@ -20,7 +20,7 @@ const Stairs = ({children}) => {
           </div>
         );
       })} 
-    </h1>
+    </div>
   );
 }
 
@@ -51,7 +51,7 @@ export default function MainPage() {
                 </span>
               </h1>
               <p className="mt-3 max-w-md mx-auto text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl">
-                SHDH es un evento informal para desarrolladores, creativos y
+              <strong className="text-happy-yellow">SHDH</strong> es un evento informal para desarrolladores, creativos y
                 curiosos de la tecnología 🤓. Ven a divertirte, construir tu
                 idea o aprender algo nuevo.
               </p>
