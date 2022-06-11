@@ -16,18 +16,22 @@ const navigation = {
   ],
 };
 
-const Header = () => {
+const Header = ({ fixed = false }) => {
   const { data: session } = useSession();
 
   return (
-    <Popover className="relative bg-white">
+    <Popover className={`relative bg-white `}>
       <div
-        className="absolute inset-0 shadow z-20 pointer-events-none"
+        className={`absolute inset-0 shadow z-20 pointer-events-none `}
         aria-hidden="true"
       />
-      <div className="relative z-20">
+      <div
+        className={`${
+          fixed ? "fixed z-50" : "relative"
+        }  bg-white  w-full z-20 `}
+      >
         {/* DESKTOP */}
-        <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-5 sm:px-6 sm:py-4 lg:px-8 md:justify-start md:space-x-10">
+        <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-5 sm:px-6 sm:py-4 lg:px-8 md:justify-start md:space-x-10 ">
           <div>
             <Link href="/">
               <a className="flex">

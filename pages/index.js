@@ -3,10 +3,10 @@ import Link from "next/link";
 
 export default function MainPage() {
   return (
-    <MainLayout>
-      <div className="relative bg-gray-50">
+    <MainLayout fixed={true}>
+      <div className="relative bg-gray-50 h-full ">
         <main className="lg:relative">
-          <div className="mx-auto max-w-7xl w-full pt-16 pb-20 text-center lg:py-48 lg:text-left">
+          <div className="mx-auto max-w-7xl w-full- pt-16 pb-20 text-center lg:py-48 lg:text-left">
             <div className="px-4 lg:w-1/2 sm:px-8 xl:pr-16">
               <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
                 <span className="block xl:inline text-happy-yellow">
