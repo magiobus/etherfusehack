@@ -7,12 +7,12 @@ import { useSession, signOut } from "next-auth/react";
 import classNames from "@/utils/classNames";
 
 //HEADER SETUP
-const logoUrl = "/logo.png";
+const logoUrl = "/images/shdh_logo.png";
 const navigation = {
   categories: [],
   pages: [
-    { name: "DemoPage", href: "/demo" },
-    { name: "Contact Us", href: "/contact" },
+    { name: "Eventos", href: "/events" },
+    { name: "Preguntas Frecuentes", href: "/faqs" },
   ],
 };
 
@@ -25,11 +25,7 @@ const Header = ({ fixed = false }) => {
         className={`absolute inset-0 shadow z-20 pointer-events-none `}
         aria-hidden="true"
       />
-      <div
-        className={`${
-          fixed ? "fixed z-50" : "relative"
-        }  bg-white  w-full z-20 `}
-      >
+      <div className={`${fixed && "fixed z-50"}  bg-white  w-full z-20 `}>
         {/* DESKTOP */}
         <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-5 sm:px-6 sm:py-4 lg:px-8 md:justify-start md:space-x-10 ">
           <div>
