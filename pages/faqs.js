@@ -6,10 +6,12 @@ const FaqsPage = () => {
     <MainLayout fixed={true}>
       <div className="bg-white">
         <div className="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-extrabold text-gray-900 text-center">
-            Preguntas frecuentes
-          </h2>
-          <div className="mt-12">
+          <div className="text-center">
+            <p className="mt-1 text-4xl font-extrabold text-happy-yellow sm:text-5xl sm:tracking-tight lg:text-6xl">
+              Preguntas Frecuentes
+            </p>
+          </div>
+          <div className="mt-24">
             <dl className="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-12 lg:grid-cols-3">
               {faqs.map((faq) => (
                 <div key={faq.id}>
