@@ -18,9 +18,9 @@ const EventsPage = ({ events }) => {
   return (
     <MainLayout title="Eventos">
       <div className="content flex flex-col justify-center items-center w-full my-0">
-        <div className="wrapper max-w-7xl">
+        <div className="wrapper max-w-7xl ">
           <div className="bg-white">
-            <div className="max-w-7xl mx-auto py-16 px-4 sm:py-18 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto py-16 px-4 sm:py-18 sm:px-6 lg:px-8 ">
               <div className="text-center">
                 <p className="mt-1 text-4xl font-extrabold text-happy-yellow sm:text-5xl sm:tracking-tight lg:text-6xl">
                   Próximos eventos

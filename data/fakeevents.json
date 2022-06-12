@@ -2,6 +2,7 @@
     {
         "id": "1",
         "name": "SHDH CUU 001",
+        "description": "Te invitamos a la primera edición de Super Happy Dev House en la ciudad de Chihuahua, Chihuahua México. \n Trae tu computadora, vamos a convivir y construir juntos. \n No importa si no sabes programar, ven y aprende con nosotros.",
         "photo": "/eventtest.jpg",
         "startTime": "1656187200",
         "endTime": "1656230400",
