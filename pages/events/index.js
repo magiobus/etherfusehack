@@ -1,9 +1,20 @@
 import MainLayout from "@/components/layouts/MainLayout";
 import Link from "next/link";
 import EventsList from "@/components/events/EventsList";
-import eventsList from "@/data/fakeevents.json";
+import eventsData from "@/data/fakeevents.json";
 
-const EventsPage = () => {
+export async function getStaticProps() {
+  //get data from database here...
+  const events = JSON.parse(JSON.stringify(eventsData));
+  return {
+    props: {
+      events: events,
+    },
+    revalidate: 5,
+  };
+}
+
+const EventsPage = ({ events }) => {
   return (
     <MainLayout title="Eventos">
       <div className="content flex flex-col justify-center items-center w-full my-0">
@@ -29,7 +40,7 @@ const EventsPage = () => {
             </div>
           </div>
         </div>
-        <EventsList data={eventsList} />
+        <EventsList data={events} />
       </div>
     </MainLayout>
   );
