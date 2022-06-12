@@ -2,13 +2,35 @@ import MainLayout from "@/components/layouts/MainLayout";
 import Link from "next/link";
 import EventsList from "@/components/events/EventsList";
 import eventsData from "@/data/fakeevents.json";
+import clientPromise from "@/lib/mongodb";
 
 export async function getStaticProps() {
   //get data from database here...
-  const events = JSON.parse(JSON.stringify(eventsData));
+  const client = await clientPromise;
+  const db = client.db();
+
+  const events = await db
+    .collection("events")
+    .aggregate([
+      {
+        $match: {
+          isPublic: true,
+          archived: false,
+        },
+      },
+      {
+        $sort: {
+          startTime: -1,
+        },
+      },
+    ])
+    .toArray();
+
+  const eventsData = JSON.parse(JSON.stringify(events));
+
   return {
     props: {
-      events: events,
+      events: eventsData,
     },
     revalidate: 5,
   };

@@ -3,7 +3,7 @@
         "id": "1",
         "name": "SHDH CUU 001",
         "description": "Te invitamos a la primera edición de Super Happy Dev House en la ciudad de Chihuahua, Chihuahua México. \n Trae tu computadora, vamos a convivir y construir juntos. \n No importa si no sabes programar, ven y aprende con nosotros.",
-        "photo": "/eventtest.jpg",
+        "photo": "https://res.cloudinary.com/superhappydevhousemx-gmail-com/image/upload/v1655069500/photo4985602139346807254_hn9mu6.jpg",
         "startTime": "1656187200",
         "endTime": "1656230400",
         "place": {
@@ -19,7 +19,7 @@
     {
         "id": "2",
         "name": "SHDH CUU 002",
-        "photo": "/eventtest.jpg",
+        "photo": "https://res.cloudinary.com/superhappydevhousemx-gmail-com/image/upload/v1655069500/photo4985602139346807254_hn9mu6.jpg",
         "startTime": "1656187200",
         "endTime": "1656230400",
         "place": {
@@ -35,7 +35,7 @@
     {
         "id": "3",
         "name": "SHDH CUU 003",
-        "photo": "/eventtest.jpg",
+        "photo": "https://res.cloudinary.com/superhappydevhousemx-gmail-com/image/upload/v1655069500/photo4985602139346807254_hn9mu6.jpg",
         "startTime": "1656187200",
         "endTime": "1656230400",
         "place": {
@@ -51,7 +51,7 @@
     {
         "id": "4",
         "name": "SHDH CUU 004",
-        "photo": "/eventtest.jpg",
+        "photo": "https://res.cloudinary.com/superhappydevhousemx-gmail-com/image/upload/v1655069500/photo4985602139346807254_hn9mu6.jpg",
         "startTime": "1656187200",
         "endTime": "1656230400",
         "place": {
@@ -67,7 +67,7 @@
     {
         "id": "5",
         "name": "SHDH CUU 005",
-        "photo": "/eventtest.jpg",
+        "photo": "https://res.cloudinary.com/superhappydevhousemx-gmail-com/image/upload/v1655069500/photo4985602139346807254_hn9mu6.jpg",
         "startTime": "1656187200",
         "endTime": "1656230400",
         "place": {

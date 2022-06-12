@@ -8,7 +8,7 @@ const EventsList = ({ data }) => {
       <div className="max-w-7xl  w-full  ">
         <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-flow-row xl:grid-cols-4">
           {data.map((event, index) => (
-            <EventThumb key={event.id} data={event} />
+            <EventThumb key={event._id} data={event} />
           ))}
         </div>
       </div>
@@ -17,10 +17,10 @@ const EventsList = ({ data }) => {
 };
 
 const EventThumb = ({ data }) => {
-  const { name, id, photo, startTime } = data;
+  const { name, _id, photo, startTime } = data;
 
   return (
-    <Link href={`/events/${id}`} passHref>
+    <Link href={`/events/${_id}`} passHref>
       <div className="thumbitem  cursor-pointer mx-4 mb-4  shadow-md">
         <div className="photocontainer">
           <Image

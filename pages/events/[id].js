@@ -2,12 +2,10 @@ import MainLayout from "@/components/layouts/MainLayout";
 import Image from "next/image";
 import Link from "next/link";
 import unixToFormat from "@/utils/unixToFormat";
-import eventsData from "@/data/fakeevents.json";
+import clientPromise from "@/lib/mongodb";
 import { CalendarIcon, LocationMarkerIcon } from "@heroicons/react/solid";
 
 const EventDetailPage = ({ event }) => {
-  console.log("event detail page", event);
-
   const { photo, name, place, price, startTime, endTime } = event;
 
   return (
@@ -105,16 +103,45 @@ const EventDetailPage = ({ event }) => {
 export default EventDetailPage;
 
 export async function getStaticProps({ params }) {
-  //TODO: get event data from database
-  const event = eventsData.find((event) => event.id === params.id);
-  if (event) {
+  const client = await clientPromise;
+  const db = client.db();
+  const { ObjectId } = require("mongodb");
+
+  try {
+    const eventArray = await db
+      .collection("events")
+      .aggregate([
+        {
+          $match: {
+            _id: new ObjectId(params.id),
+            isPublic: true,
+            archived: false,
+          },
+        },
+        {
+          $sort: {
+            startTime: -1,
+          },
+        },
+      ])
+      .toArray();
+
+    if (eventArray.length === 0) {
+      return {
+        notFound: true,
+      };
+    }
+
+    const eventsData = JSON.parse(JSON.stringify(eventArray[0]));
     return {
       props: {
-        event: event,
+        event: eventsData,
       },
       revalidate: 5,
     };
-  } else {
+  } catch (error) {
+    console.log("error", error);
+
     return {
       notFound: true,
     };
@@ -122,12 +149,31 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const data = JSON.parse(JSON.stringify(eventsData));
-  const paths = data.map((event) => ({
-    params: {
-      id: event.id,
-    },
-  }));
+  const client = await clientPromise;
+  const db = client.db();
+
+  const events = await db
+    .collection("events")
+    .find(
+      {
+        isPublic: true,
+        archived: false,
+      },
+      { projection: { _id: 1 } }
+    )
+    .limit(10)
+    .toArray();
+
+  const eventsData = JSON.parse(JSON.stringify(events));
+
+  const paths = eventsData.map((event) => {
+    return {
+      params: {
+        id: event._id,
+      },
+    };
+  });
+
   return {
     paths,
     fallback: "blocking",
