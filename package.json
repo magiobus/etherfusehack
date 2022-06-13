@@ -25,6 +25,7 @@
     "next-connect": "^0.12.2",
     "next-seo": "^5.1.0",
     "nodemailer": "^6.7.3",
+    "order-id": "^2.1.2",
     "postcss": "^8.4.12",
     "react": "17.0.2",
     "react-dom": "17.0.2",
