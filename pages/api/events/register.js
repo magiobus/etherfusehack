@@ -57,7 +57,7 @@ handler.post(async (req, res) => {
       receiversList: [user.email],
     };
 
-    notificationsLib.sendRegisterEmail(mailData);
+    await notificationsLib.sendRegisterEmail(mailData);
 
     //TODO:
     //send whatsapp message to user (this would be nice)
