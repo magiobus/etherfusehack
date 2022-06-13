@@ -21,6 +21,21 @@ const FaqsPage = () => {
                   <dd className="mt-2 text-base text-gray-500">{faq.answer}</dd>
                 </div>
               ))}
+              <div>
+                <dt className="text-lg leading-6 font-medium text-gray-900">
+                  ¿Puedo organizar un evento en mi ciudad?
+                </dt>
+                <dd className="mt-2 text-base text-gray-500">
+                  Si quieres organizar un evento en tu ciuad, ponte en contacto
+                  con nosotros vía Whatsapp al número{" "}
+                  <a
+                    className="text-blue-600"
+                    href="https://api.whatsapp.com/send?phone=526141652024"
+                  >
+                    +52 614 165 20 24
+                  </a>
+                </dd>
+              </div>
             </dl>
           </div>
         </div>
