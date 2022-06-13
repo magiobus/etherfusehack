@@ -4,14 +4,24 @@ import Link from "next/link";
 import unixToFormat from "@/utils/unixToFormat";
 import clientPromise from "@/lib/mongodb";
 import { CalendarIcon, LocationMarkerIcon } from "@heroicons/react/solid";
+import RegisterModal from "@/components/events/RegisterModal";
+import { useState } from "react";
 
 const EventDetailPage = ({ event }) => {
   const { photo, name, place, price, startTime, endTime } = event;
+
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <MainLayout>
       <div className="w-full flex justify-center items-center">
         <div className="max-w-7xl  w-full md:px-8 lg:px-0 lg:mt-8">
+          <RegisterModal
+            isOpen={modalOpen}
+            setIsOpen={setModalOpen}
+            eventData={event}
+          />
+
           <div className="header my-4 flex flex-col lg:flex-row lg:justify-between lg:items-center bg-gray-100">
             <Image
               src={photo}
@@ -28,11 +38,12 @@ const EventDetailPage = ({ event }) => {
               <p className="capitalize"> {unixToFormat(startTime, "PPPPp")}</p>
               <p className="mt-4 ">{price == 0 && "Entrada Gratuita"}</p>
               <div className="rounded-md shadow mt-8 lg:mt-12 w-full">
-                <Link href="#">
-                  <a className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-happy-yellow-600 hover:bg-happy-yellow-700 md:py-4 md:text-lg md:px-10">
-                    Regístrarse
-                  </a>
-                </Link>
+                <button
+                  className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-happy-yellow-600 hover:bg-happy-yellow-700 md:py-4 md:text-lg md:px-10"
+                  onClick={() => setModalOpen(true)}
+                >
+                  Regístrarse
+                </button>
               </div>
             </div>
           </div>
