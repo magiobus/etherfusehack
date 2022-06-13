@@ -19,7 +19,6 @@ const AdminUsersShowPage = () => {
       setIsInitialLoading(true);
       try {
         const { data } = await axios.get(`/api/admin/users/${id}`);
-        console.log("data: ", data);
         setUser(data);
         setFetchError(false);
       } catch (err) {
