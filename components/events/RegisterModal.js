@@ -24,7 +24,6 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
   }
 
   const onSubmit = async (data) => {
-    console.log(data);
     setIsLoading(true);
     setGlobalError(null);
     setIsRegistered(false);
@@ -51,7 +50,8 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
       setIsRegistered(true);
     } catch (error) {
       const { message } = error.response.data;
-      setGlobalError(message.es);
+      if (message) setGlobalError(message.es);
+      else setGlobalError("Error al registrar");
     }
 
     setIsLoading(false);

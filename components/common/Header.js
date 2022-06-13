@@ -132,9 +132,10 @@ const Header = ({ fixed = false }) => {
                   </Transition>
                 </Menu>
               ) : (
-                <Link href="/auth/signin">
-                  <a>Sign In </a>
-                </Link>
+                <></>
+                // <Link href="/auth/signin">
+                //   <a>Sign In </a>
+                // </Link>
               )}
             </div>
           </div>

@@ -3,7 +3,8 @@ import nc from "next-connect";
 import clientPromise from "@/lib/mongodb";
 import ncoptions from "@/utils/ncoptions";
 import usersLib from "@/lib/usersLib";
-import eventsActions from "@/lib/eventsActions";
+import eventsLib from "@/lib/eventsLib";
+import notificationsLib from "@/lib/notificationsLib";
 const { ObjectId } = require("mongodb");
 
 const handler = nc(ncoptions);
@@ -31,7 +32,7 @@ handler.post(async (req, res) => {
 
     if (!event) res.status(404).send("Event not found");
 
-    const registered = await eventsActions.registerUserForEvent(db, event, {
+    const registered = await eventsLib.registerUserForEvent(db, event, {
       ...user,
       about,
     });
@@ -45,10 +46,23 @@ handler.post(async (req, res) => {
         en: "User registered for the event",
       },
     });
-    //TODO
-    //send email to user with confirmation number or QR ?...
+
+    //send email to user with confirmation number?...
+    const mailData = {
+      data: {
+        user,
+        orderId: registered.orderId,
+        event,
+      },
+      receiversList: [user.email],
+    };
+
+    notificationsLib.sendRegisterEmail(mailData);
+
+    //TODO:
     //send whatsapp message to user (this would be nice)
   } catch (error) {
+    console.log("error", error);
     const parsedError = JSON.parse(error.message);
     res.status(500).json(parsedError);
   }

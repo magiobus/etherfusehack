@@ -24,7 +24,7 @@
     "next-auth": "^4.3.1",
     "next-connect": "^0.12.2",
     "next-seo": "^5.1.0",
-    "nodemailer": "^6.7.3",
+    "nodemailer": "^6.7.5",
     "order-id": "^2.1.2",
     "postcss": "^8.4.12",
     "react": "17.0.2",
