@@ -3,22 +3,17 @@ const copyrightLabel = `©${new Date().getFullYear()} Super Happy Dev House`;
 const socialLink = [
   {
     name: "Facebook",
-    href: "#",
+    href: "https://www.facebook.com/Super-Happy-Dev-House-MX-100137369414135/",
     icon: "facebook",
   },
   {
     name: "Instagram",
-    href: "#",
+    href: "https://www.instagram.com/shdevhousemx/",
     icon: "instagram",
   },
   {
-    name: "TikTok",
-    href: "#",
-    icon: "tiktok",
-  },
-  {
     name: "Twitter",
-    href: "#",
+    href: "https://twitter.com/shdevhousemx",
     icon: "twitter",
   },
 ];

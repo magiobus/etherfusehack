@@ -1,27 +1,27 @@
 [
-    {
-        "id": 1,
-        "question": "¿Qué es Super Happy Dev House?",
-        "answer": "Es un evento libre, dirigido a personas creativas que les interese el desarrollo de software y la tecnología en general."
-    },
-    {
-        "id": 2,
-        "question": "¿Qué hacemos en un Super Happy Dev House?",
-        "answer": "Nos reunimos a compartir conocimientos e inquietudes, también desarrollamos y colaboramos."
-    },
-    {
-        "id": 3,
-        "question": "¿Qué necesito llevar?",
-        "answer": "Lleva tu equipo, computadora, tablet o lo que sea que utilices para trabajar, multicontacto para electricidad y lleva algo de beber para ti y para compartir porque somos bonitas personas 😉."
-    },
-    {
-        "id": 4,
-        "question": "¿Necesito saber programar?",
-        "answer": "¡Para nada! si estás interesado en aprender, es el lugar perfecto para venir a colaborar y tener tu primer contacto con la programación y tecnología."
-    },
-    {
-        "id": 5,
-        "question": "¿Es un concurso?",
-        "answer": "La respuesta es NO. Aquí nadie pierde y nadie gana, lo que buscamos es colaborar, aprender, crear comunidad, conocer gente chévere y hacer amigos 🤓."
-    }
+  {
+    "id": 1,
+    "question": "¿Qué es Super Happy Dev House?",
+    "answer": "Es un evento libre, dirigido a personas creativas que les interese el desarrollo de software y la tecnología en general."
+  },
+  {
+    "id": 2,
+    "question": "¿Qué hacemos en un Super Happy Dev House?",
+    "answer": "Nos reunimos a compartir conocimientos e inquietudes, también desarrollamos y colaboramos."
+  },
+  {
+    "id": 3,
+    "question": "¿Qué necesito llevar?",
+    "answer": "Lleva tu equipo, computadora, tablet o lo que sea que utilices para trabajar, multicontacto para electricidad y lleva algo de beber para ti y para compartir porque somos bonitas personas 😉."
+  },
+  {
+    "id": 4,
+    "question": "¿Necesito saber programar?",
+    "answer": "¡Para nada! si estás interesado en aprender, es el lugar perfecto para venir a colaborar y tener tu primer contacto con la programación y tecnología."
+  },
+  {
+    "id": 5,
+    "question": "¿Es un concurso?",
+    "answer": "La respuesta es NO. Aquí nadie pierde y nadie gana, lo que buscamos es colaborar, aprender, crear comunidad, conocer gente chévere y hacer amigos 🤓."
+  }
 ]
