@@ -11,7 +11,7 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
   const [globalError, setGlobalError] = useState(null);
   const [registered, setIsRegistered] = useState(false);
   const [orderId, setOrderId] = useState(null);
-  const { name } = eventData;
+  const { name, startTime } = eventData;
   const {
     register,
     handleSubmit,
@@ -41,6 +41,7 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
         email,
         name,
         phone,
+        startTimeLocalText: `${unixToFormat(eventData.startTime, "PPPPp")} hrs`,
         eventId: eventData._id,
       });
 
@@ -51,7 +52,10 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
     } catch (error) {
       const { message } = error.response.data;
       if (message) setGlobalError(message.es);
-      else setGlobalError("Error al registrar");
+      else
+        setGlobalError(
+          "Error al registrar, contacta a magio@magiobus.com si sigues teniendo problemas"
+        );
     }
 
     setIsLoading(false);

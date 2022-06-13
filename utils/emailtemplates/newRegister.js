@@ -1,7 +1,7 @@
 const newRegisterTemplate = (data) => {
   //Text for thanks for supporting this creators.
 
-  const { name, orderId, startTime, place, eventName } = data;
+  const { name, orderId, startTimeLocalText, place, eventName } = data;
   const address = `${place.address}, ${place.state}, ${place.city}`;
   const { locationUrl } = place;
   //get first word of name
@@ -200,7 +200,7 @@ style="color: #000000; margin: 0; font-size: 14px; line-height: 1.2; word-break:
     La cita es en ${place.name} <br/> 
     ${address} <br/>
 
-    El dia ${startTime} hrs <br/>
+    El dia ${startTimeLocalText} <br/>
     Puedes ver el mapa del lugar, dando click 
     <a href=${locationUrl} rel="noopener" style="color: #0068A5;" target="_blank">Aquí 📍  </a>  </p> 
         <br />

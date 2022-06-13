@@ -21,7 +21,7 @@ handler.use(async (req, res, next) => {
 handler.post(async (req, res) => {
   const db = req.db;
   const data = req.body;
-  const { email, name, phone, about, eventId } = req.body;
+  const { email, name, phone, about, eventId, startTimeLocalText } = req.body;
 
   try {
     //check if user exists or create one
@@ -53,6 +53,7 @@ handler.post(async (req, res) => {
         user,
         orderId: registered.orderId,
         event,
+        startTimeLocalText,
       },
       receiversList: [user.email],
     };
