@@ -7,8 +7,9 @@ const data = {
   description:
     "SHDH es un evento informal para desarrolladores, creativos y curiosos de la tecnología. Ven a divertirte, construir tu idea o aprender algo nuevo.",
   url: "https://superhappydevhouse.mx",
-  imageUrl: "/og.jpeg",
-  twitter: "@shdh",
+  imageUrl:
+    "https://res.cloudinary.com/superhappydevhousemx-gmail-com/image/upload/v1655094624/og_rwcjrt.jpg",
+  twitter: "@shdevhousemx",
 };
 
 const Seo = ({
