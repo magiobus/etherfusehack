@@ -26,7 +26,7 @@ const FaqsPage = () => {
                   ¿Puedo organizar un evento en mi ciudad?
                 </dt>
                 <dd className="mt-2 text-base text-gray-500">
-                  Si quieres organizar un evento en tu ciuad, ponte en contacto
+                  Si quieres organizar un evento en tu ciudad, ponte en contacto
                   con nosotros vía Whatsapp al número{" "}
                   <a
                     className="text-blue-600"
