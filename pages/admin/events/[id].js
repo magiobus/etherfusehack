@@ -46,11 +46,11 @@ const AdminEventsShowPage = () => {
                     </h3>
                     <p
                       className={classNames(
-                        event.isPublic ? "bg-green-500" : "bg-red-500",
+                        event?.isPublic ? "bg-green-500" : "bg-red-500",
                         "text-white bg-green-400 px-2 rounded-md gont-bold text-sm mt-2"
                       )}
                     >
-                      {event.isPublic ? "Publico" : "No Publico"}
+                      {event?.isPublic ? "Publico" : "No Publico"}
                     </p>
                   </div>
 
