@@ -38,7 +38,7 @@ const AdminUsersShowPage = () => {
               <div className="bg-white py-6 space-y-6 ">
                 <div className="flex justify-between px-8 w-full items-center ">
                   <h3 className="text-lg leading-6 font-medium text-gray-900">
-                    User Detail
+                    Detalle de Usuario
                   </h3>
 
                   <Link href="/admin/users" passHref>
@@ -84,6 +84,18 @@ const AdminUsersShowPage = () => {
                                 <div className="text-sm text-gray-500">
                                   {user.email}
                                 </div>
+                                {user.phone && (
+                                  <div className="text-sm text-gray-500">
+                                    <a
+                                      href={`https://api.whatsapp.com/send?phone=${user.phone}`}
+                                      className="text-sm leading-5 font-medium text-gray-900 underline"
+                                      target="_blank"
+                                      rel="noreferrer"
+                                    >
+                                      +{user.phone}
+                                    </a>
+                                  </div>
+                                )}
                               </div>
                             </div>
                             <div className="rolecontainer"></div>

@@ -4,18 +4,18 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import LoadingCircle from "@/components/common/LoadingCircle";
 import axios from "axios";
-import unixToDate from "@/utils/unixToDate";
+import unixToFormat from "@/utils/unixToFormat";
 
-const AdminUsersPage = () => {
+const AdminEventsPage = () => {
   const [isInitialLoading, setIsInitialLoading] = useState(true);
   const [fetchError, setFetchError] = useState(false);
-  const [users, setUsers] = useState(undefined);
+  const [events, setEvents] = useState(undefined);
   useEffect(() => {
-    async function getUsers() {
+    async function getEvents() {
       setIsInitialLoading(true);
       try {
-        const { data } = await axios.get(`/api/admin/users/`);
-        setUsers(data);
+        const { data } = await axios.get(`/api/admin/events/`);
+        setEvents(data);
         setFetchError(false);
       } catch (err) {
         setFetchError(true);
@@ -23,11 +23,11 @@ const AdminUsersPage = () => {
       setIsInitialLoading(false);
     }
 
-    getUsers();
+    getEvents();
   }, []);
 
   return (
-    <AdminLayout title="Usuarios">
+    <AdminLayout title="Eventos">
       <div className="w-full flex justify-center">
         <div className="relative bg-white w-full ">
           <div>
@@ -35,15 +35,15 @@ const AdminUsersPage = () => {
               <div className="bg-white py-6  space-y-6 ">
                 <div className="flex justify-between px-8 w-full items-center ">
                   <h3 className="text-lg leading-6 font-medium text-gray-900">
-                    Usuarios
+                    Eventos
                   </h3>
 
-                  <Link href="/admin/users/add" passHref>
+                  <Link href="/admin/events/add" passHref>
                     <button
                       type="button"
                       className="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-happy-yellow hover:bg-happy-yellow focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-happy-yellow"
                     >
-                      Agregar Usuario
+                      Agregar Evento
                     </button>
                   </Link>
                 </div>
@@ -57,10 +57,10 @@ const AdminUsersPage = () => {
                       ) : fetchError ? (
                         <div className="py-24 text-center">
                           <p className="bold text-red-500">
-                            An error ocurred trying to get users 😢
+                            Ocurrio un error trayendo los eventos 😢
                           </p>
                         </div>
-                      ) : users && users.length > 0 ? (
+                      ) : events && events.length > 0 ? (
                         <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                           <table className="min-w-full divide-y divide-gray-200">
                             <thead className="bg-gray-50">
@@ -76,14 +76,14 @@ const AdminUsersPage = () => {
                                   scope="col"
                                   className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                                 >
-                                  Ultimo Inicio
+                                  Fecha
                                 </th>
 
                                 <th
                                   scope="col"
                                   className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                                 >
-                                  Rol
+                                  Participantes
                                 </th>
 
                                 <th scope="col" className="relative px-6 py-3">
@@ -92,45 +92,29 @@ const AdminUsersPage = () => {
                               </tr>
                             </thead>
                             <tbody className="bg-white divide-y divide-gray-200">
-                              {users.map((user) => (
-                                <tr key={user._id}>
+                              {events.map((event) => (
+                                <tr key={event._id}>
                                   <td className="px-6 py-4 whitespace-nowrap">
                                     <div className="flex items-center">
-                                      <div className="flex-shrink-0 h-10 w-10">
-                                        <img
-                                          className="h-10 w-10 rounded-full"
-                                          src={
-                                            user.image ||
-                                            `https://avatars.dicebear.com/api/micah/${user.email}.svg?background=%23ffffff`
-                                          }
-                                          alt=""
-                                        />
-                                      </div>
                                       <div className="ml-4">
-                                        <div className="text-sm font-medium text-gray-900 capitalize">
-                                          {user.name
-                                            ? user.name
-                                            : "Name not assigned"}
-                                        </div>
-                                        <div className="text-sm text-gray-500">
-                                          {user.email}
+                                        <div className="text-sm text-gray-500 font-bold">
+                                          {event.name}
                                         </div>
                                       </div>
                                     </div>
                                   </td>
 
                                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                    {unixToDate(user.lastLogin)}
+                                    {unixToFormat(event?.startTime, "PPPPp")}{" "}
+                                    hrs
                                   </td>
 
                                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                    {user.roles && user.roles.includes("admin")
-                                      ? "Admin"
-                                      : "User"}
+                                    {event?.attendees?.length}
                                   </td>
 
                                   <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <Link href={`/admin/users/${user._id}`}>
+                                    <Link href={`/admin/events/${event._id}`}>
                                       <a className="text-happy-yellow hover:text-happy-yellow">
                                         Mostrar
                                       </a>
@@ -143,9 +127,7 @@ const AdminUsersPage = () => {
                         </div>
                       ) : (
                         <div className="py-24 text-center">
-                          <p className="bold text-red-500">
-                            No hay Usuarios 😢
-                          </p>
+                          <p className="bold text-red-500">No hay Eventos 😢</p>
                         </div>
                       )}
                     </div>
@@ -160,4 +142,4 @@ const AdminUsersPage = () => {
   );
 };
 
-export default AdminUsersPage;
+export default AdminEventsPage;

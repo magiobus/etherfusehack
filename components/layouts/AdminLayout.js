@@ -7,7 +7,7 @@ import LoadingCircle from "@/components/common/LoadingCircle";
 import classNames from "@/utils/classNames";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
-import { HomeIcon, UserIcon } from "@heroicons/react/outline";
+import { HomeIcon, UserIcon, CalendarIcon } from "@heroicons/react/outline";
 
 const AdminLayout = ({ title, children, ...props }) => {
   const router = useRouter();
@@ -21,9 +21,15 @@ const AdminLayout = ({ title, children, ...props }) => {
       current: false,
     },
     {
-      name: "Users",
+      name: "Usuarios",
       href: "/admin/users",
       icon: UserIcon,
+      current: false,
+    },
+    {
+      name: "Eventos",
+      href: "/admin/events",
+      icon: CalendarIcon,
       current: false,
     },
   ];
@@ -70,7 +76,7 @@ const AdminLayout = ({ title, children, ...props }) => {
                           <a
                             className={classNames(
                               item.current
-                                ? "bg-gray-50 text-indigo-700 hover:text-indigo-700 hover:bg-white"
+                                ? "bg-gray-50 text-happy-yellow hover:text-happy-yellow hover:bg-white"
                                 : "text-gray-900 hover:text-gray-900 hover:bg-gray-50",
                               "group rounded-md px-3 py-2 flex items-center text-sm font-medium"
                             )}
@@ -79,7 +85,7 @@ const AdminLayout = ({ title, children, ...props }) => {
                             <item.icon
                               className={classNames(
                                 item.current
-                                  ? "text-indigo-500 group-hover:text-indigo-500"
+                                  ? "text-happy-yellow group-hover:text-happy-yellow"
                                   : "text-gray-400 group-hover:text-gray-500",
                                 "flex-shrink-0 -ml-1 mr-3 h-6 w-6"
                               )}

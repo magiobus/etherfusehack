@@ -1,7 +1,8 @@
-//Stats API ROUTE for logged in users
+//EVENTS API ROUTE for logged in users
 import nc from "next-connect";
 import { getSession } from "next-auth/react";
 import clientPromise from "@/lib/mongodb";
+const { ObjectId } = require("mongodb");
 import ncoptions from "@/config/ncoptions";
 const handler = nc(ncoptions);
 
@@ -15,24 +16,24 @@ handler.use(async (req, res, next) => {
     req.db = client.db();
     next();
   } else {
-    res.status(401).end("No tienes permiso para esta acción");
+    res.status(401).end("You don't have permission to do this");
     return;
   }
 });
 
-//GET STATS
+//GET EVENT if it has an ID
 handler.get(async (req, res) => {
+  const { id } = req.query;
   const db = req.db;
-  //returns count of users
-  const users = await db.collection("users").countDocuments();
-  const events = await db.collection("events").countDocuments();
+  if (id) {
+    //returns a single user with store basic data, if is owner of a store
+    const event = await db.collection("events").findOne({ _id: ObjectId(id) });
 
-  const stats = [
-    { name: "users", nameEs: "usuarios", stat: users },
-    { name: "events", nameEs: "eventos", stat: events },
-  ];
-
-  return res.json(stats);
+    res.json(event);
+  } else {
+    //return error if no id
+    res.status(400).end("No eventId provided");
+  }
 });
 
 export default handler;
