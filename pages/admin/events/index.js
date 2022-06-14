@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import LoadingCircle from "@/components/common/LoadingCircle";
 import axios from "axios";
 import unixToFormat from "@/utils/unixToFormat";
+import classNames from "@/utils/classNames";
 
 const AdminEventsPage = () => {
   const [isInitialLoading, setIsInitialLoading] = useState(true);
@@ -83,7 +84,14 @@ const AdminEventsPage = () => {
                                   scope="col"
                                   className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                                 >
-                                  Participantes
+                                  Registrados
+                                </th>
+
+                                <th
+                                  scope="col"
+                                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                >
+                                  Visibilidad
                                 </th>
 
                                 <th scope="col" className="relative px-6 py-3">
@@ -97,7 +105,7 @@ const AdminEventsPage = () => {
                                   <td className="px-6 py-4 whitespace-nowrap">
                                     <div className="flex items-center">
                                       <div className="ml-4">
-                                        <div className="text-sm text-gray-500 font-bold">
+                                        <div className="text-sm text-gray-500 font-bold capitalize">
                                           {event.name}
                                         </div>
                                       </div>
@@ -111,6 +119,21 @@ const AdminEventsPage = () => {
 
                                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                     {event?.attendees?.length}
+                                  </td>
+
+                                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    <p
+                                      className={classNames(
+                                        event.isPublic
+                                          ? "bg-green-500"
+                                          : "bg-red-500",
+                                        "text-white bg-green-400 px-2 rounded-md gont-bold text-sm mt-2"
+                                      )}
+                                    >
+                                      {event.isPublic
+                                        ? "Publico"
+                                        : "No Publico"}
+                                    </p>
                                   </td>
 
                                   <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">

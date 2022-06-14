@@ -5,10 +5,10 @@ import { useEffect, useState } from "react";
 import LoadingCircle from "@/components/common/LoadingCircle";
 import axios from "axios";
 import { useRouter } from "next/router";
-import unixToDate from "@/utils/unixToDate";
 import Image from "next/image";
 import { CalendarIcon, LocationMarkerIcon } from "@heroicons/react/solid";
 import unixToFormat from "@/utils/unixToFormat";
+import classNames from "@/utils/classNames";
 
 const AdminEventsShowPage = () => {
   const [isInitialLoading, setIsInitialLoading] = useState(true);
@@ -40,9 +40,19 @@ const AdminEventsShowPage = () => {
             <div className="shadow sm:rounded-md sm:overflow-hidden">
               <div className="bg-white py-6 space-y-6 ">
                 <div className="flex justify-between px-8 w-full items-center ">
-                  <h3 className="text-2xl leading-6 font-medium text-gray-900">
-                    Evento: {event?.name}
-                  </h3>
+                  <div className="title flex flex-col items-start justify-center">
+                    <h3 className="text-2xl leading-6 font-medium text-gray-900">
+                      Evento: {event?.name}
+                    </h3>
+                    <p
+                      className={classNames(
+                        event.isPublic ? "bg-green-500" : "bg-red-500",
+                        "text-white bg-green-400 px-2 rounded-md gont-bold text-sm mt-2"
+                      )}
+                    >
+                      {event.isPublic ? "Publico" : "No Publico"}
+                    </p>
+                  </div>
 
                   <Link href="/admin/events" passHref>
                     <button
@@ -118,59 +128,82 @@ const AdminEventsShowPage = () => {
                             <div className="rolecontainer"></div>
                           </div>
                           <div className="border-t border-gray-200 px-4 py-5 sm:px-6">
-                            <h2 className="font-bold">Asistentes</h2>
+                            <h2 className="font-bold">Registrados</h2>
                             {event.attendees && event.attendees.length > 0 ? (
                               event.attendees.map((attendee) => {
                                 return (
                                   <div
                                     key={event.id}
-                                    className="flex items-center justify-between px-4 py-3 border-b border-gray-200"
+                                    className="flex flex-col lg:flex-row  lg:items-center lg:justify-between lg:px-4 py-4 lg:py-3 border-b border-gray-200"
                                   >
-                                    <div className="flex-shrink-0">
-                                      <div className="flex items-center justify-center h-[60px] w-[60px] rounded-full bg-happy-yellow text-white">
-                                        <img
-                                          className="h-14 w-14 rounded-full"
-                                          src={`https://avatars.dicebear.com/api/micah/${attendee.email}.svg?background=%23ffffff`}
-                                          alt={attendee.name}
-                                        />
+                                    <div className="maininfo flex items-center justify-start w-full lg:w-5/12 xl:w-4/12">
+                                      <div className="flex-shrink-0">
+                                        <div className="flex items-center justify-center h-[60px] w-[60px] rounded-full bg-happy-yellow text-white">
+                                          <img
+                                            className="h-14 w-14 rounded-full"
+                                            src={`https://avatars.dicebear.com/api/micah/${attendee.email}.svg?background=%23ffffff`}
+                                            alt={attendee.name}
+                                          />
+                                        </div>
                                       </div>
-                                    </div>
-                                    <div className="flex-1">
-                                      <div className="flex items-center justify-between">
-                                        <div className="flex-1 ml-2">
-                                          <p className="text-sm leading-5 font-medium text-gray-900 font-bold">
-                                            {attendee.name}
-                                          </p>
-                                          <p className="text-sm leading-5 text-gray-500">
-                                            {attendee.email}
-                                          </p>
-                                          <a
-                                            href={`https://api.whatsapp.com/send?phone=${attendee.phone}`}
-                                            className="text-sm leading-5 font-medium text-gray-900 underline"
-                                          >
-                                            +{attendee.phone}
-                                          </a>
+                                      <div className="flex-1">
+                                        <div className="flex items-center justify-between">
+                                          <div className="flex-1 ml-2">
+                                            <p className="text-sm leading-5  text-gray-900 font-bold">
+                                              {attendee.name}
+                                            </p>
+                                            <p className="text-sm leading-5 text-gray-500">
+                                              {attendee.email}
+                                            </p>
+                                            <a
+                                              href={`https://api.whatsapp.com/send?phone=${attendee.phone}`}
+                                              className="text-sm leading-5 font-medium text-gray-900 underline"
+                                            >
+                                              +{attendee.phone}
+                                            </a>
+                                          </div>
                                         </div>
                                       </div>
                                     </div>
-                                    <div className="flex-1">
-                                      <div className="flex items-center justify-between">
-                                        <div className="flex-1 ml-2">
-                                          <p className="text-sm leading-5 text-gray-500 font-bold">
-                                            OrderId
-                                          </p>
-                                          <p className="text-sm leading-5 text-gray-500">
-                                            {attendee.orderId}
-                                          </p>
+
+                                    <div className="secondsection flex flex-col items-start justify-center lg:w-7/12 xl:w-8/12 lg:flex-row my-4 space-y-1 lg:space-y-0">
+                                      <div className="flex-1">
+                                        <div className="flex items-center justify-between">
+                                          <div className="flex-1 ml-2">
+                                            <p className="text-sm leading-5 text-gray-500 font-bold">
+                                              OrderId
+                                            </p>
+                                            <p className="text-sm leading-5 text-gray-500">
+                                              {attendee.orderId}
+                                            </p>
+                                          </div>
                                         </div>
                                       </div>
-                                    </div>
-                                    <div className="flex-1">
-                                      <div className="flex items-center justify-between">
-                                        <div className="flex-1 ml-2">
-                                          <p className="text-sm leading-5 text-gray-500">
-                                            {attendee.about}
-                                          </p>
+                                      <div className="flex-1">
+                                        <div className="flex items-center justify-between">
+                                          <div className="flex-1 ml-2">
+                                            <p className="text-sm leading-5 text-gray-500 font-bold">
+                                              Registrado
+                                            </p>
+                                            <p className="text-sm leading-5 text-gray-500">
+                                              {unixToFormat(
+                                                attendee.registeredAt,
+                                                "PP"
+                                              )}
+                                            </p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div className="flex-1">
+                                        <div className="flex items-center justify-between">
+                                          <div className="flex-1 ml-2">
+                                            <p className="text-sm leading-5 text-gray-500 font-bold">
+                                              Acerca de
+                                            </p>
+                                            <p className="text-sm leading-5 text-gray-500">
+                                              {attendee.about}
+                                            </p>
+                                          </div>
                                         </div>
                                       </div>
                                     </div>
@@ -178,7 +211,7 @@ const AdminEventsShowPage = () => {
                                 );
                               })
                             ) : (
-                              <p>No hay asistentes para este evento</p>
+                              <p>No hay registrados para este evento</p>
                             )}
                           </div>
                         </div>

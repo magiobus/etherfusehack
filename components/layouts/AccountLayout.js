@@ -15,7 +15,7 @@ const AccountLayout = ({ children, ...props }) => {
 
   const navigation = [
     {
-      name: "My Account",
+      name: "Mi Cuenta",
       href: "/user/profile",
       icon: UserCircleIcon,
       current: false,
