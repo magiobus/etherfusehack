@@ -72,7 +72,7 @@ export default NextAuth({
           pass: process.env.SMTP_PASS,
         },
       },
-      from: "youremailhere@gmail.com",
+      from: "superhappydevhousemx@gmail.com",
       sendVerificationRequest({
         identifier: email,
         url,
