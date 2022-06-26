@@ -16,6 +16,22 @@ const AdminEventsShowPage = () => {
   const [event, setEvent] = useState(undefined);
   const router = useRouter();
 
+  const handleAttendance = async (orderId, value) => {
+    setFetchError(false);
+    console.log("handle attendance =<", orderId, value);
+    try {
+      const res = await axios.put(
+        `/api/admin/events/${router.query.id}/attendance`,
+        { orderId, attended: value }
+      );
+      console.log("handle attendance =>", res.data);
+      setEvent(res.data);
+    } catch (error) {
+      console.log("handle attendance error =>", error);
+      setFetchError(true);
+    }
+  };
+
   useEffect(() => {
     const { id } = router.query;
     async function getUser() {
@@ -130,10 +146,10 @@ const AdminEventsShowPage = () => {
                           <div className="border-t border-gray-200 px-4 py-5 sm:px-6">
                             <h2 className="font-bold">Registrados</h2>
                             {event.attendees && event.attendees.length > 0 ? (
-                              event.attendees.map((attendee) => {
+                              event.attendees.map((attendee, index) => {
                                 return (
                                   <div
-                                    key={event.id}
+                                    key={index}
                                     className="flex flex-col lg:flex-row  lg:items-center lg:justify-between lg:px-4 py-4 lg:py-3 border-b border-gray-200"
                                   >
                                     <div className="maininfo flex items-center justify-start w-full lg:w-5/12 xl:w-4/12">
@@ -203,6 +219,41 @@ const AdminEventsShowPage = () => {
                                             <p className="text-sm leading-5 text-gray-500">
                                               {attendee.about}
                                             </p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div className="flex-1">
+                                        <div className="flex items-center justify-between">
+                                          <div className="flex-1 ml-2">
+                                            <div>
+                                              <label
+                                                htmlFor="attendance"
+                                                className="block text-sm font-medium text-gray-700"
+                                              >
+                                                Fue al evento
+                                              </label>
+                                              <select
+                                                id="attendance"
+                                                name="attendance"
+                                                className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                                                value={`${
+                                                  attendee.attended
+                                                    ? "true"
+                                                    : "false"
+                                                }`}
+                                                onChange={(e) => {
+                                                  handleAttendance(
+                                                    attendee.orderId,
+                                                    e.target.value
+                                                  );
+                                                }}
+                                              >
+                                                <option value="true">Sí</option>
+                                                <option value="false">
+                                                  No
+                                                </option>
+                                              </select>
+                                            </div>
                                           </div>
                                         </div>
                                       </div>
