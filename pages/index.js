@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import MainLayout from "@/components/layouts/MainLayout";
 import Link from "next/link";
 

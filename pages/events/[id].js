@@ -7,7 +7,7 @@ import { CalendarIcon, LocationMarkerIcon } from "@heroicons/react/solid";
 import RegisterModal from "@/components/events/RegisterModal";
 import { useState } from "react";
 
-const EventDetailPage = ({ event }) => {
+const EventDetailPage = ({ event, expired, registerCount }) => {
   const { photo, name, place, price, startTime, endTime } = event;
 
   const [modalOpen, setModalOpen] = useState(false);
@@ -37,13 +37,18 @@ const EventDetailPage = ({ event }) => {
               </p>
               <p className="capitalize"> {unixToFormat(startTime, "PPPPp")}</p>
               <p className="mt-4 ">{price == 0 && "Entrada Gratuita"}</p>
-              <div className="rounded-md shadow mt-8 lg:mt-12 w-full">
-                <button
-                  className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-happy-yellow-600 hover:bg-happy-yellow-700 md:py-4 md:text-lg md:px-10"
-                  onClick={() => setModalOpen(true)}
-                >
-                  Regístrarse
-                </button>
+              {registerCount && <p>{registerCount} asistentes registrados</p>}
+              <div className="rounded-md  mt-8 lg:mt-12 w-full">
+                {expired ? (
+                  <p className="text-red-400">Este evento ya ha pasado ☹️</p>
+                ) : (
+                  <button
+                    className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-happy-yellow-600 hover:bg-happy-yellow-700 md:py-4 md:text-lg md:px-10"
+                    onClick={() => setModalOpen(true)}
+                  >
+                    Regístrarse
+                  </button>
+                )}
               </div>
             </div>
           </div>
@@ -143,10 +148,19 @@ export async function getStaticProps({ params }) {
       };
     }
 
-    const eventsData = JSON.parse(JSON.stringify(eventArray[0]));
+    //check if the event already passed
+    const registerCount = eventArray[0].attendees.length;
+    const event = { ...eventArray[0] };
+    const now = new Date().getTime();
+    const endTime = Number(event.endTime);
+    delete event.attendees; //delete attendes key from event
+
+    const eventsData = JSON.parse(JSON.stringify(event));
     return {
       props: {
         event: eventsData,
+        expired: now > endTime,
+        registerCount: registerCount,
       },
       revalidate: 5,
     };

@@ -23,6 +23,11 @@ export async function getStaticProps() {
           startTime: -1,
         },
       },
+      {
+        $project: {
+          attendees: 0,
+        },
+      },
     ])
     .toArray();
 
