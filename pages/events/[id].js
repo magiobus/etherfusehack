@@ -6,9 +6,22 @@ import clientPromise from "@/lib/mongodb";
 import { CalendarIcon, LocationMarkerIcon } from "@heroicons/react/solid";
 import RegisterModal from "@/components/events/RegisterModal";
 import { useState } from "react";
+import dateNowUnix from "@/utils/dateNowUnix";
 
 const EventDetailPage = ({ event, expired, registerCount }) => {
-  const { photo, name, place, price, startTime, endTime } = event;
+  const {
+    photo,
+    name,
+    placeName,
+    placeAddress,
+    placeState,
+    placeCity,
+    placeCountry,
+    price,
+    locationUrl,
+    startTime,
+    endTime,
+  } = event;
 
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -33,7 +46,7 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
             <div className="rightsection flex flex-col justify-center items-start h-full py-4 px-4 w-full lg:w-4/12 mr-4 ">
               <h1 className="font-bold text-2xl">{name}</h1>
               <p className="capitalize">
-                @{place?.name} - {place?.state}, {place?.city} {place?.country}
+                @{placeName} - {placeState}, {placeCity} {placeCountry}
               </p>
               <p className="capitalize"> {unixToFormat(startTime, "PPPPp")}</p>
               <p className="mt-4 ">{price == 0 && "Entrada Gratuita"}</p>
@@ -92,13 +105,13 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
                       </div>
                       <p className="font-bold">Lugar</p>
                     </div>
-                    <p className="">{place?.name}</p>
-                    <p className="">{place?.address}</p>
+                    <p className="">{placeName}</p>
+                    <p className="">{placeAddress}</p>
                     <p className="capitalize">
-                      {place?.state}, {place?.city} {place?.country}
+                      {placeState}, {placeCity} {placeCountry}
                     </p>
                     <a
-                      href={place?.locationUrl}
+                      href={locationUrl}
                       target="_blank"
                       className="underline text-happy-yellow"
                       rel="noreferrer"
@@ -149,9 +162,9 @@ export async function getStaticProps({ params }) {
     }
 
     //check if the event already passed
-    const registerCount = eventArray[0].attendees.length;
+    const registerCount = eventArray[0].attendees.length || 0;
     const event = { ...eventArray[0] };
-    const now = new Date().getTime();
+    const now = dateNowUnix();
     const endTime = Number(event.endTime);
     delete event.attendees; //delete attendes key from event
 

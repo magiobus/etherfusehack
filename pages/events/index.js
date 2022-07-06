@@ -3,6 +3,7 @@ import Link from "next/link";
 import EventsList from "@/components/events/EventsList";
 import eventsData from "@/data/fakeevents.json";
 import clientPromise from "@/lib/mongodb";
+import dateNowUnix from "@/utils/dateNowUnix";
 
 export async function getStaticProps() {
   //get data from database here...
@@ -32,13 +33,9 @@ export async function getStaticProps() {
     .toArray();
 
   //divide events in upcomingevents and pastevents using unix timestamp
-  let upcomingEvents = events.filter(
-    (event) => event.endTime > new Date().getTime()
-  );
+  let upcomingEvents = events.filter((event) => event.endTime > dateNowUnix());
 
-  let pastEvents = events.filter(
-    (event) => event.endTime < new Date().getTime()
-  );
+  let pastEvents = events.filter((event) => event.endTime < dateNowUnix());
 
   upcomingEvents = upcomingEvents.sort((a, b) => a.startTime - b.startTime);
   pastEvents = pastEvents.sort((a, b) => b.startTime - a.startTime);

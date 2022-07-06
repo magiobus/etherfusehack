@@ -130,14 +130,14 @@ const AdminEventsShowPage = () => {
                                     </div>
                                     <p className="font-bold">Lugar</p>
                                   </div>
-                                  <p className="">{event?.place?.name}</p>
-                                  <p className="">{event?.place?.address}</p>
+                                  <p className="">{event?.placeName}</p>
+                                  <p className="">{event?.placeAddress}</p>
                                   <p className="capitalize">
-                                    {event?.place?.state}, {event?.place?.city}{" "}
-                                    {event?.place?.country}
+                                    {event?.placeState}, {event?.placeCity}{" "}
+                                    {event?.placeCountry}
                                   </p>
                                   <a
-                                    href={event?.place?.locationUrl}
+                                    href={event?.locationUrl}
                                     target="_blank"
                                     className="underline text-happy-yellow"
                                     rel="noreferrer"
