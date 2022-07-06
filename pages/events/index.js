@@ -31,19 +31,34 @@ export async function getStaticProps() {
     ])
     .toArray();
 
-  const eventsData = JSON.parse(JSON.stringify(events));
+  //divide events in upcomingevents and pastevents using unix timestamp
+  let upcomingEvents = events.filter(
+    (event) => event.endTime > new Date().getTime()
+  );
+
+  let pastEvents = events.filter(
+    (event) => event.endTime < new Date().getTime()
+  );
+
+  upcomingEvents = upcomingEvents.sort((a, b) => a.startTime - b.startTime);
+  pastEvents = pastEvents.sort((a, b) => b.startTime - a.startTime);
+
+  upcomingEvents = JSON.parse(JSON.stringify(upcomingEvents));
+  pastEvents = JSON.parse(JSON.stringify(pastEvents));
 
   return {
     props: {
-      events: eventsData,
+      upcomingEvents,
+      pastEvents,
     },
     revalidate: 5,
   };
 }
 
-const EventsPage = ({ events }) => {
+const EventsPage = ({ upcomingEvents, pastEvents }) => {
   return (
     <MainLayout title="Eventos">
+      {/* upcoming events */}
       <div className="content flex flex-col justify-center items-center w-full my-0">
         <div className="wrapper max-w-7xl ">
           <div className="bg-white">
@@ -67,7 +82,23 @@ const EventsPage = ({ events }) => {
             </div>
           </div>
         </div>
-        <EventsList data={events} />
+        <EventsList data={upcomingEvents} />
+      </div>
+
+      {/* past events */}
+      <div className="content mt-8 flex flex-col justify-center items-center w-full my-0">
+        <div className="wrapper max-w-7xl w-full">
+          <div className="bg-white">
+            <div className="max-w-7xl mx-auto py-16 px-4 sm:py-18 sm:px-6 lg:px-8 ">
+              <div className="text-center lg:text-left">
+                <p className="mt-1 font-extrabold text-happy-yellow  sm:tracking-tight text-xl">
+                  Eventos Anteriores
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <EventsList data={pastEvents} />
       </div>
     </MainLayout>
   );

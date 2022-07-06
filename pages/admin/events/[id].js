@@ -16,19 +16,23 @@ const AdminEventsShowPage = () => {
   const [event, setEvent] = useState(undefined);
   const router = useRouter();
 
-  const handleAttendance = async (orderId, value) => {
+  const handleAttendance = async (orderId, email) => {
     setFetchError(false);
-    console.log("handle attendance =<", orderId, value);
-    try {
-      const res = await axios.put(
-        `/api/admin/events/${router.query.id}/attendance`,
-        { orderId, attended: value }
-      );
-      console.log("handle attendance =>", res.data);
-      setEvent(res.data);
-    } catch (error) {
-      console.log("handle attendance error =>", error);
-      setFetchError(true);
+    const confirmed = confirm(
+      `Estás segur@ de confirmar la asistencia de ${email}?`
+    );
+
+    if (confirmed) {
+      try {
+        const res = await axios.put(
+          `/api/admin/events/${router.query.id}/attendance`,
+          { orderId, attended: true }
+        );
+        setEvent(res.data);
+      } catch (error) {
+        console.log("handle attendance error =>", error);
+        setFetchError(true);
+      }
     }
   };
 
@@ -45,7 +49,9 @@ const AdminEventsShowPage = () => {
       }
       setIsInitialLoading(false);
     }
-    getUser();
+    if (id) {
+      getUser();
+    }
   }, [router.query]);
 
   return (
@@ -73,9 +79,9 @@ const AdminEventsShowPage = () => {
                   <Link href="/admin/events" passHref>
                     <button
                       type="button"
-                      className="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                      className="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-happy-yellow hover:bg-happy-yellow focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     >
-                      Back to events List
+                      Volver a lista de eventos
                     </button>
                   </Link>
                 </div>
@@ -232,27 +238,23 @@ const AdminEventsShowPage = () => {
                                               >
                                                 Fue al evento
                                               </label>
-                                              <select
-                                                id="attendance"
-                                                name="attendance"
-                                                className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
-                                                value={`${
-                                                  attendee.attended
-                                                    ? "true"
-                                                    : "false"
-                                                }`}
-                                                onChange={(e) => {
-                                                  handleAttendance(
-                                                    attendee.orderId,
-                                                    e.target.value
-                                                  );
-                                                }}
-                                              >
-                                                <option value="true">Sí</option>
-                                                <option value="false">
-                                                  No
-                                                </option>
-                                              </select>
+                                              {attendee.attended ? (
+                                                <div className="badge badge-success gap-2">
+                                                  Si
+                                                </div>
+                                              ) : (
+                                                <button
+                                                  className="btn btn-sm text-xs capitalize"
+                                                  onClick={() => {
+                                                    handleAttendance(
+                                                      attendee.orderId,
+                                                      attendee.email
+                                                    );
+                                                  }}
+                                                >
+                                                  Marcar Asistencia
+                                                </button>
+                                              )}
                                             </div>
                                           </div>
                                         </div>
@@ -269,7 +271,7 @@ const AdminEventsShowPage = () => {
                       ) : (
                         <div className="py-24 text-center">
                           <p className="bold text-red-500">
-                            Theres no info about the event 😢
+                            No hay información del evento 😢
                           </p>
                         </div>
                       )}

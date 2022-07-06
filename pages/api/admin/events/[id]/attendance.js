@@ -34,7 +34,7 @@ handler.put(async (req, res) => {
   const db = req.db;
   const eventId = ObjectId(id);
 
-  //returns a single user with store basic data, if is owner of a store
+  //check if event  exists
   const event = await db.collection("events").findOne({ _id: eventId });
   if (!event) {
     res.status(404).end("Event not found");
@@ -53,10 +53,24 @@ handler.put(async (req, res) => {
     .collection("events")
     .updateOne({ _id: eventId }, { $set: { attendees } });
 
+  //add eventId to user events array
+  const userId = attendees[index].userId; //this is objectID
+
+  console.log("attended", attended);
+
+  //updates user events array
+  if (attended) {
+    await db
+      .collection("users")
+      .updateOne({ _id: userId }, { $push: { eventsAttended: eventId } });
+  } else {
+    await db
+      .collection("users")
+      .updateOne({ _id: userId }, { $pull: { eventsAttended: eventId } });
+  }
+
   //return the updated event with the updated attendee
   res.status(200).json(event);
-
-  res.json(updatedEvent);
 });
 
 export default handler;

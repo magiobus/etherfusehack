@@ -24,6 +24,7 @@ handler.use(async (req, res, next) => {
 //GET EVENT if it has an ID
 handler.get(async (req, res) => {
   const { id } = req.query;
+
   const db = req.db;
   if (id) {
     //returns a single user with store basic data, if is owner of a store

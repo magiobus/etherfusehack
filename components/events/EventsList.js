@@ -6,11 +6,17 @@ const EventsList = ({ data }) => {
   return (
     <div className="eventscontainer flex flex-col items-center md:items-center justify-center xl:items-center w-full ">
       <div className="max-w-7xl  w-full  ">
-        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-flow-row xl:grid-cols-4">
-          {data.map((event, index) => (
-            <EventThumb key={event._id} data={event} />
-          ))}
-        </div>
+        {data && data.length > 0 ? (
+          <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-flow-row xl:grid-cols-4">
+            {data.map((event) => (
+              <EventThumb key={event._id} data={event} />
+            ))}
+          </div>
+        ) : (
+          <div className="emptystate w-full flex justify-center items-center">
+            <p>No hay eventos disponibles 😢 </p>
+          </div>
+        )}
       </div>
     </div>
   );
