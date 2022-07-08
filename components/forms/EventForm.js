@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import LoadingCircle from "@/components/common/LoadingCircle";
 import toast, { Toaster } from "react-hot-toast";
-
 import axios from "axios";
 import Input from "@/components/forms/fields/Input";
 import TextArea from "@/components/forms/fields/TextArea";
@@ -14,6 +13,7 @@ import CoverImage from "@/components/forms/fields/CoverImage";
 import { State, City } from "country-state-city";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
+import timezones from "@/data/timezones.json";
 
 const EventForm = () => {
   const [buttonLoading, setButtonLoading] = useState(false);
@@ -184,6 +184,22 @@ const EventForm = () => {
                 }),
               }}
               errorMessage={errors.endTime?.message}
+            />
+          </div>
+          <div className="inputwrapper my-3 lg:my-0">
+            <Select
+              label="Zona Horaria"
+              name="timeZone"
+              options={timezones}
+              register={{
+                ...register("timeZone", {
+                  required: {
+                    value: true,
+                    message: "Zona Horaria es requerido",
+                  },
+                }),
+              }}
+              errorMessage={errors.timeZone?.message}
             />
           </div>
         </div>

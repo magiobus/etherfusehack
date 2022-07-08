@@ -5,6 +5,8 @@ import { useForm } from "react-hook-form";
 import LoadingCircle from "@/components/common/LoadingCircle";
 import axios from "axios";
 import unixToFormat from "@/utils/unixToFormat";
+import Input from "@/components/forms/fields/Input";
+import TextArea from "@/components/forms/fields/TextArea";
 
 const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -41,7 +43,10 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
         email,
         name,
         phone,
-        startTimeLocalText: `${unixToFormat(eventData.startTime, "PPPPp")} hrs`,
+        startTimeLocalText: `${unixToFormat(
+          eventData.startTime,
+          "d 'de' MMMM yyyy h:mm aa"
+        )}`,
         eventId: eventData._id,
       });
 
@@ -121,75 +126,46 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                         <form onSubmit={handleSubmit(onSubmit)}>
                           <div className="fields max-w-md">
                             <div className="my-4 field">
-                              <label
-                                htmlFor="email"
-                                className="block text-sm font-medium text-gray-700"
-                              >
-                                Email
-                              </label>
-                              <div className="mt-1">
-                                <input
-                                  type="email"
-                                  name="email"
-                                  id="email"
-                                  className="shadow-sm focus:ring-happy-yellow-500 focus:border-happy-yellow-500 block w-full sm:text-sm border-gray-300 rounded-md"
-                                  {...register("email", {
-                                    required: {
-                                      value: true,
-                                      message: "Email es requerido",
-                                    },
-                                  })}
-                                />
-                                <p className="text-sm mt-1 text-red-500">
-                                  {errors.email?.message}
-                                </p>
-                              </div>
-                            </div>
-                            <div className="my-4 field">
-                              <label
-                                htmlFor="name"
-                                className="block text-sm font-medium text-gray-700"
-                              >
-                                Nombre
-                              </label>
-                              <div className="mt-1">
-                                <input
-                                  type="text"
-                                  name="name"
-                                  id="name"
-                                  className="shadow-sm focus:ring-happy-yellow-500 focus:border-happy-yellow-500 block w-full sm:text-sm border-gray-300 rounded-md"
-                                  {...register("name", {
+                              <Input
+                                label="Nombre"
+                                name="name"
+                                type="text"
+                                register={{
+                                  ...register("name", {
                                     required: {
                                       value: true,
                                       message: "Nombre es requerido",
                                     },
-                                  })}
-                                />
-                                <p className="text-sm mt-1 text-red-500">
-                                  {errors.name?.message}
-                                </p>
-                              </div>
+                                  }),
+                                }}
+                                errorMessage={errors.name?.message}
+                              />
                             </div>
+                            <div className="my-4 field">
+                              <Input
+                                label="Email"
+                                name="email"
+                                type="email"
+                                register={{
+                                  ...register("email", {
+                                    required: {
+                                      value: true,
+                                      message: "Email es requerido",
+                                    },
+                                  }),
+                                }}
+                                errorMessage={errors.email?.message}
+                              />
+                            </div>
+
                             <div className="field my-4">
-                              <label
-                                htmlFor="phone"
-                                className="block text-sm font-medium text-gray-700"
-                              >
-                                Teléfono
-                              </label>
-                              <div className="mt-1 relative rounded-md shadow-sm">
-                                <div className="absolute inset-y-0 left-0 flex items-center">
-                                  <div className="flex items-center border-r-2 h-full py-0 pl-3 pr-4  bg-transparent text-gray-500 sm:text-sm rounded-md">
-                                    <p>+52</p>
-                                  </div>
-                                </div>
-                                <input
-                                  type="text"
-                                  name="phone"
-                                  id="phone"
-                                  className="focus:ring-happy-yellow-500 focus:border-happy-yellow-500 block w-full pl-16 sm:text-sm border-gray-300 rounded-md"
-                                  placeholder={`6141707622`}
-                                  {...register("phone", {
+                              <Input
+                                label="Teléfono"
+                                name="phone"
+                                type="text"
+                                placeholder={`6141707622`}
+                                register={{
+                                  ...register("phone", {
                                     required: {
                                       value: true,
                                       message: "Teléfono es requerido",
@@ -199,36 +175,25 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                                       message:
                                         "No puede contener más de 15 caracteres",
                                     },
-
                                     pattern: {
                                       value:
                                         /(\(\d{3}\)[.-]?|\d{3}[.-]?)?\d{3}[.-]?\d{4}/,
                                       message:
                                         "El numero debe de tener el siguiente formato: (614)5555666",
                                     },
-                                  })}
-                                />
-                              </div>
-                              <p className="text-sm mt-1 text-red-500">
-                                {errors.phone?.message}
-                              </p>
+                                  }),
+                                }}
+                                errorMessage={errors.phone?.message}
+                              />
                             </div>
                             <div className="field my-4">
-                              <label
-                                htmlFor="about"
-                                className="block text-sm font-medium text-gray-700"
-                              >
-                                Cuentanos sobre ti
-                              </label>
-                              <div className="mt-1">
-                                <textarea
-                                  rows={4}
-                                  name="about"
-                                  id="about"
-                                  className="shadow-sm focus:ring-happy-yellow-500 focus:border-happy-yellow-500 block w-full sm:text-sm border-gray-300 rounded-md"
-                                  defaultValue={""}
-                                  placeholder="¿A que te dedicas? ¿Tienes algun proyecto en mente para el evento?"
-                                  {...register("about", {
+                              <TextArea
+                                label="Cuentanos sobre tí"
+                                name="about"
+                                placeholder="¿A que te dedicas? ¿Tienes algun proyecto en mente para el evento?"
+                                errorMessage={errors.about?.message}
+                                register={{
+                                  ...register("about", {
                                     required: {
                                       value: true,
                                       message: "El campo es requerido",
@@ -238,12 +203,9 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                                       message:
                                         "No puede contener más de 280 caracteres",
                                     },
-                                  })}
-                                />
-                              </div>
-                              <p className="text-sm mt-1 text-red-500">
-                                {errors.about?.message}
-                              </p>
+                                  }),
+                                }}
+                              />
                             </div>
                           </div>
 
@@ -276,7 +238,10 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                         <p className="mt-4">
                           Nos vemos el{" "}
                           <span className="font-bold">
-                            {unixToFormat(eventData?.startTime, "PPPPp")} hrs
+                            {unixToFormat(
+                              eventData?.startTime,
+                              "d 'de' MMMM yyyy h:mm aa"
+                            )}{" "}
                           </span>
                         </p>
                         {orderId && (

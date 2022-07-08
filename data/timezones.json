@@ -1,0 +1,22 @@
+[
+    {
+        "label": "(UTC-05:00) America/Cancun",
+        "value": "America/Cancun"
+    },
+    {
+        "label": "(UTC-05:00) America/Mexico_City",
+        "value": "America/Mexico_City"
+    },
+    {
+        "label": "(UTC-06:00) America/Chihuahua",
+        "value": "America/Chihuahua"
+    },
+    {
+        "label": "(UTC-07:00) America/Hermosillo",
+        "value": "America/Hermosillo"
+    },
+    {
+        "label": "(UTC-07:00) America/Tijuana",
+        "value": "America/Tijuana"
+    }
+]

@@ -48,9 +48,16 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
               <p className="capitalize">
                 @{placeName} - {placeState}, {placeCity} {placeCountry}
               </p>
-              <p className="capitalize"> {unixToFormat(startTime, "PPPPp")}</p>
+              <p className="capitalize">
+                {" "}
+                {unixToFormat(startTime, "d 'de' MMMM yyyy h:mm aa")}
+              </p>
               <p className="mt-4 ">{price == 0 && "Entrada Gratuita"}</p>
-              {registerCount && <p>{registerCount} asistentes registrados</p>}
+              {registerCount ? (
+                <p>{registerCount} asistentes registrados</p>
+              ) : (
+                ""
+              )}
               <div className="rounded-md  mt-8 lg:mt-12 w-full">
                 {expired ? (
                   <p className="text-red-400">Este evento ya ha pasado ☹️</p>
@@ -94,8 +101,15 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
                       <p className="font-bold">Fecha y Hora</p>
                     </div>
                     <p>
-                      {unixToFormat(startTime, "PPPp")} hrs -{" "}
-                      {unixToFormat(endTime, "PPPp")} hrs{" "}
+                      Inicio:{" "}
+                      {unixToFormat(
+                        event.startTime,
+                        "d 'de' MMMM yyyy h:mm aa"
+                      )}{" "}
+                    </p>
+                    <p>
+                      Fin:{" "}
+                      {unixToFormat(event.endTime, "d 'de' MMMM yyyy h:mm aa")}{" "}
                     </p>
                   </div>
                   <div className="infocontainer my-4">

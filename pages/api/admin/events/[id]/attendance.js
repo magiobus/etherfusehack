@@ -26,7 +26,7 @@ handler.put(async (req, res) => {
   const { id } = req.query;
   const { orderId, attended } = req.body;
 
-  if (!id || !orderId || !attended) {
+  if (!id || !orderId) {
     res.status(400).end("No eventId provided");
     return;
   }
@@ -55,8 +55,6 @@ handler.put(async (req, res) => {
 
   //add eventId to user events array
   const userId = attendees[index].userId; //this is objectID
-
-  console.log("attended", attended);
 
   //updates user events array
   if (attended) {

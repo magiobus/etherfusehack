@@ -12,6 +12,8 @@ import dateNowUnix from "@/utils/dateNowUnix";
 const upload = multer({ dest: "/tmp" });
 const handler = nc(ncoptions);
 const cloudinary = getCloudinary(); //gets configuration from utils/getcloudinary.js
+import { zonedTimeToUtc } from "date-fns-tz";
+import getUnixTime from "date-fns/getUnixTime";
 
 //MIDDLEWARE
 handler.use(async (req, res, next) => {
@@ -53,33 +55,36 @@ handler.post(async (req, res) => {
     placeCity,
     placeName,
     placeState,
-    placeCountry,
+    timeZone,
   } = req.body;
 
   //todo: validate data before saving, maybe using joi
   try {
-    //converting datetimes to unix timestamps
-    const parsedStartTime = new Date(startTime).getTime() / 1000;
-    const parsedEndTime = new Date(endTime).getTime() / 1000;
+    //convert newStartTime to unixTimestamp using " timezone
+    const startTimeUtcDate = zonedTimeToUtc(startTime, timeZone);
+    const startUnixTime = getUnixTime(startTimeUtcDate);
+    const endTimeUtcDate = zonedTimeToUtc(endTime, timeZone);
+    const endUnixTime = getUnixTime(endTimeUtcDate);
 
     //create event object
     const event = {
       name,
       description,
-      startTime: parsedStartTime,
-      endTime: parsedEndTime,
+      startTime: startUnixTime,
+      endTime: endUnixTime,
       isPublic: isPublic === "true",
       placeAddress,
       placeCity,
       placeName,
       placeState,
-      placeCountry,
+      placeCountry: "MX",
       attendees: [],
       archived: false,
       locationUrl: locationUrl || "",
       createdAt: dateNowUnix(),
       updatedAt: dateNowUnix(),
       createdBy: req.sessionUser._id || "",
+      price: 0,
     };
 
     //save event to DB

@@ -9,6 +9,7 @@ import Image from "next/image";
 import { CalendarIcon, LocationMarkerIcon } from "@heroicons/react/solid";
 import unixToFormat from "@/utils/unixToFormat";
 import classNames from "@/utils/classNames";
+import { Switch } from "@headlessui/react";
 
 const AdminEventsShowPage = () => {
   const [isInitialLoading, setIsInitialLoading] = useState(true);
@@ -16,23 +17,18 @@ const AdminEventsShowPage = () => {
   const [event, setEvent] = useState(undefined);
   const router = useRouter();
 
-  const handleAttendance = async (orderId, email) => {
+  const handleAttendance = async (orderId, currentValue) => {
     setFetchError(false);
-    const confirmed = confirm(
-      `Estás segur@ de confirmar la asistencia de ${email}?`
-    );
 
-    if (confirmed) {
-      try {
-        const res = await axios.put(
-          `/api/admin/events/${router.query.id}/attendance`,
-          { orderId, attended: true }
-        );
-        setEvent(res.data);
-      } catch (error) {
-        console.log("handle attendance error =>", error);
-        setFetchError(true);
-      }
+    try {
+      const res = await axios.put(
+        `/api/admin/events/${router.query.id}/attendance`,
+        { orderId, attended: !currentValue }
+      );
+      setEvent(res.data);
+    } catch (error) {
+      console.log("handle attendance error =>", error);
+      setFetchError(true);
     }
   };
 
@@ -119,8 +115,18 @@ const AdminEventsShowPage = () => {
                                     <p className="font-bold">Fecha y Hora</p>
                                   </div>
                                   <p>
-                                    {unixToFormat(event.startTime, "PPPp")} hrs
-                                    - {unixToFormat(event.endTime, "PPPp")} hrs{" "}
+                                    Inicio:{" "}
+                                    {unixToFormat(
+                                      event.startTime,
+                                      "d 'de' MMMM yyyy h:mm aa"
+                                    )}{" "}
+                                  </p>
+                                  <p>
+                                    Fin:{" "}
+                                    {unixToFormat(
+                                      event.endTime,
+                                      "d 'de' MMMM yyyy h:mm aa"
+                                    )}{" "}
                                   </p>
                                 </div>
                                 <div className="infocontainer my-4">
@@ -150,7 +156,11 @@ const AdminEventsShowPage = () => {
                             <div className="rolecontainer"></div>
                           </div>
                           <div className="border-t border-gray-200 px-4 py-5 sm:px-6">
-                            <h2 className="font-bold">Registrados</h2>
+                            <h2 className="font-bold">
+                              Registrados{" "}
+                              {event?.attendees &&
+                                ` (${event.attendees.length})`}
+                            </h2>
                             {event.attendees && event.attendees.length > 0 ? (
                               event.attendees.map((attendee, index) => {
                                 return (
@@ -231,30 +241,96 @@ const AdminEventsShowPage = () => {
                                       <div className="flex-1">
                                         <div className="flex items-center justify-between">
                                           <div className="flex-1 ml-2">
-                                            <div>
+                                            <div className=" ">
                                               <label
                                                 htmlFor="attendance"
                                                 className="block text-sm font-medium text-gray-700"
                                               >
                                                 Fue al evento
                                               </label>
-                                              {attendee.attended ? (
-                                                <div className="badge badge-success gap-2">
-                                                  Si
-                                                </div>
-                                              ) : (
-                                                <button
-                                                  className="btn btn-sm text-xs capitalize"
-                                                  onClick={() => {
+                                              <div className="flex space-x-2">
+                                                <Switch
+                                                  checked={
+                                                    attendee.attended
+                                                      ? true
+                                                      : false
+                                                  }
+                                                  onChange={() => {
                                                     handleAttendance(
                                                       attendee.orderId,
-                                                      attendee.email
+                                                      attendee.attended
                                                     );
                                                   }}
+                                                  className={classNames(
+                                                    attendee.attended
+                                                      ? "bg-indigo-600"
+                                                      : "bg-gray-200",
+                                                    "relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                                  )}
                                                 >
-                                                  Marcar Asistencia
-                                                </button>
-                                              )}
+                                                  <span className="sr-only">
+                                                    Use setting
+                                                  </span>
+                                                  <span
+                                                    className={classNames(
+                                                      attendee.attended
+                                                        ? "translate-x-5"
+                                                        : "translate-x-0",
+                                                      "pointer-events-none relative inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200"
+                                                    )}
+                                                  >
+                                                    <span
+                                                      className={classNames(
+                                                        attendee.attended
+                                                          ? "opacity-0 ease-out duration-100"
+                                                          : "opacity-100 ease-in duration-200",
+                                                        "absolute inset-0 h-full w-full flex items-center justify-center transition-opacity"
+                                                      )}
+                                                      aria-hidden="true"
+                                                    >
+                                                      <svg
+                                                        className="h-3 w-3 text-gray-400"
+                                                        fill="none"
+                                                        viewBox="0 0 12 12"
+                                                      >
+                                                        <path
+                                                          d="M4 8l2-2m0 0l2-2M6 6L4 4m2 2l2 2"
+                                                          stroke="currentColor"
+                                                          strokeWidth={2}
+                                                          strokeLinecap="round"
+                                                          strokeLinejoin="round"
+                                                        />
+                                                      </svg>
+                                                    </span>
+                                                    <span
+                                                      className={classNames(
+                                                        attendee.attended
+                                                          ? "opacity-100 ease-in duration-200"
+                                                          : "opacity-0 ease-out duration-100",
+                                                        "absolute inset-0 h-full w-full flex items-center justify-center transition-opacity"
+                                                      )}
+                                                      aria-hidden="true"
+                                                    >
+                                                      <svg
+                                                        className="h-3 w-3 text-indigo-600"
+                                                        fill="currentColor"
+                                                        viewBox="0 0 12 12"
+                                                      >
+                                                        <path d="M3.707 5.293a1 1 0 00-1.414 1.414l1.414-1.414zM5 8l-.707.707a1 1 0 001.414 0L5 8zm4.707-3.293a1 1 0 00-1.414-1.414l1.414 1.414zm-7.414 2l2 2 1.414-1.414-2-2-1.414 1.414zm3.414 2l4-4-1.414-1.414-4 4 1.414 1.414z" />
+                                                      </svg>
+                                                    </span>
+                                                  </span>
+                                                </Switch>
+                                                {attendee.attended ? (
+                                                  <div className="badge badge-success gap-2">
+                                                    Si
+                                                  </div>
+                                                ) : (
+                                                  <div className="badge badge-danger gap-2">
+                                                    No
+                                                  </div>
+                                                )}
+                                              </div>
                                             </div>
                                           </div>
                                         </div>

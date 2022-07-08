@@ -113,8 +113,10 @@ const AdminEventsPage = () => {
                                   </td>
 
                                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                    {unixToFormat(event?.startTime, "PPPPp")}{" "}
-                                    hrs
+                                    {unixToFormat(
+                                      event?.startTime,
+                                      "d 'de' MMMM yyyy h:mm aa"
+                                    )}
                                   </td>
 
                                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">

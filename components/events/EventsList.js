@@ -40,7 +40,7 @@ const EventThumb = ({ data }) => {
         <div className="textcontainer pb-4 px-2">
           <h2 className="title text-lg font-bold my-2">{name}</h2>
           <p className="capitalize text-happy-yellow-600 font-bold text-sm mb-4">
-            {unixToFormat(startTime, "PPPPp")}
+            {unixToFormat(startTime, "PPPP")}
           </p>
           <button className="bg-gray-200 px-2 rounded-md cursor-pointer">
             Ver evento

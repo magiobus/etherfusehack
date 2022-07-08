@@ -19,10 +19,10 @@ const CoverImage = ({
   };
 
   return (
-    <div className="">
+    <div className="w-auto">
       <label
         htmlFor={name}
-        className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
+        className="text-sm font-medium text-gray-700 sm:mt-px sm:pt-2 "
       >
         {label}
       </label>

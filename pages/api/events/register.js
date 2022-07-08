@@ -21,11 +21,21 @@ handler.use(async (req, res, next) => {
 handler.post(async (req, res) => {
   const db = req.db;
   const data = req.body;
-  const { email, name, phone, about, eventId, startTimeLocalText } = req.body;
+  const { about, eventId, startTimeLocalText } = req.body;
 
   try {
     //check if user exists or create one
     const user = await usersLib.userExistsOrCreate(db, req.body);
+
+    if (!user) {
+      res.status(400).json({
+        message: {
+          es: "Ocurrió un erro registrando al usuario (400)",
+          en: "Error registering user (400)",
+        },
+      });
+    }
+
     const event = await db
       .collection("events")
       .findOne({ _id: new ObjectId(data.eventId) });
