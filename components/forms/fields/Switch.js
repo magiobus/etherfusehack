@@ -2,13 +2,17 @@
 import classNames from "@/utils/classNames";
 import { Switch } from "@headlessui/react";
 
-const Switch = ({ currentValue, onChange }) => {
+const SwitchComponent = ({
+  currentValue,
+  onChange,
+  color = "bg-indigo-800",
+}) => {
   return (
     <Switch
       checked={currentValue ? true : false}
       className={classNames(
-        currentValue ? "bg-happy-yellow" : "bg-gray-200",
-        "relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-happy-yellow"
+        currentValue ? color : "bg-gray-200",
+        "relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-transparent focus:ring-opacity-50"
       )}
       onChange={onChange}
     >
@@ -64,4 +68,4 @@ const Switch = ({ currentValue, onChange }) => {
   );
 };
 
-export default Switch;
+export default SwitchComponent;

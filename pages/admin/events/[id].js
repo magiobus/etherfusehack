@@ -9,7 +9,7 @@ import Image from "next/image";
 import { CalendarIcon, LocationMarkerIcon } from "@heroicons/react/solid";
 import unixToFormat from "@/utils/unixToFormat";
 import classNames from "@/utils/classNames";
-import SwitchAttendee from "@/components/forms/fields/SwitchAttendee";
+import Switch from "@/components/forms/fields/Switch";
 
 const AdminEventsShowPage = () => {
   const [isInitialLoading, setIsInitialLoading] = useState(true);
@@ -249,7 +249,7 @@ const AdminEventsShowPage = () => {
                                                 Fue al evento
                                               </label>
                                               <div className="flex space-x-2">
-                                                <SwitchAttendee
+                                                <Switch
                                                   currentValue={
                                                     attendee.attended
                                                   }
@@ -259,6 +259,7 @@ const AdminEventsShowPage = () => {
                                                       attendee.attended
                                                     );
                                                   }}
+                                                  color="bg-happy-yellow"
                                                 />
                                                 {attendee.attended ? (
                                                   <div className="badge badge-success gap-2">
