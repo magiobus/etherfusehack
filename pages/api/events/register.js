@@ -30,7 +30,7 @@ handler.post(async (req, res) => {
     if (!user) {
       res.status(400).json({
         message: {
-          es: "Ocurrió un erro registrando al usuario (400)",
+          es: "Ocurrió un error registrando al usuario (400)",
           en: "Error registering user (400)",
         },
       });

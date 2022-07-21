@@ -176,7 +176,7 @@ export async function getStaticProps({ params }) {
     }
 
     //check if the event already passed
-    const registerCount = eventArray[0].attendees.length || 0;
+    const registerCount = eventArray[0]?.attendees?.length || 0;
     const event = { ...eventArray[0] };
     const now = dateNowUnix();
     const endTime = Number(event.endTime);
