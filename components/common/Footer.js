@@ -16,6 +16,11 @@ const socialLink = [
     href: "https://twitter.com/shdevhousemx",
     icon: "twitter",
   },
+  {
+    name: "Spotify",
+    href: "https://open.spotify.com/playlist/01xP6Xj5QApYX1gijJGJec?si=0bb421c8fb07442a",
+    icon: "spotify",
+  },
 ];
 
 const Footer = () => {
