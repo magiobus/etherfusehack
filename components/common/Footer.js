@@ -18,7 +18,7 @@ const socialLink = [
   },
   {
     name: "Spotify",
-    href: "https://open.spotify.com/playlist/01xP6Xj5QApYX1gijJGJec?si=2894fa452e384bec&pt=743dedf4ce2d668221b617782679b867",
+    href: "https://open.spotify.com/user/12136629381/playlist/3KYyNq3QS6r6wPhxnOjFeS?si=O2KRCX0ESy-cIS8mDQclpA",
     icon: "spotify",
   },
 ];
