@@ -98,28 +98,36 @@ handler.post(async (req, res) => {
       },
     });
 
-    // //send email to user with confirmation number?...
-    const mailData = {
-      data: {
+    try {
+      // //send email to user with confirmation number?...
+      const mailData = {
+        data: {
+          user,
+          ticket,
+          event,
+          startTimeLocalText,
+        },
+        receiversList: [user.email],
+      };
+
+      await notificationsLib.sendRegisterEmail(mailData);
+    } catch (error) {
+      console.error("error sending email to user", error);
+    }
+
+    try {
+      //send whatsapp message to user
+      const waData = await notificationsLib.generateWhatsappTicketData({
         user,
         ticket,
         event,
         startTimeLocalText,
-      },
-      receiversList: [user.email],
-    };
+      });
 
-    await notificationsLib.sendRegisterEmail(mailData);
-
-    //send whatsapp message to user
-    const waData = await notificationsLib.generateWhatsappTicketData({
-      user,
-      ticket,
-      event,
-      startTimeLocalText,
-    });
-
-    await notificationsLib.sendWhatsappTemplate(waData);
+      await notificationsLib.sendWhatsappTemplate(waData);
+    } catch (error) {
+      console.error("error sending whatsapp to user", error);
+    }
   } catch (error) {
     console.error("error", error);
     const parsedError = JSON.parse(error.message);
