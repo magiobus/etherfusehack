@@ -1,9 +1,9 @@
 const newRegisterTemplate = (data) => {
   //Text for thanks for supporting this creators.
 
-  const { name, orderId, startTimeLocalText, place, eventName } = data;
-  const address = `${place.address}, ${place.state}, ${place.city}`;
+  const { name, qrUrl, startTimeLocalText, place, eventName } = data;
   const { locationUrl } = place;
+  const address = `${place.address}, ${place.state}, ${place.city}`;
   //get first word of name
   const firstName = name.split(" ")[0];
 
@@ -172,42 +172,38 @@ const newRegisterTemplate = (data) => {
 <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img align="center" border="0" class="center autowidth" src="https://res.cloudinary.com/superhappydevhousemx-gmail-com/image/upload/c_crop,h_200,w_800/v1655094624/og_rwcjrt.jpg" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 500px; max-width: 100%; display: block;" width="500"/>
 <!--[if mso]></td></tr></table><![endif]-->
 </div>
-<table cellpadding="0" cellspacing="0" role="presentation" style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;" valign="top" width="100%">
-<tr style="vertical-align: top;" valign="top">
-<td align="center" style="word-break: break-word; vertical-align: top; padding-bottom: 20px; padding-left: 0px; padding-right: 0px; padding-top: 20px; text-align: center; width: 100%;" valign="top" width="100%">
-<h1 style="direction:ltr;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;font-size:23px;font-weight:normal;letter-spacing:normal;line-height:120%;text-align:center;margin-top:0;margin-bottom:0;color:black;"><strong></strong><strong><span class="tinyMce-placeholder">Bienvenid@ a SHDHMX!!</span></strong></h1>
-</td>
-</tr>
-</table>
 <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Arial, sans-serif"><![endif]-->
 <div style="font-family:Arial, Helvetica Neue, Helvetica, sans-serif;line-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
 <div class="txtTinyMce-wrapper" style="font-size: 14px; line-height: 1.2;  font-family: Arial, Helvetica Neue, Helvetica, sans-serif; mso-line-height-alt: 17px;">
 <p style="margin: 0; font-size: 14px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 17px; margin-top: 0; margin-bottom: 0; color: #000000;"><strong>Hola ${firstName}! </strong></p>
 
-  <br/>
-
-
-<p style="color: #000000; margin: 0; font-size: 14px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 17px; margin-top: 0; margin-bottom: 0;">
-
-</p> <br/>
+<br/>
 <p style="color: #000000; margin: 0; font-size: 14px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 17px; margin-top: 0; margin-bottom: 0;">Hemos recibido tu registro para ${eventName}.</p> <br/>
 <p
-style="color: #000000; margin: 0; font-size: 14px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 17px; margin-top: 0; margin-bottom: 0;">
-    Tu numero de confirmacion es: <strong>${orderId}</p> <br />
-</strong>
-<p
     style="color: #000000; margin: 0; font-size: 14px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 17px; margin-top: 0; margin-bottom: 0;">
-    La cita es en ${place.name} <br/> 
+    Nos vemos en ${place.name} <br/> 
     ${address} <br/>
 
     El dia ${startTimeLocalText} <br/>
-    Puedes ver el mapa del lugar, dando click 
-    <a href=${locationUrl} rel="noopener" style="color: #0068A5;" target="_blank">Aquí 📍  </a>  </p> 
-        <br />
+	${
+    locationUrl &&
+    `Puedes ver el mapa del lugar, dando click 
+	<a href=${locationUrl} rel="noopener" style="color: #0068A5;" target="_blank">Aquí 📍  </a> `
+  } 
+	  <br/>
+</p> 
+<br />
+
+	
+
+<br/>
+
+<p style="color: #000000; margin: 0; font-size: 14px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 17px; margin-top: 0; margin-bottom: 0;"><strong>Presenta este Código QR para acceder al evento.</strong></p> <br/>
+<img align="center" border="0" class="center autowidth" src="${qrUrl}" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 500px; max-width: 100%; display: block;" width="500"/>
 
         <p
             style="color: #000000; margin: 0; font-size: 14px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 17px; margin-top: 0; margin-bottom: 0;">
-           Nos vemos en el evento!</p> <br />
+           Nos vemos pronto!</p> <br />
 </div>
 </div>
 <!--[if mso]></td></tr></table><![endif]-->
@@ -259,7 +255,6 @@ style="color: #000000; margin: 0; font-size: 14px; line-height: 1.2; word-break:
 </body>
 </html>
     `;
-
   return template;
 };
 

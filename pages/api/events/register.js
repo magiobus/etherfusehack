@@ -20,8 +20,7 @@ handler.use(async (req, res, next) => {
 //checks if email is already registred as a user
 handler.post(async (req, res) => {
   const db = req.db;
-  const data = req.body;
-  const { about, eventId, ticketType, startTimeLocalText } = req.body;
+  const { about, eventId, startTimeLocalText } = req.body;
 
   try {
     //check if user exists or create one
@@ -83,8 +82,6 @@ handler.post(async (req, res) => {
       ticketQuantity: 1,
     };
 
-    console.log("ticketData", ticketData);
-
     //Save ticket
     const ticket = await ticketsLib.generateTicket(
       db,
@@ -102,17 +99,17 @@ handler.post(async (req, res) => {
     });
 
     // //send email to user with confirmation number?...
-    // const mailData = {
-    //   data: {
-    //     user,
-    //     orderId: registered.orderId,
-    //     event,
-    //     startTimeLocalText,
-    //   },
-    //   receiversList: [user.email],
-    // };
+    const mailData = {
+      data: {
+        user,
+        ticket,
+        event,
+        startTimeLocalText,
+      },
+      receiversList: [user.email],
+    };
 
-    // await notificationsLib.sendRegisterEmail(mailData);
+    await notificationsLib.sendRegisterEmail(mailData);
 
     //TODO:
     //send whatsapp message to user (this would be nice)
