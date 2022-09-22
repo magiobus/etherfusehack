@@ -7,6 +7,7 @@ import axios from "axios";
 import unixToFormat from "@/utils/unixToFormat";
 import Input from "@/components/forms/fields/Input";
 import TextArea from "@/components/forms/fields/TextArea";
+import parsePhoneNumber from "libphonenumber-js";
 
 const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -17,7 +18,6 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
 
@@ -34,7 +34,7 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
     let { phone } = data;
 
     //format phone number
-    phone = `52${phone.replace(/\D/g, "")}`;
+    phone = `${parsePhoneNumber(phone, "MX").number}`;
 
     try {
       //Send data to server
