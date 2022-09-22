@@ -176,7 +176,9 @@ export async function getStaticProps({ params }) {
     }
 
     //check if the event already passed
-    const registerCount = eventArray[0]?.attendees?.length || 0;
+    const registerCount = await db.collection("tickets").countDocuments({
+      eventId: params.id,
+    });
     const event = { ...eventArray[0] };
     const now = dateNowUnix();
     const endTime = Number(event.endTime);

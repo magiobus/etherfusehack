@@ -27,7 +27,6 @@ handler.use(async (req, res, next) => {
   }
 
   //gets session and connects to DB Client if authenticated
-  //TODO: check later how to check using JWT instead of session...
   const session = await getSession({ req });
   if (session && session.user.roles.includes("admin")) {
     req.sessionUser = session.user;
@@ -56,9 +55,9 @@ handler.post(async (req, res) => {
     placeName,
     placeState,
     timeZone,
+    attendeeLimit,
   } = req.body;
 
-  //todo: validate data before saving, maybe using joi
   try {
     //convert newStartTime to unixTimestamp using " timezone
     const startTimeUtcDate = zonedTimeToUtc(startTime, timeZone);
@@ -78,13 +77,13 @@ handler.post(async (req, res) => {
       placeName,
       placeState,
       placeCountry: "MX",
-      attendees: [],
       archived: false,
       locationUrl: locationUrl || "",
       createdAt: dateNowUnix(),
       updatedAt: dateNowUnix(),
       createdBy: req.sessionUser._id || "",
       price: 0,
+      attendeeLimit: parseInt(attendeeLimit) || 0,
     };
 
     //save event to DB

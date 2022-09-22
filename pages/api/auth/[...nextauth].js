@@ -4,7 +4,7 @@ import EmailProvider from "next-auth/providers/email";
 import clientPromise from "@/lib/mongodb";
 import dateNowUnix from "@/utils/dateNowUnix";
 import nodemailer from "nodemailer";
-import html from "@/emailtemplates/verify-email";
+import html from "@/utils/emailtemplates/verify-email";
 
 export default NextAuth({
   secret: process.env.BASE_SECRET,
