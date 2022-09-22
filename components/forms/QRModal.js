@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
-import { XIcon, CheckCircleIcon, XCircleIcon } from "@heroicons/react/solid";
+import { CheckCircleIcon, XCircleIcon } from "@heroicons/react/solid";
 import { QrReader } from "react-qr-reader";
 import { useEffect, useState } from "react";
 import { decode } from "js-base64";
@@ -26,8 +26,6 @@ const QRModal = ({
     let name = "";
     if (ticketType === "attendees") {
       name = "Asistentes";
-    } else if (ticketType === "participants") {
-      name = "Participantes";
     }
 
     setTicketTypeText(name);
@@ -137,7 +135,7 @@ const QRModal = ({
                       </p>
                       <div className="buttoncontainer mt-4 flex justify-center items-center">
                         <button
-                          className="rounded-lg px-2 py-1 bg-happy-pink text-white"
+                          className="rounded-lg px-2 py-1 bg-happy-pink text-black"
                           onClick={() => handleCloseModal()}
                         >
                           Cerrar

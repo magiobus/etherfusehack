@@ -2,11 +2,7 @@ import unixToFormat from "@/utils/unixToFormat";
 import Image from "next/image";
 import { useState } from "react";
 
-import {
-  CalendarIcon,
-  LocationMarkerIcon,
-  CurrencyDollarIcon,
-} from "@heroicons/react/solid";
+import { CalendarIcon, LocationMarkerIcon } from "@heroicons/react/solid";
 import QRModal from "@/components/forms/QRModal";
 
 const EventDetailCOntent = ({ event, ticketTypes, setJustScanned }) => {
@@ -21,16 +17,13 @@ const EventDetailCOntent = ({ event, ticketTypes, setJustScanned }) => {
     placeCity,
     placeCountry,
     locationUrl,
-    attendeePricePreSale,
-    attendeePrice,
-    participantPrice,
   } = event;
 
   const [modalOpen, setModalOpen] = useState(false);
   const [ticketType, setTicketType] = useState(null);
 
-  const handleTicketTypeChange = (value) => {
-    setTicketType(value);
+  const handleTicketTypeChange = () => {
+    setTicketType("attendees");
     setModalOpen(true);
   };
 
@@ -41,8 +34,8 @@ const EventDetailCOntent = ({ event, ticketTypes, setJustScanned }) => {
           {photo && <Image src={photo} alt={name} width={1280} height={640} />}
           <div className="register w-full mt-4">
             <button
-              className="w-full bg-happy-pink px-2 py-1 text-white rounded-md"
-              onClick={() => handleTicketTypeChange("attendees")}
+              className="w-full bg-happy-yellow px-2 py-1 text-white rounded-md"
+              onClick={() => handleTicketTypeChange()}
             >
               Escanear QR
             </button>
@@ -90,14 +83,6 @@ const EventDetailCOntent = ({ event, ticketTypes, setJustScanned }) => {
                 Ver Mapa
               </a>
             )}
-          </div>
-          <div className="infocontainer my-4">
-            <div className="title flex items-center space-x-1 mb-2">
-              <div className="icon w-5 h-5">
-                <CurrencyDollarIcon />
-              </div>
-              <p className="font-bold">Precios</p>
-            </div>
           </div>
         </div>
       </div>
