@@ -72,47 +72,6 @@ const TicketTabs = ({ event }) => {
                           <div className="flex-1">
                             <div className="flex items-center justify-between">
                               <div className="flex-1 ml-2">
-                                {attendee.stripeSession && (
-                                  <>
-                                    <p className="text-sm leading-5 text-gray-500 font-semibold">
-                                      Subtotal:{" "}
-                                      <span className="font-normal">
-                                        $
-                                        {(
-                                          attendee?.stripeSession?.unitPrice *
-                                          attendee?.ticketQuantity
-                                        ).toFixed(2)}{" "}
-                                        {attendee?.stripeSession?.currency}
-                                      </span>
-                                    </p>
-                                    <p className="text-sm leading-5 text-gray-500 font-semibold">
-                                      Cargos:{" "}
-                                      <span className="font-normal">
-                                        $
-                                        {(attendee?.stripeSession?.fees?.totalFee).toFixed(
-                                          2
-                                        )}{" "}
-                                        {attendee?.stripeSession?.currency}
-                                      </span>
-                                    </p>
-                                    <p className="text-sm leading-5 text-gray-500 font-semibold">
-                                      Total:{" "}
-                                      <span className="font-normal">
-                                        $
-                                        {(attendee?.stripeSession?.amount_total).toFixed(
-                                          2
-                                        )}{" "}
-                                        {attendee?.stripeSession?.currency}
-                                      </span>
-                                    </p>
-                                  </>
-                                )}
-                              </div>
-                            </div>
-                          </div>
-                          <div className="flex-1">
-                            <div className="flex items-center justify-between">
-                              <div className="flex-1 ml-2">
                                 <p className="text-sm leading-5 text-gray-500 font-semibold">
                                   OrderId
                                 </p>
@@ -122,6 +81,18 @@ const TicketTabs = ({ event }) => {
                                 <p className="text-xs leading-5 text-gray-500">
                                   {" "}
                                   {unixToFormat(attendee?.createdAt, "PP")}
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="flex-1">
+                            <div className="flex items-center justify-between">
+                              <div className="flex-1 ml-2">
+                                <p className="text-sm leading-5 text-gray-500 font-semibold">
+                                  Acerca de
+                                </p>
+                                <p className="text-sm leading-5 text-gray-500">
+                                  {attendee?.about}
                                 </p>
                               </div>
                             </div>

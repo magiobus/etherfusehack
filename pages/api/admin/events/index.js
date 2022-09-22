@@ -55,6 +55,7 @@ handler.post(async (req, res) => {
     placeName,
     placeState,
     timeZone,
+    attendeeLimit,
   } = req.body;
 
   try {
@@ -82,6 +83,7 @@ handler.post(async (req, res) => {
       updatedAt: dateNowUnix(),
       createdBy: req.sessionUser._id || "",
       price: 0,
+      attendeeLimit: parseInt(attendeeLimit) || 0,
     };
 
     //save event to DB

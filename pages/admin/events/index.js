@@ -84,13 +84,6 @@ const AdminEventsPage = () => {
                                   scope="col"
                                   className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                                 >
-                                  Registrados
-                                </th>
-
-                                <th
-                                  scope="col"
-                                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                                >
                                   Visibilidad
                                 </th>
 
@@ -117,10 +110,6 @@ const AdminEventsPage = () => {
                                       event?.startTime,
                                       "d 'de' MMMM yyyy h:mm aa"
                                     )}
-                                  </td>
-
-                                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                    {event?.attendees?.length}
                                   </td>
 
                                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">

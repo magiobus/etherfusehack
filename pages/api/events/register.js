@@ -68,7 +68,7 @@ handler.post(async (req, res) => {
       throw new Error(
         JSON.stringify({
           message: {
-            es: "El evento está lleno para asistentes",
+            es: "Los registros para el evento se han agotado ",
             en: "Event is full for attendees",
           },
         })
