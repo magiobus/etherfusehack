@@ -21,12 +21,13 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
     locationUrl,
     startTime,
     endTime,
+    description,
   } = event;
 
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
-    <MainLayout>
+    <MainLayout title={name} description={description} imageUrl={photo}>
       <div className="w-full flex justify-center items-center">
         <div className="max-w-7xl  w-full md:px-8 lg:px-0 lg:mt-8">
           <RegisterModal
@@ -77,9 +78,7 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
               <div className="w-full flex flex-col lg:flex-row  justify-between items-center">
                 <div className="leftsection w-full lg:w-1/2">
                   <p className="font-bold">Acerca del evento</p>
-                  <p className=" mt-5  text-xl text-black">
-                    {event.description}
-                  </p>
+                  <p className=" mt-5  text-xl text-black">{description}</p>
                   <p className=" mt-5  text-xl text-black">
                     Te recomendamos que revises la sección de{" "}
                     <span>
