@@ -90,14 +90,6 @@ handler.post(async (req, res) => {
       about
     );
 
-    res.status(200).json({
-      ticket,
-      message: {
-        es: "Usuario registrado para el evento",
-        en: "User registered for the event",
-      },
-    });
-
     try {
       // //send email to user with confirmation number?...
       const mailData = {
@@ -128,6 +120,14 @@ handler.post(async (req, res) => {
     } catch (error) {
       console.error("error sending whatsapp to user", error);
     }
+
+    res.status(200).json({
+      ticket,
+      message: {
+        es: "Usuario registrado para el evento",
+        en: "User registered for the event",
+      },
+    });
   } catch (error) {
     console.error("error", error);
     const parsedError = JSON.parse(error.message);
