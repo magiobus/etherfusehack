@@ -24,15 +24,50 @@ handler.use(async (req, res, next) => {
 //GET EVENT if it has an ID
 handler.get(async (req, res) => {
   const { id } = req.query;
-
   const db = req.db;
+
   if (id) {
-    //returns a single user with store basic data, if is owner of a store
-    const event = await db.collection("events").findOne({ _id: ObjectId(id) });
+    //get event info with tickets info where localField is objectId and foreign field is string
+    //we need to convert foreign field to objectId to match localField in aggregate pipeline
+
+    const events = await db
+      .collection("events")
+      .aggregate([
+        {
+          $match: {
+            _id: ObjectId(id),
+          },
+        },
+        { $addFields: { _id: { $toString: "$_id" } } },
+        {
+          $lookup: {
+            from: "tickets",
+            localField: "_id",
+            foreignField: "eventId",
+            as: "tickets",
+          },
+        },
+      ])
+      .toArray();
+
+    //parse tickets info to divide into ticket types
+    const event = events[0];
+    const { tickets } = event;
+    const attendees = [];
+    tickets.forEach((ticket) => {
+      if (ticket.ticketType === "attendees") {
+        attendees.push(ticket);
+      }
+    });
+
+    event.tickets = {
+      attendees,
+    };
 
     res.json(event);
   } else {
     //return error if no id
+    console.error("No id provided");
     res.status(400).end("No eventId provided");
   }
 });

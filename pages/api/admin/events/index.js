@@ -78,7 +78,6 @@ handler.post(async (req, res) => {
       placeName,
       placeState,
       placeCountry: "MX",
-      attendees: [],
       archived: false,
       locationUrl: locationUrl || "",
       createdAt: dateNowUnix(),
