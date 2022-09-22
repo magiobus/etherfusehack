@@ -10,7 +10,6 @@ import TextArea from "@/components/forms/fields/TextArea";
 import parsePhoneNumber from "libphonenumber-js";
 
 const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
-  console.log("eventData", eventData);
   const [isLoading, setIsLoading] = useState(false);
   const [globalError, setGlobalError] = useState(null);
   const [registered, setIsRegistered] = useState(false);

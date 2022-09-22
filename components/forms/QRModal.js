@@ -73,11 +73,11 @@ const QRModal = ({
 
         setResultData(ticket);
       } catch (error) {
-        console.log("error message", error?.response?.data?.message?.es);
+        console.error("error message", error?.response?.data?.message?.es);
         setGlobalError(
           error?.response?.data?.message?.es || "Ocurrió un Error desconocido"
         );
-        console.log("ocurrió un error leyendo ticket =>", error);
+        console.error("ocurrió un error leyendo ticket =>", error);
       }
       setLoading(false);
     }
@@ -85,7 +85,7 @@ const QRModal = ({
     if (!!error && JSON.stringify(error) !== JSON.stringify({})) {
       setScanned(true);
       setGlobalError("Ocurrió un error");
-      console.log("handleScan error", error);
+      console.error("handleScan error", error);
     }
   };
 

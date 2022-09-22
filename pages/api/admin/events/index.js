@@ -21,7 +21,7 @@ handler.use(async (req, res, next) => {
   try {
     await parseMultiPartyForm(req);
   } catch (error) {
-    console.log("error parsing form data request", error);
+    console.error("error parsing form data request", error);
     res.status(500).json({ error });
     return;
   }
@@ -122,7 +122,7 @@ handler.post(async (req, res) => {
         res.status(200).json({ event });
         return;
       } catch (error) {
-        console.log("error uploading image", error);
+        console.error("error uploading image", error);
         //delete event from DB
         await db.collection("events").deleteOne({ _id: new ObjectId(eventId) });
         res.status(500).json({ error });
@@ -133,7 +133,7 @@ handler.post(async (req, res) => {
     // await db.collection("events").insertOne(event);
     res.status(200).json({ message: "Event created successfully" });
   } catch (error) {
-    console.log("error saving event", error);
+    console.error("error saving event", error);
     res.status(500).json({ error });
     return;
   }

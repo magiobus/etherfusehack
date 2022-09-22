@@ -121,7 +121,7 @@ handler.post(async (req, res) => {
 
     await notificationsLib.sendWhatsappTemplate(waData);
   } catch (error) {
-    console.log("error", error);
+    console.error("error", error);
     const parsedError = JSON.parse(error.message);
     res.status(500).json(parsedError);
   }

@@ -194,7 +194,7 @@ export async function getStaticProps({ params }) {
       revalidate: 5,
     };
   } catch (error) {
-    console.log("error", error);
+    console.error("error", error);
 
     return {
       notFound: true,

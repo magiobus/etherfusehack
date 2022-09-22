@@ -16,7 +16,7 @@ handler.use(async (req, res, next) => {
   try {
     await parseMultiPartyForm(req);
   } catch (error) {
-    console.log("error parsing form data request", error);
+    console.error("error parsing form data request", error);
     res.status(500).json({ error });
     return;
   }
@@ -29,7 +29,7 @@ handler.use(async (req, res, next) => {
     req.db = client.db();
     next();
   } else {
-    console.log("not authenticated , ", session);
+    console.error("not authenticated , ", session);
     res
       .status(401)
       .end("You don't have permission to do this, you are not an organizer");
@@ -60,7 +60,7 @@ handler.post(async (req, res) => {
     await db.collection("events").insertOne(parsedEvent);
     res.status(200).json({ message: "Event created successfully" });
   } catch (error) {
-    console.log("error saving event", error);
+    console.error("error saving event", error);
     res.status(500).json({ error });
     return;
   }
@@ -107,7 +107,7 @@ handler.get(async (req, res) => {
       totalPages: Math.ceil(eventsCount / limit),
     });
   } catch (error) {
-    console.log("error getting events", error);
+    console.error("error getting events", error);
     res.status(500).json({ error });
     return;
   }

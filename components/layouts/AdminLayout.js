@@ -43,12 +43,12 @@ const AdminLayout = ({ title, children, ...props }) => {
   }
 
   if (status === "unauthenticated") {
-    console.log("unauthenticated");
+    console.error("unauthenticated");
     return <NoAccessErrorPage />;
   }
 
   if (session.user.roles && !session.user.roles.includes("admin")) {
-    console.log("No admin");
+    console.error("No admin");
     return <NoAccessErrorPage />;
   }
 

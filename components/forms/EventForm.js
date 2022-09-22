@@ -93,7 +93,7 @@ const EventForm = () => {
         router.push(`/admin/events`);
       }, 2000);
     } catch (error) {
-      console.log("error", error);
+      console.error("error", error);
       toast.error("Ocurrió un error al crear el evento");
     }
     setButtonLoading(false);

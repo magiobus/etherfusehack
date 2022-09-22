@@ -53,7 +53,7 @@ handler.post(async (req, res) => {
     });
 
     if (!ticket) {
-      console.log("ticket no existe");
+      console.error("ticket no existe");
       res.status(404).json({
         message: {
           es: "No se encontró el ticket",
@@ -80,7 +80,7 @@ handler.post(async (req, res) => {
     //check if ticket is expired or not
     const isExpired = ticketsLib.isTicketExpired(expiresAt);
     if (isExpired) {
-      console.log("ticket expirado");
+      console.error("ticket expirado");
       res.status(404).json({
         message: {
           es: "El ticket ha expirado",
@@ -94,7 +94,7 @@ handler.post(async (req, res) => {
     const event = await eventsLib.getEvent(db, eventId);
     if (!req.sessionUser.roles.includes("admin")) {
       if (event.createdBy !== organizerId) {
-        console.log("no eres el creador del evento");
+        console.error("no eres el creador del evento");
         res.status(404).json({
           message: {
             es: "No eres el creador del evento",
@@ -108,7 +108,7 @@ handler.post(async (req, res) => {
     //if event is not free, and is attenddee check that ticket has stripe payment
     if (event.attendeePrice > 0 && ticketType === "attendees") {
       if (!ticket.stripeSession) {
-        console.log("no hay pago de stripe");
+        console.error("no hay pago de stripe");
         res.status(404).json({
           message: {
             es: "El Ticket no tiene un pago asociado",
