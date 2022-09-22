@@ -93,7 +93,7 @@ const EventForm = () => {
         router.push(`/admin/events`);
       }, 2000);
     } catch (error) {
-      console.log("error", error);
+      console.error("error", error);
       toast.error("Ocurrió un error al crear el evento");
     }
     setButtonLoading(false);
@@ -219,6 +219,37 @@ const EventForm = () => {
             }}
             errorMessage={errors.photo?.message}
           />
+        </div>
+
+        {/* //TICKETS LIMIT */}
+        <div className="ticketslimit flex flex-col lg:flex-row  lg:space-x-4">
+          <div className="flex flex-col lg:flex-row lg:justify-start lg:items-center lg:space-x-8 ">
+            <div className="inputwrapper my-1 lg:my-3">
+              <Input
+                label="Máximo Asistentes"
+                name="attendeeLimit"
+                type="number"
+                register={{
+                  ...register("attendeeLimit", {
+                    required: {
+                      value: true,
+                      message: "Max Asistentes es requerido",
+                    },
+                    min: {
+                      value: 10,
+                      message: "Debe de ser mayor a 10",
+                    },
+                    maxLength: {
+                      value: 5000,
+                      message: "Debe de ser menor a 5000",
+                    },
+                  }),
+                }}
+                placeholder="10"
+                errorMessage={errors.attendeeLimit?.message}
+              />
+            </div>
+          </div>
         </div>
 
         {/* PLACE  */}

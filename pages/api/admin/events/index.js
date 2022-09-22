@@ -21,13 +21,12 @@ handler.use(async (req, res, next) => {
   try {
     await parseMultiPartyForm(req);
   } catch (error) {
-    console.log("error parsing form data request", error);
+    console.error("error parsing form data request", error);
     res.status(500).json({ error });
     return;
   }
 
   //gets session and connects to DB Client if authenticated
-  //TODO: check later how to check using JWT instead of session...
   const session = await getSession({ req });
   if (session && session.user.roles.includes("admin")) {
     req.sessionUser = session.user;
@@ -56,9 +55,9 @@ handler.post(async (req, res) => {
     placeName,
     placeState,
     timeZone,
+    attendeeLimit,
   } = req.body;
 
-  //todo: validate data before saving, maybe using joi
   try {
     //convert newStartTime to unixTimestamp using " timezone
     const startTimeUtcDate = zonedTimeToUtc(startTime, timeZone);
@@ -78,13 +77,13 @@ handler.post(async (req, res) => {
       placeName,
       placeState,
       placeCountry: "MX",
-      attendees: [],
       archived: false,
       locationUrl: locationUrl || "",
       createdAt: dateNowUnix(),
       updatedAt: dateNowUnix(),
       createdBy: req.sessionUser._id || "",
       price: 0,
+      attendeeLimit: parseInt(attendeeLimit) || 0,
     };
 
     //save event to DB
@@ -123,7 +122,7 @@ handler.post(async (req, res) => {
         res.status(200).json({ event });
         return;
       } catch (error) {
-        console.log("error uploading image", error);
+        console.error("error uploading image", error);
         //delete event from DB
         await db.collection("events").deleteOne({ _id: new ObjectId(eventId) });
         res.status(500).json({ error });
@@ -134,7 +133,7 @@ handler.post(async (req, res) => {
     // await db.collection("events").insertOne(event);
     res.status(200).json({ message: "Event created successfully" });
   } catch (error) {
-    console.log("error saving event", error);
+    console.error("error saving event", error);
     res.status(500).json({ error });
     return;
   }

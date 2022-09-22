@@ -4,8 +4,8 @@ import clientPromise from "@/lib/mongodb";
 import ncoptions from "@/utils/ncoptions";
 import usersLib from "@/lib/usersLib";
 import eventsLib from "@/lib/eventsLib";
+import ticketsLib from "@/lib/ticketsLib";
 import notificationsLib from "@/lib/notificationsLib";
-const { ObjectId } = require("mongodb");
 
 const handler = nc(ncoptions);
 
@@ -20,7 +20,6 @@ handler.use(async (req, res, next) => {
 //checks if email is already registred as a user
 handler.post(async (req, res) => {
   const db = req.db;
-  const data = req.body;
   const { about, eventId, startTimeLocalText } = req.body;
 
   try {
@@ -36,32 +35,74 @@ handler.post(async (req, res) => {
       });
     }
 
-    const event = await db
-      .collection("events")
-      .findOne({ _id: new ObjectId(data.eventId) });
-
+    //gets event
+    const event = await eventsLib.getEvent(db, eventId);
     if (!event) res.status(404).send("Event not found");
 
-    const registered = await eventsLib.registerUserForEvent(db, event, {
-      ...user,
-      about,
-    });
+    //checks if the user is already registered in the event
+    //checks if the user is already an attendee
+    const userIsAttendee = await eventsLib.userIsAttendee(
+      db,
+      event._id.toString(),
+      user.email
+    );
+    if (userIsAttendee) {
+      throw new Error(
+        JSON.stringify({
+          message: {
+            es: "Ya estás registrado cómo asistente en este evento",
+            en: "User is already registered as attendee for this event",
+          },
+        })
+      );
+    }
+
+    //checks if the event is full for attendees
+    const attendeesSoldOut = await eventsLib.attendeesSoldOut(
+      db,
+      event._id.toString()
+    );
+
+    if (attendeesSoldOut.soldOut) {
+      throw new Error(
+        JSON.stringify({
+          message: {
+            es: "Los registros para el evento se han agotado ",
+            en: "Event is full for attendees",
+          },
+        })
+      );
+    }
+
+    //generates ticket
+    const ticketData = {
+      event,
+      user: { ...user },
+      ticketType: "attendees",
+      ticketQuantity: 1,
+    };
+
+    //Save ticket
+    const ticket = await ticketsLib.generateTicket(
+      db,
+      ticketData,
+      startTimeLocalText,
+      about
+    );
 
     res.status(200).json({
-      user,
-      eventId,
-      orderId: registered.orderId,
+      ticket,
       message: {
         es: "Usuario registrado para el evento",
         en: "User registered for the event",
       },
     });
 
-    //send email to user with confirmation number?...
+    // //send email to user with confirmation number?...
     const mailData = {
       data: {
         user,
-        orderId: registered.orderId,
+        ticket,
         event,
         startTimeLocalText,
       },
@@ -70,10 +111,17 @@ handler.post(async (req, res) => {
 
     await notificationsLib.sendRegisterEmail(mailData);
 
-    //TODO:
-    //send whatsapp message to user (this would be nice)
+    //send whatsapp message to user
+    const waData = await notificationsLib.generateWhatsappTicketData({
+      user,
+      ticket,
+      event,
+      startTimeLocalText,
+    });
+
+    await notificationsLib.sendWhatsappTemplate(waData);
   } catch (error) {
-    console.log("error", error);
+    console.error("error", error);
     const parsedError = JSON.parse(error.message);
     res.status(500).json(parsedError);
   }
