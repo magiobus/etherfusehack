@@ -111,8 +111,15 @@ handler.post(async (req, res) => {
 
     await notificationsLib.sendRegisterEmail(mailData);
 
-    //TODO:
-    //send whatsapp message to user (this would be nice)
+    //send whatsapp message to user
+    const waData = await notificationsLib.generateWhatsappTicketData({
+      user,
+      ticket,
+      event,
+      startTimeLocalText,
+    });
+
+    await notificationsLib.sendWhatsappTemplate(waData);
   } catch (error) {
     console.log("error", error);
     const parsedError = JSON.parse(error.message);
