@@ -10,6 +10,7 @@ import TextArea from "@/components/forms/fields/TextArea";
 import parsePhoneNumber from "libphonenumber-js";
 
 const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
+  console.log("eventData", eventData);
   const [isLoading, setIsLoading] = useState(false);
   const [globalError, setGlobalError] = useState(null);
   const [registered, setIsRegistered] = useState(false);
@@ -256,11 +257,11 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                         )}
 
                         <p className="mt-4">
-                          No olvides llevar tu computadora y tu numero de
-                          registro para acceder al evento.
+                          Te mandamos un email con un codigo QR para acceder al
+                          evento.
                         </p>
 
-                        <p className="mt-4">¡Te esperamos!</p>
+                        <p className="mt-4">¡Nos vemos pronto!</p>
                       </div>
                     </div>
                   )}

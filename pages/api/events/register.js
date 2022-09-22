@@ -40,8 +40,40 @@ handler.post(async (req, res) => {
     const event = await eventsLib.getEvent(db, eventId);
     if (!event) res.status(404).send("Event not found");
 
-    //TODO: check if the user is already registered in the event
-    // TODO: Check if the event is full
+    //checks if the user is already registered in the event
+    //checks if the user is already an attendee
+    const userIsAttendee = await eventsLib.userIsAttendee(
+      db,
+      event._id.toString(),
+      user.email
+    );
+    if (userIsAttendee) {
+      throw new Error(
+        JSON.stringify({
+          message: {
+            es: "Ya estás registrado cómo asistente en este evento",
+            en: "User is already registered as attendee for this event",
+          },
+        })
+      );
+    }
+
+    //checks if the event is full for attendees
+    const attendeesSoldOut = await eventsLib.attendeesSoldOut(
+      db,
+      event._id.toString()
+    );
+
+    if (attendeesSoldOut.soldOut) {
+      throw new Error(
+        JSON.stringify({
+          message: {
+            es: "El evento está lleno para asistentes",
+            en: "Event is full for attendees",
+          },
+        })
+      );
+    }
 
     //generates ticket
     const ticketData = {
