@@ -10,10 +10,7 @@ import classNames from "@/utils/classNames";
 const logoUrl = "/images/etherfuse_squarelogo.jpeg";
 const navigation = {
   categories: [],
-  pages: [
-    { name: "Eventos", href: "/events" },
-    { name: "Preguntas Frecuentes", href: "/faqs" },
-  ],
+  pages: [],
 };
 
 const Header = ({ fixed = false }) => {

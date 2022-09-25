@@ -2,137 +2,51 @@ import { useEffect, useId, useState } from "react";
 import Image from "next/future/image";
 import { Tab } from "@headlessui/react";
 import clsx from "clsx";
-
 import { Container } from "@/components/landing/Container";
 import { DiamondIcon } from "@/components/landing/DiamondIcon";
 import andrewGreeneImage from "@/public/landingimages/avatars/andrew-greene.jpg";
-import cathleneBurrageImage from "@/public/landingimages/avatars/cathlene-burrage.jpg";
-import damarisKimuraImage from "@/public/landingimages/avatars/damaris-kimura.jpg";
-import dianneGuilianelliImage from "@/public/landingimages/avatars/dianne-guilianelli.jpg";
-import erhartCockrinImage from "@/public/landingimages/avatars/erhart-cockrin.jpg";
-import giordanoSagucioImage from "@/public/landingimages/avatars/giordano-sagucio.jpg";
-import gordonSandersonImage from "@/public/landingimages/avatars/gordon-sanderson.jpg";
-import heatherTerryImage from "@/public/landingimages/avatars/heather-terry.jpg";
-import ibrahimFraschImage from "@/public/landingimages/avatars/ibrahim-frasch.jpg";
-import jaquelinIschImage from "@/public/landingimages/avatars/jaquelin-isch.jpg";
-import kimberlyParsonsImage from "@/public/landingimages/avatars/kimberly-parsons.jpg";
-import parkerJohnsonImage from "@/public/landingimages/avatars/parker-johnson.jpg";
-import piersWilkinsImage from "@/public/landingimages/avatars/piers-wilkins.jpg";
-import richardAstley from "@/public/landingimages/avatars/richard-astley.jpg";
-import rinaldoBeynonImage from "@/public/landingimages/avatars/rinaldo-beynon.jpg";
-import ronniCantadoreImage from "@/public/landingimages/avatars/ronni-cantadore.jpg";
-import stevenMchailImage from "@/public/landingimages/avatars/steven-mchail.jpg";
-import waylonHydenImage from "@/public/landingimages/avatars/waylon-hyden.jpg";
-
+import davidtaylor from "@/public/landingimages/avatars/davidtaylor.png";
+import ajtaylor from "@/public/landingimages/avatars/ajtaylor.png";
+import davidandujo from "@/public/landingimages/avatars/davidandujo.jpeg";
+import magiobustillos from "@/public/landingimages/avatars/magiobustillos.jpeg";
+import jonathanhernandez from "@/public/landingimages/avatars/jonathanhernandez.jpeg";
 const days = [
   {
-    name: "Opening Day",
-    date: "April 4",
-    dateTime: "2022-04-04",
+    name: "Team ",
+    date: "",
+    dateTime: "",
     speakers: [
       {
-        name: "Steven McHail",
-        role: "Designer at Globex Corporation",
-        image: stevenMchailImage,
+        name: "David Taylor",
+        role: "CEO Etherfuse",
+        image: davidtaylor,
       },
       {
-        name: "Jaquelin Isch",
-        role: "UX Design at InGen",
-        image: jaquelinIschImage,
+        name: "AJ Taylor",
+        role: "CTO Etherfuse",
+        image: ajtaylor,
       },
       {
-        name: "Dianne Guilianelli",
-        role: "General Manager at Initech",
-        image: dianneGuilianelliImage,
+        name: "David Andujo",
+        role: "ILUM Venture Partner",
+        image: davidandujo,
       },
       {
-        name: "Ronni Cantadore",
-        role: "Design Engineer at Weyland-Yutani",
-        image: ronniCantadoreImage,
-      },
-      {
-        name: "Erhart Cockrin",
-        role: "Product Lead at Cyberdyne Systems",
-        image: erhartCockrinImage,
-      },
-      {
-        name: "Parker Johnson",
-        role: "UI Designer at MomCorp",
-        image: parkerJohnsonImage,
+        name: "Magio Bustillos",
+        role: "Hackathon Facilitator",
+        image: magiobustillos,
       },
     ],
   },
   {
-    name: "Speakers & Workshops",
-    date: "April 5",
-    dateTime: "2022-04-05",
+    name: "Mentores",
+    date: "",
+    dateTime: "",
     speakers: [
       {
-        name: "Damaris Kimura",
-        role: "Senior Engineer at OCP",
-        image: damarisKimuraImage,
-      },
-      {
-        name: "Ibrahim Frasch",
-        role: "Programmer at Umbrella Corp",
-        image: ibrahimFraschImage,
-      },
-      {
-        name: "Cathlene Burrage",
-        role: "Frontend Developer at Buy n Large",
-        image: cathleneBurrageImage,
-      },
-      {
-        name: "Rinaldo Beynon",
-        role: "Data Scientist at Rekall",
-        image: rinaldoBeynonImage,
-      },
-      {
-        name: "Waylon Hyden",
-        role: "DevOps at RDA Corporation",
-        image: waylonHydenImage,
-      },
-      {
-        name: "Giordano Sagucio",
-        role: "Game Developer at Soylent Corp",
-        image: giordanoSagucioImage,
-      },
-    ],
-  },
-  {
-    name: "Interviews",
-    date: "April 6",
-    dateTime: "2022-04-06",
-    speakers: [
-      {
-        name: "Andrew Greene",
-        role: "Frontend Developer at Ultratech",
-        image: andrewGreeneImage,
-      },
-      {
-        name: "Heather Terry",
-        role: "Backend Developer at Xanatos Enterprises",
-        image: heatherTerryImage,
-      },
-      {
-        name: "Piers Wilkins",
-        role: "Full stack Developer at BiffCo",
-        image: piersWilkinsImage,
-      },
-      {
-        name: "Gordon Sanderson",
-        role: "Mobile Developer at Cobra Industries",
-        image: gordonSandersonImage,
-      },
-      {
-        name: "Kimberly Parsons",
-        role: "Game Developer at Tyrell Corporation",
-        image: kimberlyParsonsImage,
-      },
-      {
-        name: "Richard Astley",
-        role: "CEO at Roll Out",
-        image: richardAstley,
+        name: "Jonathan Hernandez",
+        role: "Full Stack Developer @Distillery",
+        image: jonathanhernandez,
       },
     ],
   },
@@ -186,13 +100,12 @@ export function Speakers() {
         <div className="mx-auto max-w-2xl lg:mx-0">
           <h2
             id="speakers-title"
-            className="font-display text-4xl font-medium tracking-tighter text-blue-600 sm:text-5xl"
+            className="font-display text-4xl font-medium tracking-tighter text-happy-yellow bg-black px-2 py-2 sm:text-5xl"
           >
-            Speakers
+            Organizadores y Mentores
           </h2>
-          <p className="mt-4 font-display text-2xl tracking-tight text-blue-900">
-            Learn from the experts on the cutting-edge of deception at the most
-            sinister companies.
+          <p className="mt-4 font-display text-2xl tracking-tight text-black">
+            Conoce a los organizadores y mentores en tu proyecto.
           </p>
         </div>
         <Tab.Group
@@ -210,17 +123,17 @@ export function Speakers() {
                       className={clsx(
                         "absolute top-[0.5625rem] left-[-0.5px] hidden h-1.5 w-1.5 overflow-visible lg:block",
                         dayIndex === selectedIndex
-                          ? "fill-blue-600 stroke-blue-600"
-                          : "fill-transparent stroke-slate-400"
+                          ? "fill-black stroke-black "
+                          : "fill-transparent stroke-black"
                       )}
                     />
                     <div className="relative">
                       <div
                         className={clsx(
-                          "font-mono text-sm",
+                          "font-mono text-xl  ",
                           dayIndex === selectedIndex
-                            ? "text-blue-600"
-                            : "text-slate-500"
+                            ? "text-happy-yellow bg-black px-2"
+                            : "text-black"
                         )}
                       >
                         <Tab className="[&:not(:focus-visible)]:focus:outline-none">
@@ -228,12 +141,6 @@ export function Speakers() {
                           {day.name}
                         </Tab>
                       </div>
-                      <time
-                        dateTime={day.dateTime}
-                        className="mt-1.5 block text-2xl font-semibold tracking-tight text-blue-900"
-                      >
-                        {day.date}
-                      </time>
                     </div>
                   </div>
                 ))
@@ -249,14 +156,14 @@ export function Speakers() {
               >
                 {day.speakers.map((speaker, speakerIndex) => (
                   <div key={speakerIndex}>
-                    <div className="group relative h-[17.5rem] transform overflow-hidden rounded-4xl">
+                    <div className="group relative h-[17.5rem] transform overflow-hidden rounded-4xl bg-black">
                       <div
                         className={clsx(
                           "absolute top-0 left-0 right-4 bottom-6 rounded-4xl border transition duration-300 group-hover:scale-95 xl:right-6",
                           [
-                            "border-blue-300",
-                            "border-indigo-300",
-                            "border-sky-300",
+                            "border-happy-yellow",
+                            "border-happy-yellow",
+                            "border-happy-yellow",
                           ][speakerIndex % 3]
                         )}
                       />

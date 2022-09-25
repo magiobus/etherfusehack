@@ -7,6 +7,7 @@ import {
 } from "next-auth/react";
 
 import Image from "next/image";
+import Link from "next/link";
 
 const SignInPage = ({ providers, csrfToken, errorMessage }) => {
   return (
@@ -16,14 +17,18 @@ const SignInPage = ({ providers, csrfToken, errorMessage }) => {
           <div className="flex flex-col justify-center items-center py-12 px-4  w-full lg:flex-none lg:px-20 xl:px-24">
             <div className="mx-auto w-full md:w-96 lg:w-96">
               <div className="flex flex-col items-center justify-center">
-                <Image
-                  className="mx-auto w-24"
-                  src="/images/etherfuse_squarelogo.jpeg"
-                  alt="patitorosa"
-                  width={100}
-                  height={100}
-                />
-                <h2 className="mt-6 text-center text-3xl tracking-tight font-bold text-black">
+                <Link href="/">
+                  <a>
+                    <Image
+                      className="mx-auto w-24"
+                      src="/images/etherfuse_squarelogo.jpeg"
+                      alt="patitorosa"
+                      width={100}
+                      height={100}
+                    />
+                  </a>
+                </Link>
+                <h2 className="mt-6 text-center text-3xl tracking-tight font-bold text-happy-yellow bg-black px-4 py-2">
                   Inicia Sesión
                 </h2>
               </div>
@@ -33,7 +38,7 @@ const SignInPage = ({ providers, csrfToken, errorMessage }) => {
                   {providers.google && (
                     <div>
                       <div
-                        className="cursor-pointer w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-black   text-white  text-sm font-medium "
+                        className="cursor-pointer w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-black   text-happy-yellow  text-sm font-medium "
                         onClick={() => signIn(providers.google.id)}
                       >
                         <svg
@@ -48,7 +53,7 @@ const SignInPage = ({ providers, csrfToken, errorMessage }) => {
                             clipRule="evenodd"
                           />
                         </svg>
-                        <p className="mx-2">Iniciar sesión con Google</p>
+                        <p className="mx-2 ">Iniciar sesión con Google</p>
                       </div>
                     </div>
                   )}
@@ -104,7 +109,7 @@ const SignInPage = ({ providers, csrfToken, errorMessage }) => {
                     <div>
                       <button
                         type="submit"
-                        className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-black hover:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black"
+                        className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-happy-yellow bg-black hover:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black"
                       >
                         Iniciar Sesión
                       </button>

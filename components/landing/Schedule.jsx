@@ -7,152 +7,125 @@ import { Container } from "@/components/landing/Container";
 
 const schedule = [
   {
-    date: "April 4",
-    dateTime: "2022-04-04",
-    summary:
-      "The first day of the conference is focused on dark patterns for ecommerce.",
+    date: "Noviembre 11",
+    dateTime: "2022-11-11",
+    summary: "Primer día de hackathon",
     timeSlots: [
       {
-        name: "Steven McHail",
-        description: "Not so one-time payments",
-        start: "9:00AM",
-        end: "10:00AM",
+        name: "Registro 🎟",
+        description: "Muestra tu registro para acceder al evento",
+        start: "4:30PM",
+        end: "6:00PM",
       },
       {
-        name: "Jaquelin Isch",
-        description: "The finer print",
-        start: "10:00AM",
-        end: "11:00AM",
+        name: "Keynote Bienvenida 👋",
+        description: "Bienvenida a todos los participantes",
+        start: "6:00PM",
+        end: "7:00PM",
       },
       {
-        name: "Dianne Guilianelli",
-        description: "Post-purchase blackmail",
-        start: "11:00AM",
-        end: "12:00PM",
+        name: "Comida 🌯",
+        description: "Sin comida no hay hackathon",
+        start: "7:00PM",
+        end: "8:00PM",
       },
       {
-        name: "Lunch",
-        description: null,
-        start: "12:00PM",
-        end: "1:00PM",
+        name: "Creación de equipos 🤝",
+        description: "Forma tu equipo para trabajar",
+        start: "8:00PM",
+        end: " 9:00PM",
       },
       {
-        name: "Ronni Cantadore",
-        description: "Buy or die",
-        start: "1:00PM",
-        end: "2:00PM",
-      },
-      {
-        name: "Erhart Cockrin",
-        description: "In-person cancellation",
-        start: "2:00PM",
-        end: "3:00PM",
-      },
-      {
-        name: "Parker Johnson",
-        description: "The pay/cancel switcheroo",
-        start: "3:00PM",
-        end: "4:00PM",
+        name: "Hacking 🚀",
+        description: "Comienza a trabajar en tu proyecto",
+        start: "9:00PM",
+        end: "",
       },
     ],
   },
   {
-    date: "April 5",
-    dateTime: "2022-04-05",
-    summary:
-      "Next we spend the day talking about deceiving people with technology.",
+    date: "Noviembre 12",
+    dateTime: "2022-11-12",
+    summary: "Segundo día de hackathon",
     timeSlots: [
       {
-        name: "Damaris Kimura",
-        description: "The invisible card reader",
-        start: "9:00AM",
-        end: "10:00AM",
-      },
-      {
-        name: "Ibrahim Frasch",
-        description: "Stealing fingerprints",
+        name: "Desayuno 🥞",
+        description: "Sin desayuno no hay hackathon",
         start: "10:00AM",
         end: "11:00AM",
       },
       {
-        name: "Cathlene Burrage",
-        description: "Voting machines",
+        name: "Mentorías 🧑‍🏫",
+        description: "Obtén ayuda de mentores",
         start: "11:00AM",
-        end: "12:00PM",
-      },
-      {
-        name: "Lunch",
-        description: null,
-        start: "12:00PM",
-        end: "1:00PM",
-      },
-      {
-        name: "Rinaldo Beynon",
-        description: "Blackhat SEO that works",
-        start: "1:00PM",
         end: "2:00PM",
       },
       {
-        name: "Waylon Hyden",
-        description: "Turning your audience into a botnet",
+        name: "Comida 🍙",
+        description: "Sin comida no hay hackathon",
         start: "2:00PM",
         end: "3:00PM",
       },
       {
-        name: "Giordano Sagucio",
-        description: "Fly phishing",
+        name: "Hacking 🚀",
+        description: "Continúa trabajando en tu proyecto",
         start: "3:00PM",
-        end: "4:00PM",
+        end: "8:00PM",
+      },
+      {
+        name: "Cena 🍕",
+        description: "Sin comida no hay hackathon",
+        start: "8:00PM",
+        end: "9:00PM",
+      },
+      {
+        name: "Hacking 🚀",
+        description: "Continúa trabajando en tu proyecto",
+        start: "9:00PM",
+        end: "",
       },
     ],
   },
   {
-    date: "April 6",
-    dateTime: "2022-04-06",
-    summary:
-      "We close out the event previewing new techniques that are still in development.",
+    date: "Noviembre 13",
+    dateTime: "2022-11-13",
+    summary: "Tercer día de hackathon",
     timeSlots: [
       {
-        name: "Andrew Greene",
-        description: "Neuralink dark patterns",
+        name: "Desayuno 🥞",
+        description: "Sin desayuno no hay hackathon",
         start: "9:00AM",
         end: "10:00AM",
       },
       {
-        name: "Heather Terry",
-        description: "DALL-E for passports",
+        name: "Entrega de proyectos 📦",
+        description: "Envía tu proyecto para ser evaluado",
         start: "10:00AM",
         end: "11:00AM",
       },
       {
-        name: "Piers Wilkins",
-        description: "Quantum password cracking",
+        name: "Evaluación de proyectos 📝",
+        description: "5 Finalistas serán anunciados",
         start: "11:00AM",
-        end: "12:00PM",
+        end: "2:00PM",
       },
       {
-        name: "Lunch",
-        description: null,
-        start: "12:00PM",
-        end: "1:00PM",
-      },
-      {
-        name: "Gordon Sanderson",
-        description: "SkyNet is coming",
+        name: "Comida 🍔",
+        description: "Sin comida no hay hackathon",
         start: "1:00PM",
         end: "2:00PM",
       },
       {
-        name: "Kimberly Parsons",
-        description: "Dark patterns for the metaverse",
+        name: "Presentaciones Finales 🎤",
+        description: "Los 5 finalistas presentarán sus proyectos",
         start: "2:00PM",
-        end: "3:00PM",
+        end: "4:00PM",
       },
       {
-        name: "Richard Astley",
-        description: "Knowing the game and playing it",
-        start: "3:00PM",
-        end: "4:00PM",
+        name: "Ceremonia de premiación 🏆",
+        description: "Los ganadores serán anunciados",
+        start: "4:00PM",
+        end: "5:00PM",
       },
     ],
   },
@@ -196,8 +169,8 @@ function ScheduleTabbed() {
                 day={{
                   ...day,
                   date: (
-                    <Tab className="[&:not(:focus-visible)]:focus:outline-none">
-                      <span className="absolute inset-0" />
+                    <Tab className="[&:not(:focus-visible)]:focus:outline-none ">
+                      <span className="absolute inset-0 " />
                       {day.date}
                     </Tab>
                   ),
@@ -224,10 +197,10 @@ function ScheduleTabbed() {
 function DaySummary({ day }) {
   return (
     <>
-      <h3 className="text-2xl font-semibold tracking-tight text-blue-900">
+      <h3 className="text-2xl font-semibold tracking-tight text-happy-yellow bg-black px-2">
         <time dateTime={day.dateTime}>{day.date}</time>
       </h3>
-      <p className="mt-1.5 text-base tracking-tight text-blue-900">
+      <p className="mt-1.5 text-base tracking-tight text-black">
         {day.summary}
       </p>
     </>
@@ -246,16 +219,16 @@ function TimeSlots({ day, className }) {
       {day.timeSlots.map((timeSlot, timeSlotIndex) => (
         <li
           key={timeSlot.start}
-          aria-label={`${timeSlot.name} talking about ${timeSlot.description} at ${timeSlot.start} - ${timeSlot.end} PST`}
+          aria-label={`${timeSlot.name} talking about ${timeSlot.description} at ${timeSlot.start} - ${timeSlot.end} GMT-6`}
         >
           {timeSlotIndex > 0 && (
             <div className="mx-auto mb-8 h-px w-48 bg-indigo-500/10" />
           )}
-          <h4 className="text-lg font-semibold tracking-tight text-blue-900">
+          <h4 className="text-lg font-semibold tracking-tight text-black">
             {timeSlot.name}
           </h4>
           {timeSlot.description && (
-            <p className="mt-1 tracking-tight text-blue-900">
+            <p className="mt-1 tracking-tight text-black">
               {timeSlot.description}
             </p>
           )}
@@ -267,7 +240,7 @@ function TimeSlots({ day, className }) {
             <time dateTime={`${day.dateTime}T${timeSlot.end}-08:00`}>
               {timeSlot.end}
             </time>{" "}
-            PST
+            GMT-6
           </p>
         </li>
       ))}
@@ -290,18 +263,12 @@ function ScheduleStatic() {
 
 export function Schedule() {
   return (
-    <section id="schedule" aria-label="Schedule" className="py-20 sm:py-32">
+    <section id="schedule" aria-label="Schedule" className=" sm:py-20 lg:py-0">
       <Container className="relative z-10">
         <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-4xl lg:pr-24">
-          <h2 className="font-display text-4xl font-medium tracking-tighter text-blue-600 sm:text-5xl">
-            Our three day schedule is jam-packed with brilliant, creative, evil
-            geniuses.
+          <h2 className="font-display text-4xl font-medium tracking-tighter text-happy-yellow bg-black px-2 py-2 sm:text-5xl">
+            3 días de hackathon para crear soluciones digitales con blockchain.
           </h2>
-          <p className="mt-4 font-display text-2xl tracking-tight text-blue-900">
-            The worst people in our industry giving the best talks you’ve ever
-            seen. Nothing will be recorded and every attendee has to sign an NDA
-            to watch the talks.
-          </p>
         </div>
       </Container>
       <div className="relative mt-14 sm:mt-24">

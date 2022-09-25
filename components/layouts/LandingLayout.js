@@ -21,7 +21,7 @@ const Landinglayout = ({
         <div className="flex flex-col w-full bg-gray-100 " {...rest}>
           <div className="flex flex-col w-full" {...rest}>
             <Header fixed={fixed} />
-            <div className={`my-0 ${fixed && " pt-20 lg:pt-14"}`}>
+            <div className={`my-0 ${fixed && " pt-16 lg:pt-14"}`}>
               {children}
             </div>
           </div>
