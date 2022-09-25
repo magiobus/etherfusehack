@@ -4,7 +4,6 @@ import { Tab } from "@headlessui/react";
 import clsx from "clsx";
 import { Container } from "@/components/landing/Container";
 import { DiamondIcon } from "@/components/landing/DiamondIcon";
-import andrewGreeneImage from "@/public/landingimages/avatars/andrew-greene.jpg";
 import davidtaylor from "@/public/landingimages/avatars/davidtaylor.png";
 import ajtaylor from "@/public/landingimages/avatars/ajtaylor.png";
 import davidandujo from "@/public/landingimages/avatars/davidandujo.jpeg";
