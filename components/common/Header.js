@@ -11,8 +11,8 @@ const logoUrl = "/images/shdh_logo.png";
 const navigation = {
   categories: [],
   pages: [
-    { name: "Eventos", href: "/events" },
-    { name: "Preguntas Frecuentes", href: "/faqs" },
+    { name: "Events", href: "/events" },
+    { name: "Faqs", href: "/faqs" },
   ],
 };
 

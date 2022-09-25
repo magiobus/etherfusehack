@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 // 404.js
 import Link from "next/link";
-const logoUrl = "/images/shdh_logo.png";
+const logoUrl = "/images/etherfuse_squarelogo.jpeg";
 
 export default function FourOhFour() {
   return (
@@ -19,20 +19,17 @@ export default function FourOhFour() {
           </div>
           <div className="py-16">
             <div className="text-center">
-              <p className="text-4xl font-semibold text-orange-600">404</p>
+              <p className="text-4xl font-semibold text-black">404</p>
               <h1 className="my-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-                ¡Vaya!
+                This page does not exist.
               </h1>
-              <p className="mt-2 text-2xl text-gray-500">
-                No hemos podido encontrar la página que buscas.
-              </p>
               <div className="mt-6">
                 <Link
                   href="/"
                   className="text-2xl font-medium text-orange-600 hover:text-orange-500"
                 >
                   <a>
-                    Ir a Inicio
+                    Back to home
                     <span aria-hidden="true"> &rarr;</span>
                   </a>
                 </Link>

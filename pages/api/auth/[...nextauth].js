@@ -2,6 +2,7 @@ import NextAuth from "next-auth";
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
 import EmailProvider from "next-auth/providers/email";
 import clientPromise from "@/lib/mongodb";
+import GoogleProvider from "next-auth/providers/google";
 import dateNowUnix from "@/utils/dateNowUnix";
 import nodemailer from "nodemailer";
 import html from "@/utils/emailtemplates/verify-email";
@@ -66,6 +67,10 @@ export default NextAuth({
   },
   // Configure one or more authentication providers
   providers: [
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    }),
     EmailProvider({
       server: {
         host: process.env.SMTP_HOST,

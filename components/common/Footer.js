@@ -1,25 +1,20 @@
 import SocialIcon from "@/components/icons/Social";
-const copyrightLabel = `©${new Date().getFullYear()} Super Happy Dev House`;
+const copyrightLabel = `© Etherfuse ${new Date().getFullYear()} `;
 const socialLink = [
   {
-    name: "Facebook",
-    href: "https://www.facebook.com/Super-Happy-Dev-House-MX-100137369414135/",
-    icon: "facebook",
-  },
-  {
-    name: "Instagram",
-    href: "https://www.instagram.com/shdevhousemx/",
-    icon: "instagram",
+    name: "Substack",
+    href: "https://etherfuse.substack.com",
+    icon: "substack",
   },
   {
     name: "Twitter",
-    href: "https://twitter.com/shdevhousemx",
+    href: "https://twitter.com/etherfuse",
     icon: "twitter",
   },
   {
-    name: "Spotify",
-    href: "https://open.spotify.com/user/12136629381/playlist/3KYyNq3QS6r6wPhxnOjFeS?si=O2KRCX0ESy-cIS8mDQclpA",
-    icon: "spotify",
+    name: "Linked In ",
+    href: "https://www.linkedin.com/company/etherfuse/",
+    icon: "linkedin",
   },
 ];
 
