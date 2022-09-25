@@ -2,14 +2,13 @@ import { NextSeo } from "next-seo";
 
 //EDIT ME PLEASE
 const data = {
-  siteName: "Super Happy Dev House MX",
-  title: "Super Happy Dev House MX",
+  siteName: "Etherfuse Hackathon",
+  title: "Etherfuse Hackathon",
   description:
-    "SHDH es un evento informal para desarrolladores, creativos y curiosos de la tecnología. Ven a divertirte, construir tu idea o aprender algo nuevo.",
-  url: "https://superhappydevhouse.mx",
-  imageUrl:
-    "https://res.cloudinary.com/superhappydevhousemx-gmail-com/image/upload/v1655094624/og_rwcjrt.jpg",
-  twitter: "@shdevhousemx",
+    "Participa en el hackathon de etherfuse, pronto cerca de tu ciudad",
+  url: "https://hackathon.etherfuse.com",
+  imageUrl: "/og.jpg",
+  twitter: "@etherfuse",
 };
 
 const Seo = ({

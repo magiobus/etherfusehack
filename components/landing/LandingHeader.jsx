@@ -3,9 +3,9 @@ import { Container } from "@/components/landing/Container";
 import { DiamondIcon } from "@/components/landing/DiamondIcon";
 import { Logo } from "@/components/landing/Logo";
 
-export function Header() {
+export function LandingHeader() {
   return (
-    <header className="relative z-50 pb-11 lg:pt-11">
+    <div className="relative z-20 pb-11 lg:pt-11">
       <Container className="flex flex-wrap items-center justify-center sm:justify-between lg:flex-nowrap">
         <div className="mt-10 lg:mt-0 lg:grow lg:basis-0">
           <Logo className="h-12 w-auto text-slate-900" />
@@ -24,6 +24,6 @@ export function Header() {
           <Button href="#">Get your tickets</Button>
         </div>
       </Container>
-    </header>
+    </div>
   );
 }
