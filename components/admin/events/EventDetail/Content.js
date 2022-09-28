@@ -34,7 +34,7 @@ const EventDetailCOntent = ({ event, ticketTypes, setJustScanned }) => {
           {photo && <Image src={photo} alt={name} width={1280} height={640} />}
           <div className="register w-full mt-4">
             <button
-              className="w-full bg-happy-yellow px-2 py-1 text-white rounded-md"
+              className="w-full bg-black px-2 py-1 text-happy-yellow rounded-md"
               onClick={() => handleTicketTypeChange()}
             >
               Escanear QR

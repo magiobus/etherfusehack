@@ -56,6 +56,7 @@ handler.post(async (req, res) => {
     placeState,
     timeZone,
     attendeeLimit,
+    isGivingShirts,
   } = req.body;
 
   try {
@@ -84,6 +85,7 @@ handler.post(async (req, res) => {
       createdBy: req.sessionUser._id || "",
       price: 0,
       attendeeLimit: parseInt(attendeeLimit) || 0,
+      isGivingShirts: isGivingShirts === "true",
     };
 
     //save event to DB

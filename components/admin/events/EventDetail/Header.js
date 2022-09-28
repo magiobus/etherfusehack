@@ -8,7 +8,7 @@ const EventDetailHeader = ({ event }) => {
     <>
       <div className="flex justify-between px-4 w-full items-center ">
         <div className="title flex flex-col items-start justify-center">
-          <h3 className="text-2xl leading-6 font-medium text-gray-900">
+          <h3 className="text-2xl leading-6 font-medium text-happy-yellow bg-black">
             Evento: {name}
           </h3>
           <div className="tags flex items-center space-x-2">
