@@ -7,6 +7,7 @@ import axios from "axios";
 import unixToFormat from "@/utils/unixToFormat";
 import Input from "@/components/forms/fields/Input";
 import TextArea from "@/components/forms/fields/TextArea";
+import CheckBox from "@/components/forms/fields/CheckBox";
 import Select from "@/components/forms/fields/Select";
 import parsePhoneNumber from "libphonenumber-js";
 
@@ -237,6 +238,23 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                             )}
                           </div>
 
+                          <div className="inputwrapper my-3">
+                            <CheckBox
+                              label="Acepto los términos y condiciones"
+                              description="Al registrarte aceptas los términos y condiciones de la plataforma"
+                              name="terms"
+                              register={{
+                                ...register("terms", {
+                                  required: {
+                                    value: true,
+                                    message: "Debes aceptar los términos",
+                                  },
+                                }),
+                              }}
+                              errorMessage={errors.terms?.message}
+                            />
+                          </div>
+
                           <div className="mt-4 text-red-500">{globalError}</div>
 
                           <div className="mt-4">
@@ -272,16 +290,6 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                             )}{" "}
                           </span>
                         </p>
-                        {orderId && (
-                          <div className="registerId mt-4 ">
-                            <p className="text-md font-bold text-black">
-                              Tu ID de registro es:
-                            </p>
-                            <p className="text-md font-bold text-black">
-                              {orderId}
-                            </p>
-                          </div>
-                        )}
 
                         <p className="mt-4">
                           Te mandamos un email con un codigo QR para acceder al
