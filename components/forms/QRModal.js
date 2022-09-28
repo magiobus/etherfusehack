@@ -123,7 +123,7 @@ const QRModal = ({
                 <Dialog.Panel className="w-full md:max-w-2xl relative transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                   {loading ? (
                     <div className="py-24">
-                      <LoadingCircle color="#E4187D" />
+                      <LoadingCircle color="#000000" />
                     </div>
                   ) : globalError ? (
                     <div className="flex flex-col items-center justify-center">

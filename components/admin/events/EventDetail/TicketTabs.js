@@ -5,7 +5,7 @@ import { Fragment } from "react";
 import { XCircleIcon, CheckCircleIcon } from "@heroicons/react/solid";
 
 const TicketTabs = ({ event }) => {
-  const { tickets } = event;
+  const { tickets, isGivingShirts } = event;
   const { attendees } = tickets;
 
   return (
@@ -96,6 +96,18 @@ const TicketTabs = ({ event }) => {
                                 </p>
                               </div>
                             </div>
+                            {isGivingShirts && (
+                              <div className="flex items-center justify-between mt-2">
+                                <div className="flex-1 ml-2">
+                                  <p className="text-sm leading-5 text-gray-500 font-semibold">
+                                    Talla de Playera
+                                  </p>
+                                  <p className="text-sm leading-5 text-gray-500 uppercase">
+                                    {attendee?.shirtSize}
+                                  </p>
+                                </div>
+                              </div>
+                            )}
                           </div>
                         </div>
                         <div className="flex-1 thirdsection ml-8 lg:ml-0 flex flex-col items-start justify-center lg:w-8/12 lg:flex-row my-4 space-y-1 lg:space-y-0">
