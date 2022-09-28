@@ -42,6 +42,7 @@ handler.use(async (req, res, next) => {
 //Adds new event
 handler.post(async (req, res) => {
   const db = req.db;
+  const user = req.sessionUser;
 
   const {
     name,
@@ -82,7 +83,7 @@ handler.post(async (req, res) => {
       locationUrl: locationUrl || "",
       createdAt: dateNowUnix(),
       updatedAt: dateNowUnix(),
-      createdBy: req.sessionUser._id || "",
+      createdBy: user.id || "",
       price: 0,
       attendeeLimit: parseInt(attendeeLimit) || 0,
       isGivingShirts: isGivingShirts === "true",
