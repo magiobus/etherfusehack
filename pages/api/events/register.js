@@ -20,7 +20,7 @@ handler.use(async (req, res, next) => {
 //checks if email is already registred as a user
 handler.post(async (req, res) => {
   const db = req.db;
-  const { about, eventId, startTimeLocalText } = req.body;
+  const { about, eventId, startTimeLocalText, shirtSize } = req.body;
 
   try {
     //check if user exists or create one
@@ -87,7 +87,8 @@ handler.post(async (req, res) => {
       db,
       ticketData,
       startTimeLocalText,
-      about
+      about,
+      shirtSize
     );
 
     try {
