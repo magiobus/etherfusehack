@@ -183,6 +183,23 @@ const SessionMenu = ({ session }) => {
                 )}
               </Menu.Item>
 
+              {session.user.roles.includes("organizer") && (
+                <Menu.Item>
+                  {({ active }) => (
+                    <Link href="/organizer/events">
+                      <a
+                        className={classNames(
+                          active ? "bg-black" : "",
+                          "block px-4 py-2 text-sm text-happy-yellow"
+                        )}
+                      >
+                        Mis Eventos
+                      </a>
+                    </Link>
+                  )}
+                </Menu.Item>
+              )}
+
               {session.user.roles.includes("admin") && (
                 <Menu.Item>
                   {({ active }) => (

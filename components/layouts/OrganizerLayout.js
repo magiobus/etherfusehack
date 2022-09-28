@@ -7,28 +7,23 @@ import LoadingCircle from "@/components/common/LoadingCircle";
 import classNames from "@/utils/classNames";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
-import { HomeIcon, UserIcon, CalendarIcon } from "@heroicons/react/outline";
+import {
+  ChartBarIcon,
+  CashIcon,
+  CalendarIcon,
+  SpeakerphoneIcon,
+  UserGroupIcon,
+} from "@heroicons/react/outline";
+import toast, { Toaster } from "react-hot-toast";
 
-const AdminLayout = ({ title, children, ...props }) => {
+const OrganizerLayout = ({ title, children, ...props }) => {
   const router = useRouter();
   const { data: session, status } = useSession();
 
   const navigation = [
     {
-      name: "Dashboard",
-      href: "/admin/dashboard",
-      icon: HomeIcon,
-      current: false,
-    },
-    {
-      name: "Usuarios",
-      href: "/admin/users",
-      icon: UserIcon,
-      current: false,
-    },
-    {
       name: "Eventos",
-      href: "/admin/events",
+      href: "/organizer/events",
       icon: CalendarIcon,
       current: false,
     },
@@ -47,8 +42,8 @@ const AdminLayout = ({ title, children, ...props }) => {
     return <NoAccessErrorPage />;
   }
 
-  if (session.user.roles && !session.user.roles.includes("admin")) {
-    console.error("No admin");
+  if (session.user.roles && !session.user.roles.includes("organizer")) {
+    console.error("No organizer");
     return <NoAccessErrorPage />;
   }
 
@@ -60,6 +55,8 @@ const AdminLayout = ({ title, children, ...props }) => {
       </Head>
 
       <div className="min-h-full h-full">
+        <Toaster position="bottom-center" />
+
         <div className="flex flex-col w-full bg-gray-100 " {...props}>
           <Header />
           <div className="w-full max-w-7xl  mx-auto  ">
@@ -67,7 +64,6 @@ const AdminLayout = ({ title, children, ...props }) => {
               <div className="lg:grid lg:grid-cols-12 lg:gap-x-5">
                 <aside className="py-6 px-2 sm:px-6 lg:py-0 lg:px-0 lg:col-span-2">
                   <nav className="space-y-1">
-                    <p className="mb-4 font-bold">Admin Dashboard</p>
                     {navigation.map((item) => {
                       if (router.pathname.includes(item.href)) {
                         item.current = true;
@@ -113,4 +109,4 @@ const AdminLayout = ({ title, children, ...props }) => {
   );
 };
 
-export default AdminLayout;
+export default OrganizerLayout;

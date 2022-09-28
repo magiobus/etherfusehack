@@ -1,4 +1,4 @@
-import { useEffect, useId, useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/future/image";
 import { Tab } from "@headlessui/react";
 import clsx from "clsx";
@@ -70,7 +70,7 @@ function ImageClipPaths({ id, ...props }) {
 }
 
 export function Speakers() {
-  let id = useId();
+  let id = Math.random().toString(36).substr(2, 9);
   let [tabOrientation, setTabOrientation] = useState("horizontal");
 
   useEffect(() => {

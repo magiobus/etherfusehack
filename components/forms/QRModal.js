@@ -135,7 +135,7 @@ const QRModal = ({
                       </p>
                       <div className="buttoncontainer mt-4 flex justify-center items-center">
                         <button
-                          className="rounded-lg px-2 py-1 bg-happy-pink text-black"
+                          className="rounded-lg px-2 py-1 bg-black text-white"
                           onClick={() => handleCloseModal()}
                         >
                           Cerrar
@@ -173,7 +173,7 @@ const QRModal = ({
                           />
                           <div className="buttoncontainer mt-4 flex justify-center items-center">
                             <button
-                              className="rounded-lg px-2 py-1 bg-happy-pink text-white"
+                              className="rounded-lg px-2 py-1 bg-black text-white"
                               onClick={() => handleCloseModal()}
                             >
                               Cerrar
@@ -222,7 +222,7 @@ const QRModal = ({
                           </div>
                           <div className="buttoncontainer mt-4 flex justify-center items-center">
                             <button
-                              className="rounded-lg px-2 py-1 bg-happy-pink text-white"
+                              className="rounded-lg px-2 py-1 bg-black text-white"
                               onClick={() => handleCloseModal(true)}
                             >
                               Cerrar
