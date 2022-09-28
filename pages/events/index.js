@@ -18,7 +18,7 @@ const EventsPage = ({ upcomingEvents, pastEvents }) => {
                 </p>
                 <p className="max-w-xl leading-3 mt-2 mx-auto text-black font-bold mb-8">
                   <span className="text-sm md:text-lg">
-                    Elija la sede más cercana a tí
+                    Elige la sede más cercana a tí
                   </span>
                 </p>
               </div>
