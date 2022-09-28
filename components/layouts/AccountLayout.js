@@ -57,16 +57,16 @@ const AccountLayout = ({ children, ...props }) => {
                           <a
                             className={classNames(
                               item.current
-                                ? "bg-gray-50 text-indigo-700 hover:text-indigo-700 hover:bg-white"
+                                ? "bg-black text-happy-yellow hover:text-happy-yellow hover:bg-black"
                                 : "text-gray-900 hover:text-gray-900 hover:bg-gray-50",
-                              "group rounded-md px-3 py-2 flex items-center text-sm font-medium"
+                              "group rounded-md px-3 py-2 flex items-center text-sm font-medium "
                             )}
                             aria-current={item.current ? "page" : undefined}
                           >
                             <item.icon
                               className={classNames(
                                 item.current
-                                  ? "text-indigo-500 group-hover:text-indigo-500"
+                                  ? "text-happy-yellow group-hover:text-happy-yellow"
                                   : "text-gray-400 group-hover:text-gray-500",
                                 "flex-shrink-0 -ml-1 mr-3 h-6 w-6"
                               )}

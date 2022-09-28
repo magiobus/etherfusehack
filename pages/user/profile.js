@@ -95,8 +95,8 @@ const ProfilePage = () => {
           <form onSubmit={handleSubmit(submitHandler)}>
             <div className="shadow sm:rounded-md sm:overflow-hidden">
               <div className="bg-white py-6 px-4 space-y-6 sm:p-6">
-                <div>
-                  <h3 className="text-lg leading-6 font-medium text-gray-900">
+                <div className="bg-black text-happy-yellow ">
+                  <h3 className="text-lg leading-6 font-medium w-full ">
                     Información de mi cuenta
                   </h3>
                 </div>
@@ -117,7 +117,7 @@ const ProfilePage = () => {
                         name="name"
                         id="name"
                         autoComplete="given-name"
-                        className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                        className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-happy-yellow focus:border-happy-yellow sm:text-sm"
                         {...register("name", {
                           required: {
                             value: true,
@@ -199,7 +199,7 @@ const ProfilePage = () => {
                 <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
                   <button
                     type="submit"
-                    className="bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    className="bg-black border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-happy-yellow hover:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-happy-yellow"
                   >
                     {isLoading ? <LoadingCircle /> : "Actualizar"}
                   </button>
