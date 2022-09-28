@@ -43,9 +43,9 @@ const days = [
     dateTime: "",
     speakers: [
       {
-        name: "Jonathan Hernandez",
-        role: "Full Stack Developer @Distillery",
-        image: jonathanhernandez,
+        name: "Magio Bustillos",
+        role: "Hackathon Facilitator",
+        image: magiobustillos,
       },
     ],
   },

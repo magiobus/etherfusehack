@@ -7,7 +7,6 @@ import logoSide from "@/public/landingimages/logos/side.png";
 
 const sponsors = [
   { name: "Microsoft", logo: logoMicrosoft },
-  { name: "DataZone", logo: logoDataZone },
   { name: "Side", logo: logoSide },
 ];
 
