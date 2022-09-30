@@ -1,12 +1,12 @@
 import MainLayout from "@/components/layouts/MainLayout";
 import Image from "next/image";
-import Link from "next/link";
 import unixToFormat from "@/utils/unixToFormat";
 import clientPromise from "@/lib/mongodb";
 import { CalendarIcon, LocationMarkerIcon } from "@heroicons/react/solid";
 import RegisterModal from "@/components/events/RegisterModal";
 import { useState } from "react";
 import dateNowUnix from "@/utils/dateNowUnix";
+import ShareButtons from "@/components/events/ShareButtons";
 
 const EventDetailPage = ({ event, expired, registerCount }) => {
   const {
@@ -24,6 +24,8 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
   } = event;
 
   const [modalOpen, setModalOpen] = useState(false);
+  const shareUrl = `https://hackathon.etherfuse.com/events/${event._id}`;
+  const sharedMessage = `Te invito a ${event.name}!`;
 
   return (
     <MainLayout title={name} description={description} imageUrl={photo}>
@@ -125,6 +127,10 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
                       Ver Mapa
                     </a>
                   </div>
+                  <ShareButtons
+                    shareUrl={shareUrl}
+                    sharedMessage={sharedMessage}
+                  />
                 </div>
               </div>
             </div>
