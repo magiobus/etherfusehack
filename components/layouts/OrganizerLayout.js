@@ -7,14 +7,8 @@ import LoadingCircle from "@/components/common/LoadingCircle";
 import classNames from "@/utils/classNames";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
-import {
-  ChartBarIcon,
-  CashIcon,
-  CalendarIcon,
-  SpeakerphoneIcon,
-  UserGroupIcon,
-} from "@heroicons/react/outline";
-import toast, { Toaster } from "react-hot-toast";
+import { CalendarIcon } from "@heroicons/react/outline";
+import { Toaster } from "react-hot-toast";
 
 const OrganizerLayout = ({ title, children, ...props }) => {
   const router = useRouter();
@@ -64,6 +58,8 @@ const OrganizerLayout = ({ title, children, ...props }) => {
               <div className="lg:grid lg:grid-cols-12 lg:gap-x-5">
                 <aside className="py-6 px-2 sm:px-6 lg:py-0 lg:px-0 lg:col-span-2">
                   <nav className="space-y-1">
+                    <p className="mb-4 font-bold">Dashboard</p>
+
                     {navigation.map((item) => {
                       if (router.pathname.includes(item.href)) {
                         item.current = true;

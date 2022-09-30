@@ -1,11 +1,12 @@
 import unixToFormat from "@/utils/unixToFormat";
 import Image from "next/image";
 import { useState } from "react";
-
 import { CalendarIcon, LocationMarkerIcon } from "@heroicons/react/solid";
 import QRModal from "@/components/forms/QRModal";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
-const EventDetailCOntent = ({ event, ticketTypes, setJustScanned }) => {
+const EventDetailCOntent = ({ event, setJustScanned }) => {
   const {
     name,
     photo,
@@ -19,6 +20,7 @@ const EventDetailCOntent = ({ event, ticketTypes, setJustScanned }) => {
     locationUrl,
   } = event;
 
+  const router = useRouter();
   const [modalOpen, setModalOpen] = useState(false);
   const [ticketType, setTicketType] = useState(null);
 
@@ -39,6 +41,15 @@ const EventDetailCOntent = ({ event, ticketTypes, setJustScanned }) => {
             >
               Escanear QR
             </button>
+            {router.asPath.includes("admin") && (
+              <Link href={`${router.asPath}/edit`}>
+                <a>
+                  <p className="wrapperbutton bg-black text-center  px-2 py-1 text-happy-yellow rounded-md w-full my-4">
+                    Editar evento
+                  </p>
+                </a>
+              </Link>
+            )}
             <QRModal
               isOpen={modalOpen}
               setIsOpen={setModalOpen}

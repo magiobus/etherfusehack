@@ -148,7 +148,6 @@ handler.post(async (req, res) => {
     }
 
     //send whatsapp message with discord link
-
     try {
       const waData = {
         to: ticket.user.phone.replace(/\D/g, ""),

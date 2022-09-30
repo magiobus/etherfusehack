@@ -1,31 +1,35 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
+import {
+  Input,
+  Divider,
+  TextArea,
+  Select,
+  CoverImage,
+  CheckBox,
+} from "@/components/forms/fields";
 import { useEffect, useState } from "react";
 import LoadingCircle from "@/components/common/LoadingCircle";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
-import Input from "@/components/forms/fields/Input";
-import TextArea from "@/components/forms/fields/TextArea";
-import Select from "@/components/forms/fields/Select";
-import Divider from "@/components/forms/fields/Divider";
-import CheckBox from "@/components/forms/fields/CheckBox";
-import CoverImage from "@/components/forms/fields/CoverImage";
 import { State, City } from "country-state-city";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 import timezones from "@/data/timezones.json";
 
-const EventForm = () => {
+const EventForm = ({ type = "new" }) => {
   const [buttonLoading, setButtonLoading] = useState(false);
   const [states, setStates] = useState([]);
   const [cities, setCities] = useState([]);
   const countryCode = "MX";
   const router = useRouter();
+  const [event, setEvent] = useState(null); //for set photo
 
   const {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
   } = useForm();
 
@@ -45,7 +49,27 @@ const EventForm = () => {
       });
       setStates(parsedStates);
     };
+    const fetchEventData = async () => {
+      const { data } = await axios.get(`/api/admin/events/${router.query.id}`);
+
+      const parsedEvent = {
+        _id: data?._id,
+        name: data?.name,
+        description: data?.description,
+        isPublic: data?.isPublic,
+        locationUrl: data?.locationUrl,
+        photo: data?.photo,
+        attendeeLimit: data?.attendeeLimit || "",
+        isGivingShirts: data?.isGivingShirts,
+      };
+      reset(parsedEvent);
+      //set event for image preview
+      setEvent(parsedEvent);
+    };
     fetchStates();
+    if (type === "edit") {
+      fetchEventData();
+    }
   }, []);
 
   //if change is selected, fetch cities
@@ -72,6 +96,12 @@ const EventForm = () => {
     try {
       const newData = { ...data, placeCountry: "MX" };
       const formData = new FormData();
+
+      //if image is a string, it means it's a url, so we don't need to send it
+      if (typeof data?.photo === "string") {
+        delete newData.photo;
+      }
+
       Object.keys(newData).forEach((key) => {
         if (key === "photo") {
           if (data[key][0]) formData.append(key, data[key][0]); //append image file to formData
@@ -80,18 +110,30 @@ const EventForm = () => {
         }
       });
 
-      await axios.post("/api/admin/events/", formData, {
+      const options = {
         headers: {
           accept: "application/json",
           "Content-Type": `multipart/form-data; boundary=${formData._boundary}`,
         },
-      });
+      };
 
-      toast.success("Evento creado con éxito, redirigiendo...");
-      //Redirects to events list page after event is created
-      setTimeout(() => {
-        router.push(`/admin/events`);
-      }, 2000);
+      if (type === "new") {
+        await axios.post("/api/admin/events", formData, options);
+        toast.success("Evento creado con éxito, redirigiendo...");
+        setTimeout(() => {
+          router.push(`/admin/events`);
+        }, 2000);
+      } else if (type === "edit") {
+        await axios.put(
+          `/api/admin/events/${router.query.id}`,
+          formData,
+          options
+        );
+        toast.success("Evento actualizado con éxito, redirigiendo...");
+        setTimeout(() => {
+          router.push(`/admin/events/${router.query.id}`);
+        }, 2000);
+      }
     } catch (error) {
       console.error("error", error);
       toast.error("Ocurrió un error al crear el evento");
@@ -153,70 +195,79 @@ const EventForm = () => {
             errorMessage={errors.description?.message}
           />
         </div>
-        <div className="datewrapper flex flex-col lg:flex-row lg:justify-start lg:space-x-8 lg:items-center  ">
-          <div className="inputwrapper">
-            <Input
-              label="Hora de inicio"
-              name="startTime"
-              type="datetime-local"
-              register={{
-                ...register("startTime", {
-                  required: {
-                    value: true,
-                    message: "Hora de Inicio del evento es requerida",
-                  },
-                }),
-              }}
-              errorMessage={errors.startTime?.message}
-            />
+        {type === "new" && (
+          <div className="datewrapper flex flex-col lg:flex-row lg:justify-start lg:space-x-8 lg:items-center  ">
+            <div className="inputwrapper">
+              <Input
+                label="Hora de inicio"
+                name="startTime"
+                type="datetime-local"
+                register={{
+                  ...register("startTime", {
+                    required: {
+                      value: true,
+                      message: "Hora de Inicio del evento es requerida",
+                    },
+                  }),
+                }}
+                errorMessage={errors.startTime?.message}
+              />
+            </div>
+            <div className="inputwrapper my-3 lg:my-0">
+              <Input
+                label="Hora de finalización"
+                name="endTime"
+                type="datetime-local"
+                register={{
+                  ...register("endTime", {
+                    required: {
+                      value: true,
+                      message: "Hora de Inicio del evento es requerida",
+                    },
+                  }),
+                }}
+                errorMessage={errors.endTime?.message}
+              />
+            </div>
+            <div className="inputwrapper my-3 lg:my-0">
+              <Select
+                label="Zona Horaria"
+                name="timeZone"
+                options={timezones}
+                register={{
+                  ...register("timeZone", {
+                    required: {
+                      value: true,
+                      message: "Zona Horaria es requerido",
+                    },
+                  }),
+                }}
+                errorMessage={errors.timeZone?.message}
+              />
+            </div>
           </div>
-          <div className="inputwrapper my-3 lg:my-0">
-            <Input
-              label="Hora de finalización"
-              name="endTime"
-              type="datetime-local"
-              register={{
-                ...register("endTime", {
-                  required: {
-                    value: true,
-                    message: "Hora de Inicio del evento es requerida",
-                  },
-                }),
-              }}
-              errorMessage={errors.endTime?.message}
-            />
-          </div>
-          <div className="inputwrapper my-3 lg:my-0">
-            <Select
-              label="Zona Horaria"
-              name="timeZone"
-              options={timezones}
-              register={{
-                ...register("timeZone", {
-                  required: {
-                    value: true,
-                    message: "Zona Horaria es requerido",
-                  },
-                }),
-              }}
-              errorMessage={errors.timeZone?.message}
-            />
-          </div>
-        </div>
+        )}
 
         <div className="inputwrapper my-3">
           <CoverImage
             label="Imágen del evento"
             name="photo"
             dimensions="Medida Recomendada: 1280x640px"
-            register={{
-              ...register("photo", {
-                required: {
-                  value: true,
-                  message: "La imagen del evento es requerida",
-                },
-              }),
-            }}
+            register={
+              type === "new"
+                ? {
+                    ...register("photo", {
+                      required: {
+                        value: true,
+                        message: "La imagen del evento es requerida",
+                      },
+                    }),
+                  }
+                : {
+                    ...register("photo"),
+                  }
+            }
+            defaultValue={event?.photo}
             errorMessage={errors.photo?.message}
           />
         </div>
@@ -259,83 +310,87 @@ const EventForm = () => {
           hideLine={true}
         />
 
-        <div className="inputwrapper my-3">
-          <Input
-            label="Nombre"
-            name="placeName"
-            type="text"
-            register={{
-              ...register("placeName", {
-                required: {
-                  value: true,
-                  message: "El nombre del lugar es requerido",
-                },
-                maxLength: {
-                  value: 35,
-                  message: "No puede contener más de 35 caracteres",
-                },
-              }),
-            }}
-            placeholder="Escribe el nombre del lugar de tu evento"
-            errorMessage={errors.placeName?.message}
-          />
-        </div>
+        {type === "new" && (
+          <>
+            <div className="inputwrapper my-3">
+              <Input
+                label="Nombre"
+                name="placeName"
+                type="text"
+                register={{
+                  ...register("placeName", {
+                    required: {
+                      value: true,
+                      message: "El nombre del lugar es requerido",
+                    },
+                    maxLength: {
+                      value: 35,
+                      message: "No puede contener más de 35 caracteres",
+                    },
+                  }),
+                }}
+                placeholder="Escribe el nombre del lugar de tu evento"
+                errorMessage={errors.placeName?.message}
+              />
+            </div>
 
-        <div className="inputwrapper my-3">
-          <Input
-            label="Dirección"
-            name="placeAddress"
-            type="text"
-            register={{
-              ...register("placeAddress", {
-                required: {
-                  value: true,
-                  message: "Dirección del lugar es requerida",
-                },
-                maxLength: {
-                  value: 100,
-                  message: "No puede contener más de 100 caracteres",
-                },
-              }),
-            }}
-            placeholder="Calle, Número y Colonia"
-            errorMessage={errors.placeName?.message}
-          />
-        </div>
+            <div className="inputwrapper my-3">
+              <Input
+                label="Dirección"
+                name="placeAddress"
+                type="text"
+                register={{
+                  ...register("placeAddress", {
+                    required: {
+                      value: true,
+                      message: "Dirección del lugar es requerida",
+                    },
+                    maxLength: {
+                      value: 100,
+                      message: "No puede contener más de 100 caracteres",
+                    },
+                  }),
+                }}
+                placeholder="Calle, Número y Colonia"
+                errorMessage={errors.placeName?.message}
+              />
+            </div>
 
-        <div className="inputwrapper my-3">
-          <Select
-            label="Estado"
-            name="placeState"
-            options={states}
-            register={{
-              ...register("placeState", {
-                required: {
-                  value: true,
-                  message: "Estado es requerido",
-                },
-              }),
-            }}
-            errorMessage={errors.placeState?.message}
-          />
-        </div>
+            <div className="inputwrapper my-3">
+              <Select
+                label="Estado"
+                name="placeState"
+                options={states}
+                register={{
+                  ...register("placeState", {
+                    required: {
+                      value: true,
+                      message: "Estado es requerido",
+                    },
+                  }),
+                }}
+                errorMessage={errors.placeState?.message}
+              />
+            </div>
 
-        <div className="inputwrapper my-3">
-          <Select
-            label="Ciudad"
-            name="placeCity"
-            options={cities}
-            register={{
-              ...register("placeCity", {
-                required: {
-                  value: true,
-                  message: "Ciudad es requerida",
-                },
-              }),
-            }}
-            errorMessage={errors.placeCity?.message}
-          />
-        </div>
+            <div className="inputwrapper my-3">
+              <Select
+                label="Ciudad"
+                name="placeCity"
+                options={cities}
+                register={{
+                  ...register("placeCity", {
+                    required: {
+                      value: true,
+                      message: "Ciudad es requerida",
+                    },
+                  }),
+                }}
+                errorMessage={errors.placeCity?.message}
+              />
+            </div>
+          </>
+        )}
         <div className="inputwrapper my-3">
           <Input
             label="Url de Google Maps"
@@ -377,8 +432,10 @@ const EventForm = () => {
             <div className="inline-flex items-center justify-center">
               <LoadingCircle color="#ffffff" />
             </div>
-          ) : (
+          ) : type === "new" ? (
             "Crear Evento"
+          ) : (
+            "Actualizar Evento"
           )}
         </button>
       </form>
