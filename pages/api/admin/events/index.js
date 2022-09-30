@@ -145,15 +145,43 @@ handler.post(async (req, res) => {
 //GET Events
 handler.get(async (req, res) => {
   const db = req.db;
-  //get all events sorted by newest
+  const { page, sort, order, limit, role } = req.query;
+
+  if (!page || !sort || !order || !limit) {
+    console.error("You need to provide page, sort and order query params");
+    res
+      .status(400)
+      .end("You need to provide page, sort and order query params");
+    return;
+  }
 
   const events = await db
     .collection("events")
-    .find()
-    .sort({ createdAt: -1 })
+    .aggregate([
+      {
+        $match: {},
+      },
+      {
+        $sort: {
+          [sort]: order === "asc" ? 1 : -1,
+        },
+      },
+      {
+        $skip: (Number(page) - 1) * Number(limit),
+      },
+      {
+        $limit: Number(limit),
+      },
+    ])
     .toArray();
 
-  res.json(events);
+  const eventsCount = await db.collection("events").countDocuments();
+
+  res.json({
+    events,
+    count: eventsCount,
+    totalPages: Math.ceil(eventsCount / limit),
+  });
 });
 
 export const config = {

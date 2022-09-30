@@ -7,7 +7,6 @@ import dateNowUnix from "@/utils/dateNowUnix";
 const EventsPage = ({ upcomingEvents, pastEvents }) => {
   return (
     <MainLayout title="Eventos">
-      {/* upcoming events */}
       <div className="content flex flex-col justify-center items-center w-full m-0">
         <div className="wrapper max-w-7xl ">
           <div className="">

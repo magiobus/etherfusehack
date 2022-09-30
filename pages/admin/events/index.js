@@ -6,17 +6,37 @@ import LoadingCircle from "@/components/common/LoadingCircle";
 import axios from "axios";
 import unixToFormat from "@/utils/unixToFormat";
 import classNames from "@/utils/classNames";
+import Pagination from "@/components/common/Pagination";
+import { isExpired } from "@/utils/eventHelpers";
 
 const AdminEventsPage = () => {
   const [isInitialLoading, setIsInitialLoading] = useState(true);
   const [fetchError, setFetchError] = useState(false);
   const [events, setEvents] = useState(undefined);
+
+  const [page, setPage] = useState(1);
+  const [paginationData, setPaginationData] = useState({});
+
+  const pageSize = 20;
+  const sortBy = "createdAt";
+  const orderBy = "desc";
+
   useEffect(() => {
     async function getEvents() {
       setIsInitialLoading(true);
       try {
-        const { data } = await axios.get(`/api/admin/events/`);
-        setEvents(data);
+        const { data } = await axios.get(
+          `/api/admin/events/?page=${page}&limit=${pageSize}&sort=${sortBy}&order=${orderBy}`
+        );
+        const { events, count, totalPages } = data;
+
+        setEvents(events);
+        setPaginationData({
+          page,
+          pageSize: events.length,
+          totalPages,
+          totalCount: count,
+        });
         setFetchError(false);
       } catch (err) {
         setFetchError(true);
@@ -25,7 +45,7 @@ const AdminEventsPage = () => {
     }
 
     getEvents();
-  }, []);
+  }, [page]);
 
   return (
     <AdminLayout title="Eventos">
@@ -106,9 +126,14 @@ const AdminEventsPage = () => {
                                   </td>
 
                                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                    {unixToFormat(
-                                      event?.startTime,
-                                      "d 'de' MMMM yyyy h:mm aa"
+                                    {isExpired(event) ? (
+                                      <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                        Expired
+                                      </span>
+                                    ) : (
+                                      <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                        Upcoming
+                                      </span>
                                     )}
                                   </td>
 
@@ -138,6 +163,10 @@ const AdminEventsPage = () => {
                               ))}
                             </tbody>
                           </table>
+                          <Pagination
+                            paginationData={paginationData}
+                            setPage={setPage}
+                          />
                         </div>
                       ) : (
                         <div className="py-24 text-center">
