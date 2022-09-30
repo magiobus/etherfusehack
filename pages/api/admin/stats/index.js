@@ -26,10 +26,12 @@ handler.get(async (req, res) => {
   //returns count of users
   const users = await db.collection("users").countDocuments();
   const events = await db.collection("events").countDocuments();
+  const tickets = await db.collection("tickets").countDocuments();
 
   const stats = [
-    { name: "users", nameEs: "usuarios", stat: users },
-    { name: "events", nameEs: "eventos", stat: events },
+    { name: "users", nameEs: "usuarios 👩‍👦‍👦", stat: users },
+    { name: "events", nameEs: "eventos 🎤", stat: events },
+    { name: "tickets", nameEs: "tickets 🎟", stat: tickets },
   ];
 
   return res.json(stats);
