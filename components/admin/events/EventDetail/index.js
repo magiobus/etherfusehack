@@ -21,7 +21,7 @@ const EventDetail = ({
                   <div className="py-2 align-middle inline-block min-w-full w-full sm:px-6 lg:px-8">
                     {isInitialLoading ? (
                       <div className="py-24">
-                        <LoadingCircle color="#E4187D" />
+                        <LoadingCircle color="#000000" />
                       </div>
                     ) : fetchError ? (
                       <div className="py-24 text-center">
