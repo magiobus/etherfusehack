@@ -3,11 +3,11 @@ import Image from "next/future/image";
 import { Container } from "@/components/landing/Container";
 import logoMicrosoft from "@/public/landingimages/logos/microsoft.png";
 import logoDataZone from "@/public/landingimages/logos/datazone.jpeg";
-import logoSide from "@/public/landingimages/logos/side.png";
+import logoGobierno from "@/public/landingimages/logos/gobierno.png";
 
 const sponsors = [
   { name: "Microsoft", logo: logoMicrosoft },
-  { name: "Side", logo: logoSide },
+  { name: "Gobierno", logo: logoGobierno },
 ];
 
 export function Sponsors() {
