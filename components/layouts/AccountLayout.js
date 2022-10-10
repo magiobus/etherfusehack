@@ -4,7 +4,7 @@ import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
 import NoAccessErrorPage from "@/components/errors/NoAccessErrorPage";
 import LoadingCircle from "@/components/common/LoadingCircle";
-import { UserCircleIcon } from "@heroicons/react/outline";
+import { UserCircleIcon, CodeIcon } from "@heroicons/react/outline";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
 import classNames from "@/utils/classNames";
@@ -18,6 +18,18 @@ const AccountLayout = ({ children, ...props }) => {
       name: "Mi Cuenta",
       href: "/user/profile",
       icon: UserCircleIcon,
+      current: false,
+    },
+    {
+      name: "Mis Tickets",
+      href: "/user/tickets",
+      icon: UserCircleIcon,
+      current: false,
+    },
+    {
+      name: "Mis Proyectos",
+      href: "/user/projects",
+      icon: CodeIcon,
       current: false,
     },
   ];

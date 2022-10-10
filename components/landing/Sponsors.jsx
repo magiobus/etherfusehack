@@ -2,12 +2,13 @@ import Image from "next/future/image";
 
 import { Container } from "@/components/landing/Container";
 import logoMicrosoft from "@/public/landingimages/logos/microsoft.png";
-import logoDataZone from "@/public/landingimages/logos/datazone.jpeg";
+import logoBlockChainBusinessSchool from "@/public/landingimages/logos/blockchainbusinessschool.png";
 import logoGobierno from "@/public/landingimages/logos/gobierno.png";
 
 const sponsors = [
   { name: "Microsoft", logo: logoMicrosoft },
   { name: "Gobierno", logo: logoGobierno },
+  { name: "Blockchain Business School", logo: logoBlockChainBusinessSchool },
 ];
 
 export function Sponsors() {

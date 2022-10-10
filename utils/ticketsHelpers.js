@@ -1,9 +1,8 @@
 import dateNowUnix from "./dateNowUnix";
 
-const isExpired = (event) => {
+const isExpired = (expiresAt) => {
   const now = dateNowUnix();
-  const eventUnix = event.startTime;
-  if (now > eventUnix) {
+  if (now > expiresAt) {
     return true;
   } else {
     return false;

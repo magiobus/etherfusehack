@@ -241,7 +241,7 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                           <div className="inputwrapper my-3">
                             <CheckBox
                               label="Acepto los términos y condiciones"
-                              description="Al registrarte aceptas los términos y condiciones de la plataforma"
+                              description="Al registrarte aceptas los términos y Condiciones"
                               name="terms"
                               register={{
                                 ...register("terms", {

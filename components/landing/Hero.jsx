@@ -4,7 +4,7 @@ import { Container } from "@/components/landing/Container";
 
 const eventInfo = [
   ["Mentores", "+30"],
-  ["Participantes", "+300"],
+  ["Participantes", "+400"],
   ["Sedes", "Varias sedes"],
   ["Lugar", "Chihuahua, Mx"],
 ];
@@ -46,7 +46,7 @@ export function Hero() {
               </p>
               <p className=" m-0 p-0">
                 Cd. Chihuahua, Cd. Juárez, Nuevo Casas Grandes, Cuauhtémoc,
-                Delicias, Parral, Jiménez, Camargo.
+                Delicias, Parral, Camargo.
               </p>
             </div>
           </div>

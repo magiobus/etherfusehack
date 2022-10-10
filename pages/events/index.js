@@ -24,7 +24,7 @@ const EventsPage = ({ upcomingEvents, pastEvents }) => {
             </div>
           </div>
         </div>
-        <EventsList data={upcomingEvents} className="mt-6 lg:mt-12" />
+        <EventsList data={upcomingEvents} className="mt-6 lg:mt-24" />
       </div>
     </MainLayout>
   );

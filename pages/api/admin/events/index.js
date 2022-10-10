@@ -155,11 +155,39 @@ handler.get(async (req, res) => {
     return;
   }
 
+  //add ticket count to every event
   const events = await db
     .collection("events")
     .aggregate([
+      { $addFields: { _id: { $toString: "$_id" } } },
       {
-        $match: {},
+        $lookup: {
+          from: "tickets",
+          let: { eventId: "$_id" },
+          pipeline: [
+            {
+              $match: {
+                $expr: {
+                  $and: [{ $eq: ["$eventId", "$$eventId"] }],
+                },
+              },
+            },
+            {
+              $group: {
+                _id: "$eventId",
+                count: { $sum: 1 },
+              },
+            },
+          ],
+          as: "ticketCount",
+        },
+      },
+      {
+        $addFields: {
+          ticketCount: {
+            $arrayElemAt: ["$ticketCount.count", 0],
+          },
+        },
       },
       {
         $sort: {
