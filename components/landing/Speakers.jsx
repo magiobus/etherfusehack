@@ -9,6 +9,7 @@ import ajtaylor from "@/public/landingimages/avatars/ajtaylor.png";
 import davidandujo from "@/public/landingimages/avatars/davidandujo.jpeg";
 import magiobustillos from "@/public/landingimages/avatars/magiobustillos.jpeg";
 import jonathanhernandez from "@/public/landingimages/avatars/jonathanhernandez.jpeg";
+import diegoquintana from "@/public/landingimages/avatars/diegoquintana.jpeg";
 const days = [
   {
     name: "Team ",
@@ -19,21 +20,25 @@ const days = [
         name: "David Taylor",
         role: "CEO Etherfuse",
         image: davidtaylor,
+        url: "https://www.linkedin.com/in/lifehug/",
       },
       {
         name: "AJ Taylor",
         role: "CTO Etherfuse",
         image: ajtaylor,
+        url: "https://www.linkedin.com/in/aj-taylor-977a5481/",
       },
       {
         name: "David Andujo",
         role: "ILUM Venture Partner",
         image: davidandujo,
+        url: "https://www.linkedin.com/in/andujo/",
       },
       {
         name: "Magio Bustillos",
         role: "Hackathon Facilitator",
         image: magiobustillos,
+        url: "https://twitter.com/magiobus",
       },
     ],
   },
@@ -43,9 +48,16 @@ const days = [
     dateTime: "",
     speakers: [
       {
+        name: "Diego Quintana",
+        role: "CEO Blockchain Business School",
+        image: diegoquintana,
+        url: "https://www.linkedin.com/in/diegoquintana13/",
+      },
+      {
         name: "Magio Bustillos",
         role: "Hackathon Facilitator",
         image: magiobustillos,
+        url: "https://twitter.com/magiobus",
       },
     ],
   },
@@ -166,7 +178,10 @@ export function Speakers() {
                           ][speakerIndex % 3]
                         )}
                       />
-                      <div
+                      <a
+                        href={speaker?.url || "#"}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="absolute inset-0 bg-indigo-50"
                         style={{ clipPath: `url(#${id}-${speakerIndex % 3})` }}
                       >
@@ -177,7 +192,7 @@ export function Speakers() {
                           priority
                           sizes="(min-width: 1280px) 17.5rem, (min-width: 1024px) 25vw, (min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw"
                         />
-                      </div>
+                      </a>
                     </div>
                     <h3 className="mt-8 font-display text-xl font-bold tracking-tight text-slate-900">
                       {speaker.name}
