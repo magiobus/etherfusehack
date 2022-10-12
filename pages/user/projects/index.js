@@ -8,6 +8,7 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { isExpired } from "@/utils/ticketsHelpers";
 import Pagination from "@/components/common/Pagination";
+import EmptyState from "@/components/forms/EmptyState";
 
 const ProfilePage = () => {
   const [isInitialLoading, setIsInitialLoading] = useState(true);
@@ -74,7 +75,11 @@ const ProfilePage = () => {
                     </div>
                   ) : (
                     <div className="w-full text-red-600">
-                      No tienes proyectos 😢
+                      <EmptyState
+                        title="No tienes proyectos 😢"
+                        buttonText="Crea un proyecto"
+                        buttonUrl="/user/projects/add"
+                      />
                     </div>
                   )}
                 </>

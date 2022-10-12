@@ -1,6 +1,6 @@
 import MainLayout from "@/components/layouts/MainLayout";
 import faqs from "@/data/faqs.json";
-
+import Link from "next/link";
 const FaqsPage = () => {
   return (
     <MainLayout fixed={true} title="Preguntas Frecuentes">
@@ -21,6 +21,27 @@ const FaqsPage = () => {
                   <dd className="mt-2 text-base text-gray-500">{faq.answer}</dd>
                 </div>
               ))}
+
+              <div>
+                <dt className="text-lg leading-6 font-medium text-gray-900">
+                  ¿Debería de tener conocimientos previos?
+                </dt>
+                <dd className="mt-2 text-base text-gray-500">
+                  Lo ideal es entender cómo funciona todo el tema de blockchain,
+                  pero ve el fin de semana de hackathon cómo una oportunidad
+                  para aprender nuevas cosas. Si no sabes nada de blockchain, te
+                  preparamos una serie de recursos para que puedas iniciar en
+                  este mundo.{" "}
+                  <Link href="/resources">
+                    <a>
+                      <span className="text-happy-yellow bg-black">
+                        {" "}
+                        Click Aquí
+                      </span>
+                    </a>
+                  </Link>
+                </dd>
+              </div>
 
               <div>
                 <dt className="text-lg leading-6 font-medium text-gray-900">

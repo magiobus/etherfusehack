@@ -4,10 +4,11 @@ import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
 import NoAccessErrorPage from "@/components/errors/NoAccessErrorPage";
 import LoadingCircle from "@/components/common/LoadingCircle";
-import { UserCircleIcon, CodeIcon } from "@heroicons/react/outline";
+import { UserCircleIcon, CodeIcon, TicketIcon } from "@heroicons/react/outline";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
 import classNames from "@/utils/classNames";
+import { Toaster } from "react-hot-toast";
 
 const AccountLayout = ({ children, ...props }) => {
   const router = useRouter();
@@ -23,7 +24,7 @@ const AccountLayout = ({ children, ...props }) => {
     {
       name: "Mis Tickets",
       href: "/user/tickets",
-      icon: UserCircleIcon,
+      icon: TicketIcon,
       current: false,
     },
     {
@@ -55,6 +56,7 @@ const AccountLayout = ({ children, ...props }) => {
       <div className="min-h-full h-full">
         <div className="flex flex-col w-full bg-gray-100 " {...props}>
           <Header />
+          <Toaster position="bottom-center" />
           <div className="w-full max-w-7xl  mx-auto  ">
             <div className="max-w-7xl w-full py-6 sm:px-6  ">
               <div className="lg:grid lg:grid-cols-12 lg:gap-x-5">

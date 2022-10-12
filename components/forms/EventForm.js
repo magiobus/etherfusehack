@@ -143,7 +143,6 @@ const EventForm = ({ type = "new" }) => {
 
   return (
     <>
-      <Toaster position="bottom-center" />
       <form onSubmit={handleSubmit(onSubmit)}>
         <Divider
           label="Información del evento"

@@ -66,7 +66,7 @@ const CoverImage = ({
             <div className="flex text-sm justify-center text-gray-600">
               <label
                 htmlFor={name}
-                className="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
+                className="relative cursor-pointer px-2 font-medium text-happy-yellow hover:text-happy-yellow bg-black focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
               >
                 {imageSrc ? (
                   <span>Cambiar Imágen</span>
