@@ -61,6 +61,7 @@ const EventForm = ({ type = "new" }) => {
         photo: data?.photo,
         attendeeLimit: data?.attendeeLimit || "",
         isGivingShirts: data?.isGivingShirts,
+        maxTeamSize: data?.maxTeamSize || "",
       };
       reset(parsedEvent);
       //set event for image preview
@@ -289,7 +290,7 @@ const EventForm = ({ type = "new" }) => {
                       value: 10,
                       message: "Debe de ser mayor a 10",
                     },
-                    maxLength: {
+                    max: {
                       value: 5000,
                       message: "Debe de ser menor a 5000",
                     },
@@ -297,6 +298,29 @@ const EventForm = ({ type = "new" }) => {
                 }}
                 placeholder="10"
                 errorMessage={errors.attendeeLimit?.message}
+              />
+              <Input
+                label="Maximo de personas por equipo"
+                name="maxTeamSize"
+                type="number"
+                register={{
+                  ...register("maxTeamSize", {
+                    required: {
+                      value: true,
+                      message: "Max personas es requerido",
+                    },
+                    min: {
+                      value: 1,
+                      message: "Debe de ser mayor a 1",
+                    },
+                    max: {
+                      value: 15,
+                      message: "Debe de ser menor a 15",
+                    },
+                  }),
+                }}
+                placeholder="5"
+                errorMessage={errors.maxTeamSize?.message}
               />
             </div>
           </div>

@@ -5,9 +5,9 @@ import {
   Divider,
   TextArea,
   Select,
-  CoverImage,
-  CheckBox,
+  ThumbImage,
 } from "@/components/forms/fields";
+
 import { useEffect, useState } from "react";
 import LoadingCircle from "@/components/common/LoadingCircle";
 import toast, { Toaster } from "react-hot-toast";
@@ -35,16 +35,12 @@ const ProjectForm = ({ type = "new" }) => {
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Divider
-          label="Información de tu proyecto"
-          className="mt-2 mb-2"
-          hideLine={true}
-        />
+        <p className="italic mb-4">La información se puede cambiar luego.</p>
 
         <div className="proyectinfocontainer">
           <div className="inputwrapper my-3">
             <Input
-              label="Nombre del proyecto"
+              label="Nombre del proyecto * "
               name="name"
               register={{
                 ...register("name", {
@@ -62,16 +58,24 @@ const ProjectForm = ({ type = "new" }) => {
               errorMessage={errors.name?.message}
             />
           </div>
+
+          <Divider
+            label="Integrantes de tu equipo"
+            className="mt-8"
+            hideLine={true}
+          />
+
+          <Divider
+            label="Información de tu proyecto"
+            className="mt-8"
+            hideLine={true}
+          />
           <div className="inputwrapper my-3">
             <TextArea
               label="Describe en un tweet que hace tu proyecto"
               name="description"
               register={{
                 ...register("description", {
-                  required: {
-                    value: true,
-                    message: "Este campo es requerido",
-                  },
                   minLength: {
                     value: 100,
                     message: "Debe de tener minimo 100 caracteres",
@@ -91,10 +95,6 @@ const ProjectForm = ({ type = "new" }) => {
               name="problem"
               register={{
                 ...register("problem", {
-                  required: {
-                    value: true,
-                    message: "Este campo es requerido",
-                  },
                   minLength: {
                     value: 100,
                     message: "Debe de tener minimo 100 caracteres",
@@ -109,10 +109,10 @@ const ProjectForm = ({ type = "new" }) => {
             />
           </div>
           <div className="inputwrapper my-3">
-            <CoverImage
-              label="Imágen de tu proyecto"
+            <ThumbImage
+              label="Imágen de tu proyecto (opcional)"
               name="photo"
-              dimensions="Medida Recomendada: 1280x640px"
+              dimensions="Medida Recomendada: 512x512px"
               register={{
                 ...register("photo"),
               }}
@@ -120,6 +120,7 @@ const ProjectForm = ({ type = "new" }) => {
               errorMessage={errors.photo?.message}
             />
           </div>
+          <Divider label="Entregables" className="mt-8" hideLine={true} />
           <div className="inputwrapper my-3">
             <Input
               label="Url de repositorio de github"

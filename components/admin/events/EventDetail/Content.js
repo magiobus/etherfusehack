@@ -84,6 +84,7 @@ const EventDetailCOntent = ({ event, setJustScanned }) => {
             <p className="capitalize">
               {placeState}, {placeCity} {placeCountry}
             </p>
+
             {locationUrl && (
               <a
                 href={locationUrl}

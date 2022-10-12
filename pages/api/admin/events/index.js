@@ -57,6 +57,7 @@ handler.post(async (req, res) => {
     placeState,
     timeZone,
     attendeeLimit,
+    maxTeamSize,
     isGivingShirts,
   } = req.body;
 
@@ -86,6 +87,7 @@ handler.post(async (req, res) => {
       createdBy: user.id || "",
       price: 0,
       attendeeLimit: parseInt(attendeeLimit) || 0,
+      maxTeamSize: parseInt(maxTeamSize) || 5,
       isGivingShirts: isGivingShirts === "true",
     };
 
