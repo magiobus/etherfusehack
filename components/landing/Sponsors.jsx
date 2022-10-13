@@ -5,12 +5,17 @@ import logoMicrosoft from "@/public/landingimages/logos/microsoft.png";
 import logoBlockChainBusinessSchool from "@/public/landingimages/logos/blockchainbusinessschool.png";
 import logoGobierno from "@/public/landingimages/logos/gobierno.png";
 import logoEtherfuse from "@/public/landingimages/logos/etherfuse.png";
-
+import logoSolana from "@/public/landingimages/logos/solanalogo.png";
 const sponsors = [
   {
     name: "Etherfuse",
     logo: logoEtherfuse,
     url: "https://etherfuse.com/",
+  },
+  {
+    name: "Solana",
+    logo: logoSolana,
+    url: "https://solana.com",
   },
   { name: "Microsoft", logo: logoMicrosoft, url: "https://microsoft.com/" },
   { name: "Gobierno", logo: logoGobierno, url: "https://www.chihuahua.gob.mx" },
