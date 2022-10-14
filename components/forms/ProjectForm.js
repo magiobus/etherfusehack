@@ -59,6 +59,22 @@ const ProjectForm = ({ type = "new" }) => {
             />
           </div>
 
+          <div className="inputwrapper my-3">
+            <Select
+              label="A que sede pertenece tu proyecto? * "
+              name="eventId"
+              register={{
+                ...register("eventId", {
+                  required: {
+                    value: true,
+                    message: "La sede es requerida",
+                  },
+                }),
+              }}
+              errorMessage={errors.eventId?.message}
+            />
+          </div>
+
           <Divider
             label="Integrantes de tu equipo"
             className="mt-8"

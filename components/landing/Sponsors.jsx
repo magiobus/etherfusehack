@@ -6,6 +6,7 @@ import logoBlockChainBusinessSchool from "@/public/landingimages/logos/blockchai
 import logoGobierno from "@/public/landingimages/logos/gobierno.png";
 import logoEtherfuse from "@/public/landingimages/logos/etherfuse.png";
 import logoSolana from "@/public/landingimages/logos/solanalogo.png";
+import logoMolusco from "@/public/landingimages/logos/moluscologo.png";
 const sponsors = [
   {
     name: "Etherfuse",
@@ -23,6 +24,11 @@ const sponsors = [
     name: "Blockchain Business School",
     logo: logoBlockChainBusinessSchool,
     url: "https://www.facebook.com/blockchainbusinessschool/",
+  },
+  {
+    name: "Molusco",
+    logo: logoMolusco,
+    url: "https://molus.co",
   },
 ];
 
