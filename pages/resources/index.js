@@ -57,14 +57,12 @@ const ResourcesPage = () => {
                     </h2>
                     <YoutubeVideo youtubeId="Y2qe3hFeQ5g" />
                   </div>
-
                   <div className="resource md:pr-4  flex justify-between flex-col items-start  w-full">
                     <h2 className="font-bold text-xl mb-2">
                       Bitcoin 101: ¿Qué es Bitcoin? ¿Cómo funciona?
                     </h2>
                     <YoutubeVideo youtubeId="41JCpzvnn_0" />
                   </div>
-
                   <div className="resource md:pr-4  flex justify-between flex-col items-start  w-full">
                     <h2 className="font-bold text-xl mb-2">
                       Ethereum 101: ¿Qué es Ethereum? ¿Cómo funciona?
@@ -85,11 +83,24 @@ const ResourcesPage = () => {
                     <YoutubeVideo youtubeId="vluFUSMMHu4" />
                   </div>
                   <div className="resource md:pr-4  flex justify-between flex-col items-start w-full">
+                    <h2 className="font-bold text-xl mb-2">Smart Contracts</h2>
+                    <p className="mb-4 w-full lg:w-3/4"></p>
+                    <YoutubeVideo youtubeId="pyaIppMhuic" />
+                  </div>
+                  <div className="resource md:pr-4  flex justify-between flex-col items-start w-full">
                     <h2 className="font-bold text-xl mb-2">
                       Staking: ¿Qué es staking?
                     </h2>
                     <p className="mb-4 w-full lg:w-3/4"></p>
                     <YoutubeVideo youtubeId="oGnxlPJfDJY" />
+                  </div>
+
+                  <div className="resource md:pr-4 flex justify-between flex-col items-start  w-full">
+                    <h2 className="font-bold text-xl mb-2">
+                      From Bitcoin to DEFi
+                    </h2>
+                    <p className="mb-4 w-full lg:w-3/4"></p>
+                    <YoutubeVideo youtubeId="dM8DAIAx124" />
                   </div>
                   <div className="resource md:pr-4 flex justify-between flex-col items-start  w-full">
                     <h2 className="font-bold text-xl mb-2">
