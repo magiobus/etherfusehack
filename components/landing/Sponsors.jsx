@@ -8,6 +8,7 @@ import logoEtherfuse from "@/public/landingimages/logos/etherfuse.png";
 import logoSolana from "@/public/landingimages/logos/solanalogo.png";
 import logoMolusco from "@/public/landingimages/logos/moluscologo.png";
 const sponsors = [
+  { name: "Gobierno", logo: logoGobierno, url: "https://www.chihuahua.gob.mx" },
   {
     name: "Etherfuse",
     logo: logoEtherfuse,
@@ -19,7 +20,6 @@ const sponsors = [
     url: "https://solana.com",
   },
   { name: "Microsoft", logo: logoMicrosoft, url: "https://microsoft.com/" },
-  { name: "Gobierno", logo: logoGobierno, url: "https://www.chihuahua.gob.mx" },
   {
     name: "Blockchain Business School",
     logo: logoBlockChainBusinessSchool,
