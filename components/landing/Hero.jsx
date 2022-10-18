@@ -46,7 +46,7 @@ export function Hero() {
               </p>
               <p className=" m-0 p-0">
                 Cd. Chihuahua, Cd. Juárez, Nuevo Casas Grandes, Cuauhtémoc,
-                Delicias, Parral, Camargo.
+                Delicias.
               </p>
             </div>
           </div>
