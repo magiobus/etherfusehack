@@ -10,6 +10,7 @@ import davidandujo from "@/public/landingimages/avatars/davidandujo2.jpeg";
 import magiobustillos from "@/public/landingimages/avatars/magiobustillos.jpeg";
 import jonathanhernandez from "@/public/landingimages/avatars/jonathanhernandez.jpeg";
 import diegoquintana from "@/public/landingimages/avatars/diegoquintana.jpeg";
+
 const days = [
   {
     name: "Team ",

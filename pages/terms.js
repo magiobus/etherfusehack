@@ -29,7 +29,7 @@ export default function TermsPage() {
             <p className="mt-8 text-xl text-black leading-8">
               Los datos proporcionados por los participantes deben ser
               correctos, veraces y completos, asumiendo toda responsabilidad
-              sobre la falta de veracidad o exactitud de los mismos
+              sobre la falta de veracidad o exactitud de los mismos.
             </p>
             <p className="mt-8 text-xl text-black leading-8">
               El participante autoriza a la organización del evento a utilizar
@@ -52,12 +52,12 @@ export default function TermsPage() {
               marcas comerciales, patentes, secreto comercial, privacidad y
               publicidad, y que el contenido no es ilegal ni se ha enviado de
               una forma infrinja una obligación contractual que puedan tener con
-              un tercero; o que viole cualquier ley o normativa vigente
+              un tercero; o que viole cualquier ley o normativa vigente.
             </p>
             <p className="mt-8 text-xl text-black leading-8">
               Los participantes aseguran no haber comercializado ni estar en
               proceso de comercialización con anterioridad a los días del evento
-              la solución presentada
+              la solución presentada.
             </p>
             <p className="mt-8 text-xl text-black leading-8">
               La propiedad de la idea pertenece a los desarrolladores, pero el
@@ -71,13 +71,13 @@ export default function TermsPage() {
               cierre del mismo. En los casos que se considere pertinente se
               invitará a los desarrolladores para que expongan en reuniones con
               autoridades y empresas interesadas en la solución y en foros
-              locales, nacionales e internacionales
+              locales, nacionales e internacionales.
             </p>
 
             <p className="mt-8 text-xl text-black leading-8">
               La continuidad del proyecto depende exclusivamente de la
               disponibilidad del equipo ganador, así como de la instancia que
-              propuso el reto
+              propuso el reto.
             </p>
           </div>
         </div>
