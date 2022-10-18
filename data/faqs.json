@@ -27,6 +27,11 @@
   {
     "id": 5,
     "question": "¿Cuales son los premios?",
-    "answer": "Shhhhh, es un secreto"
+    "answer": "Hay una bolsa de $100,000 pesos en premios para los 3 primeros lugares del evento estatal."
+  },
+  {
+    "id": 6,
+    "question": "A quién va dirigido?",
+    "answer": "Estudiantes, emprendedores, académicos y empresarios de cualquier área."
   }
 ]

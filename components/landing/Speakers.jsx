@@ -6,7 +6,7 @@ import { Container } from "@/components/landing/Container";
 import { DiamondIcon } from "@/components/landing/DiamondIcon";
 import davidtaylor from "@/public/landingimages/avatars/davidtaylor.png";
 import ajtaylor from "@/public/landingimages/avatars/ajtaylor.png";
-import davidandujo from "@/public/landingimages/avatars/davidandujo.jpeg";
+import davidandujo from "@/public/landingimages/avatars/davidandujo2.jpeg";
 import magiobustillos from "@/public/landingimages/avatars/magiobustillos.jpeg";
 import jonathanhernandez from "@/public/landingimages/avatars/jonathanhernandez.jpeg";
 import diegoquintana from "@/public/landingimages/avatars/diegoquintana.jpeg";
