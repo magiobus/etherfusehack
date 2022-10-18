@@ -3,6 +3,11 @@ import Link from "next/link";
 const copyrightLabel = `© Etherfuse ${new Date().getFullYear()} `;
 const socialLink = [
   {
+    name: "Facebook",
+    href: "https://www.facebook.com/etherfusetech",
+    icon: "facebook",
+  },
+  {
     name: "Substack",
     href: "https://etherfuse.substack.com",
     icon: "substack",
