@@ -8,8 +8,8 @@ import davidtaylor from "@/public/landingimages/avatars/davidtaylor.png";
 import ajtaylor from "@/public/landingimages/avatars/ajtaylor.png";
 import davidandujo from "@/public/landingimages/avatars/davidandujo2.jpeg";
 import magiobustillos from "@/public/landingimages/avatars/magiobustillos.jpeg";
-import jonathanhernandez from "@/public/landingimages/avatars/jonathanhernandez.jpeg";
 import diegoquintana from "@/public/landingimages/avatars/diegoquintana.jpeg";
+import sandraflores from "@/public/landingimages/avatars/sandraflores.jpeg";
 
 const data = [
   {
@@ -59,6 +59,19 @@ const data = [
         role: "Hackathon Facilitator",
         image: magiobustillos,
         url: "https://twitter.com/magiobus",
+      },
+    ],
+  },
+  {
+    name: "Jueces",
+    date: "",
+    dateTime: "",
+    speakers: [
+      {
+        name: "Sandra Flores",
+        role: "CEO Blockchain Business School",
+        image: sandraflores,
+        url: "#",
       },
     ],
   },
