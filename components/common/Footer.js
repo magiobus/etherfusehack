@@ -31,7 +31,7 @@ const Footer = () => {
         <div className="flex justify-center space-x-6 md:order-2">
           <Link href="/terms">
             <a className="text-center text-base text-happy-yellow mb-8 md:mb-0">
-              Terminos y condiciones
+              Terminos y Condiciones
             </a>
           </Link>
         </div>

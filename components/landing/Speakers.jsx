@@ -69,7 +69,7 @@ const data = [
     speakers: [
       {
         name: "Sandra Flores",
-        role: "CEO Blockchain Business School",
+        role: "Blockchain Business School",
         image: sandraflores,
         url: "#",
       },
