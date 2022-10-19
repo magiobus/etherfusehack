@@ -11,7 +11,7 @@ import magiobustillos from "@/public/landingimages/avatars/magiobustillos.jpeg";
 import jonathanhernandez from "@/public/landingimages/avatars/jonathanhernandez.jpeg";
 import diegoquintana from "@/public/landingimages/avatars/diegoquintana.jpeg";
 
-const days = [
+const data = [
   {
     name: "Team ",
     date: "",
@@ -129,12 +129,12 @@ export function Speakers() {
             <div className="absolute bottom-0 top-2 left-0.5 hidden w-px bg-slate-200 lg:block" />
             <Tab.List className="grid auto-cols-auto grid-flow-col justify-start gap-x-8 gap-y-10 whitespace-nowrap px-4 sm:mx-auto sm:max-w-2xl sm:grid-cols-3 sm:px-0 sm:text-center lg:grid-flow-row lg:grid-cols-1 lg:text-left">
               {({ selectedIndex }) =>
-                days.map((day, dayIndex) => (
-                  <div key={day.dateTime} className="relative lg:pl-8">
+                data.map((item, index) => (
+                  <div key={item.dateTime} className="relative lg:pl-8">
                     <DiamondIcon
                       className={clsx(
                         "absolute top-[0.5625rem] left-[-0.5px] hidden h-1.5 w-1.5 overflow-visible lg:block",
-                        dayIndex === selectedIndex
+                        index === selectedIndex
                           ? "fill-black stroke-black "
                           : "fill-transparent stroke-black"
                       )}
@@ -143,14 +143,14 @@ export function Speakers() {
                       <div
                         className={clsx(
                           "font-mono text-xl  ",
-                          dayIndex === selectedIndex
+                          index === selectedIndex
                             ? "text-happy-yellow bg-black px-2"
                             : "text-black"
                         )}
                       >
                         <Tab className="[&:not(:focus-visible)]:focus:outline-none">
                           <span className="absolute inset-0" />
-                          {day.name}
+                          {item.name}
                         </Tab>
                       </div>
                     </div>
@@ -160,13 +160,13 @@ export function Speakers() {
             </Tab.List>
           </div>
           <Tab.Panels className="lg:col-span-3">
-            {days.map((day) => (
+            {data.map((item) => (
               <Tab.Panel
-                key={day.dateTime}
+                key={item.dateTime}
                 className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 sm:gap-y-16 md:grid-cols-3 [&:not(:focus-visible)]:focus:outline-none"
                 unmount={false}
               >
-                {day.speakers.map((speaker, speakerIndex) => (
+                {item.speakers.map((speaker, speakerIndex) => (
                   <div key={speakerIndex}>
                     <div className="group relative h-[17.5rem] transform overflow-hidden rounded-4xl bg-black">
                       <div
