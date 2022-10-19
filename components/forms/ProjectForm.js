@@ -18,7 +18,8 @@ import { useRouter } from "next/router";
 const ProjectForm = ({ type = "new" }) => {
   const [buttonLoading, setButtonLoading] = useState(false);
   const router = useRouter();
-  const [event, setEvent] = useState(null); //for set photo
+  const [events, setEvents] = useState([]);
+  const [selectedEventInfo, setSelectedEventInfo] = useState(null);
 
   const {
     register,
@@ -28,6 +29,34 @@ const ProjectForm = ({ type = "new" }) => {
     formState: { errors },
   } = useForm();
 
+  const selectedEvent = watch("eventId");
+
+  //Events options
+  useEffect(() => {
+    const getEvents = async () => {
+      try {
+        const { data } = await axios.get(`/api/events`);
+        const eventsOptions = data.map((event) => ({
+          label: event.name,
+          value: event._id,
+        }));
+
+        setEvents(eventsOptions);
+      } catch (error) {
+        console.error(error);
+        toast.error("Error al cargar los eventos");
+      }
+    };
+
+    getEvents();
+  }, []);
+
+  useEffect(() => {
+    //GET INFO about event using events state
+    const eventInfo = events.find((event) => event.value === selectedEvent);
+    setSelectedEventInfo(eventInfo);
+  }, [selectedEvent]);
+
   const onSubmit = async (data) => {
     console.log("data submit", data);
   };
@@ -36,7 +65,6 @@ const ProjectForm = ({ type = "new" }) => {
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
         <p className="italic mb-4">La información se puede cambiar luego.</p>
-
         <div className="proyectinfocontainer">
           <div className="inputwrapper my-3">
             <Input
@@ -63,6 +91,7 @@ const ProjectForm = ({ type = "new" }) => {
             <Select
               label="A que sede pertenece tu proyecto? * "
               name="eventId"
+              options={events}
               register={{
                 ...register("eventId", {
                   required: {

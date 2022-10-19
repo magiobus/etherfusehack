@@ -2,8 +2,6 @@
 /* eslint-disable @next/next/no-img-element */
 import AccountLayout from "@/components/layouts/AccountLayout";
 import ProjectForm from "/components/forms/ProjectForm";
-import toast from "react-hot-toast";
-import { useEffect } from "react";
 
 const AdminEventsAdd = () => {
   return (
