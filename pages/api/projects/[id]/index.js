@@ -105,6 +105,28 @@ handler.put(async (req, res) => {
 
   projectParsed.members = members;
 
+  //update photo project if it exists
+  if (req.files) {
+    const { photo } = req.files;
+    if (photo) {
+      upload.single("photo");
+      try {
+        const photoUpload = await cloudinary.uploader.upload(photo[0].path, {
+          folder: `projects_${process.env.NODE_ENV}`,
+          public_id: `${id}`,
+          overwrite: true,
+          width: 512,
+          height: 512,
+          crop: "fill",
+          format: "jpg",
+        });
+        projectParsed.photo = photoUpload.secure_url;
+      } catch (error) {
+        console.error("error uploading project image to cloudinary", error);
+      }
+    }
+  }
+
   //update project
   try {
     await db

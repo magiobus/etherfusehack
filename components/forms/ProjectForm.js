@@ -45,6 +45,7 @@ const ProjectForm = ({ type = "new" }) => {
         problem: data?.problem,
         repoUrl: data?.repoUrl,
         eventId: data?.eventId,
+        photo: data?.photo,
       };
 
       //parsing members
