@@ -31,7 +31,7 @@ const data = [
       },
       {
         name: "David Andujo",
-        role: "ILUM Venture Partner",
+        role: "COO Etherfuse",
         image: davidandujo,
         url: "https://www.linkedin.com/in/andujo/",
       },

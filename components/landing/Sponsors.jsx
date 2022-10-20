@@ -7,6 +7,7 @@ import logoGobierno from "@/public/landingimages/logos/gobierno.png";
 import logoEtherfuse from "@/public/landingimages/logos/etherfuse.png";
 import logoSolana from "@/public/landingimages/logos/solanalogo.png";
 import logoMolusco from "@/public/landingimages/logos/moluscologo.png";
+import logoAllData from "@/public/landingimages/logos/alldata.png";
 const sponsors = [
   { name: "Gobierno", logo: logoGobierno, url: "https://www.chihuahua.gob.mx" },
   {
@@ -20,6 +21,7 @@ const sponsors = [
     url: "https://solana.com",
   },
   { name: "Microsoft", logo: logoMicrosoft, url: "https://microsoft.com/" },
+  { name: "All Data", logo: logoAllData, url: "https://www.alldata.com/mx/es" },
   {
     name: "Blockchain Business School",
     logo: logoBlockChainBusinessSchool,
