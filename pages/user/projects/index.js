@@ -22,34 +22,33 @@ const ProfilePage = () => {
   const router = useRouter();
   const { data: session } = useSession();
 
-  //get tickets when user is loaded
+  //get PROJECTS when user is loaded
   useEffect(() => {
-    const getTickets = async () => {
+    const getProjects = async () => {
       setIsInitialLoading(true);
       try {
         const { data } = await axios.get(
-          `/api/users/${session.user.id}/tickets/?page=${page}&limit=${pageSize}&sort=${sortBy}&order=${orderBy}`
+          `/api/users/${session.user.id}/projects/?page=${page}&limit=${pageSize}&sort=${sortBy}&order=${orderBy}`
         );
 
-        const { tickets, count, totalPages } = data;
-        console.log(data);
-        setTickets(tickets);
+        const { projects, count, totalPages } = data;
+        setProjects(projects);
         setPaginationData({
           page,
-          pageSize: tickets.length,
+          pageSize: projects.length,
           totalPages,
           totalCount: count,
         });
       } catch (err) {
         console.error(err);
-        toast.error("Error al cargar los tickets");
+        toast.error("Error al cargar los proyectos");
       }
 
       setIsInitialLoading(false);
     };
 
     if (session) {
-      getTickets();
+      getProjects();
     }
   }, [session, page]);
 
@@ -71,7 +70,46 @@ const ProfilePage = () => {
                 <>
                   {projects && projects.length > 0 ? (
                     <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                      here goes the projects
+                      <table className="min-w-full divide-y divide-gray-200">
+                        <thead className="bg-gray-50">
+                          <tr>
+                            <th
+                              scope="col"
+                              className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                            >
+                              Proyecto
+                            </th>
+
+                            <th scope="col" className="relative px-6 py-3">
+                              <span className="sr-only">Mostrar</span>
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody className="bg-white divide-y divide-gray-200">
+                          {projects.map((project) => (
+                            <tr key={project._id}>
+                              <td className="px-6 capitalize py-4 whitespace-nowrap text-sm text-gray-500">
+                                {project?.name}
+                              </td>
+
+                              <td className=" px-6 py-4  whitespace-nowrap text-right text-sm font-medium">
+                                <a
+                                  href="£"
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  className=" text-happy-yellow bg-black px-2 py-1 rounded-md"
+                                >
+                                  Editar
+                                </a>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                      <Pagination
+                        paginationData={paginationData}
+                        setPage={setPage}
+                      />{" "}
                     </div>
                   ) : (
                     <div className="w-full text-red-600">
