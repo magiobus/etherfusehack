@@ -47,6 +47,18 @@ handler.post(async (req, res) => {
     //new object id
     const mongodbId = ObjectId();
 
+    //take members_index_name from req.body and convert it to array of objects
+    const members = [];
+    const membersLength = 5;
+    for (let i = 0; i < membersLength; i++) {
+      const member = {
+        name: req.body[`members_${i}_name`],
+        email: req.body[`members_${i}_email`],
+        discord: req.body[`members_${i}_discord`],
+      };
+      members.push(member);
+    }
+
     const project = {
       _id: mongodbId,
       name,
@@ -55,6 +67,7 @@ handler.post(async (req, res) => {
       liveUrl,
       problem,
       repoUrl,
+      members: members || [],
       createdBy: req.sessionUser.id,
       updatedAt: dateNowUnix(),
       createdAt: dateNowUnix(),

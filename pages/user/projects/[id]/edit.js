@@ -3,7 +3,7 @@
 import AccountLayout from "@/components/layouts/AccountLayout";
 import ProjectForm from "/components/forms/ProjectForm";
 
-const ProjectAdd = () => {
+const ProjectEdit = () => {
   return (
     <AccountLayout title="Agrega un proyecto">
       <div className="w-full flex justify-center">
@@ -13,14 +13,14 @@ const ProjectAdd = () => {
               <div className="bg-white py-6  space-y-6 ">
                 <div className="flex justify-between px-4 w-full items-center ">
                   <h3 className="text-lg leading-6 font-medium text-happy-yellow bg-black">
-                    Agrega un proyecto a Etherfuse Hackathon
+                    Edita tu proyecto
                   </h3>
                 </div>
                 <div className="flex flex-col px-4">
                   <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                       <div className="formcontainer">
-                        <ProjectForm type="new" />
+                        <ProjectForm type="edit" />
                       </div>
                     </div>
                   </div>
@@ -34,4 +34,4 @@ const ProjectAdd = () => {
   );
 };
 
-export default ProjectAdd;
+export default ProjectEdit;

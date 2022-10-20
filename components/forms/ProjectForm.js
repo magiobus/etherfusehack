@@ -19,7 +19,7 @@ const ProjectForm = ({ type = "new" }) => {
   const [buttonLoading, setButtonLoading] = useState(false);
   const router = useRouter();
   const [events, setEvents] = useState([]);
-  const [selectedEventInfo, setSelectedEventInfo] = useState(null);
+  const [project, setProject] = useState(null);
 
   const {
     register,
@@ -31,7 +31,43 @@ const ProjectForm = ({ type = "new" }) => {
 
   const selectedEvent = watch("eventId");
 
-  //Events options
+  //fetch project info for editing
+  useEffect(() => {
+    const fetchProjectData = async () => {
+      const { data } = await axios.get(`/api/projects/${router.query.id}`);
+
+      const { members } = data;
+      const parsedProject = {
+        _id: data?._id,
+        name: data?.name,
+        description: data?.description,
+        liveUrl: data?.liveUrl,
+        problem: data?.problem,
+        repoUrl: data?.repoUrl,
+        eventId: data?.eventId,
+      };
+
+      //parsing members
+      if (members && members.length > 0) {
+        members.map((member, index) => {
+          parsedProject[`members[${index}].name`] = member.name || "";
+          parsedProject[`members[${index}].email`] = member.email || "";
+          parsedProject[`members[${index}].discord`] = member.discord || "";
+        });
+      }
+
+      delete parsedProject.members;
+
+      console.log("parsedProject =a", parsedProject);
+
+      reset(parsedProject);
+      setProject(parsedProject);
+    };
+
+    if (type === "edit") fetchProjectData();
+  }, []);
+
+  //Get Events where user is registred
   useEffect(() => {
     const getEvents = async () => {
       try {
@@ -51,14 +87,7 @@ const ProjectForm = ({ type = "new" }) => {
     getEvents();
   }, []);
 
-  useEffect(() => {
-    //GET INFO about event using events state
-    const eventInfo = events.find((event) => event.value === selectedEvent);
-    setSelectedEventInfo(eventInfo);
-  }, [selectedEvent]);
-
   const onSubmit = async (data) => {
-    console.log("data", data);
     setButtonLoading(true);
     const { members } = data;
     if (!members[0].name || !members[0].email || !members[0].discord) {
@@ -69,6 +98,15 @@ const ProjectForm = ({ type = "new" }) => {
 
     try {
       const newData = { ...data };
+
+      //Delete members initial parsing from newData
+      if (type === "edit") {
+        for (let i = 0; i < members.length; i++) {
+          delete newData[`members[${i}].name`];
+          delete newData[`members[${i}].email`];
+          delete newData[`members[${i}].discord`];
+        }
+      }
 
       //convert to form data
       const formData = new FormData();
@@ -85,6 +123,13 @@ const ProjectForm = ({ type = "new" }) => {
         }
       });
 
+      //parse members array of objects to form data
+      members.forEach((member, index) => {
+        Object.keys(member).forEach((key) => {
+          formData.append(`members_${index}_${key}`, member[key]);
+        });
+      });
+
       const options = {
         headers: {
           accept: "application/json",
@@ -92,9 +137,19 @@ const ProjectForm = ({ type = "new" }) => {
         },
       };
 
-      await axios.post("/api/projects", formData, options);
-      toast.success("Proyecto creado con éxito");
-      router.push(`/user/projects`);
+      if (type === "new") {
+        await axios.post("/api/projects", formData, options);
+        toast.success("Proyecto creado con éxito");
+        setTimeout(() => {
+          router.push(`/user/projects`);
+        }, 2000);
+      } else if (type === "edit") {
+        await axios.put(`/api/projects/${router.query.id}`, formData, options);
+        toast.success("Proyecto actualizado con éxito, redirigiendo...");
+        setTimeout(() => {
+          router.push(`/user/projects`);
+        }, 2000);
+      }
     } catch (error) {
       console.error(error);
       toast.error("Error al crear el proyecto u.u");
@@ -251,7 +306,7 @@ const ProjectForm = ({ type = "new" }) => {
               register={{
                 ...register("photo"),
               }}
-              defaultValue={event?.photo}
+              defaultValue={project?.photo}
               errorMessage={errors.photo?.message}
             />
           </div>
@@ -290,7 +345,7 @@ const ProjectForm = ({ type = "new" }) => {
         >
           {buttonLoading ? (
             <div className="inline-flex items-center justify-center">
-              <LoadingCircle color="#000000" />
+              <LoadingCircle color="#ffffff" />
             </div>
           ) : type === "new" ? (
             "Crear Proyecto"

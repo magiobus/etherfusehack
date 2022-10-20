@@ -68,6 +68,16 @@ const ProfilePage = () => {
                 <LoadingCircle color="#000000" />
               ) : (
                 <>
+                  {projects && projects.length > 0 && (
+                    <div className="buttoncontainer mb-4">
+                      <a
+                        href={`/user/projects/add`}
+                        className=" text-happy-yellow bg-black px-2 py-1 rounded-md"
+                      >
+                        Agregar Proyecto
+                      </a>
+                    </div>
+                  )}
                   {projects && projects.length > 0 ? (
                     <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                       <table className="min-w-full divide-y divide-gray-200">
@@ -94,9 +104,7 @@ const ProfilePage = () => {
 
                               <td className=" px-6 py-4  whitespace-nowrap text-right text-sm font-medium">
                                 <a
-                                  href="£"
-                                  target="_blank"
-                                  rel="noreferrer"
+                                  href={`/user/projects/${project._id}/edit`}
                                   className=" text-happy-yellow bg-black px-2 py-1 rounded-md"
                                 >
                                   Editar

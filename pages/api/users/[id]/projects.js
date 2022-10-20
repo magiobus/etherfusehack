@@ -23,7 +23,7 @@ handler.use(async (req, res, next) => {
   }
 });
 
-//GET USER PROJECTS
+//GET USER PROJECTs
 handler.get(async (req, res) => {
   const { id, page, sort, order, limit } = req.query;
   const { id: sessionId, email } = req.sessionUser;
