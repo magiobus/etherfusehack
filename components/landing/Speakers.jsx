@@ -10,6 +10,9 @@ import davidandujo from "@/public/landingimages/avatars/davidandujo2.jpeg";
 import magiobustillos from "@/public/landingimages/avatars/magiobustillos.jpeg";
 import diegoquintana from "@/public/landingimages/avatars/diegoquintana.jpeg";
 import sandraflores from "@/public/landingimages/avatars/sandraflores.jpeg";
+import wilson from "@/public/landingimages/avatars/wilson.jpeg";
+import aquiles from "@/public/landingimages/avatars/aquiles.jpeg";
+import nathan from "@/public/landingimages/avatars/nathan.jpeg";
 
 const data = [
   {
@@ -59,6 +62,24 @@ const data = [
         role: "Hackathon Facilitator",
         image: magiobustillos,
         url: "https://twitter.com/magiobus",
+      },
+      {
+        name: "Wilson Yandún",
+        role: "CTO Gunny Games Studio",
+        image: wilson,
+        url: "https://www.linkedin.com/in/yandun-wilson/",
+      },
+      {
+        name: "Aquiles Benitez",
+        role: "CEO Gunny Games Studi",
+        image: aquiles,
+        url: "https://www.linkedin.com/in/aquiles-benitez-658411128/?trk=prof-samename-name&originalSubdomain=ar",
+      },
+      {
+        name: "Nathan Lazo",
+        role: "Blockchain Business School Partner",
+        image: nathan,
+        url: "https://www.linkedin.com/in/nathan-lazo-8a9b03214/",
       },
     ],
   },
