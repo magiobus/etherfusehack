@@ -35,7 +35,7 @@ const ProjectForm = ({ type = "new" }) => {
   useEffect(() => {
     const getEvents = async () => {
       try {
-        const { data } = await axios.get(`/api/events`);
+        const { data } = await axios.get(`/api/users/myevents`);
         const eventsOptions = data.map((event) => ({
           label: event.name,
           value: event._id,
@@ -58,7 +58,49 @@ const ProjectForm = ({ type = "new" }) => {
   }, [selectedEvent]);
 
   const onSubmit = async (data) => {
-    console.log("data submit", data);
+    console.log("data", data);
+    setButtonLoading(true);
+    const { members } = data;
+    if (!members[0].name || !members[0].email || !members[0].discord) {
+      toast.error("Debes de tener al menos un integrante en tu equipo");
+      setButtonLoading(false);
+      return;
+    }
+
+    try {
+      const newData = { ...data };
+
+      //convert to form data
+      const formData = new FormData();
+      //if image is a string, it means it's a url, so we don't need to send it
+      if (typeof data?.photo === "string") {
+        delete newData.photo;
+      }
+
+      Object.keys(newData).forEach((key) => {
+        if (key === "photo") {
+          if (data[key][0]) formData.append(key, data[key][0]); //append image file to formData
+        } else {
+          formData.append(key, data[key]); //append regular keys to form data
+        }
+      });
+
+      const options = {
+        headers: {
+          accept: "application/json",
+          "Content-Type": `multipart/form-data; boundary=${formData._boundary}`,
+        },
+      };
+
+      await axios.post("/api/projects", formData, options);
+      toast.success("Proyecto creado con éxito");
+      router.push(`/user/projects`);
+    } catch (error) {
+      console.error(error);
+      toast.error("Error al crear el proyecto u.u");
+    }
+
+    setButtonLoading(false);
   };
 
   return (
@@ -106,13 +148,61 @@ const ProjectForm = ({ type = "new" }) => {
 
           <Divider
             label="Integrantes de tu equipo"
-            className="mt-8"
+            className="mt-8 mb-4"
+            labelClassName="bg-black text-happy-yellow"
             hideLine={true}
           />
+
+          <p className="italic mb-4">Máximo 5 integrantes.</p>
+
+          <div className="team-members-container">
+            {[0, 1, 2, 3, 4].map((value, key) => {
+              return (
+                <div className="container " key={key}>
+                  <p className="mb-2 italic font-semibold">
+                    Integrante {value + 1}
+                  </p>
+                  <div className="wrapper flex flex-col lg:flex-row lg:space-x-6">
+                    <Input
+                      label={`Nombre`}
+                      name={`members[${value}].name`}
+                      register={{
+                        ...register(`members[${value}].name`),
+                      }}
+                      errorMessage={errors[`members[${value}].name`]?.message}
+                    />
+                    <Input
+                      label={`Email`}
+                      name={`members[${value}].email`}
+                      register={{
+                        ...register(`members[${value}].email`, {
+                          pattern: {
+                            value: /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/i,
+                            message: "Email Inválido",
+                          },
+                        }),
+                      }}
+                    />
+                    <Input
+                      label={`Usuario de Discord`}
+                      name={`members[${value}].discord`}
+                      register={{
+                        ...register(`members[${value}].discord`),
+                      }}
+                      errorMessage={
+                        errors[`members[${value}].discord`]?.message
+                      }
+                    />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
 
           <Divider
             label="Información de tu proyecto"
             className="mt-8"
+            labelClassName="bg-black text-happy-yellow"
             hideLine={true}
           />
           <div className="inputwrapper my-3">
@@ -165,7 +255,12 @@ const ProjectForm = ({ type = "new" }) => {
               errorMessage={errors.photo?.message}
             />
           </div>
-          <Divider label="Entregables" className="mt-8" hideLine={true} />
+          <Divider
+            label="Entregables"
+            className="mt-8"
+            labelClassName="bg-black text-happy-yellow"
+            hideLine={true}
+          />
           <div className="inputwrapper my-3">
             <Input
               label="Url de repositorio de github"
