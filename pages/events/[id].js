@@ -28,8 +28,6 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
   const shareUrl = `https://hackathon.etherfuse.com/events/${event._id}`;
   const sharedMessage = `Te invito a ${event.name}!`;
 
-  console.log("projects =>", projects);
-
   return (
     <MainLayout title={name} description={description} imageUrl={photo}>
       <div className="w-full flex justify-center items-center">
