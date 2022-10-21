@@ -7,7 +7,7 @@ import RegisterModal from "@/components/events/RegisterModal";
 import { useState } from "react";
 import dateNowUnix from "@/utils/dateNowUnix";
 import ShareButtons from "@/components/events/ShareButtons";
-
+import ProjectsList from "@/components/events/ProjectsList";
 const EventDetailPage = ({ event, expired, registerCount }) => {
   const {
     photo,
@@ -21,11 +21,14 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
     locationUrl,
     startTime,
     description,
+    projects,
   } = event;
 
   const [modalOpen, setModalOpen] = useState(false);
   const shareUrl = `https://hackathon.etherfuse.com/events/${event._id}`;
   const sharedMessage = `Te invito a ${event.name}!`;
+
+  console.log("projects =>", projects);
 
   return (
     <MainLayout title={name} description={description} imageUrl={photo}>
@@ -133,6 +136,11 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
                   />
                 </div>
               </div>
+              {projects && projects.length > 0 && (
+                <div className="my-8">
+                  <ProjectsList projects={projects} />
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -181,6 +189,14 @@ export async function getStaticProps({ params }) {
     const now = dateNowUnix();
     const endTime = Number(event.endTime);
     delete event.attendees; //delete attendes key from event
+
+    //get projects of event
+    const projects = await db
+      .collection("projects")
+      .find({ eventId: params.id })
+      .toArray();
+
+    event.projects = projects;
 
     const eventsData = JSON.parse(JSON.stringify(event));
     return {
