@@ -49,6 +49,9 @@ const PromoteWhatsappModal = ({ isOpen = false, setIsOpen }) => {
         case "all":
           const { data } = await axios.get("/api/admin/users/allparticipants");
           const users = data.users;
+
+          console.log(users);
+
           const usersWithPhone = users.filter((user) => user.phone);
           //parse phone numbers and delete the ones without whatsapp notification enabled
           const parsedUsers = usersWithPhone.map((user) => {

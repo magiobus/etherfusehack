@@ -37,9 +37,10 @@ handler.get(async (req, res) => {
 
   //return only unique users and user key
   const users = [...new Set(tickets.map((ticket) => ticket.user))];
+
   //Delete duplicates in users using id as key
   const uniqueUsers = users.filter(
-    (user, index, self) => index === self.findIndex((t) => t._id === user._id)
+    (thing, index, self) => index === self.findIndex((t) => t.id === thing.id)
   );
 
   res.json({
