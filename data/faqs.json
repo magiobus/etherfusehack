@@ -33,5 +33,10 @@
     "id": 6,
     "question": "A quién va dirigido?",
     "answer": "Estudiantes, emprendedores, académicos y empresarios de cualquier área."
+  },
+  {
+    "id": 7,
+    "question": "Cómo se van a conformar los equipos?",
+    "answer": "El día del evento se formarán los equipos en el sitio web. Si ya tienes un equipo con amigos, los puedes registrar ese día. Los equipos serán de un máximo de 5 integrantes."
   }
 ]
