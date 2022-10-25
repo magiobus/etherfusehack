@@ -13,6 +13,7 @@ import sandraflores from "@/public/landingimages/avatars/sandraflores.jpeg";
 import wilson from "@/public/landingimages/avatars/wilson.jpeg";
 import aquiles from "@/public/landingimages/avatars/aquiles.jpeg";
 import nathan from "@/public/landingimages/avatars/nathan.jpeg";
+import octavio from "@/public/landingimages/avatars/octavio.jpeg";
 
 const data = [
   {
@@ -80,6 +81,12 @@ const data = [
         role: "Blockchain Business School Partner",
         image: nathan,
         url: "https://www.linkedin.com/in/nathan-lazo-8a9b03214/",
+      },
+      {
+        name: "Octavio Palacios",
+        role: "Core Blockchain Dev ",
+        image: octavio,
+        url: "https://www.linkedin.com/in/octavio-palacios-b3b7471b4/",
       },
     ],
   },

@@ -29,7 +29,7 @@ const Seo = ({
         description: description,
         images: [
           {
-            url: imageUrl,
+            url: imageUrl ? imageUrl : data.imageUrl,
             width: 800,
             height: 600,
             alt: title,
