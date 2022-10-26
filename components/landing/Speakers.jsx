@@ -14,6 +14,7 @@ import wilson from "@/public/landingimages/avatars/wilson.jpeg";
 import aquiles from "@/public/landingimages/avatars/aquiles.jpeg";
 import nathan from "@/public/landingimages/avatars/nathan.jpeg";
 import octavio from "@/public/landingimages/avatars/octavio.jpeg";
+import martin from "@/public/landingimages/avatars/martincafe.jpg";
 
 const data = [
   {
@@ -44,6 +45,12 @@ const data = [
         role: "Hackathon Facilitator",
         image: magiobustillos,
         url: "https://twitter.com/magiobus",
+      },
+      {
+        name: "Martin Galván",
+        role: "Catedrático en Comercio Exterior.",
+        image: martin,
+        url: "#",
       },
     ],
   },

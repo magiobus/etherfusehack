@@ -8,6 +8,11 @@ import logoEtherfuse from "@/public/landingimages/logos/etherfuse.png";
 import logoSolana from "@/public/landingimages/logos/solanalogo.png";
 import logoMolusco from "@/public/landingimages/logos/moluscologo.png";
 import logoAllData from "@/public/landingimages/logos/alldata.png";
+import logoIacenter from "@/public/landingimages/logos/iacenter.png";
+import logociidetec from "@/public/landingimages/logos/ciidetec.png";
+import logocuauhtemoc from "@/public/landingimages/logos/cuauhtemoc.png";
+import logocasasgrandes from "@/public/landingimages/logos/casasgrandes.png";
+import quanto from "@/public/landingimages/logos/quanto.png";
 const sponsors = [
   { name: "Gobierno", logo: logoGobierno, url: "https://www.chihuahua.gob.mx" },
   {
@@ -32,6 +37,33 @@ const sponsors = [
     logo: logoMolusco,
     url: "https://molus.co",
   },
+  {
+    name: "IA Center",
+    logo: logoIacenter,
+    url: "https://www.ia.center/es/",
+  },
+  {
+    name: "Ciidetec",
+    logo: logociidetec,
+    url: "#",
+  },
+  {
+    name: "Tec de Cuauhtemoc CUU",
+    logo: logocuauhtemoc,
+    url: "https://www.cdcuauhtemoc.tecnm.mx",
+  },
+  {
+    name: "Tec de NCG CUU",
+    logo: logocasasgrandes,
+    url: "http://itsncg.edu.mx",
+  },
+  {
+    name: "Quanto",
+    logo: quanto,
+    url: "https://quanto.mx",
+  },
+
+  ,
 ];
 
 export function Sponsors() {
