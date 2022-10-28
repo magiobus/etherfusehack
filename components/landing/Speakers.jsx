@@ -21,6 +21,8 @@ import chavero from "@/public/landingimages/avatars/chavero.jpeg";
 import oscar from "@/public/landingimages/avatars/oscar.jpeg";
 import daniel from "@/public/landingimages/avatars/daniel.jpeg";
 import francisco from "@/public/landingimages/avatars/francisco.jpeg";
+import daniela from "@/public/landingimages/avatars/daniela.jpeg";
+import bani from "@/public/landingimages/avatars/bani.jpeg";
 
 const data = [
   {
@@ -51,6 +53,18 @@ const data = [
         role: "Hackathon Facilitator",
         image: magiobustillos,
         url: "https://twitter.com/magiobus",
+      },
+      {
+        name: "Daniela Aranda",
+        role: "Hackathon Team",
+        image: daniela,
+        url: "",
+      },
+      {
+        name: "Bani Carrasco",
+        role: "Hackathon Team",
+        image: bani,
+        url: "https://www.linkedin.com/in/banicarrasco",
       },
       {
         name: "Martin Galván",
