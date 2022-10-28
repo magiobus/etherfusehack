@@ -16,6 +16,10 @@ import logodelicias from "@/public/landingimages/logos/logodelicias.png";
 import tecdelicias from "@/public/landingimages/logos/tecdelicias.png";
 import ilum from "@/public/landingimages/logos/ilum.png";
 import quanto from "@/public/landingimages/logos/quanto.png";
+import municipiocuau from "@/public/landingimages/logos/municipiocuau.png";
+import livinglab from "@/public/landingimages/logos/livinglab.png";
+import cuuit from "@/public/landingimages/logos/cuuit.png";
+
 const sponsors = [
   { name: "Gobierno", logo: logoGobierno, url: "https://www.chihuahua.gob.mx" },
   {
@@ -41,6 +45,16 @@ const sponsors = [
     url: "https://molus.co",
   },
   {
+    name: "Livinglab",
+    logo: livinglab,
+    url: "https://livinglab.io",
+  },
+  {
+    name: "CUUIT",
+    logo: cuuit,
+    url: "https://desec.org.mx/wp/t-i/",
+  },
+  {
     name: "IA Center",
     logo: logoIacenter,
     url: "https://www.ia.center/es/",
@@ -51,14 +65,24 @@ const sponsors = [
     url: "https://www.ilumps.com",
   },
   {
-    name: "Ciidetec",
-    logo: logociidetec,
-    url: "#",
+    name: "cuaumunicipio",
+    logo: municipiocuau,
+    url: "http://municipiocuauhtemoc.gob.mx",
   },
   {
     name: "IDE",
     logo: logodelicias,
-    url: "http://desarrolloeconomico.municipiodelicias.com/?fbclid=IwAR3XlTdSeztibpuPcAO-k6aJfGaQ3mHIyPakkZrIEacvmf2gPPAjNtw3tEA",
+    url: "http://desarrolloeconomico.municipiodelicias.com/",
+  },
+  {
+    name: "Tec de NCG CUU",
+    logo: logocasasgrandes,
+    url: "http://itsncg.edu.mx",
+  },
+  {
+    name: "Ciidetec",
+    logo: logociidetec,
+    url: "#",
   },
   {
     name: "tecdelicias",
@@ -70,11 +94,7 @@ const sponsors = [
     logo: logocuauhtemoc,
     url: "https://www.cdcuauhtemoc.tecnm.mx",
   },
-  {
-    name: "Tec de NCG CUU",
-    logo: logocasasgrandes,
-    url: "http://itsncg.edu.mx",
-  },
+
   {
     name: "Quanto",
     logo: quanto,

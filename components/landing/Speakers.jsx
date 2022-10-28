@@ -15,6 +15,9 @@ import aquiles from "@/public/landingimages/avatars/aquiles.jpeg";
 import nathan from "@/public/landingimages/avatars/nathan.jpeg";
 import octavio from "@/public/landingimages/avatars/octavio.jpeg";
 import martin from "@/public/landingimages/avatars/martincafe.jpg";
+import victor from "@/public/landingimages/avatars/victor.jpeg";
+import alicia from "@/public/landingimages/avatars/alicia.jpeg";
+import chavero from "@/public/landingimages/avatars/chavero.jpeg";
 
 const data = [
   {
@@ -52,6 +55,12 @@ const data = [
         image: martin,
         url: "#",
       },
+      {
+        name: "Alicia Robles Ruiz",
+        role: "Docente de Sistemas Computacionales",
+        image: alicia,
+        url: "#",
+      },
     ],
   },
   {
@@ -60,10 +69,28 @@ const data = [
     dateTime: "",
     speakers: [
       {
+        name: "David Taylor",
+        role: "CEO Etherfuse",
+        image: davidtaylor,
+        url: "https://www.linkedin.com/in/lifehug/",
+      },
+      {
+        name: "AJ Taylor",
+        role: "CTO Etherfuse",
+        image: ajtaylor,
+        url: "https://www.linkedin.com/in/aj-taylor-977a5481/",
+      },
+      {
         name: "Diego Quintana",
         role: "CEO Blockchain Business School",
         image: diegoquintana,
         url: "https://www.linkedin.com/in/diegoquintana13/",
+      },
+      {
+        name: "Nathan Lazo",
+        role: "Blockchain Business School Partner",
+        image: nathan,
+        url: "https://www.linkedin.com/in/nathan-lazo-8a9b03214/",
       },
       {
         name: "Magio Bustillos",
@@ -84,16 +111,22 @@ const data = [
         url: "https://www.linkedin.com/in/aquiles-benitez-658411128/?trk=prof-samename-name&originalSubdomain=ar",
       },
       {
-        name: "Nathan Lazo",
-        role: "Blockchain Business School Partner",
-        image: nathan,
-        url: "https://www.linkedin.com/in/nathan-lazo-8a9b03214/",
-      },
-      {
         name: "Octavio Palacios",
         role: "Core Blockchain Dev ",
         image: octavio,
         url: "https://www.linkedin.com/in/octavio-palacios-b3b7471b4/",
+      },
+      {
+        name: "Ivan Chavero",
+        role: "Services Content Architec at Red Hat",
+        image: chavero,
+        url: "https://twitter.com/imcsk8",
+      },
+      {
+        name: "Víctor Morales Rocha",
+        role: "Profesor de seguridad de IT en UACJ. ",
+        image: victor,
+        url: "#",
       },
     ],
   },
@@ -107,6 +140,12 @@ const data = [
         role: "Blockchain BMC Specialist & Co Founder",
         image: sandraflores,
         url: "#",
+      },
+      {
+        name: "AJ Taylor",
+        role: "CTO Etherfuse",
+        image: ajtaylor,
+        url: "https://www.linkedin.com/in/aj-taylor-977a5481/",
       },
     ],
   },
