@@ -19,6 +19,7 @@ import quanto from "@/public/landingimages/logos/quanto.png";
 import municipiocuau from "@/public/landingimages/logos/municipiocuau.png";
 import livinglab from "@/public/landingimages/logos/livinglab.png";
 import cuuit from "@/public/landingimages/logos/cuuit.png";
+import copi from "@/public/landingimages/logos/copi.png";
 
 const sponsors = [
   { name: "Gobierno", logo: logoGobierno, url: "https://www.chihuahua.gob.mx" },
@@ -63,6 +64,11 @@ const sponsors = [
     name: "ilum",
     logo: ilum,
     url: "https://www.ilumps.com",
+  },
+  {
+    name: "copi",
+    logo: copi,
+    url: "http://www.copichihuahua.org",
   },
   {
     name: "cuaumunicipio",

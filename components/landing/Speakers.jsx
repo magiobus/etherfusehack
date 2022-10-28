@@ -18,6 +18,9 @@ import martin from "@/public/landingimages/avatars/martincafe.jpg";
 import victor from "@/public/landingimages/avatars/victor.jpeg";
 import alicia from "@/public/landingimages/avatars/alicia.jpeg";
 import chavero from "@/public/landingimages/avatars/chavero.jpeg";
+import oscar from "@/public/landingimages/avatars/oscar.jpeg";
+import daniel from "@/public/landingimages/avatars/daniel.jpeg";
+import francisco from "@/public/landingimages/avatars/francisco.jpeg";
 
 const data = [
   {
@@ -55,6 +58,13 @@ const data = [
         image: martin,
         url: "#",
       },
+      {
+        name: "Francisco Alatorre Ávila",
+        role: "Subdirector Académico TecNM Campus Cuauhtémoc",
+        image: francisco,
+        url: "#",
+      },
+
       {
         name: "Alicia Robles Ruiz",
         role: "Docente de Sistemas Computacionales",
@@ -123,9 +133,21 @@ const data = [
         url: "https://twitter.com/imcsk8",
       },
       {
+        name: "Daniel Perez",
+        role: "Gerente de Innovación en Ilum",
+        image: daniel,
+        url: "https://linkedin.com/in/danielprzlr",
+      },
+      {
         name: "Víctor Morales Rocha",
         role: "Profesor de seguridad de IT en UACJ. ",
         image: victor,
+        url: "#",
+      },
+      {
+        name: "Oscar Ruiz Hernández ",
+        role: "Encargado de la infraestructura y soporte en LaNTI de la UACJ ",
+        image: oscar,
         url: "#",
       },
     ],
