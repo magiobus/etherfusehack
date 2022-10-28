@@ -12,6 +12,9 @@ import logoIacenter from "@/public/landingimages/logos/iacenter.png";
 import logociidetec from "@/public/landingimages/logos/ciidetec.png";
 import logocuauhtemoc from "@/public/landingimages/logos/cuauhtemoc.png";
 import logocasasgrandes from "@/public/landingimages/logos/casasgrandes.png";
+import logodelicias from "@/public/landingimages/logos/logodelicias.png";
+import tecdelicias from "@/public/landingimages/logos/tecdelicias.png";
+import ilum from "@/public/landingimages/logos/ilum.png";
 import quanto from "@/public/landingimages/logos/quanto.png";
 const sponsors = [
   { name: "Gobierno", logo: logoGobierno, url: "https://www.chihuahua.gob.mx" },
@@ -43,9 +46,24 @@ const sponsors = [
     url: "https://www.ia.center/es/",
   },
   {
+    name: "ilum",
+    logo: ilum,
+    url: "https://www.ilumps.com",
+  },
+  {
     name: "Ciidetec",
     logo: logociidetec,
     url: "#",
+  },
+  {
+    name: "IDE",
+    logo: logodelicias,
+    url: "http://desarrolloeconomico.municipiodelicias.com/?fbclid=IwAR3XlTdSeztibpuPcAO-k6aJfGaQ3mHIyPakkZrIEacvmf2gPPAjNtw3tEA",
+  },
+  {
+    name: "tecdelicias",
+    logo: tecdelicias,
+    url: "https://www.delicias.tecnm.mx",
   },
   {
     name: "Tec de Cuauhtemoc CUU",

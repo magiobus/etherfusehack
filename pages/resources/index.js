@@ -52,11 +52,18 @@ const ResourcesPage = () => {
                 <div className="container mt-8 grid grid-cols-1 md:grid-cols-2  space-y-8 w-full">
                   <div className="resource md:pr-4  flex justify-between flex-col items-start  w-full">
                     <h2 className="font-bold text-xl mb-2">
+                      Que es el blockchain ?
+                    </h2>
+                    <YoutubeVideo youtubeId="V9Kr2SujqHw" />
+                  </div>
+                  <div className="resource md:pr-4  flex justify-between flex-col items-start  w-full">
+                    <h2 className="font-bold text-xl mb-2">
                       Cryptopia - Bitcoin, Blockchains and The Future of the
                       Internet
                     </h2>
                     <YoutubeVideo youtubeId="Y2qe3hFeQ5g" />
                   </div>
+
                   <div className="resource md:pr-4  flex justify-between flex-col items-start  w-full">
                     <h2 className="font-bold text-xl mb-2">
                       Bitcoin 101: ¿Qué es Bitcoin? ¿Cómo funciona?
@@ -94,7 +101,6 @@ const ResourcesPage = () => {
                     <p className="mb-4 w-full lg:w-3/4"></p>
                     <YoutubeVideo youtubeId="oGnxlPJfDJY" />
                   </div>
-
                   <div className="resource md:pr-4 flex justify-between flex-col items-start  w-full">
                     <h2 className="font-bold text-xl mb-2">
                       From Bitcoin to DEFi
