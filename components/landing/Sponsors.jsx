@@ -20,6 +20,7 @@ import municipiocuau from "@/public/landingimages/logos/municipiocuau.png";
 import livinglab from "@/public/landingimages/logos/livinglab.png";
 import cuuit from "@/public/landingimages/logos/cuuit.png";
 import copi from "@/public/landingimages/logos/copi.png";
+import tecmty from "@/public/landingimages/logos/tecmty.png";
 
 const sponsors = [
   { name: "Gobierno", logo: logoGobierno, url: "https://www.chihuahua.gob.mx" },
@@ -60,6 +61,7 @@ const sponsors = [
     logo: logoIacenter,
     url: "https://www.ia.center/es/",
   },
+
   {
     name: "ilum",
     logo: ilum,
@@ -69,6 +71,11 @@ const sponsors = [
     name: "copi",
     logo: copi,
     url: "http://www.copichihuahua.org",
+  },
+  {
+    name: "Tec mty ",
+    logo: tecmty,
+    url: "https://egade.tec.mx",
   },
   {
     name: "cuaumunicipio",
