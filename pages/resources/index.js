@@ -49,73 +49,111 @@ const ResourcesPage = () => {
                   </p>
                 </div>
                 {/* //CONTENT */}
-                <div className="container mt-8 grid grid-cols-1 md:grid-cols-2  space-y-8 w-full">
-                  <div className="resource md:pr-4  flex justify-between flex-col items-start  w-full">
-                    <h2 className="font-bold text-xl mb-2">
-                      Que es el blockchain ?
-                    </h2>
-                    <YoutubeVideo youtubeId="V9Kr2SujqHw" />
-                  </div>
-                  <div className="resource md:pr-4  flex justify-between flex-col items-start  w-full">
-                    <h2 className="font-bold text-xl mb-2">
-                      Cryptopia - Bitcoin, Blockchains and The Future of the
-                      Internet
-                    </h2>
-                    <YoutubeVideo youtubeId="Y2qe3hFeQ5g" />
+                <>
+                  <h3 className="bg-black text-happy-yellow text-4xl mt-12 text-center">
+                    WorkShop EtherFuse
+                  </h3>
+                  <div className="container mt-8 grid grid-cols-1 md:grid-cols-2  space-y-8 w-full">
+                    <div className="resource md:pr-4  flex justify-between flex-col items-start  w-full">
+                      <h2 className="font-bold text-xl mb-2">
+                        Intro a Workshop por David Taylor
+                      </h2>
+                      <YoutubeVideo youtubeId="HN6CHtOnnko" />
+                    </div>
+                    <div className="resource md:pr-4  flex justify-between flex-col items-start  w-full">
+                      <h2 className="font-bold text-xl mb-2">
+                        Intro a BlockChain por Diego Quintana
+                      </h2>
+                      <YoutubeVideo youtubeId="byYX4_YaByU" />
+                    </div>
+                    <div className="resource md:pr-4  flex justify-between flex-col items-start  w-full">
+                      <h2 className="font-bold text-xl mb-2">
+                        Preguntas Frecuentes por Magio Bustillos
+                      </h2>
+                      <YoutubeVideo youtubeId="mFkCy8rcSdY" />
+                    </div>
+                    <div className="resource md:pr-4  flex justify-between flex-col items-start  w-full">
+                      <h2 className="font-bold text-xl mb-2">
+                        Getting Started with Solana by AJ Taylor
+                      </h2>
+                      <YoutubeVideo youtubeId="DZZkp_rAEYE" />
+                    </div>
                   </div>
 
-                  <div className="resource md:pr-4  flex justify-between flex-col items-start  w-full">
-                    <h2 className="font-bold text-xl mb-2">
-                      Bitcoin 101: ¿Qué es Bitcoin? ¿Cómo funciona?
-                    </h2>
-                    <YoutubeVideo youtubeId="41JCpzvnn_0" />
+                  <h3 className="bg-black text-happy-yellow text-4xl mt-24 text-center">
+                    Teoría y Conceptos de WEB 3.0
+                  </h3>
+
+                  <div className="container mt-8 grid grid-cols-1 md:grid-cols-2  space-y-8 w-full">
+                    <div className="resource md:pr-4  flex justify-between flex-col items-start  w-full">
+                      <h2 className="font-bold text-xl mb-2">
+                        Que es el blockchain ?
+                      </h2>
+                      <YoutubeVideo youtubeId="V9Kr2SujqHw" />
+                    </div>
+                    <div className="resource md:pr-4  flex justify-between flex-col items-start  w-full">
+                      <h2 className="font-bold text-xl mb-2">
+                        Cryptopia - Bitcoin, Blockchains and The Future of the
+                        Internet
+                      </h2>
+                      <YoutubeVideo youtubeId="Y2qe3hFeQ5g" />
+                    </div>
+
+                    <div className="resource md:pr-4  flex justify-between flex-col items-start  w-full">
+                      <h2 className="font-bold text-xl mb-2">
+                        Bitcoin 101: ¿Qué es Bitcoin? ¿Cómo funciona?
+                      </h2>
+                      <YoutubeVideo youtubeId="41JCpzvnn_0" />
+                    </div>
+                    <div className="resource md:pr-4  flex justify-between flex-col items-start  w-full">
+                      <h2 className="font-bold text-xl mb-2">
+                        Ethereum 101: ¿Qué es Ethereum? ¿Cómo funciona?
+                      </h2>
+                      <YoutubeVideo youtubeId="36t2S6NeUgU" />
+                    </div>
+                    <div className="resource md:pr-4  flex justify-between flex-col items-start  w-full">
+                      <h2 className="font-bold text-xl mb-2">
+                        Solana 101: ¿Qué es Solana? ¿Cómo funciona?
+                      </h2>
+                      <YoutubeVideo youtubeId="CJOEkJNz6dU" />
+                    </div>
+                    <div className="resource md:pr-4  flex justify-between flex-col items-start  w-full">
+                      <h2 className="font-bold text-xl mb-2">
+                        NFT 101: ¿Qué es un NFT? ¿Cómo funciona?
+                      </h2>
+                      <p className="mb-4 w-full lg:w-3/4"></p>
+                      <YoutubeVideo youtubeId="vluFUSMMHu4" />
+                    </div>
+                    <div className="resource md:pr-4  flex justify-between flex-col items-start w-full">
+                      <h2 className="font-bold text-xl mb-2">
+                        Smart Contracts
+                      </h2>
+                      <p className="mb-4 w-full lg:w-3/4"></p>
+                      <YoutubeVideo youtubeId="pyaIppMhuic" />
+                    </div>
+                    <div className="resource md:pr-4  flex justify-between flex-col items-start w-full">
+                      <h2 className="font-bold text-xl mb-2">
+                        Staking: ¿Qué es staking?
+                      </h2>
+                      <p className="mb-4 w-full lg:w-3/4"></p>
+                      <YoutubeVideo youtubeId="oGnxlPJfDJY" />
+                    </div>
+                    <div className="resource md:pr-4 flex justify-between flex-col items-start  w-full">
+                      <h2 className="font-bold text-xl mb-2">
+                        From Bitcoin to DEFi
+                      </h2>
+                      <p className="mb-4 w-full lg:w-3/4"></p>
+                      <YoutubeVideo youtubeId="dM8DAIAx124" />
+                    </div>
+                    <div className="resource md:pr-4 flex justify-between flex-col items-start  w-full">
+                      <h2 className="font-bold text-xl mb-2">
+                        DAO: ¿Qué es una DAO? ¿Cómo funciona?
+                      </h2>
+                      <p className="mb-4 w-full lg:w-3/4"></p>
+                      <YoutubeVideo youtubeId="c4Pd3pg5nok" />
+                    </div>
                   </div>
-                  <div className="resource md:pr-4  flex justify-between flex-col items-start  w-full">
-                    <h2 className="font-bold text-xl mb-2">
-                      Ethereum 101: ¿Qué es Ethereum? ¿Cómo funciona?
-                    </h2>
-                    <YoutubeVideo youtubeId="36t2S6NeUgU" />
-                  </div>
-                  <div className="resource md:pr-4  flex justify-between flex-col items-start  w-full">
-                    <h2 className="font-bold text-xl mb-2">
-                      Solana 101: ¿Qué es Solana? ¿Cómo funciona?
-                    </h2>
-                    <YoutubeVideo youtubeId="CJOEkJNz6dU" />
-                  </div>
-                  <div className="resource md:pr-4  flex justify-between flex-col items-start  w-full">
-                    <h2 className="font-bold text-xl mb-2">
-                      NFT 101: ¿Qué es un NFT? ¿Cómo funciona?
-                    </h2>
-                    <p className="mb-4 w-full lg:w-3/4"></p>
-                    <YoutubeVideo youtubeId="vluFUSMMHu4" />
-                  </div>
-                  <div className="resource md:pr-4  flex justify-between flex-col items-start w-full">
-                    <h2 className="font-bold text-xl mb-2">Smart Contracts</h2>
-                    <p className="mb-4 w-full lg:w-3/4"></p>
-                    <YoutubeVideo youtubeId="pyaIppMhuic" />
-                  </div>
-                  <div className="resource md:pr-4  flex justify-between flex-col items-start w-full">
-                    <h2 className="font-bold text-xl mb-2">
-                      Staking: ¿Qué es staking?
-                    </h2>
-                    <p className="mb-4 w-full lg:w-3/4"></p>
-                    <YoutubeVideo youtubeId="oGnxlPJfDJY" />
-                  </div>
-                  <div className="resource md:pr-4 flex justify-between flex-col items-start  w-full">
-                    <h2 className="font-bold text-xl mb-2">
-                      From Bitcoin to DEFi
-                    </h2>
-                    <p className="mb-4 w-full lg:w-3/4"></p>
-                    <YoutubeVideo youtubeId="dM8DAIAx124" />
-                  </div>
-                  <div className="resource md:pr-4 flex justify-between flex-col items-start  w-full">
-                    <h2 className="font-bold text-xl mb-2">
-                      DAO: ¿Qué es una DAO? ¿Cómo funciona?
-                    </h2>
-                    <p className="mb-4 w-full lg:w-3/4"></p>
-                    <YoutubeVideo youtubeId="c4Pd3pg5nok" />
-                  </div>
-                </div>
+                </>
               </div>
             </div>
           </Container>
