@@ -141,7 +141,7 @@ const data = [
         url: "https://www.linkedin.com/in/octavio-palacios-b3b7471b4/",
       },
       {
-        name: "Ivan Chavero",
+        name: "Ivan Chavero 🤟",
         role: "Services Content Architec at Red Hat",
         image: chavero,
         url: "https://twitter.com/imcsk8",
