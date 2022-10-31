@@ -21,6 +21,9 @@ import livinglab from "@/public/landingimages/logos/livinglab.png";
 import cuuit from "@/public/landingimages/logos/cuuit.png";
 import copi from "@/public/landingimages/logos/copi.png";
 import tecmty from "@/public/landingimages/logos/tecmty.png";
+import uach from "@/public/landingimages/logos/uach.png";
+import uachmorado from "@/public/landingimages/logos/uachmorado.png";
+import ciet from "@/public/landingimages/logos/ciet.png";
 
 const sponsors = [
   { name: "Gobierno", logo: logoGobierno, url: "https://www.chihuahua.gob.mx" },
@@ -72,6 +75,22 @@ const sponsors = [
     logo: copi,
     url: "http://www.copichihuahua.org",
   },
+  {
+    name: "uach",
+    logo: uach,
+    url: "https://www.uach.mx",
+  },
+  {
+    name: "uachmorado",
+    logo: uachmorado,
+    url: "https://www.facebook.com/CIETUACH/",
+  },
+  {
+    name: "ciet",
+    logo: ciet,
+    url: "https://www.facebook.com/CIETUACH/",
+  },
+
   {
     name: "Tec mty ",
     logo: tecmty,
