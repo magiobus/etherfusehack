@@ -24,6 +24,7 @@ import tecmty from "@/public/landingimages/logos/tecmty.png";
 import uach from "@/public/landingimages/logos/uach.png";
 import uachmorado from "@/public/landingimages/logos/uachmorado.png";
 import ciet from "@/public/landingimages/logos/ciet.png";
+import utcj from "@/public/landingimages/logos/utcj.png";
 
 const sponsors = [
   { name: "Gobierno", logo: logoGobierno, url: "https://www.chihuahua.gob.mx" },
@@ -55,30 +56,59 @@ const sponsors = [
     url: "https://livinglab.io",
   },
   {
-    name: "CUUIT",
-    logo: cuuit,
-    url: "https://desec.org.mx/wp/t-i/",
-  },
-  {
     name: "IA Center",
     logo: logoIacenter,
     url: "https://www.ia.center/es/",
   },
-
   {
     name: "ilum",
     logo: ilum,
     url: "https://www.ilumps.com",
   },
   {
-    name: "copi",
-    logo: copi,
-    url: "http://www.copichihuahua.org",
+    name: "CUUIT",
+    logo: cuuit,
+    url: "https://desec.org.mx/wp/t-i/",
   },
   {
-    name: "uach",
-    logo: uach,
-    url: "https://www.uach.mx",
+    name: "Tec de NCG CUU",
+    logo: logocasasgrandes,
+    url: "http://itsncg.edu.mx",
+  },
+  {
+    name: "Tec de Cuauhtemoc CUU",
+    logo: logocuauhtemoc,
+    url: "https://www.cdcuauhtemoc.tecnm.mx",
+  },
+  {
+    name: "tecdelicias",
+    logo: tecdelicias,
+    url: "https://www.delicias.tecnm.mx",
+  },
+  {
+    name: "IDE",
+    logo: logodelicias,
+    url: "http://desarrolloeconomico.municipiodelicias.com/",
+  },
+  {
+    name: "cuaumunicipio",
+    logo: municipiocuau,
+    url: "http://municipiocuauhtemoc.gob.mx",
+  },
+  {
+    name: "Quanto",
+    logo: quanto,
+    url: "https://quanto.mx",
+  },
+  {
+    name: "Ciidetec",
+    logo: logociidetec,
+    url: "#",
+  },
+  {
+    name: "Tec mty ",
+    logo: tecmty,
+    url: "https://egade.tec.mx",
   },
   {
     name: "uachmorado",
@@ -92,48 +122,21 @@ const sponsors = [
   },
 
   {
-    name: "Tec mty ",
-    logo: tecmty,
-    url: "https://egade.tec.mx",
-  },
-  {
-    name: "cuaumunicipio",
-    logo: municipiocuau,
-    url: "http://municipiocuauhtemoc.gob.mx",
-  },
-  {
-    name: "IDE",
-    logo: logodelicias,
-    url: "http://desarrolloeconomico.municipiodelicias.com/",
-  },
-  {
-    name: "Tec de NCG CUU",
-    logo: logocasasgrandes,
-    url: "http://itsncg.edu.mx",
-  },
-  {
-    name: "Ciidetec",
-    logo: logociidetec,
-    url: "#",
-  },
-  {
-    name: "tecdelicias",
-    logo: tecdelicias,
-    url: "https://www.delicias.tecnm.mx",
-  },
-  {
-    name: "Tec de Cuauhtemoc CUU",
-    logo: logocuauhtemoc,
-    url: "https://www.cdcuauhtemoc.tecnm.mx",
+    name: "uach",
+    logo: uach,
+    url: "https://www.uach.mx",
   },
 
   {
-    name: "Quanto",
-    logo: quanto,
-    url: "https://quanto.mx",
+    name: "utcj",
+    logo: utcj,
+    url: "https://www.utcj.edu.mx",
   },
-
-  ,
+  {
+    name: "copi",
+    logo: copi,
+    url: "http://www.copichihuahua.org",
+  },
 ];
 
 export function Sponsors() {
