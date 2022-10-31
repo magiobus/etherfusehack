@@ -34,39 +34,47 @@ const AdminDashboardPage = () => {
                     Estadisticas
                   </h3>
                   <div className="mt-12">
-                    <dl className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
-                      {isInitialLoading ? (
-                        <div className="py-24">
-                          <LoadingCircle color="#000000" />
+                    {isInitialLoading ? (
+                      <div className="py-24">
+                        <LoadingCircle color="#000000" />
+                      </div>
+                    ) : fetchError ? (
+                      <div className="py-24 text-center">
+                        <p className="bold text-red-500">
+                          Something happened loading stats 😢
+                        </p>
+                      </div>
+                    ) : stats && stats.length > 0 ? (
+                      stats.map((item, index) => (
+                        <div
+                          className="containter w-full  font-semibold"
+                          key={index}
+                        >
+                          <h2 className="mt-4">{item.name}</h2>
+                          <dl className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
+                            {item.values.map((value) => (
+                              <div
+                                className="px-4 py-5 bg-white shadow rounded-lg overflow-hidden sm:p-6"
+                                key={value._id}
+                              >
+                                <dt className="text-sm font-medium text-gray-500 truncate capitalize">
+                                  {value.nameEs}
+                                </dt>
+                                <dd className="mt-1 text-3xl font-semibold text-gray-900">
+                                  {value.stat}
+                                </dd>
+                              </div>
+                            ))}
+                          </dl>
                         </div>
-                      ) : fetchError ? (
-                        <div className="py-24 text-center">
-                          <p className="bold text-red-500">
-                            Something happened loading stats 😢
-                          </p>
-                        </div>
-                      ) : stats && stats.length > 0 ? (
-                        stats.map((item) => (
-                          <div
-                            key={item.nameEs}
-                            className="px-4 py-5 bg-white shadow rounded-lg overflow-hidden sm:p-6"
-                          >
-                            <dt className="text-sm font-medium text-gray-500 truncate capitalize">
-                              {item.nameEs}
-                            </dt>
-                            <dd className="mt-1 text-3xl font-semibold text-gray-900">
-                              {item.stat}
-                            </dd>
-                          </div>
-                        ))
-                      ) : (
-                        <div className="py-24 text-center">
-                          <p className="bold text-red-500">
-                            Theres no stats available 😢
-                          </p>
-                        </div>
-                      )}
-                    </dl>
+                      ))
+                    ) : (
+                      <div className="py-24 text-center">
+                        <p className="bold text-red-500">
+                          Theres no stats available 😢
+                        </p>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>

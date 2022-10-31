@@ -28,10 +28,38 @@ handler.get(async (req, res) => {
   const events = await db.collection("events").countDocuments();
   const tickets = await db.collection("tickets").countDocuments();
 
+  //get tickets and sum tshirt size count
+  const tshirtSizes = await db
+    .collection("tickets")
+    .aggregate([
+      {
+        $group: {
+          _id: "$shirtSize",
+          count: { $sum: 1 },
+        },
+      },
+    ])
+    .toArray();
+
+  const parsedTshirtSizes = tshirtSizes.map((item) => {
+    return {
+      name: item._id,
+      nameEs: item._id,
+      stat: item.count,
+    };
+  });
+
   const stats = [
-    { name: "users", nameEs: "usuarios 👩‍👦‍👦", stat: users },
-    { name: "events", nameEs: "eventos 🎤", stat: events },
-    { name: "tickets", nameEs: "tickets 🎟", stat: tickets },
+    {
+      name: "GlobalStats",
+      values: [
+        { name: "users", nameEs: "usuarios 👩‍👦‍👦", stat: users },
+        { name: "events", nameEs: "eventos 🎤", stat: events },
+        { name: "tickets", nameEs: "tickets 🎟", stat: tickets },
+      ],
+    },
+
+    { name: "TshirtSizes", values: parsedTshirtSizes },
   ];
 
   return res.json(stats);
