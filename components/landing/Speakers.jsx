@@ -23,6 +23,7 @@ import daniel from "@/public/landingimages/avatars/daniel.jpeg";
 import francisco from "@/public/landingimages/avatars/francisco.jpeg";
 import daniela from "@/public/landingimages/avatars/daniela.jpeg";
 import bani from "@/public/landingimages/avatars/bani.jpeg";
+import adrian from "@/public/landingimages/avatars/adrian.jpeg";
 
 const data = [
   {
@@ -162,6 +163,12 @@ const data = [
         name: "Oscar Ruiz Hernández ",
         role: "Encargado de la infraestructura y soporte en LaNTI de la UACJ ",
         image: oscar,
+        url: "#",
+      },
+      {
+        name: "Adrián Guzmán Sanabria ",
+        role: "Profesor de la UACJ, instructor IA Center ",
+        image: adrian,
         url: "#",
       },
     ],
