@@ -25,6 +25,9 @@ import uach from "@/public/landingimages/logos/uach.png";
 import uachmorado from "@/public/landingimages/logos/uachmorado.png";
 import ciet from "@/public/landingimages/logos/ciet.png";
 import utcj from "@/public/landingimages/logos/utcj.png";
+import mind from "@/public/landingimages/logos/mind.png";
+import tec2 from "@/public/landingimages/logos/tec2.png";
+import lasalle from "@/public/landingimages/logos/lasalle.png";
 
 const sponsors = [
   { name: "Gobierno", logo: logoGobierno, url: "https://www.chihuahua.gob.mx" },
@@ -136,6 +139,21 @@ const sponsors = [
     name: "copi",
     logo: copi,
     url: "http://www.copichihuahua.org",
+  },
+  {
+    name: "mind",
+    logo: mind,
+    url: "https://www.mindhub.mx",
+  },
+  {
+    name: "lasalle",
+    logo: lasalle,
+    url: "https://www.ulsachihuahua.edu.mx",
+  },
+  {
+    name: "tec2",
+    logo: tec2,
+    url: "http://www.chihuahua2.tecnm.mx",
   },
 ];
 

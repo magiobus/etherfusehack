@@ -24,6 +24,7 @@ import francisco from "@/public/landingimages/avatars/francisco.jpeg";
 import daniela from "@/public/landingimages/avatars/daniela.jpeg";
 import bani from "@/public/landingimages/avatars/bani.jpeg";
 import adrian from "@/public/landingimages/avatars/adrian.jpeg";
+import eduardo from "@/public/landingimages/avatars/eduardo.jpeg";
 
 const data = [
   {
@@ -74,15 +75,20 @@ const data = [
         url: "#",
       },
       {
+        name: "Eduardo Castillo",
+        role: "Director General del IA Center",
+        image: eduardo,
+        url: "#",
+      },
+      {
         name: "Francisco Alatorre Ávila",
         role: "Subdirector Académico TecNM Campus Cuauhtémoc",
         image: francisco,
         url: "#",
       },
-
       {
         name: "Alicia Robles Ruiz",
-        role: "Docente de Sistemas Computacionales",
+        role: "Docente de Sistemas Computacionales de Tec Delicias",
         image: alicia,
         url: "#",
       },
@@ -131,7 +137,7 @@ const data = [
       },
       {
         name: "Aquiles Benitez",
-        role: "CEO Gunny Games Studi",
+        role: "CEO Gunny Games Studio",
         image: aquiles,
         url: "https://www.linkedin.com/in/aquiles-benitez-658411128/?trk=prof-samename-name&originalSubdomain=ar",
       },
