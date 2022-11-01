@@ -25,6 +25,9 @@ import daniela from "@/public/landingimages/avatars/daniela.jpeg";
 import bani from "@/public/landingimages/avatars/bani.jpeg";
 import adrian from "@/public/landingimages/avatars/adrian.jpeg";
 import eduardo from "@/public/landingimages/avatars/eduardo.jpeg";
+import angelica from "@/public/landingimages/avatars/angelica.jpeg";
+import luis from "@/public/landingimages/avatars/luis.jpeg";
+import angel from "@/public/landingimages/avatars/angel.jpeg";
 
 const data = [
   {
@@ -67,6 +70,12 @@ const data = [
         role: "Hackathon Team",
         image: bani,
         url: "https://www.linkedin.com/in/banicarrasco",
+      },
+      {
+        name: "Ángel Moreno Campuzano",
+        role: "Jefe del Centro de Incubación e Innovación Empresarial del ITSNCG",
+        image: angel,
+        url: "#",
       },
       {
         name: "Martin Galván",
@@ -175,6 +184,18 @@ const data = [
         name: "Adrián Guzmán Sanabria ",
         role: "Profesor de la UACJ, instructor IA Center ",
         image: adrian,
+        url: "#",
+      },
+      {
+        name: "Angelica Grijalva ",
+        role: "Docente de Ingeniería en Sistemas Computacionales del ITSNCG ",
+        image: angelica,
+        url: "#",
+      },
+      {
+        name: "Luis Grijalva ",
+        role: "Docente de Ingeniería en Sistemas Computacionales del ITSNCG ",
+        image: luis,
         url: "#",
       },
     ],
