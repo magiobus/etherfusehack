@@ -28,6 +28,9 @@ import eduardo from "@/public/landingimages/avatars/eduardo.jpeg";
 import angelica from "@/public/landingimages/avatars/angelica.jpeg";
 import luis from "@/public/landingimages/avatars/luis.jpeg";
 import angel from "@/public/landingimages/avatars/angel.jpeg";
+import ferledezma from "@/public/landingimages/avatars/ferledezma.jpeg";
+import alfredolein from "@/public/landingimages/avatars/alfredolein.jpeg";
+import arvizu from "@/public/landingimages/avatars/arvizu.jpeg";
 
 const data = [
   {
@@ -157,6 +160,12 @@ const data = [
         url: "https://www.linkedin.com/in/octavio-palacios-b3b7471b4/",
       },
       {
+        name: "Fernando Ledezma ",
+        role: "Centro de Innovación y Emprendimiento Tecnológico UACH",
+        image: ferledezma,
+        url: "https://www.linkedin.com/in/fernandoledezma/",
+      },
+      {
         name: "Ivan Chavero 🤟",
         role: "Services Content Architec at Red Hat",
         image: chavero,
@@ -197,6 +206,19 @@ const data = [
         role: "Docente de Ingeniería en Sistemas Computacionales del ITSNCG ",
         image: luis,
         url: "#",
+      },
+
+      {
+        name: "Alberto Arvizu",
+        role: "Business School Dean - ITESM Chihuahua ",
+        image: arvizu,
+        url: "https://www.linkedin.com/in/albertoarvizu/",
+      },
+      {
+        name: "Jose Alfredo León ",
+        role: "MIS & MBA Professor",
+        image: alfredolein,
+        url: "https://www.linkedin.com/in/jose-alfredo-león-2475b52b/",
       },
     ],
   },

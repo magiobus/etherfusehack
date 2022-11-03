@@ -28,6 +28,9 @@ import utcj from "@/public/landingimages/logos/utcj.png";
 import mind from "@/public/landingimages/logos/mind.png";
 import tec2 from "@/public/landingimages/logos/tec2.png";
 import lasalle from "@/public/landingimages/logos/lasalle.png";
+import nuevocasasgrandes from "@/public/landingimages/logos/nuevocasasgrandes.png";
+import utch from "@/public/landingimages/logos/utch.png";
+import tec1 from "@/public/landingimages/logos/tec1.png";
 
 const sponsors = [
   { name: "Gobierno", logo: logoGobierno, url: "https://www.chihuahua.gob.mx" },
@@ -72,6 +75,11 @@ const sponsors = [
     name: "CUUIT",
     logo: cuuit,
     url: "https://desec.org.mx/wp/t-i/",
+  },
+  {
+    name: "nuevocasasgrandes",
+    logo: nuevocasasgrandes,
+    url: "http://itsncg.edu.mx",
   },
   {
     name: "Tec de NCG CUU",
@@ -150,10 +158,21 @@ const sponsors = [
     logo: lasalle,
     url: "https://www.ulsachihuahua.edu.mx",
   },
+
   {
     name: "tec2",
     logo: tec2,
     url: "http://www.chihuahua2.tecnm.mx",
+  },
+  {
+    name: "utch",
+    logo: utch,
+    url: "https://www.utch.edu.mx",
+  },
+  {
+    name: "tec1",
+    logo: tec1,
+    url: "https://itchihuahua.mx",
   },
 ];
 
