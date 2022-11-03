@@ -11,7 +11,6 @@ import logoAllData from "@/public/landingimages/logos/alldata.png";
 import logoIacenter from "@/public/landingimages/logos/iacenter.png";
 import logociidetec from "@/public/landingimages/logos/ciidetec.png";
 import logocuauhtemoc from "@/public/landingimages/logos/cuauhtemoc.png";
-import logocasasgrandes from "@/public/landingimages/logos/casasgrandes.png";
 import logodelicias from "@/public/landingimages/logos/logodelicias.png";
 import tecdelicias from "@/public/landingimages/logos/tecdelicias.png";
 import ilum from "@/public/landingimages/logos/ilum.png";
@@ -31,6 +30,7 @@ import lasalle from "@/public/landingimages/logos/lasalle.png";
 import nuevocasasgrandes from "@/public/landingimages/logos/nuevocasasgrandes.png";
 import utch from "@/public/landingimages/logos/utch.png";
 import tec1 from "@/public/landingimages/logos/tec1.png";
+import logocasasgrandes from "@/public/landingimages/logos/casasgrandes.png";
 
 const sponsors = [
   { name: "Gobierno", logo: logoGobierno, url: "https://www.chihuahua.gob.mx" },
