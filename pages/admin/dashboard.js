@@ -12,6 +12,7 @@ const AdminDashboardPage = () => {
       setIsInitialLoading(true);
       try {
         const { data } = await axios.get(`/api/admin/stats/`);
+        console.log("data =>", data);
         setStats(data);
         setFetchError(false);
       } catch (err) {

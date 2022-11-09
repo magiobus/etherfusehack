@@ -3,8 +3,8 @@ import Link from "next/link";
 import { Container } from "@/components/landing/Container";
 
 const eventInfo = [
-  ["Mentores", "+30"],
-  ["Participantes", "+400"],
+  ["Mentores", "+20"],
+  ["Participantes", "+300"],
   ["Sedes", "Varias sedes"],
   ["Lugar", "Chihuahua, Mx"],
 ];

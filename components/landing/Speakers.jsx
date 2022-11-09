@@ -142,6 +142,12 @@ const data = [
         url: "https://twitter.com/magiobus",
       },
       {
+        name: "David Andujo",
+        role: "COO Etherfuse",
+        image: davidandujo,
+        url: "https://www.linkedin.com/in/andujo/",
+      },
+      {
         name: "Wilson Yandún",
         role: "CTO Gunny Games Studio",
         image: wilson,
@@ -152,6 +158,12 @@ const data = [
         role: "CEO Gunny Games Studio",
         image: aquiles,
         url: "https://www.linkedin.com/in/aquiles-benitez-658411128/?trk=prof-samename-name&originalSubdomain=ar",
+      },
+      {
+        name: "Sandra Flores",
+        role: "Blockchain BMC Specialist & Co Founder",
+        image: sandraflores,
+        url: "#",
       },
       {
         name: "Octavio Palacios",
@@ -227,18 +239,18 @@ const data = [
     date: "",
     dateTime: "",
     speakers: [
-      {
-        name: "Sandra Flores",
-        role: "Blockchain BMC Specialist & Co Founder",
-        image: sandraflores,
-        url: "#",
-      },
-      {
-        name: "AJ Taylor",
-        role: "CTO Etherfuse",
-        image: ajtaylor,
-        url: "https://www.linkedin.com/in/aj-taylor-977a5481/",
-      },
+      // {
+      //   name: "Sandra Flores",
+      //   role: "Blockchain BMC Specialist & Co Founder",
+      //   image: sandraflores,
+      //   url: "#",
+      // },
+      // {
+      //   name: "AJ Taylor",
+      //   role: "CTO Etherfuse",
+      //   image: ajtaylor,
+      //   url: "https://www.linkedin.com/in/aj-taylor-977a5481/",
+      // },
     ],
   },
 ];
