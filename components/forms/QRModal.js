@@ -217,7 +217,7 @@ const QRModal = ({
 
                             {resultData?.shirtSize && (
                               <>
-                                <p className="font-semibold">
+                                <p className="font-semibold mt-4">
                                   Talla de Playera
                                 </p>
                                 <p className="font-semibold leading-3 uppercase">
