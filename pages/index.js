@@ -1,5 +1,3 @@
-import Head from "next/head";
-
 import { LandingHeader } from "@/components/landing/LandingHeader";
 import Landinglayout from "@/components/layouts/LandingLayout";
 import { Hero } from "@/components/landing/Hero";

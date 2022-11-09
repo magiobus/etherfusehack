@@ -123,7 +123,7 @@ const QRModal = ({
                 <Dialog.Panel className="w-full md:max-w-2xl relative transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                   {loading ? (
                     <div className="py-24">
-                      <LoadingCircle color="#E4187D" />
+                      <LoadingCircle color="#000000" />
                     </div>
                   ) : globalError ? (
                     <div className="flex flex-col items-center justify-center">
@@ -135,7 +135,7 @@ const QRModal = ({
                       </p>
                       <div className="buttoncontainer mt-4 flex justify-center items-center">
                         <button
-                          className="rounded-lg px-2 py-1 bg-happy-pink text-black"
+                          className="rounded-lg px-2 py-1 bg-black text-white"
                           onClick={() => handleCloseModal()}
                         >
                           Cerrar
@@ -173,7 +173,7 @@ const QRModal = ({
                           />
                           <div className="buttoncontainer mt-4 flex justify-center items-center">
                             <button
-                              className="rounded-lg px-2 py-1 bg-happy-pink text-white"
+                              className="rounded-lg px-2 py-1 bg-black text-white"
                               onClick={() => handleCloseModal()}
                             >
                               Cerrar
@@ -214,6 +214,17 @@ const QRModal = ({
                                 </p>
                               </>
                             )}
+
+                            {resultData?.shirtSize && (
+                              <>
+                                <p className="font-semibold">
+                                  Talla de Playera
+                                </p>
+                                <p className="font-semibold leading-3 uppercase">
+                                  {resultData?.shirtSize || "Sin talla elegida"}
+                                </p>
+                              </>
+                            )}
                           </div>
                           <div className="content mt-2 flex flex-col justify-center items-center">
                             <div className="quantity text-2xl">
@@ -222,7 +233,7 @@ const QRModal = ({
                           </div>
                           <div className="buttoncontainer mt-4 flex justify-center items-center">
                             <button
-                              className="rounded-lg px-2 py-1 bg-happy-pink text-white"
+                              className="rounded-lg px-2 py-1 bg-black text-white"
                               onClick={() => handleCloseModal(true)}
                             >
                               Cerrar

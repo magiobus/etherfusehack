@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Container } from "@/components/landing/Container";
 
 const eventInfo = [
-  ["Mentores", "+30"],
+  ["Mentores", "+20"],
   ["Participantes", "+300"],
   ["Sedes", "Varias sedes"],
   ["Lugar", "Chihuahua, Mx"],
@@ -31,16 +31,32 @@ export function Hero() {
             <span className="sr-only">Etherfuse hackathon - </span>
             El hackathon de blockchain para el estado grande.
           </h1>
-          <div className="mt-6 space-y-6 font-display text-2xl tracking-tight text-black">
-            <p>3 días de hacking, 3 días de aprendizaje, 3 días de creación.</p>
-            <p>
-              Un fin de semana para colaborar, aprender y crear soluciones
-              digitales con blockchain. Además podrás conocer a mentores, otros
-              hackers y ganar premios.
+          <div className="mt-6  font-display text-2xl tracking-tight text-black">
+            <p className="font-semibold">
+              3 días de hacking, 3 días de aprendizaje, 3 días de creación.
             </p>
+            <p className="font-semibold mt-1 mb-4">
+              Y la oportunidad de ganar $100,000 pesos en premios
+            </p>
+            <div className="container space-y-6">
+              <p>
+                Un fin de semana para colaborar, aprender y crear soluciones
+                digitales con blockchain. Además podrás conocer a mentores
+                nacionales e internacionales.
+              </p>
+              <div className="sedescontainer text-lg">
+                <p className="m-0 p-0 font-semibold">
+                  Inscríbete en alguna de nuestras sedes:
+                </p>
+                <p className=" m-0 p-0">
+                  Cd. Chihuahua, Cd. Juárez, Nuevo Casas Grandes, Cuauhtémoc,
+                  Delicias.
+                </p>
+              </div>
+            </div>
           </div>
           <div className="mt-10 bg-black w-full flex justify-center items-center rounded-md">
-            <Link href="/">
+            <Link href="/events">
               <a className="text-happy-yellow  text-center font-bold rounded-md px-4 py-2 text-xl w-full ">
                 Regístrate
               </a>

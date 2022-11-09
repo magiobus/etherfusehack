@@ -4,10 +4,11 @@ import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
 import NoAccessErrorPage from "@/components/errors/NoAccessErrorPage";
 import LoadingCircle from "@/components/common/LoadingCircle";
-import { UserCircleIcon } from "@heroicons/react/outline";
+import { UserCircleIcon, CodeIcon, TicketIcon } from "@heroicons/react/outline";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
 import classNames from "@/utils/classNames";
+import { Toaster } from "react-hot-toast";
 
 const AccountLayout = ({ children, ...props }) => {
   const router = useRouter();
@@ -18,6 +19,18 @@ const AccountLayout = ({ children, ...props }) => {
       name: "Mi Cuenta",
       href: "/user/profile",
       icon: UserCircleIcon,
+      current: false,
+    },
+    {
+      name: "Mis Tickets",
+      href: "/user/tickets",
+      icon: TicketIcon,
+      current: false,
+    },
+    {
+      name: "Mis Proyectos",
+      href: "/user/projects",
+      icon: CodeIcon,
       current: false,
     },
   ];
@@ -43,6 +56,7 @@ const AccountLayout = ({ children, ...props }) => {
       <div className="min-h-full h-full">
         <div className="flex flex-col w-full bg-gray-100 " {...props}>
           <Header />
+          <Toaster position="bottom-center" />
           <div className="w-full max-w-7xl  mx-auto  ">
             <div className="max-w-7xl w-full py-6 sm:px-6  ">
               <div className="lg:grid lg:grid-cols-12 lg:gap-x-5">
@@ -57,16 +71,16 @@ const AccountLayout = ({ children, ...props }) => {
                           <a
                             className={classNames(
                               item.current
-                                ? "bg-gray-50 text-indigo-700 hover:text-indigo-700 hover:bg-white"
+                                ? "bg-black text-happy-yellow hover:text-happy-yellow hover:bg-black"
                                 : "text-gray-900 hover:text-gray-900 hover:bg-gray-50",
-                              "group rounded-md px-3 py-2 flex items-center text-sm font-medium"
+                              "group rounded-md px-3 py-2 flex items-center text-sm font-medium "
                             )}
                             aria-current={item.current ? "page" : undefined}
                           >
                             <item.icon
                               className={classNames(
                                 item.current
-                                  ? "text-indigo-500 group-hover:text-indigo-500"
+                                  ? "text-happy-yellow group-hover:text-happy-yellow"
                                   : "text-gray-400 group-hover:text-gray-500",
                                 "flex-shrink-0 -ml-1 mr-3 h-6 w-6"
                               )}

@@ -12,6 +12,7 @@ const parsemultiPartyForm = async function (req) {
           fields[key] = fields[key].join("");
         }
       }
+
       req.body = fields;
       req.files = files;
     } catch (error) {

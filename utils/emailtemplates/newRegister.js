@@ -169,7 +169,7 @@ const newRegisterTemplate = (data) => {
 <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;">
 <!--<![endif]-->
 <div align="center" class="img-container center autowidth big" style="padding-right: 0px;padding-left: 0px;">
-<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img align="center" border="0" class="center autowidth" src="https://res.cloudinary.com/superhappydevhousemx-gmail-com/image/upload/c_crop,h_200,w_800/v1655094624/og_rwcjrt.jpg" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 500px; max-width: 100%; display: block;" width="500"/>
+<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img align="center" border="0" class="center autowidth" src="https://res.cloudinary.com/dqvwmfzal/image/upload/v1664342825/static/mailbanner.png" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 500px; max-width: 100%; display: block;" width="500"/>
 <!--[if mso]></td></tr></table><![endif]-->
 </div>
 <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Arial, sans-serif"><![endif]-->

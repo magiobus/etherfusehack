@@ -3,11 +3,24 @@ import nc from "next-connect";
 import { getSession } from "next-auth/react";
 import clientPromise from "@/lib/mongodb";
 const { ObjectId } = require("mongodb");
+import parseMultiPartyForm from "@/utils/parseMultiPartyForm";
+import eventsLib from "@/lib/eventsLib";
+import cloudinaryLib from "@/lib/cloudinaryLib";
 import ncoptions from "@/config/ncoptions";
+
 const handler = nc(ncoptions);
 
 //MIDDLEWARE
 handler.use(async (req, res, next) => {
+  //parses form data using multiparty
+  try {
+    await parseMultiPartyForm(req);
+  } catch (error) {
+    console.error("error parsing form data request", error);
+    res.status(500).json({ error });
+    return;
+  }
+
   //gets session and connects to DB Client if authenticated
   const session = await getSession({ req });
   if (session && session.user.roles.includes("admin")) {
@@ -71,5 +84,59 @@ handler.get(async (req, res) => {
     res.status(400).end("No eventId provided");
   }
 });
+
+//UPDATE EVENT
+handler.put(async (req, res) => {
+  const { id } = req.query;
+  const { id: userId } = req.sessionUser;
+  const db = req.db;
+  const { _id } = req.body;
+
+  if (!id) {
+    res.status(400).end("No eventId provided");
+    return;
+  }
+
+  try {
+    //parse event data
+    const parsedEvent = await eventsLib.parseEditEventData(req);
+
+    //update photo event if it exists
+    if (req.files && req.files.photo) {
+      const eventPhotoUrl = await cloudinaryLib.uploadEventPhoto(
+        req.files,
+        _id.toString()
+      ); //uploadphoto to cloudinary
+
+      if (!eventPhotoUrl) {
+        res.status(500).json({ error: "error uploading event photo" });
+        return;
+      }
+      parsedEvent.photo = eventPhotoUrl;
+    }
+
+    //update event in DB
+    const updatedEvent = await db.collection("events").findOneAndUpdate(
+      {
+        _id: ObjectId(id),
+        createdBy: userId,
+      },
+      { $set: parsedEvent },
+      { returnOriginal: false }
+    );
+
+    console.info("updatedEvent", updatedEvent);
+    res.json(updatedEvent.value);
+  } catch (error) {
+    console.error("error updating event", error);
+    res.status(500).json({ error });
+  }
+});
+
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+};
 
 export default handler;

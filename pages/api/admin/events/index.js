@@ -42,6 +42,7 @@ handler.use(async (req, res, next) => {
 //Adds new event
 handler.post(async (req, res) => {
   const db = req.db;
+  const user = req.sessionUser;
 
   const {
     name,
@@ -56,6 +57,8 @@ handler.post(async (req, res) => {
     placeState,
     timeZone,
     attendeeLimit,
+    maxTeamSize,
+    isGivingShirts,
   } = req.body;
 
   try {
@@ -81,9 +84,11 @@ handler.post(async (req, res) => {
       locationUrl: locationUrl || "",
       createdAt: dateNowUnix(),
       updatedAt: dateNowUnix(),
-      createdBy: req.sessionUser._id || "",
+      createdBy: user.id || "",
       price: 0,
       attendeeLimit: parseInt(attendeeLimit) || 0,
+      maxTeamSize: parseInt(maxTeamSize) || 5,
+      isGivingShirts: isGivingShirts === "true",
     };
 
     //save event to DB
@@ -142,15 +147,71 @@ handler.post(async (req, res) => {
 //GET Events
 handler.get(async (req, res) => {
   const db = req.db;
-  //get all events sorted by newest
+  const { page, sort, order, limit, role } = req.query;
 
+  if (!page || !sort || !order || !limit) {
+    console.error("You need to provide page, sort and order query params");
+    res
+      .status(400)
+      .end("You need to provide page, sort and order query params");
+    return;
+  }
+
+  //add ticket count to every event
   const events = await db
     .collection("events")
-    .find()
-    .sort({ createdAt: -1 })
+    .aggregate([
+      { $addFields: { _id: { $toString: "$_id" } } },
+      {
+        $lookup: {
+          from: "tickets",
+          let: { eventId: "$_id" },
+          pipeline: [
+            {
+              $match: {
+                $expr: {
+                  $and: [{ $eq: ["$eventId", "$$eventId"] }],
+                },
+              },
+            },
+            {
+              $group: {
+                _id: "$eventId",
+                count: { $sum: 1 },
+              },
+            },
+          ],
+          as: "ticketCount",
+        },
+      },
+      {
+        $addFields: {
+          ticketCount: {
+            $arrayElemAt: ["$ticketCount.count", 0],
+          },
+        },
+      },
+      {
+        $sort: {
+          [sort]: order === "asc" ? 1 : -1,
+        },
+      },
+      {
+        $skip: (Number(page) - 1) * Number(limit),
+      },
+      {
+        $limit: Number(limit),
+      },
+    ])
     .toArray();
 
-  res.json(events);
+  const eventsCount = await db.collection("events").countDocuments();
+
+  res.json({
+    events,
+    count: eventsCount,
+    totalPages: Math.ceil(eventsCount / limit),
+  });
 });
 
 export const config = {

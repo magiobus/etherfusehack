@@ -26,10 +26,75 @@ handler.get(async (req, res) => {
   //returns count of users
   const users = await db.collection("users").countDocuments();
   const events = await db.collection("events").countDocuments();
+  const tickets = await db.collection("tickets").countDocuments();
+
+  //get tickets and sum tshirt size count
+  const tshirtSizes = await db
+    .collection("tickets")
+    .aggregate([
+      {
+        $group: {
+          _id: "$shirtSize",
+          count: { $sum: 1 },
+        },
+      },
+    ])
+    .toArray();
+
+  const parsedTshirtSizes = tshirtSizes.map((item) => {
+    return {
+      name: item._id,
+      nameEs: item._id,
+      stat: item.count,
+    };
+  });
+
+  //get t shirt info of every event and sum tshirt size count
+  const eventTshirtSizes = await db
+    .collection("events")
+    .aggregate([
+      {
+        $match: {},
+      },
+      { $addFields: { _id: { $toString: "$_id" } } },
+      {
+        $lookup: {
+          from: "tickets",
+          let: { eventId: "$_id" },
+          pipeline: [
+            {
+              $match: {
+                $expr: {
+                  $and: [{ $eq: ["$eventId", "$$eventId"] }],
+                },
+              },
+            },
+            {
+              $group: {
+                _id: "$shirtSize",
+                count: { $sum: 1 },
+              },
+            },
+          ],
+          as: "ticketCount",
+        },
+      },
+    ])
+    .toArray();
+
+  console.log("eventTshirtSizes", eventTshirtSizes);
 
   const stats = [
-    { name: "users", nameEs: "usuarios", stat: users },
-    { name: "events", nameEs: "eventos", stat: events },
+    {
+      name: "GlobalStats",
+      values: [
+        { name: "users", nameEs: "usuarios 👩‍👦‍👦", stat: users },
+        { name: "events", nameEs: "eventos 🎤", stat: events },
+        { name: "tickets", nameEs: "tickets 🎟", stat: tickets },
+      ],
+    },
+    { name: "TshirtSizes", values: parsedTshirtSizes },
+    { name: "EventTshirtSizes", values: eventTshirtSizes },
   ];
 
   return res.json(stats);

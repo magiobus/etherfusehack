@@ -7,11 +7,14 @@ import ncoptions from "@/config/ncoptions";
 const handler = nc(ncoptions);
 import ticketsLib from "@/lib/ticketsLib";
 import eventsLib from "@/lib/eventsLib";
+import notificationsLib from "@/lib/notificationsLib";
+const discordLink = process.env.DISCORD_INVITE_LINK;
 
 //MIDDLEWARE
 handler.use(async (req, res, next) => {
   //gets session and connects to DB Client if authenticated
   const session = await getSession({ req });
+
   if (
     (session && session.user.roles.includes("organizer")) ||
     session.user.roles.includes("admin")
@@ -128,6 +131,48 @@ handler.post(async (req, res) => {
         },
       }
     );
+
+    //Send notification via email with discord link
+    try {
+      const mailData = {
+        data: {
+          user,
+          discordLink,
+        },
+        receiversList: [user.email],
+      };
+
+      await notificationsLib.sendDiscordEmail(mailData);
+    } catch (error) {
+      console.error(error);
+    }
+
+    //send whatsapp message with discord link
+    try {
+      const waData = {
+        to: ticket.user.phone.replace(/\D/g, ""),
+        template: "event_discord_link",
+        locale: "es_MX",
+        components: [
+          {
+            type: "body",
+            parameters: [
+              {
+                type: "text",
+                text: `${user?.name.split(" ")[0]}`,
+              },
+              {
+                type: "text",
+                text: `${discordLink}`,
+              },
+            ],
+          },
+        ],
+      };
+      await notificationsLib.sendWhatsappTemplate(waData);
+    } catch (error) {
+      console.error(error);
+    }
 
     //return ticket info
     res.status(200).json(ticket);

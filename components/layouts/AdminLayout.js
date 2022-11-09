@@ -7,7 +7,12 @@ import LoadingCircle from "@/components/common/LoadingCircle";
 import classNames from "@/utils/classNames";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
-import { HomeIcon, UserIcon, CalendarIcon } from "@heroicons/react/outline";
+import {
+  HomeIcon,
+  UserIcon,
+  CalendarIcon,
+  SpeakerphoneIcon,
+} from "@heroicons/react/outline";
 
 const AdminLayout = ({ title, children, ...props }) => {
   const router = useRouter();
@@ -30,6 +35,12 @@ const AdminLayout = ({ title, children, ...props }) => {
       name: "Eventos",
       href: "/admin/events",
       icon: CalendarIcon,
+      current: false,
+    },
+    {
+      name: "Marketing",
+      href: "/admin/marketing",
+      icon: SpeakerphoneIcon,
       current: false,
     },
   ];
@@ -67,8 +78,9 @@ const AdminLayout = ({ title, children, ...props }) => {
               <div className="lg:grid lg:grid-cols-12 lg:gap-x-5">
                 <aside className="py-6 px-2 sm:px-6 lg:py-0 lg:px-0 lg:col-span-2">
                   <nav className="space-y-1">
+                    <p className="mb-4 font-bold">Admin Dashboard</p>
                     {navigation.map((item) => {
-                      if (item.href === router.pathname) {
+                      if (router.pathname.includes(item.href)) {
                         item.current = true;
                       }
                       return (
@@ -76,7 +88,7 @@ const AdminLayout = ({ title, children, ...props }) => {
                           <a
                             className={classNames(
                               item.current
-                                ? "bg-gray-50 text-happy-yellow hover:text-happy-yellow hover:bg-white"
+                                ? "bg-black text-happy-yellow hover:text-happy-yellow hover:bg-black"
                                 : "text-gray-900 hover:text-gray-900 hover:bg-gray-50",
                               "group rounded-md px-3 py-2 flex items-center text-sm font-medium"
                             )}

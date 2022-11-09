@@ -19,7 +19,7 @@ const Layout = ({
       <Seo subtitle={title} description={description} imageUrl={imageUrl} />
       <div className="flex flex-col w-full" {...rest}>
         <Header fixed={fixed} />
-        <div className={`my-0 ${fixed && "pt-14"}`}>{children}</div>
+        <div className={`my-0 ${fixed && "pt-14"} bg-gray-100`}>{children}</div>
         <Footer />
       </div>
     </>

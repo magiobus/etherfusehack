@@ -5,17 +5,40 @@ import { useEffect, useState } from "react";
 import LoadingCircle from "@/components/common/LoadingCircle";
 import axios from "axios";
 import unixToDate from "@/utils/unixToDate";
+import Pagination from "@/components/common/Pagination";
 
 const AdminUsersPage = () => {
   const [isInitialLoading, setIsInitialLoading] = useState(true);
   const [fetchError, setFetchError] = useState(false);
   const [users, setUsers] = useState(undefined);
+
+  const [page, setPage] = useState(1);
+  const [paginationData, setPaginationData] = useState({});
+
+  const pageSize = 20;
+  const sortBy = "createdAt";
+  const orderBy = "desc";
+
+  useEffect(() => {
+    setPage(1);
+  }, []);
+
   useEffect(() => {
     async function getUsers() {
       setIsInitialLoading(true);
       try {
-        const { data } = await axios.get(`/api/admin/users/`);
-        setUsers(data);
+        const { data } = await axios.get(
+          `/api/admin/users/?page=${page}&limit=${pageSize}&sort=${sortBy}&order=${orderBy}`
+        );
+        const { users, count, totalPages } = data;
+
+        setUsers(users);
+        setPaginationData({
+          page,
+          pageSize: users.length,
+          totalPages,
+          totalCount: count,
+        });
         setFetchError(false);
       } catch (err) {
         setFetchError(true);
@@ -24,7 +47,7 @@ const AdminUsersPage = () => {
     }
 
     getUsers();
-  }, []);
+  }, [page]);
 
   return (
     <AdminLayout title="Usuarios">
@@ -34,14 +57,14 @@ const AdminUsersPage = () => {
             <div className="shadow sm:rounded-md sm:overflow-hidden">
               <div className="bg-white py-6  space-y-6 ">
                 <div className="flex justify-between px-8 w-full items-center ">
-                  <h3 className="text-lg leading-6 font-medium text-gray-900">
+                  <h3 className="text-lg leading-6 font-medium text-happy-yellow bg-black">
                     Usuarios
                   </h3>
 
                   <Link href="/admin/users/add" passHref>
                     <button
                       type="button"
-                      className="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-happy-yellow hover:bg-happy-yellow focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-happy-yellow"
+                      className="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-happy-yellow bg-black hover:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-happy-yellow"
                     >
                       Agregar Usuario
                     </button>
@@ -131,7 +154,7 @@ const AdminUsersPage = () => {
 
                                   <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                     <Link href={`/admin/users/${user._id}`}>
-                                      <a className="text-happy-yellow hover:text-happy-yellow">
+                                      <a className="text-happy-yellow bg-black px-2 rounded-md py-1">
                                         Mostrar
                                       </a>
                                     </Link>
@@ -140,6 +163,10 @@ const AdminUsersPage = () => {
                               ))}
                             </tbody>
                           </table>
+                          <Pagination
+                            paginationData={paginationData}
+                            setPage={setPage}
+                          />
                         </div>
                       ) : (
                         <div className="py-24 text-center">

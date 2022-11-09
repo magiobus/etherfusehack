@@ -1,6 +1,12 @@
 import SocialIcon from "@/components/icons/Social";
+import Link from "next/link";
 const copyrightLabel = `© Etherfuse ${new Date().getFullYear()} `;
 const socialLink = [
+  {
+    name: "Facebook",
+    href: "https://www.facebook.com/etherfusetech",
+    icon: "facebook",
+  },
   {
     name: "Substack",
     href: "https://etherfuse.substack.com",
@@ -23,6 +29,13 @@ const Footer = () => {
     <footer className="bg-black">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8">
         <div className="flex justify-center space-x-6 md:order-2">
+          <Link href="/terms">
+            <a className="text-center text-base text-happy-yellow mb-8 md:mb-0">
+              Terminos y Condiciones
+            </a>
+          </Link>
+        </div>
+        <div className="flex justify-center space-x-6 md:order-2">
           {socialLink.map((item) => (
             <a
               key={item.name}
@@ -35,6 +48,7 @@ const Footer = () => {
             </a>
           ))}
         </div>
+
         <div className="mt-8 md:mt-0 md:order-1">
           <p className="text-center text-base text-happy-yellow">
             {copyrightLabel}

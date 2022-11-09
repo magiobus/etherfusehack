@@ -8,6 +8,8 @@ const TicketTabs = ({ event }) => {
   const { tickets } = event;
   const { attendees } = tickets;
 
+  console.log("tickets => ", tickets);
+
   return (
     <>
       <Tab.Group>
@@ -72,15 +74,31 @@ const TicketTabs = ({ event }) => {
                           <div className="flex-1">
                             <div className="flex items-center justify-between">
                               <div className="flex-1 ml-2">
-                                <p className="text-sm leading-5 text-gray-500 font-semibold">
-                                  OrderId
-                                </p>
-                                <p className="text-sm leading-5 text-gray-500">
+                                <p className="text-sm leading-5 text-gray-500 font-semibold"></p>
+                                <a
+                                  className="text-sm leading-5 text-gray-500 underline"
+                                  href={attendee?.qrUrl}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                >
+                                  <span className="font-semibold text-xs">
+                                    Orden
+                                  </span>{" "}
                                   {attendee.orderId}
-                                </p>
+                                </a>
                                 <p className="text-xs leading-5 text-gray-500">
                                   {" "}
+                                  <span className="font-semibold">
+                                    Creado:{" "}
+                                  </span>
                                   {unixToFormat(attendee?.createdAt, "PP")}
+                                </p>
+                                <p className="text-xs capitalize leading-5 text-gray-500">
+                                  {" "}
+                                  <span className="font-semibold">
+                                    Playera:{" "}
+                                  </span>{" "}
+                                  {attendee?.shirtSize}
                                 </p>
                               </div>
                             </div>

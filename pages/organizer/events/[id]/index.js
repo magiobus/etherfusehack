@@ -1,0 +1,53 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @next/next/no-img-element */
+import OrganizerLayout from "@/components/layouts/OrganizerLayout";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { useRouter } from "next/router";
+import EventDetail from "@/components/admin/events/EventDetail";
+
+const AdminEventsShowPage = () => {
+  const [isInitialLoading, setIsInitialLoading] = useState(true);
+  const [fetchError, setFetchError] = useState(false);
+  const [event, setEvent] = useState(undefined);
+  const [justScanned, setJustScanned] = useState(false);
+
+  const router = useRouter();
+  const getEvent = async (id) => {
+    setIsInitialLoading(true);
+    try {
+      const { data } = await axios.get(`/api/organizer/events/${id}`);
+      setEvent(data);
+      setFetchError(false);
+    } catch (err) {
+      setFetchError(true);
+    }
+    setIsInitialLoading(false);
+  };
+
+  useEffect(() => {
+    const { id } = router.query;
+    if (id) {
+      getEvent(id);
+    }
+  }, [router.query]);
+
+  useEffect(() => {
+    if (justScanned) {
+      getEvent(router.query.id);
+    }
+  }, [justScanned]);
+
+  return (
+    <OrganizerLayout title="Usuarios">
+      <EventDetail
+        event={event}
+        isInitialLoading={isInitialLoading}
+        fetchError={fetchError}
+        setJustScanned={setJustScanned}
+      />
+    </OrganizerLayout>
+  );
+};
+
+export default AdminEventsShowPage;

@@ -10,7 +10,14 @@ import classNames from "@/utils/classNames";
 const logoUrl = "/images/etherfuse_squarelogo.jpeg";
 const navigation = {
   categories: [],
-  pages: [],
+  pages: [
+    { name: "Sedes", href: "/events" },
+    { name: "Agenda", href: "/#schedule" },
+    { name: "Sponsors", href: "/#sponsors" },
+    { name: "Team", href: "/#organizers" },
+    { name: "Faqs", href: "/faqs" },
+    { name: "Recursos", href: "/resources" },
+  ],
 };
 
 const Header = ({ fixed = false }) => {
@@ -176,6 +183,51 @@ const SessionMenu = ({ session }) => {
                   </Link>
                 )}
               </Menu.Item>
+              <Menu.Item>
+                {({ active }) => (
+                  <Link href="/user/tickets">
+                    <a
+                      className={classNames(
+                        active ? "bg-black" : "",
+                        "block px-4 py-2 text-sm text-happy-yellow"
+                      )}
+                    >
+                      Mis Tickets
+                    </a>
+                  </Link>
+                )}
+              </Menu.Item>
+              <Menu.Item>
+                {({ active }) => (
+                  <Link href="/user/projects">
+                    <a
+                      className={classNames(
+                        active ? "bg-black" : "",
+                        "block px-4 py-2 text-sm text-happy-yellow"
+                      )}
+                    >
+                      Mis Proyectos
+                    </a>
+                  </Link>
+                )}
+              </Menu.Item>
+
+              {session.user.roles.includes("organizer") && (
+                <Menu.Item>
+                  {({ active }) => (
+                    <Link href="/organizer/events">
+                      <a
+                        className={classNames(
+                          active ? "bg-black" : "",
+                          "block px-4 py-2 text-sm text-happy-yellow"
+                        )}
+                      >
+                        Dashboard
+                      </a>
+                    </Link>
+                  )}
+                </Menu.Item>
+              )}
 
               {session.user.roles.includes("admin") && (
                 <Menu.Item>

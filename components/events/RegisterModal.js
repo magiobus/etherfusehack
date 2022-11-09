@@ -7,7 +7,17 @@ import axios from "axios";
 import unixToFormat from "@/utils/unixToFormat";
 import Input from "@/components/forms/fields/Input";
 import TextArea from "@/components/forms/fields/TextArea";
+import CheckBox from "@/components/forms/fields/CheckBox";
+import Select from "@/components/forms/fields/Select";
 import parsePhoneNumber from "libphonenumber-js";
+
+const shirtSizes = [
+  { value: "none", label: "No quiero Playera" },
+  { value: "s", label: "Chica" },
+  { value: "m", label: "Mediana" },
+  { value: "l", label: "Grande" },
+  { value: "xl", label: "Extra Grande" },
+];
 
 const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -30,7 +40,7 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
     setGlobalError(null);
     setIsRegistered(false);
 
-    const { about, email, name } = data;
+    const { about, email, name, shirtSize } = data;
     let { phone } = data;
 
     //format phone number
@@ -48,6 +58,7 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
           "d 'de' MMMM yyyy h:mm aa"
         )}`,
         eventId: eventData._id,
+        shirtSize,
       });
 
       setOrderId(response.data.orderId);
@@ -113,13 +124,13 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                       <div className="formcontainer w-full max-w-lg justify-center items-center">
                         <Dialog.Title
                           as="h3"
-                          className="text-lg font-medium leading-6 text-gray-900"
+                          className="text-lg font-medium leading-6 text-happy-yellow bg-black"
                         >
                           Registro para {name}
                         </Dialog.Title>
-                        <div className="mt-2">
-                          <p className="text-sm text-gray-500">
-                            Para registrarte en el evento, ingresa tus datos.
+                        <div className="mt-4">
+                          <p className="text-sm text-black ">
+                            Ingresa tus datos para registrarte en el evento
                           </p>
                         </div>
 
@@ -127,7 +138,7 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                           <div className="fields max-w-md">
                             <div className="my-4 field">
                               <Input
-                                label="Nombre"
+                                label="Nombre Completo"
                                 name="name"
                                 type="text"
                                 register={{
@@ -207,6 +218,41 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                                 }}
                               />
                             </div>
+                            {eventData && eventData.isGivingShirts && (
+                              <div className="field my-4">
+                                <Select
+                                  label="Talla de playera"
+                                  name="shirtSize"
+                                  options={shirtSizes}
+                                  register={{
+                                    ...register("shirtSize", {
+                                      required: {
+                                        value: true,
+                                        message: "El Campo es requerido",
+                                      },
+                                    }),
+                                  }}
+                                  errorMessage={errors.shirtSize?.message}
+                                />
+                              </div>
+                            )}
+                          </div>
+
+                          <div className="inputwrapper my-3">
+                            <CheckBox
+                              label="Acepto los términos y condiciones"
+                              description="Al registrarte aceptas los términos y Condiciones"
+                              name="terms"
+                              register={{
+                                ...register("terms", {
+                                  required: {
+                                    value: true,
+                                    message: "Debes aceptar los términos",
+                                  },
+                                }),
+                              }}
+                              errorMessage={errors.terms?.message}
+                            />
                           </div>
 
                           <div className="mt-4 text-red-500">{globalError}</div>
@@ -214,7 +260,7 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                           <div className="mt-4">
                             <button
                               type="submit"
-                              className="inline-flex justify-center rounded-md border border-transparent bg-happy-yellow px-4 py-2 text-sm font-medium text-white hover:bg-happy-yellow-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                              className="inline-flex justify-center rounded-md border border-transparent bg-black text-happy-yellow px-4 py-2 text-sm font-medium  hover:bg-happy-yellow-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                               disabled={isLoading}
                             >
                               <div className="loadingcontainer flex justify-center items-center w-full">
@@ -232,7 +278,7 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                   ) : (
                     <div className="flex flex-col items-center justify-center">
                       <div className="text-center">
-                        <h1 className="text-3xl font-bold text-happy-yellow">
+                        <h1 className="text-3xl font-bold text-happy-yellow bg-black py-2">
                           ¡Gracias por registrarte!
                         </h1>
                         <p className="mt-4">
@@ -244,16 +290,6 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                             )}{" "}
                           </span>
                         </p>
-                        {orderId && (
-                          <div className="registerId mt-4 ">
-                            <p className="text-md font-bold text-black">
-                              Tu ID de registro es:
-                            </p>
-                            <p className="text-md font-bold text-black">
-                              {orderId}
-                            </p>
-                          </div>
-                        )}
 
                         <p className="mt-4">
                           Te mandamos un email con un codigo QR para acceder al

@@ -1,13 +1,13 @@
 import MainLayout from "@/components/layouts/MainLayout";
 import Image from "next/image";
-import Link from "next/link";
 import unixToFormat from "@/utils/unixToFormat";
 import clientPromise from "@/lib/mongodb";
 import { CalendarIcon, LocationMarkerIcon } from "@heroicons/react/solid";
 import RegisterModal from "@/components/events/RegisterModal";
 import { useState } from "react";
 import dateNowUnix from "@/utils/dateNowUnix";
-
+import ShareButtons from "@/components/events/ShareButtons";
+import ProjectsList from "@/components/events/ProjectsList";
 const EventDetailPage = ({ event, expired, registerCount }) => {
   const {
     photo,
@@ -20,11 +20,13 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
     price,
     locationUrl,
     startTime,
-    endTime,
     description,
+    projects,
   } = event;
 
   const [modalOpen, setModalOpen] = useState(false);
+  const shareUrl = `https://hackathon.etherfuse.com/events/${event._id}`;
+  const sharedMessage = `Te invito a ${event.name}!`;
 
   return (
     <MainLayout title={name} description={description} imageUrl={photo}>
@@ -36,7 +38,7 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
             eventData={event}
           />
 
-          <div className="header my-4 flex flex-col lg:flex-row lg:justify-between lg:items-center bg-gray-100">
+          <div className="header mt-0 mb-4 md:my-4 flex flex-col lg:flex-row lg:justify-between lg:items-center bg-black">
             <Image
               src={photo}
               alt={name}
@@ -44,16 +46,21 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
               height={400}
               className="object-fill"
             />
-            <div className="rightsection flex flex-col justify-center items-start h-full py-4 px-4 w-full lg:w-4/12 mr-4 ">
-              <h1 className="font-bold text-2xl">{name}</h1>
-              <p className="capitalize">
+            <div
+              className="rightsection  flex flex-col justify-center items-start h-full py-4 px-4 w-full lg:w-4/12 mr-4 text-happy-yellow
+          "
+            >
+              <h1 className="font-bold text-2xl mb-4">{name}</h1>
+              <p className="capitalize text-white">
                 @{placeName} - {placeState}, {placeCity} {placeCountry}
               </p>
-              <p className="capitalize">
+              <p className="capitalize text-white">
                 {" "}
                 {unixToFormat(startTime, "d 'de' MMMM yyyy h:mm aa")}
               </p>
-              <p className="mt-4 ">{price == 0 && "Entrada Gratuita"}</p>
+              <p className="mt-4 text-white font-bold">
+                {price == 0 && "Entrada Gratuita"}
+              </p>
               {registerCount ? (
                 <p>{registerCount} asistentes registrados</p>
               ) : (
@@ -64,7 +71,7 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
                   <p className="text-red-400">Este evento ya ha pasado ☹️</p>
                 ) : (
                   <button
-                    className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-happy-yellow-600 hover:bg-happy-yellow-700 md:py-4 md:text-lg md:px-10"
+                    className="w-full bg-happy-yellow text-black flex items-center justify-center px-8 py-3 border border-transparent text-base rounded-md font-bold bg-happy-yellow-600 hover:bg-happy-yellow-700 md:py-4 md:text-lg md:px-10"
                     onClick={() => setModalOpen(true)}
                   >
                     Regístrarse
@@ -75,21 +82,10 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
           </div>
           <div className="content flex justify-start  items-center w-full">
             <div className="max-w-7xl w-full mx-auto py-8 px-4 sm:py-18 sm:px-6 lg:px-8 xl:px-0  ">
-              <div className="w-full flex flex-col lg:flex-row  justify-between items-center">
+              <div className="w-full flex flex-col lg:flex-row  justify-between items-center lg:items-start">
                 <div className="leftsection w-full lg:w-1/2">
                   <p className="font-bold">Acerca del evento</p>
                   <p className=" mt-5  text-xl text-black">{description}</p>
-                  <p className=" mt-5  text-xl text-black">
-                    Te recomendamos que revises la sección de{" "}
-                    <span>
-                      <Link href={`/faqs`}>
-                        <a className="underline text-happy-yellow">
-                          preguntas frecuentes
-                        </a>
-                      </Link>
-                    </span>{" "}
-                    para resolver cualquier duda que tengas.
-                  </p>
                 </div>
                 <div className="rightsection flex flex-col  w-full  mt-8 lg:mt-0 px-0 lg:px-8 lg:w-4/12">
                   <div className="infocontainer">
@@ -120,20 +116,29 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
                     </div>
                     <p className="">{placeName}</p>
                     <p className="">{placeAddress}</p>
-                    <p className="capitalize">
+                    <p className="capitalize mb-4">
                       {placeState}, {placeCity} {placeCountry}
                     </p>
                     <a
                       href={locationUrl}
                       target="_blank"
-                      className="underline text-happy-yellow"
+                      className="underline text-happy-yellow bg-black rounded-md px-2 py-1"
                       rel="noreferrer"
                     >
                       Ver Mapa
                     </a>
                   </div>
+                  <ShareButtons
+                    shareUrl={shareUrl}
+                    sharedMessage={sharedMessage}
+                  />
                 </div>
               </div>
+              {projects && projects.length > 0 && (
+                <div className="my-8">
+                  <ProjectsList projects={projects} />
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -182,6 +187,14 @@ export async function getStaticProps({ params }) {
     const now = dateNowUnix();
     const endTime = Number(event.endTime);
     delete event.attendees; //delete attendes key from event
+
+    //get projects of event
+    const projects = await db
+      .collection("projects")
+      .find({ eventId: params.id })
+      .toArray();
+
+    event.projects = projects;
 
     const eventsData = JSON.parse(JSON.stringify(event));
     return {
