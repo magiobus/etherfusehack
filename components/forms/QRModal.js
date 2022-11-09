@@ -214,6 +214,17 @@ const QRModal = ({
                                 </p>
                               </>
                             )}
+
+                            {resultData?.shirtSize && (
+                              <>
+                                <p className="font-semibold">
+                                  Talla de Playera
+                                </p>
+                                <p className="font-semibold leading-3 uppercase">
+                                  {resultData?.shirtSize || "Sin talla elegida"}
+                                </p>
+                              </>
+                            )}
                           </div>
                           <div className="content mt-2 flex flex-col justify-center items-center">
                             <div className="quantity text-2xl">
