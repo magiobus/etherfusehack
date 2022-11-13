@@ -239,18 +239,24 @@ const data = [
     date: "",
     dateTime: "",
     speakers: [
-      // {
-      //   name: "Sandra Flores",
-      //   role: "Blockchain BMC Specialist & Co Founder",
-      //   image: sandraflores,
-      //   url: "#",
-      // },
-      // {
-      //   name: "AJ Taylor",
-      //   role: "CTO Etherfuse",
-      //   image: ajtaylor,
-      //   url: "https://www.linkedin.com/in/aj-taylor-977a5481/",
-      // },
+      {
+        name: "Sandra Flores",
+        role: "Blockchain BMC Specialist & Co Founder",
+        image: sandraflores,
+        url: "#",
+      },
+      {
+        name: "AJ Taylor",
+        role: "CTO Etherfuse",
+        image: ajtaylor,
+        url: "https://www.linkedin.com/in/aj-taylor-977a5481/",
+      },
+      {
+        name: "David Taylor",
+        role: "CEO Etherfuse",
+        image: davidtaylor,
+        url: "https://www.linkedin.com/in/lifehug/",
+      },
     ],
   },
 ];
