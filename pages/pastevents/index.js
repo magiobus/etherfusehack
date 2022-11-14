@@ -4,7 +4,7 @@ import EventsList from "@/components/events/EventsList";
 import clientPromise from "@/lib/mongodb";
 import dateNowUnix from "@/utils/dateNowUnix";
 
-const EventsPage = ({ upcomingEvents, pastEvents }) => {
+const PastEvents = ({ pastEvents }) => {
   return (
     <MainLayout title="Eventos">
       <div className="content flex flex-col justify-center items-center w-full m-0">
@@ -15,25 +15,20 @@ const EventsPage = ({ upcomingEvents, pastEvents }) => {
                 <p className="text-3xl font-extrabold text-happy-yellow bg-black  sm:tracking-tight lg:text-4xl py-2">
                   Sedes del Hackathon
                 </p>
-                {/* <p className="max-w-xl leading-3 mt-2 mx-auto text-black font-bold mb-8">
-                  <span className="text-sm md:text-lg">
-                    Elige la sede más cercana a tí
-                  </span>
-                </p> */}
-                <Link href="/pastevents">
-                  <a className="underline text-2xl my-4">Ver eventos pasados</a>
-                </Link>
+                <p className="max-w-xl leading-3 mt-2 mx-auto text-black font-bold mb-8">
+                  <span className="text-sm md:text-lg">Eventos pasados</span>
+                </p>
               </div>
             </div>
           </div>
         </div>
-        <EventsList data={upcomingEvents} className="mt-6 lg:mt-24" />
+        <EventsList data={pastEvents} className="mt-6 lg:mt-24" />
       </div>
     </MainLayout>
   );
 };
 
-export default EventsPage;
+export default PastEvents;
 
 export async function getStaticProps() {
   //get data from database here...
@@ -63,19 +58,15 @@ export async function getStaticProps() {
     .toArray();
 
   //divide events in upcomingevents and pastevents using unix timestamp
-  let upcomingEvents = events.filter((event) => event.endTime > dateNowUnix());
 
   let pastEvents = events.filter((event) => event.endTime < dateNowUnix());
 
-  upcomingEvents = upcomingEvents.sort((a, b) => a.startTime - b.startTime);
   pastEvents = pastEvents.sort((a, b) => b.startTime - a.startTime);
 
-  upcomingEvents = JSON.parse(JSON.stringify(upcomingEvents));
   pastEvents = JSON.parse(JSON.stringify(pastEvents));
 
   return {
     props: {
-      upcomingEvents,
       pastEvents,
     },
     revalidate: 5,
