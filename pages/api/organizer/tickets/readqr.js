@@ -9,6 +9,7 @@ import ticketsLib from "@/lib/ticketsLib";
 import eventsLib from "@/lib/eventsLib";
 import notificationsLib from "@/lib/notificationsLib";
 const discordLink = process.env.DISCORD_INVITE_LINK;
+import sendinblueLib from "@/lib/sendinblueLib";
 
 //MIDDLEWARE
 handler.use(async (req, res, next) => {
@@ -172,6 +173,21 @@ handler.post(async (req, res) => {
       await notificationsLib.sendWhatsappTemplate(waData);
     } catch (error) {
       console.error(error);
+    }
+
+    //update sendinblue contact
+    if (process.env.NODE_ENV === "production") {
+      try {
+        await sendinblueLib.createOrUpdateContact({
+          email: user.email,
+          listIds: process.env.SENDINBLUE_LIST_IDS,
+          attributes: {
+            HASEVENTSATTENDED: true,
+          },
+        });
+      } catch (error) {
+        console.info("error updating qrscan in sendinblue");
+      }
     }
 
     //return ticket info

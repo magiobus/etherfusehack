@@ -91,7 +91,7 @@ const ProjectItem = ({ data }) => {
             <div className="memberscontainer">
               {members.map((member, index) => (
                 <div className="member capitalize  " key={index}>
-                  {member?.name}
+                  {member?.name} - {member?.discord} - {member?.email}
                 </div>
               ))}
             </div>

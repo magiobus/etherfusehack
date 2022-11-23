@@ -6,6 +6,7 @@ import usersLib from "@/lib/usersLib";
 import eventsLib from "@/lib/eventsLib";
 import ticketsLib from "@/lib/ticketsLib";
 import notificationsLib from "@/lib/notificationsLib";
+import sendinblueLib from "@/lib/sendinblueLib";
 
 const handler = nc(ncoptions);
 
@@ -120,6 +121,22 @@ handler.post(async (req, res) => {
       await notificationsLib.sendWhatsappTemplate(waData);
     } catch (error) {
       console.error("error sending whatsapp to user", error);
+    }
+
+    //updates user in sendinblue
+    if (process.env.NODE_ENV === "production") {
+      try {
+        await sendinblueLib.createOrUpdateContact({
+          email: user.email,
+          attributes: {
+            EVENTNAME: event.name,
+            ORDERID: ticket.orderId,
+            ORDERPAGE: "hackathon.etherfuse.com",
+          },
+        });
+      } catch (error) {
+        console.error("error updating user in sendinblue", error);
+      }
     }
 
     res.status(200).json({
