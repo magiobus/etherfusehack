@@ -183,6 +183,9 @@ handler.post(async (req, res) => {
           listIds: process.env.SENDINBLUE_LIST_IDS,
           attributes: {
             HASEVENTSATTENDED: true,
+            ORDERID: orderId,
+            EVENTATTENDED: 1,
+            EVENTNAME: event.name,
           },
         });
       } catch (error) {
