@@ -7,7 +7,7 @@ import { Container } from "@/components/landing/Container";
 
 const schedule = [
   {
-    date: "Noviembre 11",
+    date: "Febrero 24",
     dateTime: "2022-11-11",
     summary: "Primer día de hackathon",
     timeSlots: [
@@ -44,7 +44,7 @@ const schedule = [
     ],
   },
   {
-    date: "Noviembre 12",
+    date: "Febrero 25",
     dateTime: "2022-11-12",
     summary: "Segundo día de hackathon",
     timeSlots: [
@@ -87,7 +87,7 @@ const schedule = [
     ],
   },
   {
-    date: "Noviembre 13",
+    date: "Febrero 26",
     dateTime: "2022-11-13",
     summary: "Tercer día de hackathon",
     timeSlots: [
@@ -267,7 +267,8 @@ export function Schedule() {
       <Container className="relative z-10">
         <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-4xl lg:pr-24">
           <h2 className="font-display text-4xl font-medium tracking-tighter text-happy-yellow bg-black px-2 py-2 sm:text-5xl">
-            3 días de hackathon para crear soluciones digitales con blockchain.
+            3 días de hackathon para crear soluciones digitales con solana
+            blockchain.
           </h2>
         </div>
       </Container>

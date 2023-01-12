@@ -29,17 +29,10 @@ const FaqsPage = () => {
                 <dd className="mt-2 text-base text-gray-500">
                   Lo ideal es entender cómo funciona todo el tema de blockchain,
                   pero ve el fin de semana de hackathon cómo una oportunidad
-                  para aprender nuevas cosas. Si no sabes nada de blockchain, te
-                  preparamos una serie de recursos para que puedas iniciar en
-                  este mundo.{" "}
-                  <Link href="/resources">
-                    <a>
-                      <span className="text-happy-yellow bg-black">
-                        {" "}
-                        Click Aquí
-                      </span>
-                    </a>
-                  </Link>
+                  para aprender nuevas cosas. Si no sabes nada de blockchain y
+                  solana, te preparamos una serie de recursos para que puedas
+                  iniciar en este mundo. Sólo inscribete y nosotros te
+                  mandaremos un correo con los recursos.
                 </dd>
               </div>
 
@@ -48,12 +41,12 @@ const FaqsPage = () => {
                   Tengo más dudas 😔
                 </dt>
                 <dd className="mt-2 text-base text-gray-500">
-                  Ponte en contacto con nosotros vía Whatsapp al número{" "}
+                  Ponte en contacto con nosotros vía email a{" "}
                   <a
                     className="text-happy-yellow bg-black"
-                    href="https://api.whatsapp.com/send?phone=526141652024"
+                    href="mailto:hello@etherfuse.com"
                   >
-                    +52 614 165 20 24
+                    hello@etherfuse.com
                   </a>
                 </dd>
               </div>

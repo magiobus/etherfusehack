@@ -8,29 +8,7 @@ import davidtaylor from "@/public/landingimages/avatars/davidtaylor.png";
 import ajtaylor from "@/public/landingimages/avatars/ajtaylor.png";
 import davidandujo from "@/public/landingimages/avatars/davidandujo2.jpeg";
 import magiobustillos from "@/public/landingimages/avatars/magiobustillos.jpeg";
-import diegoquintana from "@/public/landingimages/avatars/diegoquintana.jpeg";
-import sandraflores from "@/public/landingimages/avatars/sandraflores.jpeg";
-import wilson from "@/public/landingimages/avatars/wilson.jpeg";
-import aquiles from "@/public/landingimages/avatars/aquiles.jpeg";
-import nathan from "@/public/landingimages/avatars/nathan.jpeg";
-import octavio from "@/public/landingimages/avatars/octavio.jpeg";
-import martin from "@/public/landingimages/avatars/martincafe.jpg";
-import victor from "@/public/landingimages/avatars/victor.jpeg";
-import alicia from "@/public/landingimages/avatars/alicia.jpeg";
-import chavero from "@/public/landingimages/avatars/chavero.jpeg";
-import oscar from "@/public/landingimages/avatars/oscar.jpeg";
-import daniel from "@/public/landingimages/avatars/daniel.jpeg";
-import francisco from "@/public/landingimages/avatars/francisco.jpeg";
 import daniela from "@/public/landingimages/avatars/daniela.jpeg";
-import bani from "@/public/landingimages/avatars/bani.jpeg";
-import adrian from "@/public/landingimages/avatars/adrian.jpeg";
-import eduardo from "@/public/landingimages/avatars/eduardo.jpeg";
-import angelica from "@/public/landingimages/avatars/angelica.jpeg";
-import luis from "@/public/landingimages/avatars/luis.jpeg";
-import angel from "@/public/landingimages/avatars/angel.jpeg";
-import ferledezma from "@/public/landingimages/avatars/ferledezma.jpeg";
-import alfredolein from "@/public/landingimages/avatars/alfredolein.jpeg";
-import arvizu from "@/public/landingimages/avatars/arvizu.jpeg";
 
 const data = [
   {
@@ -68,42 +46,6 @@ const data = [
         image: daniela,
         url: "",
       },
-      {
-        name: "Bani Carrasco",
-        role: "Hackathon Team",
-        image: bani,
-        url: "https://www.linkedin.com/in/banicarrasco",
-      },
-      {
-        name: "Ángel Moreno Campuzano",
-        role: "Jefe del Centro de Incubación e Innovación Empresarial del ITSNCG",
-        image: angel,
-        url: "#",
-      },
-      {
-        name: "Martin Galván",
-        role: "Catedrático en Comercio Exterior.",
-        image: martin,
-        url: "#",
-      },
-      {
-        name: "Eduardo Castillo",
-        role: "Director General del IA Center",
-        image: eduardo,
-        url: "#",
-      },
-      {
-        name: "Francisco Alatorre Ávila",
-        role: "Subdirector Académico TecNM Campus Cuauhtémoc",
-        image: francisco,
-        url: "#",
-      },
-      {
-        name: "Alicia Robles Ruiz",
-        role: "Docente de Sistemas Computacionales de Tec Delicias",
-        image: alicia,
-        url: "#",
-      },
     ],
   },
   {
@@ -123,114 +65,12 @@ const data = [
         image: ajtaylor,
         url: "https://www.linkedin.com/in/aj-taylor-977a5481/",
       },
-      {
-        name: "Diego Quintana",
-        role: "CEO Blockchain Business School",
-        image: diegoquintana,
-        url: "https://www.linkedin.com/in/diegoquintana13/",
-      },
-      {
-        name: "Nathan Lazo",
-        role: "Blockchain Business School Partner",
-        image: nathan,
-        url: "https://www.linkedin.com/in/nathan-lazo-8a9b03214/",
-      },
+
       {
         name: "Magio Bustillos",
         role: "Hackathon Facilitator",
         image: magiobustillos,
         url: "https://twitter.com/magiobus",
-      },
-      {
-        name: "David Andujo",
-        role: "COO Etherfuse",
-        image: davidandujo,
-        url: "https://www.linkedin.com/in/andujo/",
-      },
-      {
-        name: "Wilson Yandún",
-        role: "CTO Gunny Games Studio",
-        image: wilson,
-        url: "https://www.linkedin.com/in/yandun-wilson/",
-      },
-      {
-        name: "Aquiles Benitez",
-        role: "CEO Gunny Games Studio",
-        image: aquiles,
-        url: "https://www.linkedin.com/in/aquiles-benitez-658411128/?trk=prof-samename-name&originalSubdomain=ar",
-      },
-      {
-        name: "Sandra Flores",
-        role: "Blockchain BMC Specialist & Co Founder",
-        image: sandraflores,
-        url: "#",
-      },
-      {
-        name: "Octavio Palacios",
-        role: "Core Blockchain Dev ",
-        image: octavio,
-        url: "https://www.linkedin.com/in/octavio-palacios-b3b7471b4/",
-      },
-      {
-        name: "Fernando Ledezma ",
-        role: "Centro de Innovación y Emprendimiento Tecnológico UACH",
-        image: ferledezma,
-        url: "https://www.linkedin.com/in/fernandoledezma/",
-      },
-      {
-        name: "Ivan Chavero 🤟",
-        role: "Services Content Architec at Red Hat",
-        image: chavero,
-        url: "https://twitter.com/imcsk8",
-      },
-      {
-        name: "Daniel Perez",
-        role: "Gerente de Innovación en Ilum",
-        image: daniel,
-        url: "https://linkedin.com/in/danielprzlr",
-      },
-      {
-        name: "Víctor Morales Rocha",
-        role: "Profesor de seguridad de IT en UACJ. ",
-        image: victor,
-        url: "#",
-      },
-      {
-        name: "Oscar Ruiz Hernández ",
-        role: "Encargado de la infraestructura y soporte en LaNTI de la UACJ ",
-        image: oscar,
-        url: "#",
-      },
-      {
-        name: "Adrián Guzmán Sanabria ",
-        role: "Profesor de la UACJ, instructor IA Center ",
-        image: adrian,
-        url: "#",
-      },
-      {
-        name: "Angelica Grijalva ",
-        role: "Docente de Ingeniería en Sistemas Computacionales del ITSNCG ",
-        image: angelica,
-        url: "#",
-      },
-      {
-        name: "Luis Grijalva ",
-        role: "Docente de Ingeniería en Sistemas Computacionales del ITSNCG ",
-        image: luis,
-        url: "#",
-      },
-
-      {
-        name: "Alberto Arvizu",
-        role: "Business School Dean - ITESM Chihuahua ",
-        image: arvizu,
-        url: "https://www.linkedin.com/in/albertoarvizu/",
-      },
-      {
-        name: "Jose Alfredo León ",
-        role: "MIS & MBA Professor",
-        image: alfredolein,
-        url: "https://www.linkedin.com/in/jose-alfredo-león-2475b52b/",
       },
     ],
   },
@@ -239,12 +79,6 @@ const data = [
     date: "",
     dateTime: "",
     speakers: [
-      {
-        name: "Sandra Flores",
-        role: "Blockchain BMC Specialist & Co Founder",
-        image: sandraflores,
-        url: "#",
-      },
       {
         name: "AJ Taylor",
         role: "CTO Etherfuse",

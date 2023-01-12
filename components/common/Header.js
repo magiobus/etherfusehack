@@ -16,7 +16,6 @@ const navigation = {
     { name: "Sponsors", href: "/#sponsors" },
     { name: "Team", href: "/#organizers" },
     { name: "Faqs", href: "/faqs" },
-    { name: "Recursos", href: "/resources" },
   ],
 };
 

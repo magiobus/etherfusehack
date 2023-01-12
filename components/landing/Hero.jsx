@@ -3,10 +3,10 @@ import Link from "next/link";
 import { Container } from "@/components/landing/Container";
 
 const eventInfo = [
-  ["Mentores", "+20"],
-  ["Participantes", "+300"],
-  ["Sedes", "Varias sedes"],
-  ["Lugar", "Chihuahua, Mx"],
+  ["Mentores", "+30"],
+  ["Participantes", "+600"],
+  ["Sede", "IPN"],
+  ["Lugar", "Mexico City, Mx"],
 ];
 
 export function Hero() {
@@ -29,30 +29,21 @@ export function Hero() {
         <div className="mx-auto max-w-2xl lg:max-w-4xl lg:px-12">
           <h1 className="font-display text-5xl font-bold tracking-tighter bg-black px-4 py-4 text-happy-yellow sm:text-7xl">
             <span className="sr-only">Etherfuse hackathon - </span>
-            El hackathon de blockchain para el estado grande.
+            El hackathon de solana blockchain para CDMX 🇲🇽
           </h1>
           <div className="mt-6  font-display text-2xl tracking-tight text-black">
             <p className="font-semibold">
               3 días de hacking, 3 días de aprendizaje, 3 días de creación.
             </p>
             <p className="font-semibold mt-1 mb-4">
-              Y la oportunidad de ganar $100,000 pesos en premios
+              Y la oportunidad de ganar $200,000 pesos en premios
             </p>
             <div className="container space-y-6">
               <p>
                 Un fin de semana para colaborar, aprender y crear soluciones
-                digitales con blockchain. Además podrás conocer a mentores
-                nacionales e internacionales.
+                digitales con solana blockchain. Además podrás conocer a
+                mentores nacionales e internacionales.
               </p>
-              <div className="sedescontainer text-lg">
-                <p className="m-0 p-0 font-semibold">
-                  Inscríbete en alguna de nuestras sedes:
-                </p>
-                <p className=" m-0 p-0">
-                  Cd. Chihuahua, Cd. Juárez, Nuevo Casas Grandes, Cuauhtémoc,
-                  Delicias.
-                </p>
-              </div>
             </div>
           </div>
           <div className="mt-10 bg-black w-full flex justify-center items-center rounded-md">
