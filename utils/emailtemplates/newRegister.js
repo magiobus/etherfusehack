@@ -175,10 +175,11 @@ const newRegisterTemplate = (data) => {
 <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Arial, sans-serif"><![endif]-->
 <div style="font-family:Arial, Helvetica Neue, Helvetica, sans-serif;line-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
 <div class="txtTinyMce-wrapper" style="font-size: 14px; line-height: 1.2;  font-family: Arial, Helvetica Neue, Helvetica, sans-serif; mso-line-height-alt: 17px;">
-<p style="margin: 0; font-size: 14px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 17px; margin-top: 0; margin-bottom: 0; color: #000000;"><strong>Hola ${firstName}! </strong></p>
+<p style="margin: 0; font-size: 14px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 17px; margin-top: 0; margin-bottom: 0; color: #000000; font-size: 2em;"><strong>Hola ${firstName}! </strong></p>
 
 <br/>
-<p style="color: #000000; margin: 0; font-size: 14px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 17px; margin-top: 0; margin-bottom: 0;">Hemos recibido tu registro para ${eventName}.</p> <br/>
+<strong><p style="color: #000000; margin: 0; font-size: 14px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 17px; margin-top: 0; margin-bottom: 0;">Hemos recibido tu registro para ${eventName}.</p></strong>
+ <br/>
 <p
     style="color: #000000; margin: 0; font-size: 14px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 17px; margin-top: 0; margin-bottom: 0;">
     Nos vemos en ${place.name} <br/> 
@@ -192,14 +193,13 @@ const newRegisterTemplate = (data) => {
   } 
 	  <br/>
 </p> 
-<br />
 
-	
-
+<p style="color: #000000; margin: 0; font-size: 14px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 17px; margin-top: 0; margin-bottom: 0;"><strong>Es importante que te unas a nuestra comunidad de Discord en el siguiente enlace:</strong></p> 
 <br/>
+<a href="https://discord.gg/S3brFSH" target="_blank" style="color: #0068A5; font-size:2em; margin: 2em 0;">https://discord.gg/S3brFSH</a><br/>
 
-<p style="color: #000000; margin: 0; font-size: 14px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 17px; margin-top: 0; margin-bottom: 0;"><strong>Presenta este Código QR para acceder al evento.</strong></p> <br/>
-<img align="center" border="0" class="center autowidth" src="${qrUrl}" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 500px; max-width: 100%; display: block;" width="500"/>
+<p style="color: #000000; margin: 0; font-size: 14px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 17px; margin-top: 1em; margin-bottom: 0;"><strong>Tendremos un bootcamp para que arranques con todo el día del evento 🙌🏼</strong></p> <br/>
+
 
         <p
             style="color: #000000; margin: 0; font-size: 14px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 17px; margin-top: 0; margin-bottom: 0;">

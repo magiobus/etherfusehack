@@ -21,18 +21,18 @@ const AccountLayout = ({ children, ...props }) => {
       icon: UserCircleIcon,
       current: false,
     },
-    {
-      name: "Mis Tickets",
-      href: "/user/tickets",
-      icon: TicketIcon,
-      current: false,
-    },
-    {
-      name: "Mis Proyectos",
-      href: "/user/projects",
-      icon: CodeIcon,
-      current: false,
-    },
+    // {
+    //   name: "Mis Tickets",
+    //   href: "/user/tickets",
+    //   icon: TicketIcon,
+    //   current: false,
+    // },
+    // {
+    //   name: "Mis Proyectos",
+    //   href: "/user/projects",
+    //   icon: CodeIcon,
+    //   current: false,
+    // },
   ];
 
   if (status === "loading") {

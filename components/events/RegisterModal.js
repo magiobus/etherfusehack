@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState, useEffect } from "react";
 import { XIcon } from "@heroicons/react/solid";
@@ -10,6 +11,8 @@ import TextArea from "@/components/forms/fields/TextArea";
 import CheckBox from "@/components/forms/fields/CheckBox";
 import Select from "@/components/forms/fields/Select";
 import parsePhoneNumber from "libphonenumber-js";
+import PhoneInput from "@/components/forms/fields/PhoneInput";
+import { isValidPhoneNumber } from "libphonenumber-js";
 
 const shirtSizes = [
   { value: "none", label: "No quiero Playera" },
@@ -28,8 +31,40 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
   const {
     register,
     handleSubmit,
+    watch,
+    setError,
+    clearErrors,
+    getValues,
+    setValue,
+    control,
     formState: { errors },
   } = useForm();
+
+  const countryWatch = watch("phoneCountry");
+  const phoneWatch = watch("phone");
+
+  const isValidPhone = async (phone, country) => {
+    const isValidNumber = isValidPhoneNumber(phone, countryWatch);
+    return isValidNumber;
+  };
+
+  const validatePhone = async (phone, country) => {
+    const isValidNumber = await isValidPhone(phone, country);
+    if (!isValidNumber) {
+      setError("phone", {
+        type: "manual",
+        message: "Número de teléfono no válido",
+      });
+    } else {
+      clearErrors("phone");
+    }
+  };
+
+  useEffect(() => {
+    if (countryWatch) {
+      validatePhone(phoneWatch, countryWatch);
+    }
+  }, [countryWatch]);
 
   if (!isOpen) {
     return null;
@@ -40,19 +75,26 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
     setGlobalError(null);
     setIsRegistered(false);
 
-    const { about, email, name, shirtSize } = data;
-    let { phone } = data;
-
-    //format phone number
-    phone = `${parsePhoneNumber(phone, "MX").number}`;
+    const { about, email, name, shirtSize, phone, phoneCountry } = data;
 
     try {
+      ///validates phone
+      const phoneIsValid = await isValidPhone(phone, phoneCountry);
+
+      if (!phoneIsValid) {
+        toast.error("El número de teléfono no es válido");
+        return; //this line, stops the function from executing
+      }
+
+      const parsedPhone = parsePhoneNumber(phone, phoneCountry);
+
       //Send data to server
       const response = await axios.post("/api/events/register", {
         about,
         email,
         name,
-        phone,
+        phone: parsedPhone.number,
+        phoneCountry: parsedPhone.country,
         startTimeLocalText: `${unixToFormat(
           eventData.startTime,
           "d 'de' MMMM yyyy h:mm aa"
@@ -170,27 +212,27 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                             </div>
 
                             <div className="field my-4">
-                              <Input
-                                label="Teléfono"
+                              <PhoneInput
+                                label="Número de teléfono"
                                 name="phone"
-                                type="text"
-                                placeholder={`6141707622`}
+                                type="tel"
+                                onChange={(e) => {
+                                  validatePhone(e.target.value, countryWatch);
+                                }}
+                                selectRegister={{
+                                  ...register("phoneCountry", {
+                                    required: {
+                                      value: true,
+                                      message: "El código de país es requerido",
+                                    },
+                                  }),
+                                }}
                                 register={{
                                   ...register("phone", {
                                     required: {
                                       value: true,
-                                      message: "Teléfono es requerido",
-                                    },
-                                    maxLength: {
-                                      value: 15,
                                       message:
-                                        "No puede contener más de 15 caracteres",
-                                    },
-                                    pattern: {
-                                      value:
-                                        /(\(\d{3}\)[.-]?|\d{3}[.-]?)?\d{3}[.-]?\d{4}/,
-                                      message:
-                                        "El numero debe de tener el siguiente formato: (614)5555666",
+                                        "El número de teléfono es requerido",
                                     },
                                   }),
                                 }}
@@ -291,12 +333,18 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                           </span>
                         </p>
 
-                        <p className="mt-4">
-                          Te mandamos un email con un codigo QR para acceder al
-                          evento.
+                        <p className="mt-4 font-bold">
+                          Te mandamos un email con acceso al Discord del evento.
                         </p>
 
-                        <p className="mt-4">¡Nos vemos pronto!</p>
+                        <p className="mt-4">
+                          <span className="font-bold">
+                            Es importante que te unas lo antes posible
+                          </span>
+                          , ya que se realizarán dinamicas y tendremos un
+                          bootcamp previo al evento.
+                        </p>
+                        <p className="mt-4">¡Nos vemos pronto ✌️!</p>
                       </div>
                     </div>
                   )}
