@@ -13,17 +13,17 @@ yarn dev
 
 ## Setup
 
-The Project has several branches depending of the starter point that you need. <br/>
-Main branch is the simplest and it should be fine for static simple websites.<br/><br/>
-For a simple Website you should configure: <br/>
-
 - Seo, Header and Footer Components <br/>
 - Logo, OG and favicon images
 
 ```
-Branch wmongodb needs env variables.
-MONGODB_DB=
+Env variables.
+
 MONGODB_URI=
+
+//Google Auth
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
 
 //this is used for nextauth
 BASE_SECRET="yoursecrethere"
@@ -33,4 +33,24 @@ NEXTAUTH_URL=http://localhost:3000
 SMTP_HOST=
 SMTP_USER=
 SMTP_PASS=
+
+
+//Cloudinary for profile image or statics
+NEXT_PUBLIC_CLOUDINARY_CLOUDNAME
+CLOUDINARY_URL=
+
+
+//Sendin blue integration
+SENDINBLUE_API_KEY=
+SENDINBLUE_LIST_IDS=
+
+//Discord Invite link
+DISCORD_INVITE_LINK=
+
+//wHATSAPP Api
+WHATSAPP_TOKEN=
+WHATSAPP_FROM=
+
+
+
 ```
