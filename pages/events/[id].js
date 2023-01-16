@@ -8,6 +8,7 @@ import { useState } from "react";
 import dateNowUnix from "@/utils/dateNowUnix";
 import ShareButtons from "@/components/events/ShareButtons";
 import ProjectsList from "@/components/events/ProjectsList";
+
 const EventDetailPage = ({ event, expired, registerCount }) => {
   const {
     photo,
