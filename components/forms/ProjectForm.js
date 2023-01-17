@@ -79,6 +79,17 @@ const ProjectForm = ({ type = "new" }) => {
         }));
 
         setEvents(eventsOptions);
+
+        //if events options is empty and user is trying to create a project, redirect to events page
+        if (eventsOptions.length === 0 && type === "new") {
+          toast.error(
+            "Debes de estar registrado en un evento para crear un proyecto..."
+          );
+          setTimeout(() => {
+            router.push("/events");
+          }, 2000);
+          return;
+        }
       } catch (error) {
         console.error(error);
         toast.error("Error al cargar los eventos");
