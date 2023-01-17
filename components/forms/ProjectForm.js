@@ -46,6 +46,8 @@ const ProjectForm = ({ type = "new" }) => {
         repoUrl: data?.repoUrl,
         eventId: data?.eventId,
         photo: data?.photo,
+        videoUrl: data?.videoUrl,
+        tech: data?.tech,
       };
 
       //parsing members
@@ -58,8 +60,6 @@ const ProjectForm = ({ type = "new" }) => {
       }
 
       delete parsedProject.members;
-
-      console.log("parsedProject =a", parsedProject);
 
       reset(parsedProject);
       setProject(parsedProject);
@@ -126,6 +126,8 @@ const ProjectForm = ({ type = "new" }) => {
       if (typeof data?.photo === "string") {
         delete newData.photo;
       }
+
+      console.log("new data =>", newData);
 
       Object.keys(newData).forEach((key) => {
         if (key === "photo") {
@@ -276,6 +278,7 @@ const ProjectForm = ({ type = "new" }) => {
             <TextArea
               label="Describe en un tweet que hace tu proyecto"
               name="description"
+              placeholder="Ejemplo:  Plataforma, que permite hacer subastas de monedas de colección en línea utilizando la red de solana."
               register={{
                 ...register("description", {
                   minLength: {
@@ -295,6 +298,7 @@ const ProjectForm = ({ type = "new" }) => {
             <TextArea
               label="Que problema resuelve tu proyecto?"
               name="problem"
+              placeholder="Ejemplo: Los coleccionistas de monedas de colección no tienen una plataforma para hacer subastas de manera segura y confiable."
               register={{
                 ...register("problem", {
                   minLength: {
@@ -308,6 +312,22 @@ const ProjectForm = ({ type = "new" }) => {
                 }),
               }}
               errorMessage={errors.problem?.message}
+            />
+          </div>
+          <div className="inputwrapper my-3">
+            <Input
+              label="¿Que tecnologías utilizaste?"
+              name="tech"
+              placeholder="Ejemplo: React, Next.js, TailwindCSS, Solana, Rust "
+              register={{
+                ...register("tech", {
+                  maxLength: {
+                    value: 50,
+                    message: "No puede contener más de 80 caracteres",
+                  },
+                }),
+              }}
+              errorMessage={errors.tech?.message}
             />
           </div>
           <div className="inputwrapper my-3">
@@ -335,7 +355,7 @@ const ProjectForm = ({ type = "new" }) => {
               register={{
                 ...register("repoUrl"),
               }}
-              placeholder="https://github.com/magiobus/onlypanes"
+              placeholder="Ejemplo: https://github.com/magiobus/onlypanes"
             />
           </div>
           <div className="inputwrapper my-3">
@@ -345,7 +365,17 @@ const ProjectForm = ({ type = "new" }) => {
               register={{
                 ...register("liveUrl"),
               }}
-              placeholder="https://onlypanes.com"
+              placeholder="Ejemplo: https://onlypanes.com"
+            />
+          </div>
+          <div className="inputwrapper my-3">
+            <Input
+              label="Video Demo de tu proyecto (2 minutos máximo)"
+              name="videoUrl"
+              register={{
+                ...register("videoUrl"),
+              }}
+              placeholder="Ejemplo: https://youtu.be/tiscOKXrxrQ"
             />
           </div>
         </div>

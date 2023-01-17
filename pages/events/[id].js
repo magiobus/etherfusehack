@@ -128,14 +128,16 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
                     <p className="capitalize mb-4">
                       {placeState}, {placeCity} {placeCountry}
                     </p>
-                    <a
-                      href={locationUrl}
-                      target="_blank"
-                      className="underline text-happy-yellow bg-black rounded-md px-2 py-1"
-                      rel="noreferrer"
-                    >
-                      Ver Mapa
-                    </a>
+                    {locationUrl && (
+                      <a
+                        href={locationUrl}
+                        target="_blank"
+                        className="underline text-happy-yellow bg-black rounded-md px-2 py-1"
+                        rel="noreferrer"
+                      >
+                        Ver Mapa
+                      </a>
+                    )}
                   </div>
                   <ShareButtons
                     shareUrl={shareUrl}
