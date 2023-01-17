@@ -100,7 +100,7 @@ export default NextAuth({
           pass: process.env.SMTP_PASS,
         },
       },
-      from: "superhappydevhousemx@gmail.com",
+      from: "hello@etherfuse.com",
       sendVerificationRequest({
         identifier: email,
         url,

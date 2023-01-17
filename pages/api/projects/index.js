@@ -41,7 +41,16 @@ handler.use(async (req, res, next) => {
 //POST Project
 handler.post(async (req, res) => {
   const db = req.db;
-  const { name, description, eventId, liveUrl, problem, repoUrl } = req.body;
+  const {
+    name,
+    description,
+    eventId,
+    liveUrl,
+    problem,
+    repoUrl,
+    videoUrl,
+    tech,
+  } = req.body;
 
   try {
     //new object id
@@ -67,6 +76,8 @@ handler.post(async (req, res) => {
       liveUrl,
       problem,
       repoUrl,
+      videoUrl,
+      tech,
       members: members || [],
       createdBy: req.sessionUser.id,
       updatedAt: dateNowUnix(),

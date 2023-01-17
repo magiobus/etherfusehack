@@ -79,7 +79,16 @@ handler.put(async (req, res) => {
   }
 
   //parse data
-  const { name, description, eventId, liveUrl, problem, repoUrl } = req.body;
+  const {
+    name,
+    description,
+    eventId,
+    liveUrl,
+    problem,
+    repoUrl,
+    videoUrl,
+    tech,
+  } = req.body;
 
   const projectParsed = {
     name,
@@ -88,6 +97,8 @@ handler.put(async (req, res) => {
     liveUrl,
     problem,
     repoUrl,
+    videoUrl,
+    tech,
     updatedAt: dateNowUnix(),
   };
 
