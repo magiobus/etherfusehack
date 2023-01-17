@@ -69,7 +69,15 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
               )}
               <div className="rounded-md  mt-8 lg:mt-12 w-full">
                 {expired ? (
-                  <p className="text-red-400">Este evento ya ha pasado ☹️</p>
+                  <div className="flex flex-col justify-center items-center">
+                    <p className="text-red-400">Este evento ya ha pasado ☹️</p>
+                    <a
+                      href="#eventprojects"
+                      className="bg-happy-yellow text-black px-2 py-1 my-2"
+                    >
+                      Ver proyectos de este evento
+                    </a>
+                  </div>
                 ) : (
                   <button
                     className="w-full bg-happy-yellow text-black flex items-center justify-center px-8 py-3 border border-transparent text-base rounded-md font-bold bg-happy-yellow-600 hover:bg-happy-yellow-700 md:py-4 md:text-lg md:px-10"
@@ -136,7 +144,7 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
                 </div>
               </div>
               {projects && projects.length > 0 && (
-                <div className="my-8">
+                <div className="my-8" id="eventprojects">
                   <ProjectsList projects={projects} />
                 </div>
               )}
