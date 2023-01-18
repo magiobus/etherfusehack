@@ -7,11 +7,20 @@ import {
   WhatsappIcon,
 } from "react-share";
 
-const ShareButtons = ({ shareUrl, sharedMessage }) => {
+const ShareButtons = ({
+  label = "Comparte este evento en redes sociales.",
+  shareUrl,
+  sharedMessage,
+  centered = false,
+}) => {
   return (
     <div className="sharebuttons font-bold">
-      <p>Comparte este evento en redes sociales.</p>
-      <div className="buttons flex space-x-4 mt-2">
+      <p>{label}</p>
+      <div
+        className={`buttons flex items-center  space-x-4 mt-2 ${
+          centered && "justify-center"
+        }`}
+      >
         <WhatsappShareButton url={shareUrl} title={sharedMessage}>
           <WhatsappIcon size={35} round={true} />
         </WhatsappShareButton>

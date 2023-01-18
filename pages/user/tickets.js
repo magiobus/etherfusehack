@@ -32,7 +32,6 @@ const ProfilePage = () => {
         );
 
         const { tickets, count, totalPages } = data;
-        console.log(data);
         setTickets(tickets);
         setPaginationData({
           page,
