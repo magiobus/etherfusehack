@@ -23,8 +23,7 @@ const ProjectsList = ({ projects, label = "Proyectos de este evento" }) => {
 };
 
 const ProjectItem = ({ data }) => {
-  const { _id, name, photo, description, problem, repoUrl, liveUrl, members } =
-    data;
+  const { _id, name, photo, winner } = data;
 
   return (
     <div className="itemcontainer  bg-transparent cursor-pointer ">
@@ -51,7 +50,7 @@ const ProjectItem = ({ data }) => {
             )}
           </div>
           <p className="pointer-events-none mt-2 block truncate text-sm font-medium text-gray-900 py-2 px-2 ">
-            {name}
+            {name} {winner && <span className="text-happy-yellow">🏆</span>}
           </p>
         </div>
       </a>

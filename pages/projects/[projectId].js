@@ -21,6 +21,7 @@ const ProjectDetailPage = ({ project, event }) => {
     members,
     updatedAt,
     whatsnext,
+    winner,
   } = project;
   const { name: eventName } = event;
 
@@ -59,7 +60,7 @@ const ProjectDetailPage = ({ project, event }) => {
               )}
             </div>
             <h1 className="title text-2xl md:text-3xl font-bold text-center capitalize truncate w-full">
-              {name}
+              {name} {winner && <span className="winner">🏆</span>}
             </h1>
             <div className="text-sm md:text-base">
               <span className="font-bold">Creado en: </span>
@@ -78,6 +79,15 @@ const ProjectDetailPage = ({ project, event }) => {
               </div>
             )}
           </div>
+
+          {winner && (
+            <div className="winner bg-black text-happy-yellow px-2 py-1 my-2">
+              <Link href={`/events/${eventId}`}>
+                <a>Este equipo fue ganador en {eventName} 🎉</a>
+              </Link>
+            </div>
+          )}
+
           {/* VIDEO */}
           <div className="videoembed mt-4 w-full lg:max-w-3xl">
             <div className="flex flex-col justify-between items-center">
