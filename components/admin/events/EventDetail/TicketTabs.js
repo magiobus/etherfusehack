@@ -8,8 +8,6 @@ const TicketTabs = ({ event }) => {
   const { tickets } = event;
   const { attendees } = tickets;
 
-  console.log("tickets => ", tickets);
-
   return (
     <>
       <Tab.Group>

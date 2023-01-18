@@ -82,8 +82,6 @@ handler.get(async (req, res) => {
     ])
     .toArray();
 
-  console.log("eventTshirtSizes", eventTshirtSizes);
-
   const stats = [
     {
       name: "GlobalStats",

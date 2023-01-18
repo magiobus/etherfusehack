@@ -30,8 +30,6 @@ const AdminEventsPage = () => {
         );
         const { events, count, totalPages } = data;
 
-        console.log("events", events);
-
         setEvents(events);
         setPaginationData({
           page,

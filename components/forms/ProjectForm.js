@@ -347,7 +347,7 @@ const ProjectForm = ({ type = "new" }) => {
                 ...register("repoUrl", {
                   pattern: {
                     value:
-                      /^(http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/i,
+                      /^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)$/i,
                     message:
                       "Url inválida, necesita comenzar con https:// o http://",
                   },
@@ -365,7 +365,7 @@ const ProjectForm = ({ type = "new" }) => {
                 ...register("liveUrl", {
                   pattern: {
                     value:
-                      /^(http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/i,
+                      /^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)$/i,
                     message:
                       "Url inválida, necesita comenzar con https:// o http://",
                   },
@@ -383,9 +383,9 @@ const ProjectForm = ({ type = "new" }) => {
                 ...register("videoUrl", {
                   pattern: {
                     value:
-                      /^(http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/i,
+                      /^https?:\/\/(www\.)?(youtube\.com|youtu\.be)\/(watch\?v=|watch\?.+&v=|embed\/|v\/)?[a-zA-Z0-9-_]+$/i,
                     message:
-                      "Url inválida, necesita comenzar con https:// o http://",
+                      "Url inválida, necesita comenzar con https:// o http:// y ser de youtube",
                   },
                 }),
               }}
