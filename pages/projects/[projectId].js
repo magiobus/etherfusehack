@@ -20,6 +20,7 @@ const ProjectDetailPage = ({ project, event }) => {
     tech,
     members,
     updatedAt,
+    whatsnext,
   } = project;
   const { name: eventName } = event;
 
@@ -135,9 +136,17 @@ const ProjectDetailPage = ({ project, event }) => {
               {description && (
                 <div className="whatitdoes text-center my-8">
                   <h2 className="font-bold text-xl">
-                    ¿Qué hace el proyecto ?{" "}
+                    ¿Qué hace {name || "el proyecto"} ?{" "}
                   </h2>
                   <p className="leading-5 my-2 text-base">{description}</p>
+                </div>
+              )}
+              {whatsnext && (
+                <div className="whatitdoes text-center my-8">
+                  <h2 className="font-bold text-xl">
+                    ¿Qué sigue para {name || "el proyecto"} ?{" "}
+                  </h2>
+                  <p className="leading-5 my-2 text-base">{whatsnext}</p>
                 </div>
               )}
               {tech && (

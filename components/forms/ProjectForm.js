@@ -45,6 +45,7 @@ const ProjectForm = ({ type = "new" }) => {
         photo: data?.photo,
         videoUrl: data?.videoUrl,
         tech: data?.tech,
+        whatsnext: data?.whatsnext,
       };
 
       //parsing members
@@ -305,6 +306,26 @@ const ProjectForm = ({ type = "new" }) => {
             />
           </div>
           <div className="inputwrapper my-3">
+            <TextArea
+              label="Que sigue para tu proyecto?"
+              name="whatsnext"
+              placeholder="Ejemplo: Nos hubiera gustado agregar un sistema de puntuación para los usuarios, para que puedan tener un historial de sus compras y ventas, también hubiera sido interesante agregar un sistema de notificaciones para que los usuarios puedan estar al tanto de las subastas que se estan llevando a cabo."
+              register={{
+                ...register("whatsnext", {
+                  minLength: {
+                    value: 100,
+                    message: "Debe de tener minimo 100 caracteres",
+                  },
+                  maxLength: {
+                    value: 600,
+                    message: "Debe de tener maximo 600 caracteres",
+                  },
+                }),
+              }}
+              errorMessage={errors.whatsnext?.message}
+            />
+          </div>
+          <div className="inputwrapper my-3">
             <Input
               label="¿Que tecnologías utilizaste?"
               name="tech"
@@ -320,6 +341,7 @@ const ProjectForm = ({ type = "new" }) => {
               errorMessage={errors.tech?.message}
             />
           </div>
+
           <div className="inputwrapper my-3">
             <ThumbImage
               label="Imágen de tu proyecto (opcional)"
