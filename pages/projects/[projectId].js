@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
 import clientPromise from "@/lib/mongodb";
 import MainLayout from "@/components/layouts/MainLayout";
@@ -5,6 +6,8 @@ import Link from "next/link";
 import YoutubeIframe from "@/components/common/YoutubeIframe";
 import unixToFormat from "@/utils/unixToFormat";
 import ShareButtons from "@/components/events/ShareButtons";
+import confetti from "canvas-confetti";
+import { useEffect } from "react";
 
 const ProjectDetailPage = ({ project, event }) => {
   const {
@@ -38,12 +41,46 @@ const ProjectDetailPage = ({ project, event }) => {
     return id;
   };
 
+  //CONFETTI if is a winner
+  useEffect(() => {
+    if (window && winner) {
+      const conffetielement = document.getElementById("conffetielement");
+      const myConfetti = confetti.create(conffetielement, {
+        resize: true,
+        useWorker: true,
+      });
+
+      myConfetti({
+        particleCount: 100,
+        angle: 60,
+        spread: 180,
+        origin: { x: 0 },
+        lifetime: 10000,
+      });
+      // and launch a few from the right edge
+      myConfetti({
+        particleCount: 100,
+        angle: 120,
+        spread: 180,
+        origin: { x: 1 },
+        lifetime: 10000,
+      });
+    }
+  }, []);
+
   return (
     <MainLayout>
-      <div className="flex w-full justify-center items-center ">
+      <canvas
+        id="conffetielement"
+        className="absolute top-0 left-0 w-full h-screen pointer-events-none"
+      ></canvas>
+      <div className="flex w-full justify-center items-center">
         <div className="contentwrapper max-w-sm md:max-w-2xl lg:max-w-7xl flex flex-col items-center justify-center my-8 w-full ">
           {/* header */}
-          <div className="header text-center flex flex-col justify-center items-center w-full">
+          <div
+            className="header text-center flex flex-col justify-center items-center w-full"
+            id="projectheader"
+          >
             <div className="logo mb-2">
               {photo ? (
                 <img
@@ -104,12 +141,12 @@ const ProjectDetailPage = ({ project, event }) => {
             </div>
           </div>
           {/* URLS */}
-          <div className="deliveryurls mt-4 md:mt-0 lg:max-w-3xl w-full flex justify-center flex-col items-center">
+          <div className="deliveryurls mt-4 max-w-sm w-full md:mt-0 lg:max-w-3xl  flex justify-center flex-col items-center ">
             {repoUrl && (
-              <div className="repository flex">
-                <p className="font-bold">Código: &nbsp;</p>
+              <div className="repository flex flex-col  max-w-sm w-full text-center">
+                <p className="font-bold text-center">Código: &nbsp;</p>
                 <a
-                  className="underline cursor-pointer"
+                  className="underline cursor-pointer w-full truncate px-4 md:px-0 "
                   href={`${repoUrl}`}
                   target="_blank"
                   rel="noreferrer"
@@ -119,10 +156,12 @@ const ProjectDetailPage = ({ project, event }) => {
               </div>
             )}
             {liveUrl && (
-              <div className="repository flex">
-                <p className="font-bold">Pruébalo en: &nbsp;</p>
+              <div className="repository flex flex-col  max-w-sm w-full text-center">
+                <p className="font-bold text-center mt-2  md:mt-4">
+                  Pruébalo en: &nbsp;
+                </p>
                 <a
-                  className="underline cursor-pointer"
+                  className="underline cursor-pointer  truncate px-4 md:px-0 w-full"
                   href={`${liveUrl}`}
                   target="_blank"
                   rel="noreferrer"
@@ -132,7 +171,7 @@ const ProjectDetailPage = ({ project, event }) => {
               </div>
             )}
           </div>
-          <div className="textwrapper my-4">
+          <div className="textwrapper my-4 px-4 md:px-0">
             {/* TEXT */}
             <div className="text lg:max-w-3xl w-full">
               {problem && (
