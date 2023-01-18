@@ -1,11 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 
-const ProjectsList = ({ projects }) => {
+const ProjectsList = ({ projects, label = "Proyectos de este evento" }) => {
   return (
     <div className="container">
       <h2 className="bg-black text-happy-yellow text-center text-3xl">
-        Proyectos de este evento {projects.length > 0 && `(${projects.length})`}
+        {projects.length > 0 && `${label} (${projects.length})`}
       </h2>
       {projects && projects.length > 0 ? (
         <div className="projects grid grid-cols-2 gap-x-4 gap-y-4 my-8  sm:grid-cols-5 sm:gap-x-6 lg:grid-cols-6 xl:grid-cols-7 xl:gap-x-6">
