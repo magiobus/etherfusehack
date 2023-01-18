@@ -10,11 +10,10 @@ import {
 
 import { useEffect, useState } from "react";
 import LoadingCircle from "@/components/common/LoadingCircle";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
-
 const ProjectForm = ({ type = "new" }) => {
   const [buttonLoading, setButtonLoading] = useState(false);
   const router = useRouter();
@@ -28,8 +27,6 @@ const ProjectForm = ({ type = "new" }) => {
     reset,
     formState: { errors },
   } = useForm();
-
-  const selectedEvent = watch("eventId");
 
   //fetch project info for editing
   useEffect(() => {
@@ -66,7 +63,7 @@ const ProjectForm = ({ type = "new" }) => {
     };
 
     if (type === "edit") fetchProjectData();
-  }, []);
+  }, [events]);
 
   //Get Events where user is registred
   useEffect(() => {
@@ -126,8 +123,6 @@ const ProjectForm = ({ type = "new" }) => {
       if (typeof data?.photo === "string") {
         delete newData.photo;
       }
-
-      console.log("new data =>", newData);
 
       Object.keys(newData).forEach((key) => {
         if (key === "photo") {
@@ -197,7 +192,6 @@ const ProjectForm = ({ type = "new" }) => {
               errorMessage={errors.name?.message}
             />
           </div>
-
           <div className="inputwrapper my-3">
             <Select
               label="A que sede pertenece tu proyecto? * "
@@ -214,16 +208,13 @@ const ProjectForm = ({ type = "new" }) => {
               errorMessage={errors.eventId?.message}
             />
           </div>
-
           <Divider
             label="Integrantes de tu equipo"
             className="mt-8 mb-4"
             labelClassName="bg-black text-happy-yellow"
             hideLine={true}
           />
-
           <p className="italic mb-4">Máximo 5 integrantes.</p>
-
           <div className="team-members-container">
             {[0, 1, 2, 3, 4].map((value, key) => {
               return (
@@ -267,7 +258,6 @@ const ProjectForm = ({ type = "new" }) => {
               );
             })}
           </div>
-
           <Divider
             label="Información de tu proyecto"
             className="mt-8"
@@ -348,14 +338,23 @@ const ProjectForm = ({ type = "new" }) => {
             labelClassName="bg-black text-happy-yellow"
             hideLine={true}
           />
+          {/* //NEEDS TO START WITH HTTP OR HTTPS, can be any page , and can be root*/}
           <div className="inputwrapper my-3">
             <Input
               label="Url de repositorio de github"
               name="repoUrl"
               register={{
-                ...register("repoUrl"),
+                ...register("repoUrl", {
+                  pattern: {
+                    value:
+                      /^(http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/i,
+                    message:
+                      "Url inválida, necesita comenzar con https:// o http://",
+                  },
+                }),
               }}
               placeholder="Ejemplo: https://github.com/magiobus/onlypanes"
+              errorMessage={errors.repoUrl?.message}
             />
           </div>
           <div className="inputwrapper my-3">
@@ -363,9 +362,17 @@ const ProjectForm = ({ type = "new" }) => {
               label="Donde se puede ver tu proyecto en vivo?"
               name="liveUrl"
               register={{
-                ...register("liveUrl"),
+                ...register("liveUrl", {
+                  pattern: {
+                    value:
+                      /^(http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/i,
+                    message:
+                      "Url inválida, necesita comenzar con https:// o http://",
+                  },
+                }),
               }}
               placeholder="Ejemplo: https://onlypanes.com"
+              errorMessage={errors.liveUrl?.message}
             />
           </div>
           <div className="inputwrapper my-3">
@@ -373,9 +380,17 @@ const ProjectForm = ({ type = "new" }) => {
               label="Video Demo de tu proyecto (2 minutos máximo)"
               name="videoUrl"
               register={{
-                ...register("videoUrl"),
+                ...register("videoUrl", {
+                  pattern: {
+                    value:
+                      /^(http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/i,
+                    message:
+                      "Url inválida, necesita comenzar con https:// o http://",
+                  },
+                }),
               }}
               placeholder="Ejemplo: https://youtu.be/tiscOKXrxrQ"
+              errorMessage={errors.videoUrl?.message}
             />
           </div>
         </div>
