@@ -7,6 +7,7 @@ import decaf from "@/public/landingimages/logos/decaf.png";
 import megahabilidades from "@/public/landingimages/logos/megahabilidades.png";
 import ottr from "@/public/landingimages/logos/ottr.png";
 import ipn from "@/public/landingimages/logos/ipn.png";
+import blockchainbusinessschool from "@/public/landingimages/logos/blockchainbusinessschool.png";
 
 const mainSponsors = [
   {
@@ -42,6 +43,11 @@ const secondSponsors = [
     name: "ottr",
     logo: ottr,
     url: "https://ottr.finance/",
+  },
+  {
+    name: "blockchainbusinessschool",
+    logo: blockchainbusinessschool,
+    url: "https://blockchainbusinessschool.io/",
   },
 ];
 
