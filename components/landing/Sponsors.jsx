@@ -29,25 +29,24 @@ const secondSponsors = [
     url: "https://www.ipn.mx",
   },
   {
-    name: "decaf",
-    logo: decaf,
-    url: "https://www.decaf.so/",
-  },
-
-  {
     name: "megahabilidades",
     logo: megahabilidades,
     url: "https://megahabilidades.mx",
   },
   {
-    name: "ottr",
-    logo: ottr,
-    url: "https://ottr.finance/",
-  },
-  {
     name: "blockchainbusinessschool",
     logo: blockchainbusinessschool,
     url: "https://blockchainbusinessschool.io/",
+  },
+  {
+    name: "decaf",
+    logo: decaf,
+    url: "https://www.decaf.so/",
+  },
+  {
+    name: "ottr",
+    logo: ottr,
+    url: "https://ottr.finance/",
   },
 ];
 
