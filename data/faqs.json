@@ -17,26 +17,36 @@
   {
     "id": 3,
     "question": "¿Me puedo quedar a dormir?",
-    "answer": "Cada sede tiene su propia política de alojamiento, revisa la página de tu sede para más información"
+    "answer": "Sí 🙌🏼"
   },
   {
     "id": 4,
     "question": "¿Me van a dar comida?",
-    "answer": "Si, en cada sede se proveerá de comida y bebidas para todos los participantes."
+    "answer": "Si, en cada sede presencial se proveerá de comida y bebidas para todos los participantes."
   },
   {
     "id": 5,
     "question": "¿Cuales son los premios?",
-    "answer": "Hay una bolsa de $200,000 pesos en premios para los 3 primeros lugares del evento en CDMX."
+    "answer": "Hay una bolsa de $200,000 pesos en premios para los 3 primeros lugares del evento."
   },
   {
     "id": 6,
-    "question": "A quién va dirigido?",
+    "question": "¿A quién va dirigido?",
     "answer": "Estudiantes, emprendedores, académicos y empresarios de cualquier área."
   },
   {
     "id": 7,
-    "question": "Cómo se van a conformar los equipos?",
+    "question": "¿Cómo se van a conformar los equipos?",
     "answer": "El día del evento se formarán los equipos en el sitio web. Si ya tienes un equipo con amigos, los puedes registrar ese día. Los equipos serán de un máximo de 5 integrantes."
+  },
+  {
+    "id": 8,
+    "question": "¿Dónde subo mi proyecto?",
+    "answer": "Una vez inscrito en el evento, podrás subir tu proyecto en el sitio web. El proyecto se sube sólo una vez por equipo."
+  },
+  {
+    "id": 9,
+    "question": "¿Puedo avanzar antes del hackathon a mi proyecto?",
+    "answer": "Si, sabemos que blockchain y solana son temas complicados, así es que puedes avanzar en tu proyecto desde antes del evento."
   }
 ]
