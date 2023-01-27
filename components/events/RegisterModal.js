@@ -75,7 +75,16 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
     setGlobalError(null);
     setIsRegistered(false);
 
-    const { about, email, name, shirtSize, phone, phoneCountry } = data;
+    const {
+      about,
+      email,
+      name,
+      shirtSize,
+      phone,
+      phoneCountry,
+      school,
+      computerNeeded,
+    } = data;
 
     try {
       ///validates phone
@@ -101,6 +110,8 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
         )}`,
         eventId: eventData._id,
         shirtSize,
+        computerNeeded,
+        school,
       });
 
       setOrderId(response.data.orderId);
@@ -260,6 +271,27 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                                 }}
                               />
                             </div>
+                            <div className="field my-4">
+                              <TextArea
+                                label="Vienes de alguna escuela, que carrera estás cursando?"
+                                name="school"
+                                placeholder="Soy del IPN, estoy cursando la carrera de..."
+                                errorMessage={errors.school?.message}
+                                register={{
+                                  ...register("school", {
+                                    required: {
+                                      value: true,
+                                      message: "El campo es requerido",
+                                    },
+                                    maxLength: {
+                                      value: 280,
+                                      message:
+                                        "No puede contener más de 280 caracteres",
+                                    },
+                                  }),
+                                }}
+                              />
+                            </div>
                             {eventData && eventData.isGivingShirts && (
                               <div className="field my-4">
                                 <Select
@@ -278,6 +310,18 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                                 />
                               </div>
                             )}
+                          </div>
+
+                          <div className="inputwrapper my-3">
+                            <CheckBox
+                              label="Necesitas una computadora para el evento ? "
+                              description="Si necesitas una computadora para el evento, selecciona esta opción"
+                              name="computerNeeded"
+                              register={{
+                                ...register("computerNeeded", {}),
+                              }}
+                              errorMessage={errors.computerNeeded?.message}
+                            />
                           </div>
 
                           <div className="inputwrapper my-3">
