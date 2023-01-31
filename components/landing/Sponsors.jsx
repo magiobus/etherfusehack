@@ -9,6 +9,7 @@ import ottr from "@/public/landingimages/logos/ottr.png";
 import ipn from "@/public/landingimages/logos/ipn.png";
 import blockchainbusinessschool from "@/public/landingimages/logos/blockchainbusinessschool.png";
 import ilum from "@/public/landingimages/logos/ilum.png";
+import upiita from "@/public/landingimages/logos/upiita.png";
 const mainSponsors = [
   {
     name: "Etherfuse",
@@ -29,6 +30,12 @@ const mainSponsors = [
 ];
 
 const secondSponsors = [
+  {
+    name: "upiita",
+    logo: upiita,
+    url: "https://www.ipn.mx",
+    extraClassName: "w-6/12 mt-4 sm:mt-0 sm:w-8/12",
+  },
   {
     name: "megahabilidades",
     logo: megahabilidades,
