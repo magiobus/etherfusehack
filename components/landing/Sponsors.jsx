@@ -8,7 +8,7 @@ import megahabilidades from "@/public/landingimages/logos/megahabilidades.png";
 import ottr from "@/public/landingimages/logos/ottr.png";
 import ipn from "@/public/landingimages/logos/ipn.png";
 import blockchainbusinessschool from "@/public/landingimages/logos/blockchainbusinessschool.png";
-
+import ilum from "@/public/landingimages/logos/ilum.png";
 const mainSponsors = [
   {
     name: "Etherfuse",
@@ -48,6 +48,11 @@ const secondSponsors = [
     name: "ottr",
     logo: ottr,
     url: "https://ottr.finance/",
+  },
+  {
+    name: "ilum",
+    logo: ilum,
+    url: "https://www.ilumps.com",
   },
 ];
 
