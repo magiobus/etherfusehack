@@ -47,7 +47,7 @@ export function Hero() {
             </div>
           </div>
           <div className="mt-10 bg-black w-full flex justify-center items-center rounded-md">
-            <Link href="/events">
+            <Link href="/events/63c3713740c2442abc5ae9cf">
               <a className="text-happy-yellow text-center font-bold rounded-md px-4 py-4 text-2xl w-full ">
                 Regístrate
               </a>
