@@ -5,7 +5,7 @@ const data = {
   siteName: "Etherfuse Hackathon",
   title: "Etherfuse Hackathon",
   description:
-    "Participa en el hackathon de etherfuse, pronto cerca de tu ciudad",
+    "Únete a la comunidad de Etherfuse Hackathon y participa en los hackathones de Solana Blockchain. Demuestra tus habilidades de programación y haz una diferencia en la industria de la tecnología.",
   url: "https://hackathon.etherfuse.com",
   imageUrl: "/og.jpg",
   twitter: "@etherfuse",
