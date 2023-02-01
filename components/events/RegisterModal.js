@@ -439,7 +439,7 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                           <div className="inputwrapper my-3">
                             {ipnStudentWatch && (
                               <Select
-                                label="¡De que únidad eres?"
+                                label="¿En qué unidad estudias?"
                                 name="ipnUnit"
                                 options={ipnUnits}
                                 register={{
