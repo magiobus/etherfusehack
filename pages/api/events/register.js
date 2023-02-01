@@ -29,7 +29,8 @@ handler.post(async (req, res) => {
     phone,
     phoneCountry,
     computerNeeded,
-    school,
+    ipnStudent,
+    ipnUnit,
   } = req.body;
 
   try {
@@ -99,7 +100,8 @@ handler.post(async (req, res) => {
       startTimeLocalText,
       about,
       shirtSize,
-      school,
+      ipnStudent,
+      ipnUnit,
       computerNeeded
     );
 

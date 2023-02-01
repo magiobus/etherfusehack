@@ -22,6 +22,137 @@ const shirtSizes = [
   { value: "xl", label: "Extra Grande" },
 ];
 
+const ipnUnits = [
+  {
+    value: "cicsUnidadSantoTomas",
+    label: "CICS Unidad Santo Tomas",
+  },
+  {
+    label: "CICS Unidad Milpa Alta",
+    value: "cicsUnidadMilpaAlta",
+  },
+  {
+    label: "ENBA",
+    value: "enba",
+  },
+  {
+    label: "ENCB",
+    value: "encb",
+  },
+  {
+    label: "ENMyH",
+    value: "enmyh",
+  },
+  {
+    label: "ESCA Unidad Santo Tomas",
+    value: "escaUnidadSantoTomas",
+  },
+  {
+    label: "ESCA Unidad Tepepan",
+    value: "escaUnidadTepepan",
+  },
+  {
+    label: "ESCOM",
+    value: "escom",
+  },
+  {
+    label: "ESE",
+    value: "ese",
+  },
+  {
+    label: "ESEO",
+    value: "eseo",
+  },
+  {
+    label: "ESFM",
+    value: "esfm",
+  },
+  {
+    label: " ESIME Unidad Zacatenco",
+    value: "esimeUnidadZacatenco",
+  },
+  {
+    label: "ESIME Unidad Azcapotzalco",
+    value: "esimeUnidadAzcapotzalco",
+  },
+  {
+    label: "ESIME Unidad Culhuacan",
+    value: "esimeUnidadCulhuacan",
+  },
+  {
+    label: "ESIME Unidad Ticoman",
+    value: "esimeUnidadTicoman",
+  },
+  {
+    label: "ESIQIE",
+    value: "esiqie",
+  },
+  {
+    label: "ESIT",
+    value: "esit",
+  },
+  {
+    label: "ESIA Unidad Tecamachalco",
+    value: "esiaUnidadTecamachalco",
+  },
+  {
+    label: "ESIA Unidad Ticoman",
+    value: "esiaUnidadTicoman",
+  },
+  {
+    label: "ESIA Unidad Zacatenco",
+    value: "esiaUnidadZacatenco",
+  },
+  {
+    label: "ESM",
+    value: "esm",
+  },
+  {
+    label: "EST",
+    value: "est",
+  },
+  {
+    label: "UPIIC Campus Coahuila",
+    value: "upiicCampusCoahuila",
+  },
+  {
+    label: "UPIBI",
+    value: "upibi",
+  },
+  {
+    label: "UPIIG Campus Guanajuato",
+    value: "upiigCampusGuanajuato",
+  },
+  {
+    label: "UPIIZ Campus Zacatecas",
+    value: "upiizCampusZacatecas",
+  },
+  {
+    label: "UPIIH Campus Hidalgo",
+    value: "upiihCampusHidalgo",
+  },
+  {
+    label: "UPIIP Campus Palenque",
+    value: "upiipCampusPalenque",
+  },
+  {
+    label: "UPIIT Campus Tlaxcala",
+    value: "upiitCampusTlaxcala",
+  },
+  {
+    label: "UPIICSA",
+    value: "upiicsa",
+  },
+  {
+    label: "UPIITA",
+    value: "upiita",
+  },
+  {
+    label: "UPIEM",
+    value: "upiem",
+  },
+];
+
 const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [globalError, setGlobalError] = useState(null);
@@ -42,6 +173,7 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
 
   const countryWatch = watch("phoneCountry");
   const phoneWatch = watch("phone");
+  const ipnStudentWatch = watch("ipnStudent");
 
   const isValidPhone = async (phone, country) => {
     const isValidNumber = isValidPhoneNumber(phone, countryWatch);
@@ -82,8 +214,9 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
       shirtSize,
       phone,
       phoneCountry,
-      school,
       computerNeeded,
+      ipnStudent,
+      ipnUnit,
     } = data;
 
     try {
@@ -96,7 +229,6 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
       }
 
       const parsedPhone = parsePhoneNumber(phone, phoneCountry);
-
       //Send data to server
       const response = await axios.post("/api/events/register", {
         about,
@@ -111,7 +243,8 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
         eventId: eventData._id,
         shirtSize,
         computerNeeded,
-        school,
+        ipnStudent,
+        ipnUnit,
       });
 
       setOrderId(response.data.orderId);
@@ -271,27 +404,7 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                                 }}
                               />
                             </div>
-                            <div className="field my-4">
-                              <TextArea
-                                label="Vienes de alguna escuela, que carrera estás cursando?"
-                                name="school"
-                                placeholder="Soy del IPN, estoy cursando la carrera de..."
-                                errorMessage={errors.school?.message}
-                                register={{
-                                  ...register("school", {
-                                    required: {
-                                      value: true,
-                                      message: "El campo es requerido",
-                                    },
-                                    maxLength: {
-                                      value: 280,
-                                      message:
-                                        "No puede contener más de 280 caracteres",
-                                    },
-                                  }),
-                                }}
-                              />
-                            </div>
+                            <div className="field my-4"></div>
                             {eventData && eventData.isGivingShirts && (
                               <div className="field my-4">
                                 <Select
@@ -309,6 +422,36 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                                   errorMessage={errors.shirtSize?.message}
                                 />
                               </div>
+                            )}
+                          </div>
+
+                          <div className="inputwrapper my-3">
+                            <CheckBox
+                              label="¿Estudias en el IPN ?  "
+                              name="ipnStudent"
+                              register={{
+                                ...register("ipnStudent", {}),
+                              }}
+                              errorMessage={errors.ipnStudent?.message}
+                            />
+                          </div>
+
+                          <div className="inputwrapper my-3">
+                            {ipnStudentWatch && (
+                              <Select
+                                label="¡De que únidad eres?"
+                                name="ipnUnit"
+                                options={ipnUnits}
+                                register={{
+                                  ...register("ipnUnit", {
+                                    required: {
+                                      value: true,
+                                      message: "El Campo es requerido",
+                                    },
+                                  }),
+                                }}
+                                errorMessage={errors.ipnUnit?.message}
+                              />
                             )}
                           </div>
 

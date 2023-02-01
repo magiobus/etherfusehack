@@ -37,7 +37,6 @@ const ProjectDetailPage = ({ project, event }) => {
     if (ampersandPosition !== -1) {
       return id.substring(0, ampersandPosition);
     }
-    console.log("youtubeid =>", id);
     return id;
   };
 
