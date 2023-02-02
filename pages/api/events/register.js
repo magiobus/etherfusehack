@@ -31,6 +31,7 @@ handler.post(async (req, res) => {
     computerNeeded,
     ipnStudent,
     ipnUnit,
+    isMinor,
   } = req.body;
 
   try {
@@ -102,7 +103,8 @@ handler.post(async (req, res) => {
       shirtSize,
       ipnStudent,
       ipnUnit,
-      computerNeeded
+      computerNeeded,
+      isMinor
     );
 
     try {

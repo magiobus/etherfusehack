@@ -217,6 +217,7 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
       computerNeeded,
       ipnStudent,
       ipnUnit,
+      isMinor,
     } = data;
 
     try {
@@ -245,6 +246,7 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
         computerNeeded,
         ipnStudent,
         ipnUnit,
+        isMinor,
       });
 
       setOrderId(response.data.orderId);
@@ -464,6 +466,18 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                                 ...register("computerNeeded", {}),
                               }}
                               errorMessage={errors.computerNeeded?.message}
+                            />
+                          </div>
+
+                          <div className="inputwrapper my-3">
+                            <CheckBox
+                              label="¿Eres menor de edad? "
+                              description=""
+                              name="isMinor"
+                              register={{
+                                ...register("isMinor", {}),
+                              }}
+                              errorMessage={errors.isMinor?.message}
                             />
                           </div>
 
