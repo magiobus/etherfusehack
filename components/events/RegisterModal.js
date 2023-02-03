@@ -9,6 +9,7 @@ import unixToFormat from "@/utils/unixToFormat";
 import Input from "@/components/forms/fields/Input";
 import TextArea from "@/components/forms/fields/TextArea";
 import CheckBox from "@/components/forms/fields/CheckBox";
+import TermsCheckBox from "@/components/forms/fields/TermsCheckBox";
 import Select from "@/components/forms/fields/Select";
 import parsePhoneNumber from "libphonenumber-js";
 import PhoneInput from "@/components/forms/fields/PhoneInput";
@@ -562,9 +563,8 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                           </div>
 
                           <div className="inputwrapper my-3">
-                            <CheckBox
+                            <TermsCheckBox
                               label="Acepto los términos y condiciones"
-                              description="Al registrarte aceptas los términos y Condiciones"
                               name="terms"
                               register={{
                                 ...register("terms", {
