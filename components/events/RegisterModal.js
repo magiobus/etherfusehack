@@ -151,6 +151,86 @@ const ipnUnits = [
     label: "UPIEM",
     value: "upiem",
   },
+  {
+    label: "CECyT No. 1",
+    value: "cecytNo1",
+  },
+  {
+    label: "CECyT No. 2",
+    value: "cecytNo2",
+  },
+  {
+    label: "CECyT No. 3",
+    value: "cecytNo3",
+  },
+  {
+    label: "CECyT No. 4",
+    value: "cecytNo4",
+  },
+  {
+    label: "CECyT No. 5",
+    value: "cecytNo5",
+  },
+  {
+    label: "CECyT No. 6",
+    value: "cecytNo6",
+  },
+  {
+    label: "CECyT No. 7",
+    value: "cecytNo7",
+  },
+  {
+    label: "CECyT No. 8",
+    value: "cecytNo8",
+  },
+  {
+    label: "CECyT No. 9",
+    value: "cecytNo9",
+  },
+  {
+    label: "CECyT No. 10",
+    value: "cecytNo10",
+  },
+  {
+    label: "CECyT No. 11",
+    value: "cecytNo11",
+  },
+  {
+    label: "CECyT No. 12",
+    value: "cecytNo12",
+  },
+  {
+    label: "CECyT No. 13",
+    value: "cecytNo13",
+  },
+  {
+    label: "CECyT No. 14",
+    value: "cecytNo14",
+  },
+  {
+    label: "CECyT No. 15",
+    value: "cecytNo15",
+  },
+  {
+    label: "CECyT No. 16",
+    value: "cecytNo16",
+  },
+  {
+    label: "CECyT No. 17",
+    value: "cecytNo17",
+  },
+  {
+    label: "CECyT No. 18",
+    value: "cecytNo18",
+  },
+  {
+    label: "CECyT No. 19",
+    value: "cecytNo19",
+  },
+  {
+    label: "CET 1, Walter Cross",
+    value: "cet1WalterCross",
+  },
 ];
 
 const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {

@@ -102,9 +102,17 @@ const TicketTabs = ({ event }) => {
                                 <p className="text-xs capitalize leading-5 text-gray-500">
                                   {" "}
                                   <span className="font-semibold">
-                                    Menor:{" "}
+                                    Menor 👦:{" "}
                                   </span>{" "}
                                   {attendee?.isMinor ? "Si" : "No"}
+                                </p>
+
+                                <p className="text-xs capitalize leading-5 text-gray-500">
+                                  {" "}
+                                  <span className="font-semibold">
+                                    Necesita 💻?:{" "}
+                                  </span>{" "}
+                                  {attendee?.computerNeeded ? "Si" : "No"}
                                 </p>
 
                                 {attendee?.ipnStudent && attendee?.ipnUnit && (

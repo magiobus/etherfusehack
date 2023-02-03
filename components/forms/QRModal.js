@@ -202,6 +202,12 @@ const QRModal = ({
                               {resultData?.orderId}
                             </p>
 
+                            <div className="content mt-2 flex flex-col justify-center items-center">
+                              <div className="quantity text-2xl">
+                                <p>{resultData?.ticketQuantity} Tickets</p>
+                              </div>
+                            </div>
+
                             {resultData?.ticketType === "attendees" && (
                               <>
                                 <p className="font-semibold">Asistente</p>
@@ -240,10 +246,11 @@ const QRModal = ({
                               </div>
                             )}
 
-                            <div className="content mt-2 flex flex-col justify-center items-center">
-                              <div className="quantity text-2xl">
-                                <p>{resultData?.ticketQuantity} Tickets</p>
-                              </div>
+                            <div className=" flex flex-col justify-center items-center ">
+                              Necesita 💻:
+                              <p className="font-bold text-xl text-blue-600 uppercase">
+                                {resultData?.computerNeeded ? "Si" : "No"}
+                              </p>
                             </div>
 
                             {resultData?.isMinor && (
