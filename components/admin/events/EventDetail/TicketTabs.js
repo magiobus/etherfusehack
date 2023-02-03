@@ -91,13 +91,31 @@ const TicketTabs = ({ event }) => {
                                   </span>
                                   {unixToFormat(attendee?.createdAt, "PP")}
                                 </p>
-                                <p className="text-xs capitalize leading-5 text-gray-500">
+                                {/* <p className="text-xs capitalize leading-5 text-gray-500">
                                   {" "}
                                   <span className="font-semibold">
                                     Playera:{" "}
                                   </span>{" "}
                                   {attendee?.shirtSize}
+                                </p> */}
+
+                                <p className="text-xs capitalize leading-5 text-gray-500">
+                                  {" "}
+                                  <span className="font-semibold">
+                                    Menor:{" "}
+                                  </span>{" "}
+                                  {attendee?.isMinor ? "Si" : "No"}
                                 </p>
+
+                                {attendee?.ipnStudent && attendee?.ipnUnit && (
+                                  <p className="text-xs capitalize leading-5 text-gray-500">
+                                    {" "}
+                                    <span className="font-semibold">
+                                      Unidad IPN:{" "}
+                                    </span>{" "}
+                                    {attendee?.ipnUnit}
+                                  </p>
+                                )}
                               </div>
                             </div>
                           </div>

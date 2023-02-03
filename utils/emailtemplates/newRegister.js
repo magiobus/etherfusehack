@@ -194,6 +194,11 @@ const newRegisterTemplate = (data) => {
 	  <br/>
 </p> 
 
+
+<p style="color: #000000; margin: 0; font-size: 14px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 17px; margin-top: 0; margin-bottom: 0;"><strong>Presenta este Código QR para acceder al evento.</strong></p> <br/>
+<img align="center" border="0" class="center autowidth" src="${qrUrl}" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 500px; max-width: 100%; display: block;" width="500"/>
+
+
 <p style="color: #000000; margin: 0; font-size: 14px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 17px; margin-top: 0; margin-bottom: 0;"><strong>Es importante que te unas a nuestra comunidad de Discord en el siguiente enlace:</strong></p> 
 <br/>
 <a href="https://discord.gg/S3brFSH" target="_blank" style="color: #0068A5; font-size:2em; margin: 2em 0;">https://discord.gg/S3brFSH</a><br/>

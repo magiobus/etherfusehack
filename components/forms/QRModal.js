@@ -1,7 +1,12 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
-import { CheckCircleIcon, XCircleIcon } from "@heroicons/react/solid";
+import {
+  CheckCircleIcon,
+  XCircleIcon,
+  ExclamationIcon,
+} from "@heroicons/react/solid";
 import { QrReader } from "react-qr-reader";
 import { useEffect, useState } from "react";
 import { decode } from "js-base64";
@@ -225,12 +230,37 @@ const QRModal = ({
                                 </p>
                               </>
                             )}
-                          </div>
-                          <div className="content mt-2 flex flex-col justify-center items-center">
-                            <div className="quantity text-2xl">
-                              <p>{resultData?.ticketQuantity} Tickets</p>
+
+                            {resultData?.ipnStudent && resultData?.ipnUnit && (
+                              <div className=" flex flex-col justify-center items-center my-4">
+                                Unidad IPN:
+                                <p className="font-bold text-xl text-blue-600 uppercase">
+                                  {resultData?.ipnUnit}
+                                </p>
+                              </div>
+                            )}
+
+                            <div className="content mt-2 flex flex-col justify-center items-center">
+                              <div className="quantity text-2xl">
+                                <p>{resultData?.ticketQuantity} Tickets</p>
+                              </div>
                             </div>
+
+                            {resultData?.isMinor && (
+                              <div className=" flex flex-col justify-center items-center my-4">
+                                <div className="iconcontainer w-24 h-24 text-yellow-500">
+                                  <img
+                                    src="https://res.cloudinary.com/doxsdrk3n/image/upload/v1675387831/DALL_E_2023-02-02_19.29.54_-_A_baby_coding_front_drawing_icon_wokrx8.png"
+                                    alt="babycode"
+                                  />
+                                </div>
+                                <p className="font-bold text-3xl text-red-600">
+                                  Este participante es menor de edad 😱
+                                </p>
+                              </div>
+                            )}
                           </div>
+
                           <div className="buttoncontainer mt-4 flex justify-center items-center">
                             <button
                               className="rounded-lg px-2 py-1 bg-black text-white"
