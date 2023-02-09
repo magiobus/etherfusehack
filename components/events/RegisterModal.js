@@ -255,6 +255,7 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
   const countryWatch = watch("phoneCountry");
   const phoneWatch = watch("phone");
   const ipnStudentWatch = watch("ipnStudent");
+  const ticketViaWAWatch = watch("ticketViaWhatsapp");
 
   const isValidPhone = async (phone, country) => {
     const isValidNumber = isValidPhoneNumber(phone, countryWatch);
@@ -302,22 +303,27 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
     } = data;
 
     try {
-      ///validates phone
-      const phoneIsValid = await isValidPhone(phone, phoneCountry);
+      let parsedPhone = "";
 
-      if (!phoneIsValid) {
-        toast.error("El número de teléfono no es válido");
-        return; //this line, stops the function from executing
+      if (phone) {
+        ///validates phone
+        const phoneIsValid = await isValidPhone(phone, phoneCountry);
+
+        if (!phoneIsValid) {
+          toast.error("El número de teléfono no es válido");
+          return; //this line, stops the function from executing
+        }
+
+        parsedPhone = parsePhoneNumber(phone, phoneCountry);
       }
 
-      const parsedPhone = parsePhoneNumber(phone, phoneCountry);
       //Send data to server
       const response = await axios.post("/api/events/register", {
         about,
         email,
         name,
-        phone: parsedPhone.number,
-        phoneCountry: parsedPhone.country,
+        phone: parsedPhone.number || "",
+        phoneCountry: parsedPhone.country || "",
         startTimeLocalText: `${unixToFormat(
           eventData.startTime,
           "d 'de' MMMM yyyy h:mm aa"
@@ -439,34 +445,6 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                             </div>
 
                             <div className="field my-4">
-                              <PhoneInput
-                                label="Número de teléfono"
-                                name="phone"
-                                type="tel"
-                                onChange={(e) => {
-                                  validatePhone(e.target.value, countryWatch);
-                                }}
-                                selectRegister={{
-                                  ...register("phoneCountry", {
-                                    required: {
-                                      value: true,
-                                      message: "El código de país es requerido",
-                                    },
-                                  }),
-                                }}
-                                register={{
-                                  ...register("phone", {
-                                    required: {
-                                      value: true,
-                                      message:
-                                        "El número de teléfono es requerido",
-                                    },
-                                  }),
-                                }}
-                                errorMessage={errors.phone?.message}
-                              />
-                            </div>
-                            <div className="field my-4">
                               <TextArea
                                 label="Cuentanos sobre tí"
                                 name="about"
@@ -563,6 +541,49 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                           </div>
 
                           <div className="inputwrapper my-3">
+                            <CheckBox
+                              label="Te mandamos tu ticket por Whatsapp ?  "
+                              name="ticketViaWhatsapp"
+                              register={{
+                                ...register("ticketViaWhatsapp", {}),
+                              }}
+                              errorMessage={errors.ticketViaWhatsapp?.message}
+                            />
+                          </div>
+
+                          {/* PHONE NUMBER */}
+                          {ticketViaWAWatch && (
+                            <div className="field my-4">
+                              <PhoneInput
+                                label="Número de teléfono"
+                                name="phone"
+                                type="tel"
+                                onChange={(e) => {
+                                  validatePhone(e.target.value, countryWatch);
+                                }}
+                                selectRegister={{
+                                  ...register("phoneCountry", {
+                                    required: {
+                                      value: true,
+                                      message: "El código de país es requerido",
+                                    },
+                                  }),
+                                }}
+                                register={{
+                                  ...register("phone", {
+                                    required: {
+                                      value: true,
+                                      message:
+                                        "El número de teléfono es requerido",
+                                    },
+                                  }),
+                                }}
+                                errorMessage={errors.phone?.message}
+                              />
+                            </div>
+                          )}
+
+                          <div className="inputwrapper my-3">
                             <TermsCheckBox
                               label="Acepto los términos y condiciones"
                               name="terms"
@@ -615,7 +636,8 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                         </p>
 
                         <p className="mt-4 font-bold">
-                          Te mandamos un email con acceso al Discord del evento.
+                          Te mandamos un email con tu ticket y acceso al Discord
+                          del evento.
                         </p>
 
                         <p className="mt-4">
@@ -625,6 +647,21 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                           , ya que se realizarán dinamicas y tendremos un
                           bootcamp previo al evento.
                         </p>
+
+                        <p className="mt-4">
+                          <span className="font-bold">
+                            Acá te dejamos el enlace:
+                          </span>
+                          <br />
+                          <a
+                            href="https://discord.gg/S3brFSH"
+                            target="blank"
+                            className="underline"
+                          >
+                            https://discord.gg/S3brFSH
+                          </a>
+                        </p>
+
                         <p className="mt-4">¡Nos vemos pronto ✌️!</p>
                       </div>
                     </div>

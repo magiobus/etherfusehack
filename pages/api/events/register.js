@@ -124,18 +124,20 @@ handler.post(async (req, res) => {
       console.error("error sending email to user", error);
     }
 
-    try {
-      //send whatsapp message to user
-      const waData = await notificationsLib.generateWhatsappTicketData({
-        user,
-        ticket,
-        event,
-        startTimeLocalText,
-      });
+    if (phone) {
+      try {
+        //send whatsapp message to user
+        const waData = await notificationsLib.generateWhatsappTicketData({
+          user,
+          ticket,
+          event,
+          startTimeLocalText,
+        });
 
-      await notificationsLib.sendWhatsappTemplate(waData);
-    } catch (error) {
-      console.error("error sending whatsapp to user", error);
+        await notificationsLib.sendWhatsappTemplate(waData);
+      } catch (error) {
+        console.error("error sending whatsapp to user", error);
+      }
     }
 
     //updates user in sendinblue
