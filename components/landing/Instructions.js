@@ -5,12 +5,12 @@ const Instructions = () => {
   return (
     <div className="container w-full mt-12">
       <img
-        src="/landingimages/instructions.jpeg"
+        src="/landingimages/instructions.png"
         alt="Instructions etherfuse hackathon"
         className="w-full hidden sm:block"
       />
       <img
-        src="/landingimages/instructionsmobile.jpeg"
+        src="/landingimages/instructionsmobile.png"
         alt="Instructions etherfuse hackathon"
         className="w-full sm:hidden"
       />
