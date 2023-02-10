@@ -256,6 +256,7 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
   const phoneWatch = watch("phone");
   const ipnStudentWatch = watch("ipnStudent");
   const ticketViaWAWatch = watch("ticketViaWhatsapp");
+  const inPersonWatch = watch("inPerson");
 
   const isValidPhone = async (phone, country) => {
     const isValidNumber = isValidPhoneNumber(phone, countryWatch);
@@ -300,6 +301,7 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
       ipnStudent,
       ipnUnit,
       isMinor,
+      inPerson,
     } = data;
 
     try {
@@ -334,6 +336,7 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
         ipnStudent,
         ipnUnit,
         isMinor,
+        inPerson,
       });
 
       setOrderId(response.data.orderId);
@@ -488,45 +491,107 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
 
                           <div className="inputwrapper my-3">
                             <CheckBox
-                              label="¿Estudias en el IPN ?  "
-                              name="ipnStudent"
+                              label="¿Asistirás al evento en persona ?"
+                              description="Si dejas esta casilla en blanco, participarás en el evento de forma virtual"
+                              name="inPerson"
                               register={{
-                                ...register("ipnStudent", {}),
+                                ...register("inPerson", {}),
                               }}
-                              errorMessage={errors.ipnStudent?.message}
+                              errorMessage={errors.inPerson?.message}
                             />
                           </div>
 
-                          <div className="inputwrapper my-3">
-                            {ipnStudentWatch && (
-                              <Select
-                                label="¿En qué unidad estudias?"
-                                name="ipnUnit"
-                                options={ipnUnits}
-                                register={{
-                                  ...register("ipnUnit", {
-                                    required: {
-                                      value: true,
-                                      message: "El Campo es requerido",
-                                    },
-                                  }),
-                                }}
-                                errorMessage={errors.ipnUnit?.message}
-                              />
-                            )}
-                          </div>
+                          {inPersonWatch && (
+                            <div className="inpersoncontent">
+                              <div className="inputwrapper my-3">
+                                <CheckBox
+                                  label="Necesitas una computadora para el evento ? "
+                                  description="Si necesitas una computadora para el evento, selecciona esta opción"
+                                  name="computerNeeded"
+                                  register={{
+                                    ...register("computerNeeded", {}),
+                                  }}
+                                  errorMessage={errors.computerNeeded?.message}
+                                />
+                              </div>
+                              <div className="inputwrapper my-3">
+                                <CheckBox
+                                  label="¿Estudias en el IPN ?  "
+                                  name="ipnStudent"
+                                  register={{
+                                    ...register("ipnStudent", {}),
+                                  }}
+                                  errorMessage={errors.ipnStudent?.message}
+                                />
+                              </div>
+                              <div className="inputwrapper my-3">
+                                {ipnStudentWatch && (
+                                  <Select
+                                    label="¿En qué unidad estudias?"
+                                    name="ipnUnit"
+                                    options={ipnUnits}
+                                    register={{
+                                      ...register("ipnUnit", {
+                                        required: {
+                                          value: true,
+                                          message: "El Campo es requerido",
+                                        },
+                                      }),
+                                    }}
+                                    errorMessage={errors.ipnUnit?.message}
+                                  />
+                                )}
+                              </div>
+                              {/* <div className="inputwrapper my-3">
+                                <CheckBox
+                                  label="Te mandamos tu ticket por Whatsapp ?  "
+                                  name="ticketViaWhatsapp"
+                                  register={{
+                                    ...register("ticketViaWhatsapp", {}),
+                                  }}
+                                  errorMessage={
+                                    errors.ticketViaWhatsapp?.message
+                                  }
+                                />
+                              </div> */}
 
-                          <div className="inputwrapper my-3">
-                            <CheckBox
-                              label="Necesitas una computadora para el evento ? "
-                              description="Si necesitas una computadora para el evento, selecciona esta opción"
-                              name="computerNeeded"
-                              register={{
-                                ...register("computerNeeded", {}),
-                              }}
-                              errorMessage={errors.computerNeeded?.message}
-                            />
-                          </div>
+                              {/* PHONE NUMBER */}
+                              {/* {ticketViaWAWatch && (
+                                <div className="field my-4">
+                                  <PhoneInput
+                                    label="Número de teléfono"
+                                    name="phone"
+                                    type="tel"
+                                    onChange={(e) => {
+                                      validatePhone(
+                                        e.target.value,
+                                        countryWatch
+                                      );
+                                    }}
+                                    selectRegister={{
+                                      ...register("phoneCountry", {
+                                        required: {
+                                          value: true,
+                                          message:
+                                            "El código de país es requerido",
+                                        },
+                                      }),
+                                    }}
+                                    register={{
+                                      ...register("phone", {
+                                        required: {
+                                          value: true,
+                                          message:
+                                            "El número de teléfono es requerido",
+                                        },
+                                      }),
+                                    }}
+                                    errorMessage={errors.phone?.message}
+                                  />
+                                </div>
+                              )} */}
+                            </div>
+                          )}
 
                           <div className="inputwrapper my-3">
                             <CheckBox
@@ -539,49 +604,6 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                               errorMessage={errors.isMinor?.message}
                             />
                           </div>
-
-                          <div className="inputwrapper my-3">
-                            <CheckBox
-                              label="Te mandamos tu ticket por Whatsapp ?  "
-                              name="ticketViaWhatsapp"
-                              register={{
-                                ...register("ticketViaWhatsapp", {}),
-                              }}
-                              errorMessage={errors.ticketViaWhatsapp?.message}
-                            />
-                          </div>
-
-                          {/* PHONE NUMBER */}
-                          {ticketViaWAWatch && (
-                            <div className="field my-4">
-                              <PhoneInput
-                                label="Número de teléfono"
-                                name="phone"
-                                type="tel"
-                                onChange={(e) => {
-                                  validatePhone(e.target.value, countryWatch);
-                                }}
-                                selectRegister={{
-                                  ...register("phoneCountry", {
-                                    required: {
-                                      value: true,
-                                      message: "El código de país es requerido",
-                                    },
-                                  }),
-                                }}
-                                register={{
-                                  ...register("phone", {
-                                    required: {
-                                      value: true,
-                                      message:
-                                        "El número de teléfono es requerido",
-                                    },
-                                  }),
-                                }}
-                                errorMessage={errors.phone?.message}
-                              />
-                            </div>
-                          )}
 
                           <div className="inputwrapper my-3">
                             <TermsCheckBox
@@ -626,7 +648,7 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                           ¡Gracias por registrarte!
                         </h1>
                         <p className="mt-4">
-                          Nos vemos el{" "}
+                          Nos vemos {!inPersonWatch && "virtualmente "} el{" "}
                           <span className="font-bold">
                             {unixToFormat(
                               eventData?.startTime,
@@ -636,7 +658,8 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                         </p>
 
                         <p className="mt-4 font-bold">
-                          Te mandamos un email con tu ticket y acceso al Discord
+                          Te mandamos un email con{" "}
+                          {inPersonWatch && "tu ticket QR y "} acceso al Discord
                           del evento.
                         </p>
 
@@ -644,8 +667,8 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                           <span className="font-bold">
                             Es importante que te unas lo antes posible
                           </span>
-                          , ya que se realizarán dinamicas y tendremos un
-                          bootcamp previo al evento.
+                          , ya que se realizarán dinamicas y compartiremos
+                          recursos previo al evento.
                         </p>
 
                         <p className="mt-4">

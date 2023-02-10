@@ -1,7 +1,15 @@
+/* eslint-disable @next/next/no-img-element */
 const newRegisterTemplate = (data) => {
   //Text for thanks for supporting this creators.
 
-  const { name, qrUrl, startTimeLocalText, place, eventName } = data;
+  const {
+    name,
+    qrUrl,
+    startTimeLocalText,
+    place,
+    eventName,
+    inPerson = true,
+  } = data;
   const { locationUrl } = place;
   const address = `${place.address}, ${place.state}, ${place.city}`;
   //get first word of name
@@ -182,28 +190,49 @@ const newRegisterTemplate = (data) => {
  <br/>
 <p
     style="color: #000000; margin: 0; font-size: 14px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 17px; margin-top: 0; margin-bottom: 0;">
-    Nos vemos en ${place.name} <br/> 
-    ${address} <br/>
+    Nos vemos ${
+      !inPerson ? " virtualmente en Discord! " : `en ${place.name}, `
+    } 
+    ${inPerson ? `${place.address}` : ""} <br/>
+	<br/>
 
     El dia ${startTimeLocalText} <br/>
 	${
-    locationUrl &&
-    `Puedes ver el mapa del lugar, dando click 
+    locationUrl && inPerson
+      ? `Puedes ver el mapa del lugar, dando click 
 	<a href=${locationUrl} rel="noopener" style="color: #0068A5;" target="_blank">Aquí 📍  </a> `
+      : ""
   } 
 	  <br/>
 </p> 
 
 
-<p style="color: #000000; margin: 0; font-size: 14px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 17px; margin-top: 0; margin-bottom: 0;"><strong>Presenta este Código QR para acceder al evento.</strong></p> <br/>
-<img align="center" border="0" class="center autowidth" src="${qrUrl}" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 500px; max-width: 100%; display: block;" width="500"/>
+${
+  inPerson && qrUrl
+    ? `
+      <p style="color: #000000; margin: 0; font-size: 14px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 17px; margin-top: 0; margin-bottom: 0;">
+        <strong>Presenta este Código QR para acceder al evento.</strong>
+      </p>
+      <br />
+      <img
+        align="center"
+        border="0"
+        className="center autowidth"
+        src=${qrUrl}
+        style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 500px; max-width: 100%; display: block;"
+        width="500"
+        alt="Código QR "
+      />
+    `
+    : ""
+}
 
 
 <p style="color: #000000; margin: 0; font-size: 14px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 17px; margin-top: 0; margin-bottom: 0;"><strong>Es importante que te unas a nuestra comunidad de Discord en el siguiente enlace:</strong></p> 
 <br/>
 <a href="https://discord.gg/S3brFSH" target="_blank" style="color: #0068A5; font-size:2em; margin: 2em 0;">https://discord.gg/S3brFSH</a><br/>
 
-<p style="color: #000000; margin: 0; font-size: 14px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 17px; margin-top: 1em; margin-bottom: 0;"><strong>Tendremos un bootcamp para que arranques con todo el día del evento 🙌🏼</strong></p> <br/>
+<p style="color: #000000; margin: 0; font-size: 14px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 17px; margin-top: 1em; margin-bottom: 0;"><strong>Compartiremos algunos recursos para que arranques con todo el día del evento 🙌🏼</strong></p> <br/>
 
 
         <p

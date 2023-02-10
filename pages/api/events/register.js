@@ -32,6 +32,7 @@ handler.post(async (req, res) => {
     ipnStudent,
     ipnUnit,
     isMinor,
+    inPerson,
   } = req.body;
 
   try {
@@ -86,12 +87,12 @@ handler.post(async (req, res) => {
       );
     }
 
-    //generates ticket
     const ticketData = {
       event,
       user: { ...user, phone, phoneCountry },
       ticketType: "attendees",
       ticketQuantity: 1,
+      inPerson,
     };
 
     //Save ticket
@@ -124,21 +125,22 @@ handler.post(async (req, res) => {
       console.error("error sending email to user", error);
     }
 
-    if (phone) {
-      try {
-        //send whatsapp message to user
-        const waData = await notificationsLib.generateWhatsappTicketData({
-          user,
-          ticket,
-          event,
-          startTimeLocalText,
-        });
+    //TODO: FIX WHATSAPP MESSAGEs
+    // if (phone) {
+    //   try {
+    //     //send whatsapp message to user
+    //     const waData = await notificationsLib.generateWhatsappTicketData({
+    //       user,
+    //       ticket,
+    //       event,
+    //       startTimeLocalText,
+    //     });
 
-        await notificationsLib.sendWhatsappTemplate(waData);
-      } catch (error) {
-        console.error("error sending whatsapp to user", error);
-      }
-    }
+    //     await notificationsLib.sendWhatsappTemplate(waData);
+    //   } catch (error) {
+    //     console.error("error sending whatsapp to user", error);
+    //   }
+    // }
 
     //updates user in sendinblue
     if (process.env.NODE_ENV === "production") {
