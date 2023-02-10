@@ -50,37 +50,6 @@ handler.get(async (req, res) => {
   });
 
   //get t shirt info of every event and sum tshirt size count
-  const eventTshirtSizes = await db
-    .collection("events")
-    .aggregate([
-      {
-        $match: {},
-      },
-      { $addFields: { _id: { $toString: "$_id" } } },
-      {
-        $lookup: {
-          from: "tickets",
-          let: { eventId: "$_id" },
-          pipeline: [
-            {
-              $match: {
-                $expr: {
-                  $and: [{ $eq: ["$eventId", "$$eventId"] }],
-                },
-              },
-            },
-            {
-              $group: {
-                _id: "$shirtSize",
-                count: { $sum: 1 },
-              },
-            },
-          ],
-          as: "ticketCount",
-        },
-      },
-    ])
-    .toArray();
 
   const stats = [
     {
@@ -91,8 +60,6 @@ handler.get(async (req, res) => {
         { name: "tickets", nameEs: "tickets 🎟", stat: tickets },
       ],
     },
-    { name: "TshirtSizes", values: parsedTshirtSizes },
-    { name: "EventTshirtSizes", values: eventTshirtSizes },
   ];
 
   return res.json(stats);
