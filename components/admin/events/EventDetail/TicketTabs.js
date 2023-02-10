@@ -62,6 +62,17 @@ const TicketTabs = ({ event }) => {
                               >
                                 {attendee?.user?.phone}
                               </a>
+                              <p className="text-sm leading-5 text-black my-1">
+                                {attendee?.inPerson ? (
+                                  <span className="bg-happy-yellow px-2 py-1 text-black">
+                                    Presencial
+                                  </span>
+                                ) : (
+                                  <span className="bg-happy-yellow px-2 py-1 text-black">
+                                    Virtual
+                                  </span>
+                                )}
+                              </p>
                             </div>
                           </div>
                         </div>
@@ -73,17 +84,20 @@ const TicketTabs = ({ event }) => {
                             <div className="flex items-center justify-between">
                               <div className="flex-1 ml-2">
                                 <p className="text-sm leading-5 text-gray-500 font-semibold"></p>
-                                <a
-                                  className="text-sm leading-5 text-gray-500 underline"
-                                  href={attendee?.qrUrl}
-                                  target="_blank"
-                                  rel="noreferrer"
-                                >
-                                  <span className="font-semibold text-xs">
-                                    Orden
-                                  </span>{" "}
-                                  {attendee.orderId}
-                                </a>
+                                {attendee?.qrUrl && (
+                                  <a
+                                    className="text-sm leading-5 text-gray-500 underline"
+                                    href={attendee?.qrUrl}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                  >
+                                    <span className="font-semibold text-xs">
+                                      Orden
+                                    </span>{" "}
+                                    {attendee.orderId}
+                                  </a>
+                                )}
+
                                 <p className="text-xs leading-5 text-gray-500">
                                   {" "}
                                   <span className="font-semibold">
@@ -99,21 +113,25 @@ const TicketTabs = ({ event }) => {
                                   {attendee?.shirtSize}
                                 </p> */}
 
-                                <p className="text-xs capitalize leading-5 text-gray-500">
-                                  {" "}
-                                  <span className="font-semibold">
-                                    Menor 👦:{" "}
-                                  </span>{" "}
-                                  {attendee?.isMinor ? "Si" : "No"}
-                                </p>
+                                {attendee?.isMinor && (
+                                  <p className="text-xs capitalize leading-5 text-gray-500">
+                                    {" "}
+                                    <span className="font-semibold">
+                                      Menor 👦:{" "}
+                                    </span>{" "}
+                                    {attendee?.isMinor ? "Si" : "No"}
+                                  </p>
+                                )}
 
-                                <p className="text-xs capitalize leading-5 text-gray-500">
-                                  {" "}
-                                  <span className="font-semibold">
-                                    Necesita 💻?:{" "}
-                                  </span>{" "}
-                                  {attendee?.computerNeeded ? "Si" : "No"}
-                                </p>
+                                {attendee?.computerNeeded && (
+                                  <p className="text-xs capitalize leading-5 text-gray-500">
+                                    {" "}
+                                    <span className="font-semibold">
+                                      Necesita 💻?:{" "}
+                                    </span>{" "}
+                                    {attendee?.computerNeeded ? "Si" : "No"}
+                                  </p>
+                                )}
 
                                 {attendee?.ipnStudent && attendee?.ipnUnit && (
                                   <p className="text-xs capitalize leading-5 text-gray-500">
