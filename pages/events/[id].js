@@ -8,6 +8,10 @@ import { useState } from "react";
 import dateNowUnix from "@/utils/dateNowUnix";
 import ShareButtons from "@/components/events/ShareButtons";
 import ProjectsList from "@/components/events/ProjectsList";
+import { Schedule } from "@/components/landing/Schedule";
+import { Speakers } from "@/components/landing/Speakers";
+import { Sponsors } from "@/components/landing/Sponsors";
+import Instructions from "@/components/landing/Instructions";
 
 const EventDetailPage = ({ event, expired, registerCount }) => {
   const {
@@ -145,6 +149,17 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
                   />
                 </div>
               </div>
+
+              {/* //TODO: MIGHT DELETE THIS SECTIoN LATER... */}
+              {event._id === "63c3713740c2442abc5ae9cf" && (
+                <div className="w-full">
+                  <Instructions />
+                  <Speakers />
+                  <Schedule />
+                  <Sponsors />
+                </div>
+              )}
+
               {projects && projects.length > 0 && (
                 <div className="my-8" id="eventprojects">
                   <ProjectsList projects={projects} />
