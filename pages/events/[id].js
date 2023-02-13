@@ -27,6 +27,7 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
     startTime,
     description,
     projects,
+    modality,
   } = event;
 
   const [modalOpen, setModalOpen] = useState(false);
@@ -57,9 +58,12 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
             >
               <h1 className="font-bold text-2xl mb-4">{name}</h1>
               <p className="capitalize text-white">
-                @{placeName} - {placeState}, {placeCity} {placeCountry}
+                @{placeName} - {placeState}, {placeCity} {placeCountry}{" "}
               </p>
               <p className="capitalize text-white">
+                {modality === "both" ? `Modalidad Virtual Disponible 💻` : ""}
+              </p>
+              <p className="capitalize text-white my-2">
                 {" "}
                 {unixToFormat(startTime, "d 'de' MMMM yyyy h:mm aa")}
               </p>
@@ -98,7 +102,20 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
               <div className="w-full flex flex-col lg:flex-row  justify-between items-center lg:items-start">
                 <div className="leftsection w-full lg:w-1/2">
                   <p className="font-bold">Acerca del evento</p>
-                  <p className=" mt-5  text-xl text-black">{description}</p>
+                  {description && (
+                    <>
+                      {description.split("\n").map((item, key) => {
+                        console.log("item =>", item);
+                        return (
+                          <>
+                            <p className=" mt-5  text-xl text-black" key={key}>
+                              {item}
+                            </p>
+                          </>
+                        );
+                      })}
+                    </>
+                  )}
                 </div>
                 <div className="rightsection flex flex-col  w-full  mt-8 lg:mt-0 px-0 lg:px-8 lg:w-4/12">
                   <div className="infocontainer">
