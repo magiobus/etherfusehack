@@ -2,13 +2,13 @@ import MainLayout from "@/components/layouts/MainLayout";
 
 export default function TermsPage() {
   return (
-    <MainLayout title="Terminos y Condiciones">
+    <MainLayout title="Términos y Condiciones">
       <div className="relative py-16 bg-white overflow-hidden">
         <div className="relative px-4 sm:px-6 lg:px-8">
           <div className="text-lg max-w-prose mx-auto">
             <div className="text-center">
               <p className="text-3xl font-extrabold text-happy-yellow bg-black  sm:tracking-tight lg:text-4xl py-2">
-                Terminos y Condiciones
+                Términos y Condiciones
               </p>
             </div>
             <br></br>
@@ -20,11 +20,17 @@ export default function TermsPage() {
             </p>
 
             <p className="mt-8 text-xl text-black leading-8">
-              Los equipos participantes deberán disponer de su propio software y
-              hardware, como laptops, tabletas, hosting y otros elementos. Las
-              herramientas tecnológicas frameworks, lenguajes de programación, y
-              otros, así como los formatos de deployment o demostración serán
-              elegidos por los equipos participantes.
+              Al registrarse en el sitio web para el evento Etherfuse Hackathon,
+              el participante confirma que tiene al menos 18 años de edad y
+              cumple con la edad mínima para acceder a servicios en línea en su
+              país de residencia. Si el participante no cumple con la edad
+              mínima, el padre/madre/tutor debe realizar el registro en su
+              nombre y hacerse responsable de la actividad del menor durante
+              toda la duración y estancia del evento. Además, todos aquellos
+              menores de 18 años y mayores de 13 años que deseen participar de
+              manera presencial en el Etherfuse Hackathon, deben ser registrados
+              por sus padres o tutores, quienes serán responsables de ellos
+              durante toda la duración y estancia del evento.
             </p>
             <p className="mt-8 text-xl text-black leading-8">
               Los datos proporcionados por los participantes deben ser
@@ -33,15 +39,27 @@ export default function TermsPage() {
             </p>
             <p className="mt-8 text-xl text-black leading-8">
               El participante autoriza a la organización del evento a utilizar
-              sus datos personales para fines de comunicación y publicidad. Asi
+              sus datos personales para fines de comunicación y publicidad. Así
               como para la difusión de los resultados del evento y envío de
               información a través de medios electrónicos como correo
               electrónico y whatsapp.
             </p>
             <p className="mt-8 text-xl text-black leading-8">
+              En el caso de que el evento se lleve a cabo presencialmente en
+              alguna institución, en algunos casos, se proporcionará equipo de
+              cómputo a los participantes. No obstante, es importante tener en
+              cuenta que la disponibilidad y capacidad de este equipo está
+              sujeta a cambios sin previo aviso y puede no cumplir con las
+              necesidades técnicas de los equipos participantes. Por lo tanto,
+              se recomienda que los participantes vengan preparados con su
+              propio software y hardware, para garantizar la continuidad del
+              proceso de desarrollo y presentación de sus proyectos durante el
+              hackathon.
+            </p>
+            <p className="mt-8 text-xl text-black leading-8">
               Los participantes autorizan que la información obtenida a partir
               de su participación en el hackathon se utilice en el material de
-              difusión relacionado con el presente Concurso, incluido internet,
+              difusión relacionado con el presente concurso, incluido internet,
               sin recibir contraprestación alguna.
             </p>
             <p className="mt-8 text-xl text-black leading-8">
@@ -59,6 +77,7 @@ export default function TermsPage() {
               proceso de comercialización con anterioridad a los días del evento
               la solución presentada.
             </p>
+
             <p className="mt-8 text-xl text-black leading-8">
               La propiedad de la idea pertenece a los desarrolladores, pero el
               ganador dará su consentimiento para que el desarrollo sea
@@ -73,11 +92,76 @@ export default function TermsPage() {
               autoridades y empresas interesadas en la solución y en foros
               locales, nacionales e internacionales.
             </p>
-
             <p className="mt-8 text-xl text-black leading-8">
               La continuidad del proyecto depende exclusivamente de la
               disponibilidad del equipo ganador, así como de la instancia que
               propuso el reto.
+            </p>
+            <p className="mt-8 text-xl text-black leading-8">
+              Los proyectos serán evaluados por un jurado compuesto por expertos
+              en la industria y se basarán en criterios específicos descritos en
+              el sitio web.
+            </p>
+            <p className="mt-8 text-xl text-black leading-8">
+              Los premios serán otorgados a los proyectos ganadores y se
+              describirán en detalle en el sitio web.
+            </p>
+            <p className="mt-8 text-xl text-black leading-8">
+              Los participantes deben comportarse de manera ética y profesional
+              durante todo el evento.
+            </p>
+            <p className="mt-8 text-xl text-black leading-8">
+              Etherfuse Inc. se encarga de proporcionar de manera gratuita el
+              proceso de registro, mentorías, alimentos y premios para los
+              participantes del evento Etherfuse Hackathon. Por otro lado, el
+              IPN es responsable de proporcionar las instalaciones, acceso a
+              internet, equipo de cómputo, servicios médicos en caso de
+              emergencia, seguridad en el evento y todo lo relacionado a los
+              asistentes, incluyendo a los menores de edad.
+            </p>
+            <p className="mt-8 text-xl text-black leading-8">
+              Nos reservamos el derecho de admisión. En especial denegando el
+              acceso o expulsando a aquellos ASISTENTES que:
+            </p>
+
+            {/* //bullet points */}
+            <ul className="list-disc list-inside">
+              <li className="mt-4 text-xl text-black leading-8">
+                No presenten su entrada cuando el organizador lo requiera, ya
+                sea en formato digital o impreso.
+              </li>
+              <li className="mt-4 text-xl text-black leading-8">
+                Hayan modificado, manipulado, falsificado la entrada o la
+                presenten deteriorada o sea ilegible.
+              </li>
+              <li className="mt-4 text-xl text-black leading-8">
+                No entregue la autorización de su padre/madre/tutor o que sea
+                menor de 13 años y a parte de la autorización, no vaya
+                acompañado por su madre/padre/tutor/responsable autorizado.
+              </li>
+              <li className="mt-4 text-xl text-black leading-8">
+                Pueda racionalmente presumirse que va a implicar una situación
+                de riesgo o peligro para el mismo u otros, por alboroto o por
+                estados de intoxicación aparente o potencial,
+                responsabilizándose personalmente el portador en todos los casos
+                con sus propias acciones y omisiones que causen lesiones a
+                terceros o daños a cosas.
+              </li>
+            </ul>
+            <p className="mt-8 text-xl text-black leading-8">
+              Etherfuse Inc. se exime de toda responsabilidad por cualquier
+              reclamo o demanda relacionados con el evento, incluyendo, pero no
+              limitado a, lesiones personales, daños a la propiedad y cualquier
+              otro tipo de pérdida o daño. Asistir al evento es bajo su propio
+              riesgo y responsabilidad, y al hacerlo, acepta liberar y eximir a
+              Etherfuse Inc. de cualquier responsabilidad por cualquier reclamo
+              o demanda que pueda surgir. Esta cláusula de limitación de
+              responsabilidad es un elemento integral del acuerdo entre la
+              organización y los asistentes al evento.
+            </p>
+            <p className="mt-8 text-xl text-black leading-8">
+              La organización del hackathon se reserva el derecho a modificar
+              los términos y condiciones en cualquier momento sin previo aviso.
             </p>
           </div>
         </div>
