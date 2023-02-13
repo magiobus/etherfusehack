@@ -142,6 +142,16 @@ const TicketTabs = ({ event }) => {
                                     {attendee?.ipnUnit}
                                   </p>
                                 )}
+
+                                {attendee?.otherInstitution && (
+                                  <p className="text-xs capitalize leading-5 text-gray-500">
+                                    {" "}
+                                    <span className="font-semibold">
+                                      Institución:{" "}
+                                    </span>{" "}
+                                    {attendee?.otherInstitution}
+                                  </p>
+                                )}
                               </div>
                             </div>
                           </div>

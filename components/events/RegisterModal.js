@@ -25,6 +25,10 @@ const shirtSizes = [
 
 const ipnUnits = [
   {
+    label: "UPIITA",
+    value: "upiita",
+  },
+  {
     value: "cicsUnidadSantoTomas",
     label: "CICS Unidad Santo Tomas",
   },
@@ -143,10 +147,6 @@ const ipnUnits = [
   {
     label: "UPIICSA",
     value: "upiicsa",
-  },
-  {
-    label: "UPIITA",
-    value: "upiita",
   },
   {
     label: "UPIEM",
@@ -302,6 +302,7 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
       ipnUnit,
       isMinor,
       inPerson,
+      otherInstitution,
     } = data;
 
     try {
@@ -333,10 +334,11 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
         eventId: eventData._id,
         shirtSize,
         computerNeeded,
-        ipnStudent,
+        ipnStudent: ipnStudent === "ipn" ? true : false,
         ipnUnit,
         isMinor,
         inPerson,
+        otherInstitution,
       });
 
       setOrderId(response.data.orderId);
@@ -447,6 +449,70 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                               />
                             </div>
 
+                            <div className="inputwrapper my-3">
+                              <Select
+                                label="¿De dónde nos visitas?"
+                                name="ipnStudent"
+                                options={[
+                                  {
+                                    value: "ipn",
+                                    label: "IPN",
+                                  },
+                                  {
+                                    value: "otro",
+                                    label: "Otro",
+                                  },
+                                ]}
+                                register={{
+                                  ...register("ipnStudent", {
+                                    required: {
+                                      value: true,
+                                      message: "El Campo es requerido",
+                                    },
+                                  }),
+                                }}
+                                errorMessage={errors.ipnStudent?.message}
+                              />
+                            </div>
+
+                            <div className="inputwrapper my-3">
+                              {ipnStudentWatch === "ipn" ? (
+                                <Select
+                                  label="¿En qué unidad del IPN estudias?"
+                                  name="ipnUnit"
+                                  options={ipnUnits}
+                                  register={{
+                                    ...register("ipnUnit", {
+                                      required: {
+                                        value: true,
+                                        message: "El Campo es requerido",
+                                      },
+                                    }),
+                                  }}
+                                  errorMessage={errors.ipnUnit?.message}
+                                />
+                              ) : (
+                                <div className="my-4 field">
+                                  <Input
+                                    label="Nombre de institución o empresa de la que nos visitas"
+                                    name="otherInstitution"
+                                    type="text"
+                                    register={{
+                                      ...register("otherInstitution", {
+                                        required: {
+                                          value: true,
+                                          message: "El campo es requerido",
+                                        },
+                                      }),
+                                    }}
+                                    errorMessage={
+                                      errors.otherInstitution?.message
+                                    }
+                                  />
+                                </div>
+                              )}
+                            </div>
+
                             <div className="field my-4">
                               <TextArea
                                 label="Cuentanos sobre tí"
@@ -514,34 +580,7 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                                   errorMessage={errors.computerNeeded?.message}
                                 />
                               </div>
-                              <div className="inputwrapper my-3">
-                                <CheckBox
-                                  label="¿Estudias en el IPN ?  "
-                                  name="ipnStudent"
-                                  register={{
-                                    ...register("ipnStudent", {}),
-                                  }}
-                                  errorMessage={errors.ipnStudent?.message}
-                                />
-                              </div>
-                              <div className="inputwrapper my-3">
-                                {ipnStudentWatch && (
-                                  <Select
-                                    label="¿En qué unidad estudias?"
-                                    name="ipnUnit"
-                                    options={ipnUnits}
-                                    register={{
-                                      ...register("ipnUnit", {
-                                        required: {
-                                          value: true,
-                                          message: "El Campo es requerido",
-                                        },
-                                      }),
-                                    }}
-                                    errorMessage={errors.ipnUnit?.message}
-                                  />
-                                )}
-                              </div>
+
                               {/* <div className="inputwrapper my-3">
                                 <CheckBox
                                   label="Te mandamos tu ticket por Whatsapp ?  "

@@ -15,6 +15,7 @@ const CheckBox = ({
           {...register}
           type="checkbox"
           className="focus:ring-black h-4 w-4 text-black border-gray-300 rounded"
+          {...rest}
         />
       </div>
       <div className="ml-3 text-sm">
