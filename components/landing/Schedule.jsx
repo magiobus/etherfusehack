@@ -15,18 +15,30 @@ const schedule = [
         name: "Registro 🎟",
         description: "Muestra tu registro para acceder al evento",
         start: "4:30PM",
-        end: "6:00PM",
+        end: "5:30PM",
       },
       {
         name: "Keynote Bienvenida 👋",
         description: "Bienvenida a todos los participantes",
+        start: "5:30PM",
+        end: "6:00PM",
+      },
+      {
+        name: "Inaguración del evento 💂‍♀️ ",
+        description: "",
         start: "6:00PM",
-        end: "7:00PM",
+        end: "6:30PM",
+      },
+      {
+        name: "Panel de expertos 🤓🎤",
+        description: "Panel Etherfuse - Decaf - Otter - Bitso",
+        start: "6:30PM",
+        end: "7:30PM",
       },
       {
         name: "Comida 🌯",
         description: "Sin comida no hay hackathon",
-        start: "7:00PM",
+        start: "7:30PM",
         end: "8:00PM",
       },
       {
@@ -55,9 +67,15 @@ const schedule = [
         end: "11:00AM",
       },
       {
+        name: "Charlas Etherfuse / SuperTeam 🎤",
+        description: "",
+        start: "11:00AM",
+        end: "12:00PM",
+      },
+      {
         name: "Mentorías 🧑‍🏫",
         description: "Obtén ayuda de mentores",
-        start: "11:00AM",
+        start: "12:00PM",
         end: "2:00PM",
       },
       {
@@ -70,6 +88,12 @@ const schedule = [
         name: "Hacking 🚀",
         description: "Continúa trabajando en tu proyecto",
         start: "3:00PM",
+        end: "5:00PM",
+      },
+      {
+        name: "Mentorías 🧑‍🏫",
+        description: "Obtén ayuda de mentores",
+        start: "5:00PM",
         end: "8:00PM",
       },
       {
@@ -94,20 +118,14 @@ const schedule = [
       {
         name: "Desayuno 🥞",
         description: "Sin desayuno no hay hackathon",
-        start: "9:00AM",
-        end: "10:00AM",
-      },
-      {
-        name: "Entrega de proyectos 📦",
-        description: "Envía tu proyecto para ser evaluado",
         start: "10:00AM",
         end: "11:00AM",
       },
       {
-        name: "Evaluación de proyectos 📝",
-        description: "5 Finalistas serán anunciados",
+        name: "Hacking 🚀",
+        description: "Continúa trabajando en tu proyecto",
         start: "11:00AM",
-        end: "2:00PM",
+        end: "1:00PM",
       },
       {
         name: "Comida 🍔",
@@ -116,16 +134,17 @@ const schedule = [
         end: "2:00PM",
       },
       {
-        name: "Presentaciones Finales 🎤",
-        description: "Los 5 finalistas presentarán sus proyectos",
+        name: "Entrega de proyectos 📦",
+        description: "Envía tu proyecto para ser evaluado",
         start: "2:00PM",
-        end: "4:00PM",
+        end: "4:30PM",
       },
       {
         name: "Ceremonia de premiación 🏆",
-        description: "Los ganadores serán anunciados",
-        start: "4:00PM",
-        end: "5:00PM",
+        description:
+          "La premiación se llevará a cabo el día mártes 28 de marzo.",
+        start: "10:00AM",
+        end: "11:00AM",
       },
     ],
   },
