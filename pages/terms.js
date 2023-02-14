@@ -44,6 +44,12 @@ export default function TermsPage() {
               información a través de medios electrónicos como correo
               electrónico y whatsapp.
             </p>
+
+            <p className="mt-8 text-xl text-black leading-8">
+              Al registrarse en etherfuse hackathon la información de los
+              participantes será compartida al equipo organizador de grizzlython
+              hackathon, para que puedan participar en el evento.
+            </p>
             <p className="mt-8 text-xl text-black leading-8">
               En el caso de que el evento se lleve a cabo presencialmente en
               alguna institución, en algunos casos, se proporcionará equipo de
