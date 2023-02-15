@@ -44,7 +44,6 @@ export default function TermsPage() {
               información a través de medios electrónicos como correo
               electrónico y whatsapp.
             </p>
-
             <p className="mt-8 text-xl text-black leading-8">
               Al registrarse en etherfuse hackathon la información de los
               participantes será compartida al equipo organizador de grizzlython

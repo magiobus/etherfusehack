@@ -9,6 +9,16 @@ import ajtaylor from "@/public/landingimages/avatars/ajtaylor.png";
 import davidandujo from "@/public/landingimages/avatars/davidandujo2.jpeg";
 import magiobustillos from "@/public/landingimages/avatars/magiobustillos.jpeg";
 import daniela from "@/public/landingimages/avatars/daniela.jpeg";
+import aquiles from "@/public/landingimages/avatars/aquiles.jpeg";
+import diego from "@/public/landingimages/avatars/diego.jpeg";
+import sandra from "@/public/landingimages/avatars/sandra.jpeg";
+import wilson from "@/public/landingimages/avatars/wilson.jpeg";
+import nathan from "@/public/landingimages/avatars/nathan.jpeg";
+import scott from "@/public/landingimages/avatars/scott.jpeg";
+import joan from "@/public/landingimages/avatars/joan.jpeg";
+import fernanda from "@/public/landingimages/avatars/fernanda.png";
+import rickmartin from "@/public/landingimages/avatars/rick.png";
+import juliocesar from "@/public/landingimages/avatars/juliocesar.jpeg";
 
 const data = [
   {
@@ -18,31 +28,31 @@ const data = [
     speakers: [
       {
         name: "David Taylor",
-        role: "CEO Etherfuse",
+        role: "CEO @Etherfuse",
         image: davidtaylor,
         url: "https://www.linkedin.com/in/lifehug/",
       },
       {
         name: "AJ Taylor",
-        role: "CTO Etherfuse",
+        role: "CTO @Etherfuse",
         image: ajtaylor,
         url: "https://www.linkedin.com/in/aj-taylor-977a5481/",
       },
       {
         name: "David Andujo",
-        role: "COO Etherfuse",
+        role: "COO @Etherfuse",
         image: davidandujo,
         url: "https://www.linkedin.com/in/andujo/",
       },
       {
         name: "Magio Bustillos",
-        role: "Hackathon Facilitator",
+        role: "Hackathon Facilitator @Etherfuse",
         image: magiobustillos,
         url: "https://twitter.com/magiobus",
       },
       {
         name: "Daniela Aranda",
-        role: "Hackathon Team",
+        role: "Hackathon Team @Etherfuse",
         image: daniela,
         url: "",
       },
@@ -55,22 +65,83 @@ const data = [
     speakers: [
       {
         name: "David Taylor",
-        role: "CEO Etherfuse",
+        role: "CEO @Etherfuse",
         image: davidtaylor,
         url: "https://www.linkedin.com/in/lifehug/",
       },
       {
         name: "AJ Taylor",
-        role: "CTO Etherfuse",
+        role: "CTO @Etherfuse",
         image: ajtaylor,
         url: "https://www.linkedin.com/in/aj-taylor-977a5481/",
       },
 
       {
         name: "Magio Bustillos",
-        role: "Hackathon Facilitator",
+        role: "Hackathon Facilitator @Etherfuse",
         image: magiobustillos,
         url: "https://twitter.com/magiobus",
+      },
+      {
+        name: "Rick Martin",
+        role: "CoFounder @Decaf",
+        image: rickmartin,
+        url: "https://twitter.com/rickdanielm",
+      },
+
+      {
+        name: "Fernanda Orduña",
+        role: "CoFounder & Developer @Decaf",
+        image: fernanda,
+        url: "https://twitter.com/FerOrduna28",
+      },
+      {
+        name: "Diego Quintana",
+        role: "CEO @Blockchain Business School",
+        image: diego,
+        url: "https://www.linkedin.com/in/diegoquintana13/?originalSubdomain=mx",
+      },
+      {
+        name: "Joan Ruiz de Bustillo",
+        role: "AI/Web3 Dev @Decaf",
+        image: joan,
+        url: "https://twitter.com/JuanRdBO",
+      },
+      {
+        name: "Scott Martin",
+        role: "Web3 Dev @Decaf",
+        image: scott,
+        url: "https://twitter.com/Scottymrty",
+      },
+      {
+        name: "Nathan Lazo",
+        role: "Web3 Dev @Blockchain Business School",
+        image: nathan,
+        url: "https://www.linkedin.com/in/nathan-lazo-8a9b03214/",
+      },
+      {
+        name: "Sandra Flores",
+        role: "Project Manager @Blockchain Business School",
+        image: sandra,
+        url: "#",
+      },
+      {
+        name: "Wilson",
+        role: "CEO @Majime Studios & Partner BBS",
+        image: wilson,
+        url: "https://www.linkedin.com/in/wilson-yandún-6670542b/?originalSubdomain=ec",
+      },
+      {
+        name: "Aquiles",
+        role: "CEO @Gunny Games & Partner BBS",
+        image: aquiles,
+        url: "https://www.linkedin.com/in/aquiles-benitez-658411128/",
+      },
+      {
+        name: "Julio Cesar Salas",
+        role: "COO @Btech",
+        image: juliocesar,
+        url: "",
       },
     ],
   },
@@ -80,16 +151,22 @@ const data = [
     dateTime: "",
     speakers: [
       {
+        name: "David Taylor",
+        role: "CEO @Etherfuse",
+        image: davidtaylor,
+        url: "https://www.linkedin.com/in/lifehug/",
+      },
+      {
         name: "AJ Taylor",
-        role: "CTO Etherfuse",
+        role: "CTO @Etherfuse",
         image: ajtaylor,
         url: "https://www.linkedin.com/in/aj-taylor-977a5481/",
       },
       {
-        name: "David Taylor",
-        role: "CEO Etherfuse",
-        image: davidtaylor,
-        url: "https://www.linkedin.com/in/lifehug/",
+        name: "Magio Bustillos",
+        role: "Hackathon Facilitator @Etherfuse",
+        image: magiobustillos,
+        url: "https://twitter.com/magiobus",
       },
     ],
   },
