@@ -19,45 +19,10 @@ import joan from "@/public/landingimages/avatars/joan.jpeg";
 import fernanda from "@/public/landingimages/avatars/fernanda.png";
 import rickmartin from "@/public/landingimages/avatars/rick.png";
 import juliocesar from "@/public/landingimages/avatars/juliocesar.jpeg";
+import gracema from "@/public/landingimages/avatars/gracema.jpg";
+import aleksei from "@/public/landingimages/avatars/aleksei.jpg";
 
 const data = [
-  {
-    name: "Team ",
-    date: "",
-    dateTime: "",
-    speakers: [
-      {
-        name: "David Taylor",
-        role: "CEO @Etherfuse",
-        image: davidtaylor,
-        url: "https://www.linkedin.com/in/lifehug/",
-      },
-      {
-        name: "AJ Taylor",
-        role: "CTO @Etherfuse",
-        image: ajtaylor,
-        url: "https://www.linkedin.com/in/aj-taylor-977a5481/",
-      },
-      {
-        name: "David Andujo",
-        role: "COO @Etherfuse",
-        image: davidandujo,
-        url: "https://www.linkedin.com/in/andujo/",
-      },
-      {
-        name: "Magio Bustillos",
-        role: "Hackathon Facilitator @Etherfuse",
-        image: magiobustillos,
-        url: "https://twitter.com/magiobus",
-      },
-      {
-        name: "Daniela Aranda",
-        role: "Hackathon Team @Etherfuse",
-        image: daniela,
-        url: "",
-      },
-    ],
-  },
   {
     name: "Mentores",
     date: "",
@@ -88,7 +53,6 @@ const data = [
         image: rickmartin,
         url: "https://twitter.com/rickdanielm",
       },
-
       {
         name: "Fernanda Orduña",
         role: "CoFounder & Developer @Decaf",
@@ -138,9 +102,58 @@ const data = [
         url: "https://www.linkedin.com/in/aquiles-benitez-658411128/",
       },
       {
+        name: "Grace Ma",
+        role: "Head of Growth @otter",
+        image: gracema,
+        url: "https://twitter.com/ottrfinance",
+      },
+      {
+        name: "Aleksei Zakharov",
+        role: " CEO and Founder @otter",
+        image: aleksei,
+        url: "https://twitter.com/ottrfinance",
+      },
+      {
         name: "Julio Cesar Salas",
         role: "COO @Btech",
         image: juliocesar,
+        url: "",
+      },
+    ],
+  },
+  {
+    name: "Team ",
+    date: "",
+    dateTime: "",
+    speakers: [
+      {
+        name: "David Taylor",
+        role: "CEO @Etherfuse",
+        image: davidtaylor,
+        url: "https://www.linkedin.com/in/lifehug/",
+      },
+      {
+        name: "AJ Taylor",
+        role: "CTO @Etherfuse",
+        image: ajtaylor,
+        url: "https://www.linkedin.com/in/aj-taylor-977a5481/",
+      },
+      {
+        name: "David Andujo",
+        role: "COO @Etherfuse",
+        image: davidandujo,
+        url: "https://www.linkedin.com/in/andujo/",
+      },
+      {
+        name: "Magio Bustillos",
+        role: "Hackathon Facilitator @Etherfuse",
+        image: magiobustillos,
+        url: "https://twitter.com/magiobus",
+      },
+      {
+        name: "Daniela Aranda",
+        role: "Hackathon Team @Etherfuse",
+        image: daniela,
         url: "",
       },
     ],
