@@ -12,6 +12,7 @@ import { Schedule } from "@/components/landing/Schedule";
 import { Speakers } from "@/components/landing/Speakers";
 import { Sponsors } from "@/components/landing/Sponsors";
 import Instructions from "@/components/landing/Instructions";
+import TracksList from "@/components/landing/TracksList";
 
 const EventDetailPage = ({ event, expired, registerCount }) => {
   const {
@@ -169,6 +170,7 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
               {/* //TODO: MIGHT DELETE THIS SECTIoN LATER... */}
               {event._id === "63c3713740c2442abc5ae9cf" && (
                 <div className="w-full">
+                  <TracksList />
                   <Instructions />
                   <Speakers />
                   <Schedule />
