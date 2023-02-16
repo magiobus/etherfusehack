@@ -29,7 +29,7 @@ function classNames(...classes) {
 
 const TracksList = () => {
   return (
-    <div className="wrapper my-12">
+    <div className="wrapper my-12" id="tracks">
       <div className="title mb-2">
         <h2 className="text-2xl font-bold ">Hackathon Tracks 🏆</h2>
         <p className="italic">
