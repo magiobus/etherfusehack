@@ -31,7 +31,7 @@ const schedule = [
       },
       {
         name: "Panel de expertos 🤓🎤",
-        description: "Panel Etherfuse - Decaf - Otter - Bitso",
+        description: "Panel Etherfuse - Decaf - Ottr - Bitso",
         start: "6:30PM",
         end: "7:30PM",
       },

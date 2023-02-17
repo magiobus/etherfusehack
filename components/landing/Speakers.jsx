@@ -103,13 +103,13 @@ const data = [
       },
       {
         name: "Grace Ma",
-        role: "Head of Growth @otter",
+        role: "Head of Growth @ottr",
         image: gracema,
         url: "https://twitter.com/ottrfinance",
       },
       {
         name: "Aleksei Zakharov",
-        role: " CEO and Founder @otter",
+        role: " CEO and Founder @ottr",
         image: aleksei,
         url: "https://twitter.com/ottrfinance",
       },
