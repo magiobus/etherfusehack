@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import MainLayout from "@/components/layouts/MainLayout";
 import Image from "next/image";
 import unixToFormat from "@/utils/unixToFormat";
@@ -12,6 +13,7 @@ import { Schedule } from "@/components/landing/Schedule";
 import { Speakers } from "@/components/landing/Speakers";
 import { Sponsors } from "@/components/landing/Sponsors";
 import Instructions from "@/components/landing/Instructions";
+import TracksList from "@/components/landing/TracksList";
 
 const EventDetailPage = ({ event, expired, registerCount }) => {
   const {
@@ -170,6 +172,32 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
               {/* //TODO: MIGHT DELETE THIS SECTIoN LATER... */}
               {event._id === "63c3713740c2442abc5ae9cf" && (
                 <div className="w-full">
+                  <TracksList />
+                  <div className="wrapper my-12" id="tracks">
+                    <div className="title mb-2">
+                      <h2 className="text-2xl font-bold ">
+                        🇲🇽 SuperTeamMX Bounties 💰
+                      </h2>
+                      <p className="italic">
+                        Participa en las recompensas que SuperTeamMX tiene para
+                        ti:
+                      </p>
+                    </div>
+                    <div className="imagecontainer grid grid-cols-1 lg:grid-cols-2 ">
+                      <a
+                        target="_blank"
+                        href="https://mx.superteam.fun/win-an-open-bounty"
+                        rel="noreferrer"
+                      >
+                        {" "}
+                        <img
+                          src="/landingimages/superteam.png"
+                          alt="superteam etherfuse hackathon"
+                          className=" object-cover hover:opacity-80"
+                        />
+                      </a>
+                    </div>
+                  </div>
                   <Instructions />
                   <Speakers />
                   <Schedule />

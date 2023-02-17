@@ -33,7 +33,7 @@ const TracksList = () => {
       <div className="title mb-2">
         <h2 className="text-2xl font-bold ">Hackathon Tracks 🏆</h2>
         <p className="italic">
-          Tu proyecto también puede participar a uno de los siguientes tracks:
+          Tu proyecto puede participar a uno de los siguientes tracks:
         </p>
       </div>
       <div className="divide-y divide-gray-200 overflow-hidden rounded-lg bg-gray-200 shadow sm:grid sm:grid-cols-2 sm:gap-px sm:divide-y-0">
