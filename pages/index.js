@@ -14,7 +14,6 @@ import { Speakers } from "@/components/landing/Speakers";
 import { Sponsors } from "@/components/landing/Sponsors";
 import Instructions from "@/components/landing/Instructions";
 import TracksList from "@/components/landing/TracksList";
-import Bounties from "@/components/landing/Bounties";
 
 const EventDetailPage = ({ event, expired, registerCount }) => {
   const {
