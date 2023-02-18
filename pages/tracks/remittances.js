@@ -12,27 +12,30 @@ const Remittances = () => {
               </h1>
               <div className="content my-4">
                 <p className="text-center text-base font-semibold">
-                  How do we improve sending money abroad with blockchain?
+                  ¿Cómo podemos mejorar el envío de dinero al extranjero con
+                  tecnología blockchain?
                 </p>
                 <div className="quote">
                   <div className="w-full flex flex-col items-center justify-center my-4">
                     <p className="italic w-full text-center max-w-lg">
-                      Mexico had $58 billion of USD remittances sent this year.
-                      The second highest after India, and overtaking China. Last
-                      year, 6% of all remittances were done with USDC on Bitso,
-                      and is expected to increase massively this year. There is
-                      a huge opportunity to leverage blockchain technology to
-                      remove middlemen, reduce fees, and transform remittances
-                      for Mexico and the world. We think that non-custodial
-                      solutions can allow people not to need banks to send money
-                      home, but also be faster, cheaper and easier. This is just
-                      the beginning of a revolution in remittances which we are
-                      seeing unfold now. You have an opportunity to be a part of
-                      it.
+                      México tuvo $58 mil millones de dólares de remesas
+                      enviadas este año. El segundo más alto después de India, y
+                      superando a China. El año pasado, el 6% de todas las
+                      remesas se hicieron con USDC en Bitso, y se espera que
+                      aumente enormemente este año. Hay una gran oportunidad de
+                      aprovechar la tecnología blockchain para eliminar
+                      intermediarios, reducir tarifas y transformar las remesas
+                      para México y el mundo. Creemos que las soluciones no
+                      custodiales pueden permitir a las personas no necesitar
+                      bancos para enviar dinero a casa, pero también ser más
+                      rápidas, más baratas y más fáciles. Este es solo el
+                      comienzo de una revolución en las remesas que estamos
+                      viendo desplegarse ahora. Tienes la oportunidad de ser
+                      parte de ella
                     </p>
                     <p className="my-4 font-semibold">
-                      We are open to all ideas and solutions, but we have come
-                      up with some ideas to help get you started.
+                      Estamos abiertos a todas las ideas y soluciones, pero
+                      hemos elaborado algunas ideas para ayudarte a comenzar.
                     </p>
                   </div>
                 </div>
@@ -45,17 +48,22 @@ const Remittances = () => {
               <div className="w-full  flex flex-col justify-center items-center my-8">
                 <div className="max-w-2xl w-full">
                   <ul className="list-disc">
-                    <p className="font-semibold">Removing the middleman</p>
+                    <p className="font-semibold">
+                      Eliminación de intermediarios
+                    </p>
                     <li className="text-left text-base">
-                      Peer to Peer currency matching (something like Paxful, or
-                      LocalBitcoins, or Binance)
+                      Ideas/soluciones creativas para puntos de intercambio de
+                      pesos a USDC, por ejemplo, convertir tiendas regulares en
+                      intercambios de efectivo {"<>"} cripto.
                     </li>
                     <li className="text-left text-base">
-                      Peer to Peer, but with escrows that are on-chain and using
-                      USDC
+                      Coincidencia de divisas de persona a persona (algo así
+                      como Paxful, o LocalBitcoins, o Binance Peer to Peer, pero
+                      con garantías que están en cadena y que usan USDC).
                     </li>
                     <li className="text-left text-base">
-                      Social Media bots for Peer to Peer exchange prices.
+                      Bots de redes sociales para precios de intercambio de
+                      persona a persona.
                     </li>
                   </ul>
                 </div>
@@ -63,23 +71,21 @@ const Remittances = () => {
               <div className="w-full flex flex-col justify-center items-center my-8">
                 <div className="max-w-2xl w-full">
                   <ul className="list-disc ">
-                    <p className="font-semibold">Accessibility</p>
+                    <p className="font-semibold">Accesibilidad</p>
                     <li className="text-left text-base">
-                      Using our current Decaf/MoneyGram integration to send
-                      money to people without a smartphone (using just a
-                      reference code in a text message - ask us for more
-                      details).
+                      Utilizando nuestra integración actual de Decaf/MoneyGram
+                      para enviar dinero a personas sin un teléfono inteligente
+                      (usando solo un código de referencia en un mensaje
                     </li>
                     <li className="text-left text-base">
-                      Off-ramps (digital assets {">"} Mexican pesos). Send money
-                      to bank accounts, get cash, or coupons.
+                      Mas “Off ramps”. Opciones para USDC a pesos.
                     </li>
                   </ul>
                 </div>
               </div>
               <div className="howtoapply my-4">
                 <p className="ideaswelove text-center font-bold">
-                  If you want to apply to this track, register to{" "}
+                  Si quieres aplicar a este track, regístrate en{" "}
                   <a
                     href="https://hackathon.etherfuse.com"
                     className="underline"
@@ -89,8 +95,8 @@ const Remittances = () => {
                   </a>
                 </p>
                 <p className="ideaswelove text-center">
-                  When you submit your project, select the tracks you want to
-                  apply to.
+                  Cuando envíes tu proyecto, selecciona los tracks a los que te
+                  gustaría aplicar.
                 </p>
               </div>
             </div>

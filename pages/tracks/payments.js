@@ -12,7 +12,8 @@ const PaymentsTrack = () => {
               </h1>
               <div className="content my-4">
                 <p className="text-center text-base font-semibold">
-                  How do we make payments better leveraging blockchain?
+                  ¿Cómo podemos mejorar los pagos aprovechando la tecnología
+                  blockchain?
                 </p>
                 <div className="quote">
                   <p className="text-center text-base">
@@ -27,20 +28,21 @@ const PaymentsTrack = () => {
                   </p>
                   <div className="w-full flex flex-col items-center justify-center my-4">
                     <p className="italic w-full text-center max-w-lg">
-                      The future of payments is multi-rail Payments are the core
-                      primitive of the economy. Everything around you was paid
-                      for, bought, or sold with a payment. Every financial
-                      service or complex contract usually starts or ends with a
-                      payment. And payments are a big deal. EY Estimates the
-                      global payments market to be worth $240trn (yes,
-                      trillion), of which payment Fintech companies represent a
-                      $2.17trn market cap. Payments disruption is less than 1%
-                      done. And the landscape is about to get flipped upside
-                      down.
+                      El futuro de los pagos es multi-rail Los pagos son el
+                      primitivo fundamental de la economía. Todo lo que te rodea
+                      fue pagado, comprado o vendido con un pago. Cada servicio
+                      financiero o contrato complejo suele comenzar o terminar
+                      con un pago. Y los pagos son muy importantes. EY estima
+                      que el mercado global de pagos vale $240 billones (sí,
+                      billones), de los cuales las empresas Fintech de pago
+                      representan una capitalización de mercado de $2,17
+                      billones. La interrupción de los pagos está en menos del
+                      1% de progreso. Y el panorama está a punto de ser
+                      totalmente cambiado.
                     </p>
                     <p className="my-4 font-semibold">
-                      We are open to all ideas and solutions, but we have come
-                      up with some ideas to help get you started.
+                      Estamos abiertos a todas las ideas y soluciones, pero
+                      hemos elaborado algunas ideas para ayudarte a comenzar.
                     </p>
                   </div>
                 </div>
@@ -53,17 +55,18 @@ const PaymentsTrack = () => {
               <div className="w-full  flex flex-col justify-center items-center my-8">
                 <div className="max-w-2xl w-full">
                   <ul className="list-disc">
-                    <p className="font-semibold">Consumer</p>
+                    <p className="font-semibold">Consumidor</p>
                     <li className="text-left text-base">
-                      Easy sending of money peer to peer. Instead of using seed
-                      phrases - having profiles linked to IDs.
+                      Facilidad para enviar dinero de persona a persona. En
+                      lugar de usar frases semilla, tener perfiles vinculados a
+                      identificaciones.
                     </li>
                     <li className="text-left text-base">
-                      Splitting bills with friends.
+                      Dividir las cuentas con amigos.
                     </li>
                     <li className="text-left text-base">
-                      Cool ways to send bills or money on money on Whatsapp,
-                      telegram, etc.
+                      Formas creativas de enviar facturas o dinero por medio de
+                      Whatsapp, telegrama, etc.
                     </li>
                   </ul>
                 </div>
@@ -71,22 +74,22 @@ const PaymentsTrack = () => {
               <div className="w-full flex flex-col justify-center items-center my-8">
                 <div className="max-w-2xl w-full">
                   <ul className="list-disc ">
-                    <p className="font-semibold">Merchants</p>
+                    <p className="font-semibold">Comerciantes</p>
                     <li className="text-left text-base">
-                      Solana Pay integrated into local providers like Baz,
-                      NuBank, Mercado Pay, etc
+                      Solana Pay integrado en proveedores locales como Baz,
+                      NuBank, Mercado Pago, etc.
                     </li>
                     <li className="text-left text-base">
-                      Token rewards for payments.
+                      Recompensas con token por los pagos.
                     </li>
                     <li className="text-left text-base">
-                      Web3 rewards programs.
+                      Programas de recompensas Web3.
                     </li>
                     <li className="text-left text-base">
-                      Invoice sending with Solana Pay.
+                      Envío de facturas con Solana Pay.
                     </li>
                     <li className="text-left text-base">
-                      Online payments for Solana Pay leveraging mobile.
+                      Pagos en línea para Solana Pay aprovechando el móvil.
                     </li>
                   </ul>
                 </div>
@@ -94,7 +97,7 @@ const PaymentsTrack = () => {
 
               <div className="howtoapply my-4">
                 <p className="ideaswelove text-center font-bold">
-                  If you want to apply to this track, register to{" "}
+                  Si quieres aplicar a este track, regístrate en{" "}
                   <a
                     href="https://hackathon.etherfuse.com"
                     className="underline"
@@ -104,8 +107,8 @@ const PaymentsTrack = () => {
                   </a>
                 </p>
                 <p className="ideaswelove text-center">
-                  When you submit your project, select the tracks you want to
-                  apply to.
+                  Cuando envíes tu proyecto, selecciona los tracks a los que te
+                  gustaría aplicar.
                 </p>
               </div>
             </div>
