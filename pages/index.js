@@ -172,29 +172,55 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
               {event._id === "63c3713740c2442abc5ae9cf" && (
                 <div className="w-full">
                   <TracksList />
-                  <div className="wrapper my-12" id="tracks">
-                    <div className="title mb-2">
-                      <h2 className="text-2xl font-bold ">
-                        🇲🇽 SuperTeamMX Bounties 💰
-                      </h2>
-                      <p className="italic">
-                        Participa en las recompensas que SuperTeamMX tiene para
-                        ti:
-                      </p>
+                  <div className="grid grid-cols-1 lg:grid-cols-2 space-y-4 lg:space-y-0">
+                    <div className="wrapper mx-2 " id="tracks">
+                      <div className="title mb-2">
+                        <h2 className="text-2xl font-bold ">
+                          🇲🇽 SuperTeamMX Bounties 💰
+                        </h2>
+                        <p className="italic">
+                          Participa en las recompensas que SuperTeamMX tiene
+                          para ti:
+                        </p>
+                      </div>
+                      <div className="imagecontainer   ">
+                        <a
+                          target="_blank"
+                          href="https://mx.superteam.fun/win-an-open-bounty"
+                          rel="noreferrer"
+                        >
+                          {" "}
+                          <img
+                            src="/landingimages/superteam.png"
+                            alt="superteam etherfuse hackathon"
+                            className=" object-cover hover:opacity-90"
+                          />
+                        </a>
+                      </div>
                     </div>
-                    <div className="imagecontainer grid grid-cols-1 lg:grid-cols-2 ">
-                      <a
-                        target="_blank"
-                        href="https://mx.superteam.fun/win-an-open-bounty"
-                        rel="noreferrer"
-                      >
-                        {" "}
-                        <img
-                          src="/landingimages/superteam.png"
-                          alt="superteam etherfuse hackathon"
-                          className=" object-cover hover:opacity-90"
-                        />
-                      </a>
+                    <div className="wrapper mx-2" id="tracks">
+                      <div className="title mb-2">
+                        <h2 className="text-2xl font-bold ">
+                          🇲🇽 Solana Challenges 🙌🏼
+                        </h2>
+                        <p className="italic">
+                          Participa en los retos que Solana tiene para ti:
+                        </p>
+                      </div>
+                      <div className="imagecontainer ">
+                        <a
+                          target="_blank"
+                          href="https://dev-challenger.solanau.org/events/etherfuse-superteam-hackathon-mx"
+                          rel="noreferrer"
+                        >
+                          {" "}
+                          <img
+                            src="/landingimages/challenges.jpg"
+                            alt="superteam etherfuse hackathon"
+                            className=" object-cover hover:opacity-90"
+                          />
+                        </a>
+                      </div>
                     </div>
                   </div>
 
