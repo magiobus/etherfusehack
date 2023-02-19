@@ -10,6 +10,9 @@ import ipn from "@/public/landingimages/logos/ipn.png";
 import blockchainbusinessschool from "@/public/landingimages/logos/blockchainbusinessschool.png";
 import ilum from "@/public/landingimages/logos/ilum.png";
 import upiita from "@/public/landingimages/logos/upiita.png";
+import lanib from "@/public/landingimages/logos/lanib.jpeg";
+import bitso from "@/public/landingimages/logos/bitso.png";
+
 const mainSponsors = [
   {
     name: "Etherfuse",
@@ -42,6 +45,11 @@ const secondSponsors = [
     url: "https://megahabilidades.mx",
   },
   {
+    name: "lanib",
+    logo: lanib,
+    url: "https://lanib.mx",
+  },
+  {
     name: "blockchainbusinessschool",
     logo: blockchainbusinessschool,
     url: "https://blockchainbusinessschool.io/",
@@ -55,6 +63,11 @@ const secondSponsors = [
     name: "ottr",
     logo: ottr,
     url: "https://ottr.finance/",
+  },
+  {
+    name: "bitso",
+    logo: bitso,
+    url: "https://www.bitso.com",
   },
   {
     name: "ilum",
