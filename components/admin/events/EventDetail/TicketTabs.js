@@ -25,6 +25,19 @@ const TicketTabs = ({ event }) => {
               </button>
             )}
           </Tab>
+          <Tab as={Fragment}>
+            {({ selected }) => (
+              <button
+                className={
+                  selected
+                    ? "border-happy-pink-500 text-happy-pink-600 whitespace-nowrap flex py-4 px-1 border-b-2 font-medium text-sm"
+                    : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-200 whitespace-nowrap flex py-4 px-1 border-b-2 font-medium text-sm"
+                }
+              >
+                📊 Estadísticas
+              </button>
+            )}
+          </Tab>
         </Tab.List>
         <Tab.Panels>
           <Tab.Panel>
@@ -194,6 +207,79 @@ const TicketTabs = ({ event }) => {
                 })
               ) : (
                 <p>No hay asistentes registrados para este evento</p>
+              )}
+            </div>
+          </Tab.Panel>
+          <Tab.Panel>
+            <div className="border-t border-gray-200 px-4 py-5 sm:px-6">
+              {/* //estadisticas */}
+              {attendees.length > 0 ? (
+                <div className="flex flex-col items-start">
+                  <ul className="max-w-sm w-ful">
+                    <li className="flex justify-between">
+                      <p className=" leading-5 text-gray-500 font-semibold">
+                        Total de asistentes: {attendees.length}
+                      </p>
+                    </li>
+                    <li className="flex justify-between mb-2">
+                      <p className=" leading-5 text-gray-500 font-semibold">
+                        Total Escaneados: :{" "}
+                        {attendees.filter((a) => a.used).length}
+                      </p>
+                    </li>
+                    <li className="flex justify-between">
+                      <p className="text-sm leading-5 text-gray-500 font-semibold ">
+                        Asistentes Virtuales:{" "}
+                        {attendees.filter((a) => !a.inPerson).length}
+                      </p>
+                    </li>
+                    <li className="flex justify-between">
+                      <p className="text-sm leading-5 text-gray-500 font-semibold">
+                        Asistentes Presenciales:{" "}
+                        {attendees.filter((a) => a.inPerson).length}
+                      </p>
+                    </li>
+                    <li className="flex justify-between">
+                      <p className="text-xs leading-5 text-gray-500 font-semibold">
+                        🖥 Necesitan Computadora:{" "}
+                        {attendees.filter((a) => a.computerNeeded).length}
+                      </p>
+                    </li>
+
+                    <li className="flex justify-between mt-4">
+                      <p className="text-sm leading-5 text-gray-500 font-semibold">
+                        🐣 Menores de edad:{" "}
+                        {attendees.filter((a) => a.isMinor).length}
+                      </p>
+                    </li>
+                    <li className="flex justify-between">
+                      <p className="text-xs leading-5 text-gray-500 font-semibold">
+                        Menores Virtuales:{" "}
+                        {
+                          attendees.filter((a) => a.isMinor && !a.inPerson)
+                            .length
+                        }
+                      </p>
+                    </li>
+                    <li className="flex justify-between">
+                      <p className="text-xs leading-5 text-gray-500 font-semibold">
+                        Menores Presenciales:{" "}
+                        {
+                          attendees.filter((a) => a.isMinor && a.inPerson)
+                            .length
+                        }
+                      </p>
+                    </li>
+
+                    <li className="flex justify-between mt-4">
+                      <p className="text-sm leading-5 text-gray-500 font-semibold">
+                        Alumnos IPN: {attendees.filter((a) => a.ipnUnit).length}
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              ) : (
+                <p>No hay asistentes</p>
               )}
             </div>
           </Tab.Panel>
