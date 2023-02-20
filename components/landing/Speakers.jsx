@@ -23,6 +23,7 @@ import gracema from "@/public/landingimages/avatars/gracema.jpg";
 import aleksei from "@/public/landingimages/avatars/aleksei.jpg";
 import raultrejo from "@/public/landingimages/avatars/raultrejo.jpeg";
 import victorbitso from "@/public/landingimages/avatars/victorbitso.jpeg";
+import danielito from "@/public/landingimages/avatars/danielito.jpeg";
 
 const data = [
   {
@@ -132,6 +133,12 @@ const data = [
         role: "COO @Btech",
         image: juliocesar,
         url: "",
+      },
+      {
+        name: "Daniel Perez",
+        role: "Venture Builder @ilum",
+        image: danielito,
+        url: "https://www.linkedin.com/in/danielprzlr/",
       },
     ],
   },

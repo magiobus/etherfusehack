@@ -31,7 +31,7 @@ const schedule = [
       },
       {
         name: "Panel de expertos 🤓🎤",
-        description: "Panel Etherfuse - Decaf - Ottr - Bitso",
+        description: "Panel Etherfuse-Decaf-Ottr-Bitso-MH",
         start: "6:30PM",
         end: "7:30PM",
       },
@@ -143,8 +143,8 @@ const schedule = [
         name: "Ceremonia de premiación 🏆",
         description:
           "La premiación se llevará a cabo el día mártes 28 de marzo.",
-        start: "10:00AM",
-        end: "11:00AM",
+        start: "11:00AM",
+        end: "12:00PM",
       },
     ],
   },
