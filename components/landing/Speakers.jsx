@@ -21,6 +21,8 @@ import rickmartin from "@/public/landingimages/avatars/rick.png";
 import juliocesar from "@/public/landingimages/avatars/juliocesar.jpeg";
 import gracema from "@/public/landingimages/avatars/gracema.jpg";
 import aleksei from "@/public/landingimages/avatars/aleksei.jpg";
+import raultrejo from "@/public/landingimages/avatars/raultrejo.jpeg";
+import victorbitso from "@/public/landingimages/avatars/victorbitso.jpeg";
 
 const data = [
   {
@@ -112,6 +114,18 @@ const data = [
         role: " CEO and Founder @ottrfinance",
         image: aleksei,
         url: "https://twitter.com/ottrfinance",
+      },
+      {
+        name: "Victor Calzadillas",
+        role: " Community Associate @bitso",
+        image: victorbitso,
+        url: "https://www.linkedin.com/in/viccalzadillas/",
+      },
+      {
+        name: "Raúl Trejo",
+        role: " CTO @megahabilidades",
+        image: raultrejo,
+        url: "https://www.linkedin.com/in/raúl-trejo/",
       },
       {
         name: "Julio Cesar Salas",

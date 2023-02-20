@@ -12,6 +12,7 @@ import ilum from "@/public/landingimages/logos/ilum.png";
 import upiita from "@/public/landingimages/logos/upiita.png";
 import lanib from "@/public/landingimages/logos/lanib.jpeg";
 import bitso from "@/public/landingimages/logos/bitso.png";
+import neefter from "@/public/landingimages/logos/neefter.png";
 
 const mainSponsors = [
   {
@@ -68,6 +69,11 @@ const secondSponsors = [
     name: "bitso",
     logo: bitso,
     url: "https://www.bitso.com",
+  },
+  {
+    name: "neefter",
+    logo: neefter,
+    url: "https://neefter.com",
   },
   {
     name: "ilum",
