@@ -23,15 +23,20 @@ const MirrorWorldTrack = () => {
                 <div className="quote">
                   <div className="w-full flex flex-col items-center justify-center my-4">
                     <p className="italic w-full text-center max-w-lg">
-                      Mirror World es un SDK Mobile que facilita el proceso de
-                      desarrollo de apps web3 con solana. Cuenta con
-                      integraciones rápidas de autenticación con redes sociales,
-                      un wallet nativo, conversión de fiat a crypto, creación de
-                      NFTS, marketplace entre otras soluciones.
+                      Smart Platform de Mirror World es la primera plataforma de
+                      desarrollo de aplicaciones Web3 todo en uno que ayuda a
+                      los desarrolladores a resolver el proceso de onboarding de
+                      usuarios y activation conversion. Hasta la fecha, Smart
+                      Platform ha ayudado a más de 250 proyectos que han logrado
+                      excelentes conversiones al proporcionar una plataforma
+                      todo en uno con módulos incorporados amigables para los
+                      desarrolladores, como un ecommerce integrado (como
+                      Shopify), gestión de NFTs, autenticación social y un
+                      wallet MPC con agregación on-ramp y soporte mobile
                     </p>
                     <p className="my-4 font-semibold">
-                      El mejor proyecto que utilice Mirror World SDK/API en su
-                      proyecto ganará $2500USDC
+                      El mejor proyecto que utilice Mirror World Smart Platform
+                      - SDK/API en su proyecto ganará $2500USDC
                     </p>
                   </div>
                 </div>

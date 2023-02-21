@@ -23,7 +23,7 @@ const EtherfuseTrack = () => {
                 <div className="quote">
                   <div className="w-full flex flex-col items-center justify-center my-4">
                     <p className="italic w-full text-center max-w-lg">
-                      Puedes ganas hasta $2500 USDC si eres uno de los mejores
+                      Puedes ganar hasta $2500 USDC si eres uno de los mejores
                       proyectos del evento. No importa si estás participando en
                       otros tracks, bounties o challenges, puedes participar
                       para este premio.
