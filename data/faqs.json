@@ -15,19 +15,24 @@
     "answer": "Tu equipo de computo y muchas ganas de construir cosas increíbles. También tendremos algunos equipos en la sede."
   },
   {
+    "id": 345,
+    "question": "¿Puedo participar virtualmente?",
+    "answer": "Sí, el etherfuse hackathon puede ser participado de forma virtual o presencial en IPN Upiita"
+  },
+  {
     "id": 3,
-    "question": "¿Me puedo quedar a dormir?",
-    "answer": "Sí 🙌🏼"
+    "question": "¿Me puedo quedar a dormir en el evento presencial?",
+    "answer": "Sí 🙌🏼, sólo toma en cuenta llevar una casa de campaña o al menos cobijas para que no pases frío."
   },
   {
     "id": 4,
     "question": "¿Me van a dar comida?",
-    "answer": "Si, en cada sede presencial se proveerá de comida y bebidas para todos los participantes."
+    "answer": "Si, en la sede presencial en IPN Upiita se proveerá de comida y bebidas para todos los participantes."
   },
   {
     "id": 5,
     "question": "¿Cuales son los premios?",
-    "answer": "Hay una bolsa de $200,000 pesos en premios para los 3 primeros lugares del evento."
+    "answer": "Hay una bolsa de $10K USDC en premios  + Bounties por parte de superteamMX y challengues por parte de solana."
   },
   {
     "id": 6,
@@ -38,6 +43,11 @@
     "id": 7,
     "question": "¿Cómo se van a conformar los equipos?",
     "answer": "El día del evento se formarán los equipos en el sitio web. Si ya tienes un equipo con amigos, los puedes registrar ese día. Los equipos serán de un máximo de 5 integrantes."
+  },
+  {
+    "id": 7,
+    "question": "Odio a todos, ¿Puedo participar yo sol@?",
+    "answer": "Shi"
   },
   {
     "id": 8,

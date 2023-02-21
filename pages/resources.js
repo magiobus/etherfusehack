@@ -38,6 +38,19 @@ const ResourcesPage = () => {
                   </p>
 
                   <p className="my-8">
+                    Si quieres darte ideas de que construir, superteamMX preparó
+                    esta lista para tí{" "}
+                    <a
+                      href="https://build.superteam.fun"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="bg-black px-2 py-1 text-happy-yellow"
+                    >
+                      https://build.superteam.fun
+                    </a>
+                  </p>
+
+                  <p className="my-8">
                     También te recomiendo que entres a uno de los cursos que
                     tiene buildspace para empezár con solana:
                   </p>
@@ -78,8 +91,8 @@ const ResourcesPage = () => {
                   </div>
 
                   <p className="mt-2">
-                    Registrate a una de la sedes del evento dando{" "}
-                    <Link href="/events">
+                    Registrate a etherfuse hackathon presencial o virtual dando{" "}
+                    <Link href="/">
                       <a>
                         {" "}
                         <span className="text-happy-yellow bg-black px-4">

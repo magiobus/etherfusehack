@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 import MainLayout from "@/components/layouts/MainLayout";
 import faqs from "@/data/faqs.json";
 const FaqsPage = () => {
@@ -30,8 +31,10 @@ const FaqsPage = () => {
                   pero ve el fin de semana de hackathon cómo una oportunidad
                   para aprender nuevas cosas. Si no sabes nada de blockchain y
                   solana, te preparamos una serie de recursos para que puedas
-                  iniciar en este mundo. Sólo inscribete y nosotros te
-                  mandaremos un correo con los recursos.
+                  iniciar en este mundo. Puedes consultarlos dando click{" "}
+                  <a href="/resources" className="underline">
+                    aquí
+                  </a>
                 </dd>
               </div>
 
@@ -92,7 +95,9 @@ const FaqsPage = () => {
                     href="mailto:hello@etherfuse.com"
                   >
                     hello@etherfuse.com
-                  </a>
+                  </a>{" "}
+                  o pregunta en nuestro canal de discord , el enlace lo recibes
+                  vía email al registrarte en el hackathon.
                 </dd>
               </div>
             </dl>
