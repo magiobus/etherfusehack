@@ -24,6 +24,7 @@ import aleksei from "@/public/landingimages/avatars/aleksei.jpg";
 import raultrejo from "@/public/landingimages/avatars/raultrejo.jpeg";
 import victorbitso from "@/public/landingimages/avatars/victorbitso.jpeg";
 import danielito from "@/public/landingimages/avatars/danielito.jpeg";
+import dayrachu from "@/public/landingimages/avatars/dayrachu.jpeg";
 
 const data = [
   {
@@ -121,6 +122,12 @@ const data = [
         role: " Community Associate @bitso",
         image: victorbitso,
         url: "https://www.linkedin.com/in/viccalzadillas/",
+      },
+      {
+        name: "Dayra Chiu",
+        role: "Strategic Initiatives @Encora",
+        image: dayrachu,
+        url: "https://www.linkedin.com/in/dayra/",
       },
       {
         name: "Raúl Trejo",

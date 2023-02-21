@@ -3,6 +3,7 @@ import {
   CashIcon,
   DeviceMobileIcon,
   ChartBarIcon,
+  LightningBoltIcon,
 } from "@heroicons/react/outline";
 
 const actions = [
@@ -43,6 +44,15 @@ const actions = [
     iconBackground: "bg-happy-yellow",
     description: "Utiliza Hello Moon SDK/API para crear tu aplicación",
     subdescription: "Aplica y gana $2500 USDC",
+  },
+  {
+    title: "Etherfuse's Best of the Best 🏆",
+    href: "/tracks/etherfuse",
+    icon: LightningBoltIcon,
+    iconForeground: "text-black",
+    iconBackground: "bg-happy-yellow",
+    description: "Los mejores proyectos del evento 🤓",
+    subdescription: "Hasta $2500 USDC para los mejores proyectos",
   },
 ];
 
