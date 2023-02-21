@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/jsx-no-target-blank */
 import MainLayout from "@/components/layouts/MainLayout";
 const Remittances = () => {
@@ -7,6 +8,11 @@ const Remittances = () => {
         <div className="max-w-7xl w-full md:px-8 lg:px-0 lg:mt-8">
           <div className="content flex justify-start  items-center w-full">
             <div className="max-w-7xl w-full mx-auto justify-start  items-center  px-4 sm:py-18 sm:px-6 lg:px-8 xl:px-0  ">
+              <img
+                src="/landingimages/logos/decaf.png"
+                className="w-6/12 lg:w-2/12 mx-auto mb-8"
+                alt="Hello Moon IO"
+              />
               <h1 className="text-center text-2xl font-bold uppercase">
                 Remittances Track: $2000 USDC Prize 🏆
               </h1>

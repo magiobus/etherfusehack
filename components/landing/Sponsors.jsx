@@ -14,6 +14,8 @@ import lanib from "@/public/landingimages/logos/lanib.jpeg";
 import bitso from "@/public/landingimages/logos/bitso.png";
 import neefter from "@/public/landingimages/logos/neefter.png";
 import agilmentor from "@/public/landingimages/logos/agilmentor.png";
+import mirrorworld from "@/public/landingimages/logos/mirrorworld.png";
+import hellomoonblack from "@/public/landingimages/logos/hellomoonblack.png";
 
 const mainSponsors = [
   {
@@ -65,6 +67,16 @@ const secondSponsors = [
     name: "ottr",
     logo: ottr,
     url: "https://ottr.finance/",
+  },
+  {
+    name: "mirrorworld",
+    logo: mirrorworld,
+    url: "https://mirrorworld.fun",
+  },
+  {
+    name: "hellomoon",
+    logo: hellomoonblack,
+    url: "https://hellomoon.io",
   },
   {
     name: "agilmentor",

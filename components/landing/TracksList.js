@@ -1,4 +1,9 @@
-import { CreditCardIcon, CashIcon } from "@heroicons/react/outline";
+import {
+  CreditCardIcon,
+  CashIcon,
+  DeviceMobileIcon,
+  ChartBarIcon,
+} from "@heroicons/react/outline";
 
 const actions = [
   {
@@ -20,6 +25,24 @@ const actions = [
     description:
       "¿Cómo podemos mejorar la experiencia de remesas usando blockchain?",
     subdescription: "Aplica y gana $2000 USDC",
+  },
+  {
+    title: "Mirror World SDK 🌍",
+    href: "/tracks/mirrorworld",
+    icon: DeviceMobileIcon,
+    iconForeground: "text-black",
+    iconBackground: "bg-happy-yellow",
+    description: "Utiliza Mirror World SDK/API para crear tu aplicación",
+    subdescription: "Aplica y gana $2500 USDC",
+  },
+  {
+    title: "Hello Moon API 📊",
+    href: "/tracks/hellomoon",
+    icon: ChartBarIcon,
+    iconForeground: "text-black",
+    iconBackground: "bg-happy-yellow",
+    description: "Utiliza Hello Moon SDK/API para crear tu aplicación",
+    subdescription: "Aplica y gana $2500 USDC",
   },
 ];
 
