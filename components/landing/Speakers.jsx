@@ -25,6 +25,7 @@ import raultrejo from "@/public/landingimages/avatars/raultrejo.jpeg";
 import victorbitso from "@/public/landingimages/avatars/victorbitso.jpeg";
 import danielito from "@/public/landingimages/avatars/danielito.jpeg";
 import dayrachu from "@/public/landingimages/avatars/dayrachu.jpeg";
+import luisvidela from "@/public/landingimages/avatars/luisvidela.jpeg";
 
 const data = [
   {
@@ -134,6 +135,12 @@ const data = [
         role: " CTO @megahabilidades",
         image: raultrejo,
         url: "https://www.linkedin.com/in/raúl-trejo/",
+      },
+      {
+        name: "Luis Videla",
+        role: "Developer at @ElixirGames",
+        image: luisvidela,
+        url: "https://www.linkedin.com/in/luisvidela/",
       },
       {
         name: "Julio Cesar Salas",

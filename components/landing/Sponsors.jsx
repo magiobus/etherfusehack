@@ -84,11 +84,6 @@ const secondSponsors = [
     url: "https://agilmentor.com",
   },
   {
-    name: "bitso",
-    logo: bitso,
-    url: "https://www.bitso.com",
-  },
-  {
     name: "neefter",
     logo: neefter,
     url: "https://neefter.com",
