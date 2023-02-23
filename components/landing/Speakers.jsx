@@ -26,6 +26,9 @@ import victorbitso from "@/public/landingimages/avatars/victorbitso.jpeg";
 import danielito from "@/public/landingimages/avatars/danielito.jpeg";
 import dayrachu from "@/public/landingimages/avatars/dayrachu.jpeg";
 import luisvidela from "@/public/landingimages/avatars/luisvidela.jpeg";
+import felipeneefter from "@/public/landingimages/avatars/felipeneetfer.jpeg";
+import julianneefter from "@/public/landingimages/avatars/julianneefter.jpeg";
+import alfredoneefter from "@/public/landingimages/avatars/alfredoneefter.jpeg";
 
 const data = [
   {
@@ -45,7 +48,12 @@ const data = [
         image: ajtaylor,
         url: "https://www.linkedin.com/in/aj-taylor-977a5481/",
       },
-
+      {
+        name: "David Andujo",
+        role: "COO @Etherfuse",
+        image: davidandujo,
+        url: "https://www.linkedin.com/in/andujo/",
+      },
       {
         name: "Magio Bustillos",
         role: "Hackathon Facilitator @Etherfuse",
@@ -117,6 +125,24 @@ const data = [
         role: " CEO and Founder @ottrfinance",
         image: aleksei,
         url: "https://twitter.com/ottrfinance",
+      },
+      {
+        name: "Felipe Servin",
+        role: " CEO @Neefter",
+        image: felipeneefter,
+        url: "https://neefter.com",
+      },
+      {
+        name: "Alfredo Juárez",
+        role: "CTO @Neefter",
+        image: alfredoneefter,
+        url: "https://neefter.com",
+      },
+      {
+        name: "Julian Quiñonez",
+        role: "Head of Engineering @Neefter",
+        image: julianneefter,
+        url: "https://neefter.com",
       },
       {
         name: "Victor Calzadillas",

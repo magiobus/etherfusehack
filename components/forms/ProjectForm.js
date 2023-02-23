@@ -14,6 +14,14 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
+
+const tracksOptions = [
+  { label: "Decaf Payments ☕️💳", value: "decafpayments" },
+  { label: "Decaf Remittances ☕️💸", value: "decafremittences" },
+  { label: "Mirror World 🪞🌍", value: "mirrorworld" },
+  { label: "Hello Moon API 🌝", value: "hellomoon" },
+];
+
 const ProjectForm = ({ type = "new" }) => {
   const [buttonLoading, setButtonLoading] = useState(false);
   const router = useRouter();
@@ -46,6 +54,7 @@ const ProjectForm = ({ type = "new" }) => {
         videoUrl: data?.videoUrl,
         tech: data?.tech,
         whatsnext: data?.whatsnext,
+        tracks: data?.tracks,
       };
 
       //parsing members
@@ -209,13 +218,34 @@ const ProjectForm = ({ type = "new" }) => {
               errorMessage={errors.eventId?.message}
             />
           </div>
+          <div className="inputwrapper my-3">
+            <Select
+              label="En que tracks del hackathon quieres participar? * (Puedes seleccionar varias utilizando la tecla ctrl) "
+              name="tracks"
+              options={tracksOptions}
+              multiple={true}
+              register={{
+                ...register("tracks", {
+                  required: {
+                    value: true,
+                    message: "El campo es requerido",
+                  },
+                }),
+              }}
+              errorMessage={errors.tracks?.message}
+            />
+          </div>
           <Divider
             label="Integrantes de tu equipo"
             className="mt-8 mb-4"
             labelClassName="bg-black text-happy-yellow"
             hideLine={true}
           />
-          <p className="italic mb-4">Máximo 5 integrantes.</p>
+          <p className="italic">Máximo 5 integrantes.</p>
+          <p className="text-sm mb-4 font-bold">
+            🚨 Por favor que sólo una persona por equipo llene el formulario
+          </p>
+
           <div className="team-members-container">
             {[0, 1, 2, 3, 4].map((value, key) => {
               return (

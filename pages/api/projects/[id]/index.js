@@ -89,6 +89,7 @@ handler.put(async (req, res) => {
     videoUrl,
     tech,
     whatsnext,
+    tracks,
   } = req.body;
 
   const projectParsed = {
@@ -102,6 +103,7 @@ handler.put(async (req, res) => {
     tech,
     updatedAt: dateNowUnix(),
     whatsnext,
+    tracks,
   };
 
   //take members_index_name from req.body and convert it to array of objects

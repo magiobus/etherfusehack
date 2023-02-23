@@ -51,6 +51,7 @@ handler.post(async (req, res) => {
     videoUrl,
     tech,
     whatsnext,
+    tracks,
   } = req.body;
 
   try {
@@ -84,6 +85,7 @@ handler.post(async (req, res) => {
       updatedAt: dateNowUnix(),
       createdAt: dateNowUnix(),
       whatsnext,
+      tracks,
     };
 
     //uploads photo to cloudinary if available

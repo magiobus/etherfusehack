@@ -74,7 +74,7 @@ handler.get(async (req, res) => {
     });
 
     event.tickets = {
-      attendees,
+      attendees: attendees.reverse(),
     };
 
     res.json(event);
