@@ -16,6 +16,7 @@ import neefter from "@/public/landingimages/logos/neefter.png";
 import agilmentor from "@/public/landingimages/logos/agilmentor.png";
 import mirrorworld from "@/public/landingimages/logos/mirrorworld.png";
 import hellomoonblack from "@/public/landingimages/logos/hellomoonblack.png";
+import wuc from "@/public/landingimages/logos/wuc.png";
 
 const mainSponsors = [
   {
@@ -86,6 +87,11 @@ const secondSponsors = [
   {
     name: "neefter",
     logo: neefter,
+    url: "https://neefter.com",
+  },
+  {
+    name: "Web3 University Community",
+    logo: wuc,
     url: "https://neefter.com",
   },
   {

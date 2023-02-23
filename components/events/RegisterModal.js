@@ -569,7 +569,7 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
 
                           {inPersonWatch && (
                             <div className="inpersoncontent">
-                              <div className="inputwrapper my-3">
+                              {/* <div className="inputwrapper my-3">
                                 <CheckBox
                                   label="Necesitas una computadora para el evento ? "
                                   description="Si necesitas una computadora para el evento, selecciona esta opción"
@@ -579,7 +579,7 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                                   }}
                                   errorMessage={errors.computerNeeded?.message}
                                 />
-                              </div>
+                              </div> */}
 
                               {/* <div className="inputwrapper my-3">
                                 <CheckBox
