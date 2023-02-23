@@ -92,7 +92,7 @@ const secondSponsors = [
   {
     name: "Web3 University Community",
     logo: wuc,
-    url: "https://neefter.com",
+    url: "",
   },
   {
     name: "ilum",
