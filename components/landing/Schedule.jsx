@@ -142,7 +142,7 @@ const schedule = [
       {
         name: "Ceremonia de premiación 🏆",
         description:
-          "La premiación se llevará a cabo el día mártes 28 de marzo.",
+          "La premiación se llevará a cabo el día mártes 28 de febrero.",
         start: "11:00AM",
         end: "12:00PM",
       },
