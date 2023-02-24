@@ -337,7 +337,7 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
         ipnStudent: ipnStudent === "ipn" ? true : false,
         ipnUnit,
         isMinor,
-        inPerson,
+        inPerson: false,
         otherInstitution,
       });
 
@@ -556,7 +556,7 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                           </div>
 
                           <div className="inputwrapper my-3">
-                            <CheckBox
+                            {/* <CheckBox
                               label="¿Asistirás al evento en persona ?"
                               description="Si dejas esta casilla en blanco, participarás en el evento de forma virtual"
                               name="inPerson"
@@ -564,7 +564,11 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                                 ...register("inPerson", {}),
                               }}
                               errorMessage={errors.inPerson?.message}
-                            />
+                            /> */}
+                            <p className="my-4 text-red-400">
+                              El cupo presencial se ha llenado, puedes aún
+                              participar virtualmente.{" "}
+                            </p>
                           </div>
 
                           {inPersonWatch && (
