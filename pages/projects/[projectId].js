@@ -32,12 +32,11 @@ const ProjectDetailPage = ({ project, event }) => {
   const sharedMessage = `Revisa ${name}, el proyecto que hice en el hackathon de @etherfuse!`;
 
   const getYoutubeId = (url) => {
-    const id = url.split("v=")[1];
-    const ampersandPosition = id.indexOf("&");
-    if (ampersandPosition !== -1) {
-      return id.substring(0, ampersandPosition);
-    }
-    return id;
+    const regExp =
+      /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#&?]*).*/;
+    const match = url.match(regExp);
+
+    return match && match[2].length === 11 ? match[2] : null;
   };
 
   //CONFETTI if is a winner

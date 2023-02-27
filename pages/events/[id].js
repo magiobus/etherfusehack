@@ -107,7 +107,6 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
                   {description && (
                     <>
                       {description.split("\n").map((item, key) => {
-                        console.log("item =>", item);
                         return (
                           <>
                             <p className=" mt-5  text-xl text-black" key={key}>

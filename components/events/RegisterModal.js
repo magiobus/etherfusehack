@@ -565,10 +565,6 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                               }}
                               errorMessage={errors.inPerson?.message}
                             /> */}
-                            <p className="my-4 text-red-400">
-                              El cupo presencial se ha llenado, puedes aún
-                              participar virtualmente.{" "}
-                            </p>
                           </div>
 
                           {inPersonWatch && (
