@@ -172,10 +172,8 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
               {event._id === "63c3713740c2442abc5ae9cf" && (
                 <div className="w-full">
                   <RewardsComponent />
-
                   <Instructions />
                   <Speakers />
-                  <Schedule />
                   <Sponsors />
                 </div>
               )}
@@ -250,7 +248,7 @@ export async function getStaticProps() {
         expired: now > endTime,
         registerCount: registerCount,
       },
-      revalidate: 5,
+      revalidate: 1,
     };
   } catch (error) {
     console.error("error", error);

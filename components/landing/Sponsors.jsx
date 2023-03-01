@@ -17,6 +17,7 @@ import agilmentor from "@/public/landingimages/logos/agilmentor.png";
 import mirrorworld from "@/public/landingimages/logos/mirrorworld.png";
 import hellomoonblack from "@/public/landingimages/logos/hellomoonblack.png";
 import wuc from "@/public/landingimages/logos/wuc.png";
+import lbank from "@/public/landingimages/logos/lbank.jpeg";
 
 const mainSponsors = [
   {
@@ -70,19 +71,9 @@ const secondSponsors = [
     url: "https://ottr.finance/",
   },
   {
-    name: "mirrorworld",
-    logo: mirrorworld,
-    url: "https://mirrorworld.fun",
-  },
-  {
     name: "hellomoon",
     logo: hellomoonblack,
     url: "https://hellomoon.io",
-  },
-  {
-    name: "agilmentor",
-    logo: agilmentor,
-    url: "https://agilmentor.com",
   },
   {
     name: "neefter",
@@ -90,10 +81,26 @@ const secondSponsors = [
     url: "https://neefter.com",
   },
   {
+    name: "lbank",
+    logo: lbank,
+    url: "https://www.lbanklabs.com",
+  },
+  {
     name: "Web3 University Community",
     logo: wuc,
     url: "",
   },
+  {
+    name: "mirrorworld",
+    logo: mirrorworld,
+    url: "https://mirrorworld.fun",
+  },
+  {
+    name: "agilmentor",
+    logo: agilmentor,
+    url: "https://agilmentor.com",
+  },
+
   {
     name: "ilum",
     logo: ilum,

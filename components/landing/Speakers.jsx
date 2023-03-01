@@ -29,6 +29,7 @@ import luisvidela from "@/public/landingimages/avatars/luisvidela.jpeg";
 import felipeneefter from "@/public/landingimages/avatars/felipeneetfer.jpeg";
 import julianneefter from "@/public/landingimages/avatars/julianneefter.jpeg";
 import alfredoneefter from "@/public/landingimages/avatars/alfredoneefter.jpeg";
+import davidyao from "@/public/landingimages/avatars/davidyao.jpeg";
 
 const data = [
   {
@@ -72,12 +73,7 @@ const data = [
         image: fernanda,
         url: "https://twitter.com/FerOrduna28",
       },
-      {
-        name: "Diego Quintana",
-        role: "CEO @Blockchain Business School",
-        image: diego,
-        url: "https://www.linkedin.com/in/diegoquintana13/?originalSubdomain=mx",
-      },
+
       {
         name: "Joan Ruiz de Bustillo",
         role: "AI/Web3 Dev @Decaf",
@@ -89,6 +85,18 @@ const data = [
         role: "Web3 Dev @Decaf",
         image: scott,
         url: "https://twitter.com/Scottymrty",
+      },
+      {
+        name: "David Yao",
+        role: "VC & Angel Investor",
+        image: davidyao,
+        url: "https://twitter.com/davidyaoli?lang=en",
+      },
+      {
+        name: "Diego Quintana",
+        role: "CEO @Blockchain Business School",
+        image: diego,
+        url: "https://www.linkedin.com/in/diegoquintana13/?originalSubdomain=mx",
       },
       {
         name: "Nathan Lazo",
