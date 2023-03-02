@@ -30,6 +30,9 @@ import felipeneefter from "@/public/landingimages/avatars/felipeneetfer.jpeg";
 import julianneefter from "@/public/landingimages/avatars/julianneefter.jpeg";
 import alfredoneefter from "@/public/landingimages/avatars/alfredoneefter.jpeg";
 import davidyao from "@/public/landingimages/avatars/davidyao.jpeg";
+import erik from "@/public/landingimages/avatars/erik.jpeg";
+import chary from "@/public/landingimages/avatars/chary.jpeg";
+import pam from "@/public/landingimages/avatars/pam.jpeg";
 
 const data = [
   {
@@ -91,6 +94,26 @@ const data = [
         role: "VC & Angel Investor",
         image: davidyao,
         url: "https://twitter.com/davidyaoli?lang=en",
+      },
+      {
+        name: "Pamela Quiñones",
+        role: "Co Founder @hellowuc",
+        image: pam,
+        url: "#",
+      },
+
+      {
+        name: "Erick Bustamante",
+        role: "Co Founder @hellowuc",
+        image: erik,
+        url: "#",
+      },
+
+      {
+        name: "Chary Crypto",
+        role: "Community builder @hellowuc",
+        image: chary,
+        url: "#",
       },
       {
         name: "Diego Quintana",
