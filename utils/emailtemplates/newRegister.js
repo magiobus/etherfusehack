@@ -196,7 +196,6 @@ const newRegisterTemplate = (data) => {
     ${inPerson ? `${place.address}` : ""} <br/>
 	<br/>
 
-    El dia ${startTimeLocalText} <br/>
 	${
     locationUrl && inPerson
       ? `Puedes ver el mapa del lugar, dando click 
