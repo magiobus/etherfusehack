@@ -26,6 +26,7 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
     placeCountry,
     price,
     locationUrl,
+    endTime,
     startTime,
     description,
     projects,
@@ -59,15 +60,22 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
           "
             >
               <h1 className="font-bold text-2xl mb-4">{name}</h1>
+              {modality === "inperson" ||
+                (modality === "both" && (
+                  <p className="capitalize text-white">
+                    @{placeName} - {placeState}, {placeCity} {placeCountry}{" "}
+                  </p>
+                ))}
               <p className="capitalize text-white">
-                @{placeName} - {placeState}, {placeCity} {placeCountry}{" "}
-              </p>
-              <p className="capitalize text-white">
-                {modality === "both" ? `Modalidad Virtual Disponible 💻` : ""}
+                {modality === "virtual"
+                  ? `Modalidad Virtual Disponible 💻`
+                  : ""}
               </p>
               <p className="capitalize text-white my-2">
                 {" "}
                 {unixToFormat(startTime, "d 'de' MMMM yyyy h:mm aa")}
+                <br />
+                {unixToFormat(endTime, "d 'de' MMMM yyyy h:mm aa")}
               </p>
               <p className="mt-4 text-white font-bold">
                 {price == 0 && "Entrada Gratuita"}
@@ -116,7 +124,7 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
                         );
                       })}
                     </>
-                  )}
+                  )}{" "}
                 </div>
                 <div className="rightsection flex flex-col  w-full  mt-8 lg:mt-0 px-0 lg:px-8 lg:w-4/12">
                   <div className="infocontainer">
@@ -145,20 +153,20 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
                       </div>
                       <p className="font-bold">Lugar</p>
                     </div>
-                    <p className="">{placeName}</p>
-                    <p className="">{placeAddress}</p>
-                    <p className="capitalize mb-4">
-                      {placeState}, {placeCity} {placeCountry}
-                    </p>
-                    {locationUrl && (
-                      <a
-                        href={locationUrl}
-                        target="_blank"
-                        className="underline text-happy-yellow bg-black rounded-md px-2 py-1"
-                        rel="noreferrer"
-                      >
-                        Ver Mapa
-                      </a>
+                    {modality === "inperson" ||
+                      (modality === "both" && (
+                        <>
+                          <p className="">{placeName}</p>
+                          <p className="">{placeAddress}</p>
+                          <p className="capitalize mb-4">
+                            {placeState}, {placeCity} {placeCountry}
+                          </p>
+                        </>
+                      ))}
+                    {modality === "virtual" && (
+                      <>
+                        <p className="">Modalidad Virtual </p>
+                      </>
                     )}
                   </div>
                   <ShareButtons
@@ -174,7 +182,6 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
                   <RewardsComponent />
                   <Instructions />
                   <Speakers />
-                  <Schedule />
                   <Sponsors />
                 </div>
               )}
