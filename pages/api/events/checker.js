@@ -39,7 +39,7 @@ handler.post(async (req, res) => {
 
   if (!hasTicket) {
     return res
-      .status(400)
+      .status(404)
       .send({ error: "No ticket found for this event and email" });
   }
 
