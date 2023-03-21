@@ -28,7 +28,7 @@ handler.post(async (req, res) => {
   const { email, eventId } = req.body;
 
   if (!email || !eventId) {
-    return res.status(400).send("Missing email or eventId");
+    return res.status(404).send("Missing email or eventId");
   }
 
   //check if user is in event
