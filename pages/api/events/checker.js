@@ -48,9 +48,45 @@ handler.post(async (req, res) => {
     name: hasTicket?.user?.name,
     inPerson: hasTicket?.inPerson,
     ipnStudent: hasTicket?.ipnStudent,
+    isMinted: hasTicket?.isMinted || false,
   };
 
   return res.status(200).send(response);
+});
+
+//PUT to update is minted
+handler.put(async (req, res) => {
+  //receive email and eventId
+  const db = req.db;
+  const { email, eventId } = req.body;
+
+  //get ticket
+  //check if user is in event
+  const hasTicket = await db.collection("tickets").findOne({
+    eventId: eventId,
+    userEmail: email,
+  });
+
+  if (!hasTicket) {
+    return res
+      .status(404)
+      .send({ error: "No ticket found for this event and email" });
+  }
+
+  //update ticket to minted
+  const updatedTicket = await db.collection("tickets").updateOne(
+    {
+      eventId: eventId,
+      userEmail: email,
+    },
+    {
+      $set: {
+        isMinted: true,
+      },
+    }
+  );
+
+  return res.status(200).send({ updatedTicket });
 });
 
 export default handler;
