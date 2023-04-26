@@ -29,8 +29,7 @@ handler.post(async (req, res) => {
     phone,
     phoneCountry,
     computerNeeded,
-    ipnStudent,
-    ipnUnit,
+    visitsFrom,
     isMinor,
     inPerson,
     otherInstitution,
@@ -72,16 +71,20 @@ handler.post(async (req, res) => {
     }
 
     //checks if the event is full for attendees
+    // Virtual and IN Person
     const attendeesSoldOut = await eventsLib.attendeesSoldOut(
       db,
-      event._id.toString()
+      event._id.toString(),
+      inPerson
     );
 
     if (attendeesSoldOut.soldOut) {
       throw new Error(
         JSON.stringify({
           message: {
-            es: "Los registros para el evento se han agotado ",
+            es: `Los registros ${
+              inPerson ? " presenciales" : " virtuales"
+            } del evento se han agotado 😢`,
             en: "Event is full for attendees",
           },
         })
@@ -103,8 +106,7 @@ handler.post(async (req, res) => {
       startTimeLocalText,
       about,
       shirtSize,
-      ipnStudent,
-      ipnUnit,
+      visitsFrom,
       computerNeeded,
       isMinor,
       otherInstitution

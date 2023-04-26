@@ -17,6 +17,12 @@ import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 import timezones from "@/data/timezones.json";
 
+const modalityOptions = [
+  { label: "Presencial", value: "irl" },
+  { label: "Virtual", value: "virtual" },
+  { label: "Presencial y Virtual", value: "irl-virtual" },
+];
+
 const EventForm = ({ type = "new" }) => {
   const [buttonLoading, setButtonLoading] = useState(false);
   const [states, setStates] = useState([]);
@@ -35,6 +41,7 @@ const EventForm = ({ type = "new" }) => {
 
   //watchers
   const stateName = watch("placeState");
+  const modalityWatch = watch("modality");
 
   //fetch states at the beginning of the page
   useEffect(() => {
@@ -60,8 +67,9 @@ const EventForm = ({ type = "new" }) => {
         locationUrl: data?.locationUrl,
         photo: data?.photo,
         attendeeLimit: data?.attendeeLimit || "",
+        attendeeLimitVirtual: data?.attendeeLimitVirtual || "",
         isGivingShirts: data?.isGivingShirts,
-        maxTeamSize: data?.maxTeamSize || "",
+        modality: data?.modality,
       };
       reset(parsedEvent);
       //set event for image preview
@@ -150,7 +158,6 @@ const EventForm = ({ type = "new" }) => {
           className="mt-2 mb-2"
           hideLine={true}
         />
-
         <div className="inputwrapper my-3">
           <Input
             label="Nombre"
@@ -247,7 +254,6 @@ const EventForm = ({ type = "new" }) => {
             </div>
           </div>
         )}
-
         <div className="inputwrapper my-3">
           <CoverImage
             label="Imágen del evento"
@@ -271,161 +277,186 @@ const EventForm = ({ type = "new" }) => {
             errorMessage={errors.photo?.message}
           />
         </div>
-
         {/* //TICKETS LIMIT */}
+        <div className="inputwrapper my-3">
+          <Select
+            label="Tipo de evento"
+            name="modality"
+            options={modalityOptions}
+            register={{
+              ...register("modality", {
+                required: {
+                  value: true,
+                  message: "Tipo de evento es requerido",
+                },
+              }),
+            }}
+            errorMessage={errors.modality?.message}
+          />
+        </div>
         <div className="ticketslimit flex flex-col lg:flex-row  lg:space-x-4">
           <div className="flex flex-col lg:flex-row lg:justify-start lg:items-center lg:space-x-8 ">
-            <div className="inputwrapper my-1 lg:my-3">
-              <Input
-                label="Máximo Asistentes"
-                name="attendeeLimit"
-                type="number"
-                register={{
-                  ...register("attendeeLimit", {
-                    required: {
-                      value: true,
-                      message: "Max Asistentes es requerido",
-                    },
-                    min: {
-                      value: 10,
-                      message: "Debe de ser mayor a 10",
-                    },
-                    max: {
-                      value: 5000,
-                      message: "Debe de ser menor a 5000",
-                    },
-                  }),
-                }}
-                placeholder="10"
-                errorMessage={errors.attendeeLimit?.message}
-              />
-              <Input
-                label="Maximo de personas por equipo"
-                name="maxTeamSize"
-                type="number"
-                register={{
-                  ...register("maxTeamSize", {
-                    required: {
-                      value: true,
-                      message: "Max personas es requerido",
-                    },
-                    min: {
-                      value: 1,
-                      message: "Debe de ser mayor a 1",
-                    },
-                    max: {
-                      value: 15,
-                      message: "Debe de ser menor a 15",
-                    },
-                  }),
-                }}
-                placeholder="5"
-                errorMessage={errors.maxTeamSize?.message}
-              />
-            </div>
+            {(modalityWatch === "irl" || modalityWatch === "irl-virtual") && (
+              <div className="inputwrapper my-1 lg:my-3">
+                <Input
+                  label="Máximo Asistentes IRL"
+                  name="attendeeLimit"
+                  type="number"
+                  register={{
+                    ...register("attendeeLimit", {
+                      required: {
+                        value: true,
+                        message: "Max Asistentes es requerido",
+                      },
+                      min: {
+                        value: 10,
+                        message: "Debe de ser mayor a 10",
+                      },
+                      max: {
+                        value: 5000,
+                        message: "Debe de ser menor a 5000",
+                      },
+                    }),
+                  }}
+                  placeholder="000"
+                  errorMessage={errors.attendeeLimit?.message}
+                />
+              </div>
+            )}
+            {(modalityWatch === "virtual" ||
+              modalityWatch === "irl-virtual") && (
+              <div className="inputwrapper my-1 lg:my-3">
+                <Input
+                  label="Máximo Asistentes Virtual"
+                  name="attendeeLimitVirtual"
+                  type="number"
+                  register={{
+                    ...register("attendeeLimitVirtual", {
+                      required: {
+                        value: true,
+                        message: "Max Asistentes Virtual es requerido",
+                      },
+                      min: {
+                        value: 10,
+                        message: "Debe de ser mayor a 10",
+                      },
+                      max: {
+                        value: 5000,
+                        message: "Debe de ser menor a 10000",
+                      },
+                    }),
+                  }}
+                  placeholder="000"
+                  errorMessage={errors.attendeeLimitVirtual?.message}
+                />
+              </div>
+            )}
           </div>
         </div>
-
-        {/* PLACE  */}
-        <Divider
-          label="Detalles del lugar"
-          className="mt-8 mb-2"
-          hideLine={true}
-        />
-
-        {type === "new" && (
+        {/* //IRL PLACE DETAILS */}
+        {(modalityWatch === "irl" || modalityWatch === "irl-virtual") && (
           <>
+            <Divider
+              label="Detalles del lugar"
+              className="mt-8 mb-2"
+              hideLine={true}
+            />
+
+            {type === "new" && (
+              <>
+                <div className="inputwrapper my-3">
+                  <Input
+                    label="Nombre"
+                    name="placeName"
+                    type="text"
+                    register={{
+                      ...register("placeName", {
+                        required: {
+                          value: true,
+                          message: "El nombre del lugar es requerido",
+                        },
+                        maxLength: {
+                          value: 35,
+                          message: "No puede contener más de 35 caracteres",
+                        },
+                      }),
+                    }}
+                    placeholder="Escribe el nombre del lugar de tu evento"
+                    errorMessage={errors.placeName?.message}
+                  />
+                </div>
+
+                <div className="inputwrapper my-3">
+                  <Input
+                    label="Dirección"
+                    name="placeAddress"
+                    type="text"
+                    register={{
+                      ...register("placeAddress", {
+                        required: {
+                          value: true,
+                          message: "Dirección del lugar es requerida",
+                        },
+                        maxLength: {
+                          value: 100,
+                          message: "No puede contener más de 100 caracteres",
+                        },
+                      }),
+                    }}
+                    placeholder="Calle, Número y Colonia"
+                    errorMessage={errors.placeName?.message}
+                  />
+                </div>
+
+                <div className="inputwrapper my-3">
+                  <Select
+                    label="Estado"
+                    name="placeState"
+                    options={states}
+                    register={{
+                      ...register("placeState", {
+                        required: {
+                          value: true,
+                          message: "Estado es requerido",
+                        },
+                      }),
+                    }}
+                    errorMessage={errors.placeState?.message}
+                  />
+                </div>
+
+                <div className="inputwrapper my-3">
+                  <Select
+                    label="Ciudad"
+                    name="placeCity"
+                    options={cities}
+                    register={{
+                      ...register("placeCity", {
+                        required: {
+                          value: true,
+                          message: "Ciudad es requerida",
+                        },
+                      }),
+                    }}
+                    errorMessage={errors.placeCity?.message}
+                  />
+                </div>
+              </>
+            )}
             <div className="inputwrapper my-3">
               <Input
-                label="Nombre"
-                name="placeName"
+                label="Url de Google Maps"
+                name="locationUrl"
                 type="text"
                 register={{
-                  ...register("placeName", {
-                    required: {
-                      value: true,
-                      message: "El nombre del lugar es requerido",
-                    },
-                    maxLength: {
-                      value: 35,
-                      message: "No puede contener más de 35 caracteres",
-                    },
-                  }),
+                  ...register("locationUrl"),
                 }}
-                placeholder="Escribe el nombre del lugar de tu evento"
-                errorMessage={errors.placeName?.message}
-              />
-            </div>
-
-            <div className="inputwrapper my-3">
-              <Input
-                label="Dirección"
-                name="placeAddress"
-                type="text"
-                register={{
-                  ...register("placeAddress", {
-                    required: {
-                      value: true,
-                      message: "Dirección del lugar es requerida",
-                    },
-                    maxLength: {
-                      value: 100,
-                      message: "No puede contener más de 100 caracteres",
-                    },
-                  }),
-                }}
-                placeholder="Calle, Número y Colonia"
-                errorMessage={errors.placeName?.message}
-              />
-            </div>
-
-            <div className="inputwrapper my-3">
-              <Select
-                label="Estado"
-                name="placeState"
-                options={states}
-                register={{
-                  ...register("placeState", {
-                    required: {
-                      value: true,
-                      message: "Estado es requerido",
-                    },
-                  }),
-                }}
-                errorMessage={errors.placeState?.message}
-              />
-            </div>
-
-            <div className="inputwrapper my-3">
-              <Select
-                label="Ciudad"
-                name="placeCity"
-                options={cities}
-                register={{
-                  ...register("placeCity", {
-                    required: {
-                      value: true,
-                      message: "Ciudad es requerida",
-                    },
-                  }),
-                }}
-                errorMessage={errors.placeCity?.message}
+                placeholder="https://goo.gl/maps/nibjjZ3A18ESQzvA8"
+                errorMessage={errors.locationUrl?.message}
               />
             </div>
           </>
         )}
-        <div className="inputwrapper my-3">
-          <Input
-            label="Url de Google Maps"
-            name="locationUrl"
-            type="text"
-            register={{
-              ...register("locationUrl"),
-            }}
-            placeholder="https://goo.gl/maps/nibjjZ3A18ESQzvA8"
-            errorMessage={errors.locationUrl?.message}
-          />
-        </div>
         <div className="inputwrapper my-3">
           <CheckBox
             label="Tu evento es Público?"
@@ -436,16 +467,19 @@ const EventForm = ({ type = "new" }) => {
             }}
           />
         </div>
-        <div className="inputwrapper my-3">
-          <CheckBox
-            label="Vas a dar Playeras en el evento?"
-            description="Tallas S, M, L, XL"
-            name="isGivingShirts"
-            register={{
-              ...register("isGivingShirts"),
-            }}
-          />
-        </div>
+        {(modalityWatch === "irl" || modalityWatch === "irl-virtual") && (
+          <div className="inputwrapper my-3">
+            <CheckBox
+              label="Vas a dar Playeras en el evento?"
+              description="Tallas S, M, L, XL"
+              name="isGivingShirts"
+              register={{
+                ...register("isGivingShirts"),
+              }}
+            />
+          </div>
+        )}
+
         <button
           type="submit"
           className="my-4 inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-happy-yellow bg-black hover:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"

@@ -57,8 +57,10 @@ handler.post(async (req, res) => {
     placeState,
     timeZone,
     attendeeLimit,
+    attendeeLimitVirtual,
     maxTeamSize,
     isGivingShirts,
+    modality,
   } = req.body;
 
   try {
@@ -87,8 +89,10 @@ handler.post(async (req, res) => {
       createdBy: user.id || "",
       price: 0,
       attendeeLimit: parseInt(attendeeLimit) || 0,
+      attendeeLimitVirtual: parseInt(attendeeLimitVirtual) || 0,
       maxTeamSize: parseInt(maxTeamSize) || 5,
       isGivingShirts: isGivingShirts === "true",
+      modality,
     };
 
     //save event to DB

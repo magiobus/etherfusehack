@@ -60,17 +60,30 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
           "
             >
               <h1 className="font-bold text-2xl mb-4">{name}</h1>
-              {modality === "inperson" ||
-                (modality === "both" && (
-                  <p className="capitalize text-white">
+
+              {/* //PLACE */}
+              {modality === "irl" && (
+                <p className="capitalize text-white">
+                  @{placeName} - {placeState}, {placeCity} {placeCountry}{" "}
+                </p>
+              )}
+
+              {modality === "virtual" && (
+                <p className="capitalize text-white">Modalidad Virtual 💻</p>
+              )}
+
+              {(modality === "irl" || modality === "irl-virtual") && (
+                <>
+                  <p>
+                    {" "}
                     @{placeName} - {placeState}, {placeCity} {placeCountry}{" "}
                   </p>
-                ))}
-              <p className="capitalize text-white">
-                {modality === "virtual"
-                  ? `Modalidad Virtual Disponible 💻`
-                  : ""}
-              </p>
+                  <p className="capitalize text-white">
+                    Modalidad Virtual Disponible 💻
+                  </p>
+                </>
+              )}
+
               <p className="capitalize text-white my-2">
                 {" "}
                 {unixToFormat(startTime, "d 'de' MMMM yyyy h:mm aa")}
@@ -153,19 +166,28 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
                       </div>
                       <p className="font-bold">Lugar</p>
                     </div>
-                    {modality === "inperson" ||
-                      (modality === "both" && (
-                        <>
-                          <p className="">{placeName}</p>
-                          <p className="">{placeAddress}</p>
-                          <p className="capitalize mb-4">
-                            {placeState}, {placeCity} {placeCountry}
-                          </p>
-                        </>
-                      ))}
-                    {modality === "virtual" && (
+                    {modality === "irl" && (
                       <>
-                        <p className="">Modalidad Virtual </p>
+                        <p className="">{placeName}</p>
+                        <p className="">{placeAddress}</p>
+                        <p className="capitalize mb-4">
+                          {placeState}, {placeCity} {placeCountry}
+                        </p>
+                      </>
+                    )}
+                    {modality === "virtual" && (
+                      <p className="">Modalidad Virtual </p>
+                    )}
+                    {modality === "irl-virtual" && (
+                      <>
+                        <p className="">{placeName}</p>
+                        <p className="">{placeAddress}</p>
+                        <p className="capitalize mb-4">
+                          {placeState}, {placeCity} {placeCountry}
+                        </p>
+                        <p className="capitalize text-black">
+                          Modalidad Virtual Disponible 💻
+                        </p>
                       </>
                     )}
                   </div>

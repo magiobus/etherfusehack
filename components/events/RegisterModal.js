@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, useState, useEffect } from "react";
+import { Fragment, useState } from "react";
 import { XIcon } from "@heroicons/react/solid";
 import { useForm } from "react-hook-form";
 import LoadingCircle from "@/components/common/LoadingCircle";
@@ -11,9 +11,6 @@ import TextArea from "@/components/forms/fields/TextArea";
 import CheckBox from "@/components/forms/fields/CheckBox";
 import TermsCheckBox from "@/components/forms/fields/TermsCheckBox";
 import Select from "@/components/forms/fields/Select";
-import parsePhoneNumber from "libphonenumber-js";
-import PhoneInput from "@/components/forms/fields/PhoneInput";
-import { isValidPhoneNumber } from "libphonenumber-js";
 
 const shirtSizes = [
   { value: "none", label: "No quiero Playera" },
@@ -21,217 +18,6 @@ const shirtSizes = [
   { value: "m", label: "Mediana" },
   { value: "l", label: "Grande" },
   { value: "xl", label: "Extra Grande" },
-];
-
-const ipnUnits = [
-  {
-    label: "UPIITA",
-    value: "upiita",
-  },
-  {
-    value: "cicsUnidadSantoTomas",
-    label: "CICS Unidad Santo Tomas",
-  },
-  {
-    label: "CICS Unidad Milpa Alta",
-    value: "cicsUnidadMilpaAlta",
-  },
-  {
-    label: "ENBA",
-    value: "enba",
-  },
-  {
-    label: "ENCB",
-    value: "encb",
-  },
-  {
-    label: "ENMyH",
-    value: "enmyh",
-  },
-  {
-    label: "ESCA Unidad Santo Tomas",
-    value: "escaUnidadSantoTomas",
-  },
-  {
-    label: "ESCA Unidad Tepepan",
-    value: "escaUnidadTepepan",
-  },
-  {
-    label: "ESCOM",
-    value: "escom",
-  },
-  {
-    label: "ESE",
-    value: "ese",
-  },
-  {
-    label: "ESEO",
-    value: "eseo",
-  },
-  {
-    label: "ESFM",
-    value: "esfm",
-  },
-  {
-    label: " ESIME Unidad Zacatenco",
-    value: "esimeUnidadZacatenco",
-  },
-  {
-    label: "ESIME Unidad Azcapotzalco",
-    value: "esimeUnidadAzcapotzalco",
-  },
-  {
-    label: "ESIME Unidad Culhuacan",
-    value: "esimeUnidadCulhuacan",
-  },
-  {
-    label: "ESIME Unidad Ticoman",
-    value: "esimeUnidadTicoman",
-  },
-  {
-    label: "ESIQIE",
-    value: "esiqie",
-  },
-  {
-    label: "ESIT",
-    value: "esit",
-  },
-  {
-    label: "ESIA Unidad Tecamachalco",
-    value: "esiaUnidadTecamachalco",
-  },
-  {
-    label: "ESIA Unidad Ticoman",
-    value: "esiaUnidadTicoman",
-  },
-  {
-    label: "ESIA Unidad Zacatenco",
-    value: "esiaUnidadZacatenco",
-  },
-  {
-    label: "ESM",
-    value: "esm",
-  },
-  {
-    label: "EST",
-    value: "est",
-  },
-  {
-    label: "UPIIC Campus Coahuila",
-    value: "upiicCampusCoahuila",
-  },
-  {
-    label: "UPIBI",
-    value: "upibi",
-  },
-  {
-    label: "UPIIG Campus Guanajuato",
-    value: "upiigCampusGuanajuato",
-  },
-  {
-    label: "UPIIZ Campus Zacatecas",
-    value: "upiizCampusZacatecas",
-  },
-  {
-    label: "UPIIH Campus Hidalgo",
-    value: "upiihCampusHidalgo",
-  },
-  {
-    label: "UPIIP Campus Palenque",
-    value: "upiipCampusPalenque",
-  },
-  {
-    label: "UPIIT Campus Tlaxcala",
-    value: "upiitCampusTlaxcala",
-  },
-  {
-    label: "UPIICSA",
-    value: "upiicsa",
-  },
-  {
-    label: "UPIEM",
-    value: "upiem",
-  },
-  {
-    label: "CECyT No. 1",
-    value: "cecytNo1",
-  },
-  {
-    label: "CECyT No. 2",
-    value: "cecytNo2",
-  },
-  {
-    label: "CECyT No. 3",
-    value: "cecytNo3",
-  },
-  {
-    label: "CECyT No. 4",
-    value: "cecytNo4",
-  },
-  {
-    label: "CECyT No. 5",
-    value: "cecytNo5",
-  },
-  {
-    label: "CECyT No. 6",
-    value: "cecytNo6",
-  },
-  {
-    label: "CECyT No. 7",
-    value: "cecytNo7",
-  },
-  {
-    label: "CECyT No. 8",
-    value: "cecytNo8",
-  },
-  {
-    label: "CECyT No. 9",
-    value: "cecytNo9",
-  },
-  {
-    label: "CECyT No. 10",
-    value: "cecytNo10",
-  },
-  {
-    label: "CECyT No. 11",
-    value: "cecytNo11",
-  },
-  {
-    label: "CECyT No. 12",
-    value: "cecytNo12",
-  },
-  {
-    label: "CECyT No. 13",
-    value: "cecytNo13",
-  },
-  {
-    label: "CECyT No. 14",
-    value: "cecytNo14",
-  },
-  {
-    label: "CECyT No. 15",
-    value: "cecytNo15",
-  },
-  {
-    label: "CECyT No. 16",
-    value: "cecytNo16",
-  },
-  {
-    label: "CECyT No. 17",
-    value: "cecytNo17",
-  },
-  {
-    label: "CECyT No. 18",
-    value: "cecytNo18",
-  },
-  {
-    label: "CECyT No. 19",
-    value: "cecytNo19",
-  },
-  {
-    label: "CET 1, Walter Cross",
-    value: "cet1WalterCross",
-  },
 ];
 
 const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
@@ -244,42 +30,11 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
     register,
     handleSubmit,
     watch,
-    setError,
-    clearErrors,
-    getValues,
-    setValue,
-    control,
     formState: { errors },
   } = useForm();
 
-  const countryWatch = watch("phoneCountry");
-  const phoneWatch = watch("phone");
-  const ipnStudentWatch = watch("ipnStudent");
-  const ticketViaWAWatch = watch("ticketViaWhatsapp");
   const inPersonWatch = watch("inPerson");
-
-  const isValidPhone = async (phone, country) => {
-    const isValidNumber = isValidPhoneNumber(phone, countryWatch);
-    return isValidNumber;
-  };
-
-  const validatePhone = async (phone, country) => {
-    const isValidNumber = await isValidPhone(phone, country);
-    if (!isValidNumber) {
-      setError("phone", {
-        type: "manual",
-        message: "Número de teléfono no válido",
-      });
-    } else {
-      clearErrors("phone");
-    }
-  };
-
-  useEffect(() => {
-    if (countryWatch) {
-      validatePhone(phoneWatch, countryWatch);
-    }
-  }, [countryWatch]);
+  const visitsFromWatch = watch("visitsFrom");
 
   if (!isOpen) {
     return null;
@@ -295,51 +50,31 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
       email,
       name,
       shirtSize,
-      phone,
-      phoneCountry,
-      computerNeeded,
-      ipnStudent,
-      ipnUnit,
-      isMinor,
+      visitsFrom,
       inPerson,
-      otherInstitution,
+      otherInstitution = "",
     } = data;
 
     try {
-      let parsedPhone = "";
-
-      if (phone) {
-        ///validates phone
-        const phoneIsValid = await isValidPhone(phone, phoneCountry);
-
-        if (!phoneIsValid) {
-          toast.error("El número de teléfono no es válido");
-          return; //this line, stops the function from executing
-        }
-
-        parsedPhone = parsePhoneNumber(phone, phoneCountry);
-      }
-
-      //Send data to server
-      const response = await axios.post("/api/events/register", {
+      const dataToSend = {
         about,
         email,
         name,
-        phone: parsedPhone.number || "",
-        phoneCountry: parsedPhone.country || "",
         startTimeLocalText: `${unixToFormat(
           eventData.startTime,
           "d 'de' MMMM yyyy h:mm aa"
         )}`,
         eventId: eventData._id,
         shirtSize,
-        computerNeeded,
-        ipnStudent: ipnStudent === "ipn" ? true : false,
-        ipnUnit,
-        isMinor,
-        inPerson: false,
+        visitsFrom,
+        inPerson: inPerson ? inPerson : false,
         otherInstitution,
-      });
+      };
+
+      console.log("dataToSend", dataToSend);
+
+      //Send data to server
+      const response = await axios.post("/api/events/register", dataToSend);
 
       setOrderId(response.data.orderId);
 
@@ -452,8 +187,16 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                             <div className="inputwrapper my-3">
                               <Select
                                 label="¿De dónde nos visitas?"
-                                name="ipnStudent"
+                                name="visitsFrom"
                                 options={[
+                                  {
+                                    value: "itesm",
+                                    label: "ITESM",
+                                  },
+                                  {
+                                    value: "unam",
+                                    label: "UNAM",
+                                  },
                                   {
                                     value: "ipn",
                                     label: "IPN",
@@ -464,20 +207,19 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                                   },
                                 ]}
                                 register={{
-                                  ...register("ipnStudent", {
+                                  ...register("visitsFrom", {
                                     required: {
                                       value: true,
                                       message: "El Campo es requerido",
                                     },
                                   }),
                                 }}
-                                errorMessage={errors.ipnStudent?.message}
+                                errorMessage={errors.visitsFrom?.message}
                               />
                             </div>
 
                             <div className="inputwrapper my-3">
-                              {ipnStudentWatch === "ipn" ? (
-                                <Select
+                              {/* <Select
                                   label="¿En qué unidad del IPN estudias?"
                                   name="ipnUnit"
                                   options={ipnUnits}
@@ -490,8 +232,8 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                                     }),
                                   }}
                                   errorMessage={errors.ipnUnit?.message}
-                                />
-                              ) : (
+                                /> */}
+                              {visitsFromWatch === "otro" && (
                                 <div className="my-4 field">
                                   <Input
                                     label="Nombre de institución o empresa de la que nos visitas"
@@ -534,8 +276,23 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                                 }}
                               />
                             </div>
-                            <div className="field my-4"></div>
-                            {eventData && eventData.isGivingShirts && (
+                          </div>
+
+                          <div className="inputwrapper my-3">
+                            <CheckBox
+                              label="¿Asistirás al evento en persona ?"
+                              description="Si dejas esta casilla en blanco, participarás en el evento de forma virtual"
+                              name="inPerson"
+                              register={{
+                                ...register("inPerson", {}),
+                              }}
+                              errorMessage={errors.inPerson?.message}
+                            />
+                          </div>
+
+                          {eventData &&
+                            eventData?.isGivingShirts &&
+                            inPersonWatch && (
                               <div className="field my-4">
                                 <Select
                                   label="Talla de playera"
@@ -553,86 +310,8 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                                 />
                               </div>
                             )}
-                          </div>
 
-                          <div className="inputwrapper my-3">
-                            {/* <CheckBox
-                              label="¿Asistirás al evento en persona ?"
-                              description="Si dejas esta casilla en blanco, participarás en el evento de forma virtual"
-                              name="inPerson"
-                              register={{
-                                ...register("inPerson", {}),
-                              }}
-                              errorMessage={errors.inPerson?.message}
-                            /> */}
-                          </div>
-
-                          {inPersonWatch && (
-                            <div className="inpersoncontent">
-                              {/* <div className="inputwrapper my-3">
-                                <CheckBox
-                                  label="Necesitas una computadora para el evento ? "
-                                  description="Si necesitas una computadora para el evento, selecciona esta opción"
-                                  name="computerNeeded"
-                                  register={{
-                                    ...register("computerNeeded", {}),
-                                  }}
-                                  errorMessage={errors.computerNeeded?.message}
-                                />
-                              </div> */}
-
-                              {/* <div className="inputwrapper my-3">
-                                <CheckBox
-                                  label="Te mandamos tu ticket por Whatsapp ?  "
-                                  name="ticketViaWhatsapp"
-                                  register={{
-                                    ...register("ticketViaWhatsapp", {}),
-                                  }}
-                                  errorMessage={
-                                    errors.ticketViaWhatsapp?.message
-                                  }
-                                />
-                              </div> */}
-
-                              {/* PHONE NUMBER */}
-                              {/* {ticketViaWAWatch && (
-                                <div className="field my-4">
-                                  <PhoneInput
-                                    label="Número de teléfono"
-                                    name="phone"
-                                    type="tel"
-                                    onChange={(e) => {
-                                      validatePhone(
-                                        e.target.value,
-                                        countryWatch
-                                      );
-                                    }}
-                                    selectRegister={{
-                                      ...register("phoneCountry", {
-                                        required: {
-                                          value: true,
-                                          message:
-                                            "El código de país es requerido",
-                                        },
-                                      }),
-                                    }}
-                                    register={{
-                                      ...register("phone", {
-                                        required: {
-                                          value: true,
-                                          message:
-                                            "El número de teléfono es requerido",
-                                        },
-                                      }),
-                                    }}
-                                    errorMessage={errors.phone?.message}
-                                  />
-                                </div>
-                              )} */}
-                            </div>
-                          )}
-
-                          <div className="inputwrapper my-3">
+                          {/* <div className="inputwrapper my-3">
                             <CheckBox
                               label="¿Eres menor de edad? "
                               description=""
@@ -642,7 +321,7 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                               }}
                               errorMessage={errors.isMinor?.message}
                             />
-                          </div>
+                          </div> */}
 
                           <div className="inputwrapper my-3">
                             <TermsCheckBox
@@ -686,7 +365,7 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                         <h1 className="text-3xl font-bold text-happy-yellow bg-black py-2">
                           ¡Gracias por registrarte!
                         </h1>
-                        {/* <p className="mt-4">
+                        <p className="mt-4">
                           Nos vemos {!inPersonWatch && "virtualmente "} el{" "}
                           <span className="font-bold">
                             {unixToFormat(
@@ -694,37 +373,54 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                               "d 'de' MMMM yyyy h:mm aa"
                             )}{" "}
                           </span>
-                        </p> */}
+                        </p>
 
                         <p className="mt-4 font-bold">
                           Te mandamos un email con{" "}
-                          {inPersonWatch && "tu ticket QR y "} acceso al Discord
-                          del evento.
+                          {inPersonWatch
+                            ? "tu ticket QR para acceder al evento 😎"
+                            : "información del evento 😎"}
                         </p>
 
                         <p className="mt-4">
                           <span className="font-bold">
-                            Es importante que te unas lo antes posible
-                          </span>
-                          , ya que se realizarán dinamicas y compartiremos
-                          recursos previo al evento.
+                            Es importante que te unas lo antes posible a Discord
+                            y te presentes en el canal de #intros
+                          </span>{" "}
                         </p>
 
-                        <p className="mt-4">
-                          <span className="font-bold">
-                            Acá te dejamos el enlace:
-                          </span>
-                          <br />
-                          <a
-                            href="https://discord.gg/S3brFSH"
-                            target="blank"
-                            className="underline"
-                          >
-                            https://discord.gg/S3brFSH
-                          </a>
-                        </p>
+                        <div className="bannersito bg-black text-happy-yellow py-1 my-4">
+                          <p className="mt-4">
+                            <span className="font-bold">
+                              Acá te dejamos el enlace a Discord:
+                            </span>
+                            <br />
+                            <a
+                              href="https://discord.gg/S3brFSH"
+                              target="blank"
+                              className="underline"
+                            >
+                              https://discord.gg/S3brFSH
+                            </a>
+                          </p>
 
-                        <p className="mt-4">¡Nos vemos pronto ✌️!</p>
+                          <p className="my-4">
+                            <span className="font-bold">
+                              Aprende con &quot;Solana para Noobs&quot; de
+                              SuperteamMX
+                            </span>
+                            <br />
+                            <a
+                              href="https://learn.superteam.mx/"
+                              target="blank"
+                              className="underline"
+                            >
+                              https://learn.superteam.mx/{" "}
+                            </a>
+                          </p>
+                        </div>
+
+                        <p className="mt-4 font-bold">¡Nos vemos pronto ✌️!</p>
                       </div>
                     </div>
                   )}
