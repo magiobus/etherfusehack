@@ -299,7 +299,7 @@ const ProjectForm = ({ type = "new" }) => {
             <TextArea
               label="Describe en un tweet que hace tu proyecto"
               name="description"
-              placeholder="Ejemplo:  Plataforma, que permite hacer subastas de monedas de colección en línea utilizando la red de solana."
+              placeholder="Ejemplo:  Plataforma, que permite hacer subastas de monedas de colección en línea utilizando la red de Solana."
               register={{
                 ...register("description", {
                   minLength: {

@@ -32,7 +32,7 @@
   {
     "id": 5,
     "question": "¿Cuales son los premios?",
-    "answer": "Hay una bolsa de más $10K USDC en premios  + Bounties por parte de superteamMX."
+    "answer": "Hay una bolsa de más $200k MXN en premios  + Bounties por parte de superteamMX."
   },
   {
     "id": 6,
@@ -67,6 +67,6 @@
   {
     "id": 9,
     "question": "¿Puedo avanzar antes del hackathon a mi proyecto?",
-    "answer": "Si, sabemos que blockchain y solana son temas complicados, así es que puedes avanzar en tu proyecto desde dos semanas antes del evento."
+    "answer": "Si, sabemos que blockchain y Solana son temas complicados, así es que puedes avanzar en tu proyecto desde dos semanas antes del evento."
   }
 ]

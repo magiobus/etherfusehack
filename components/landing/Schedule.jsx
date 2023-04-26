@@ -286,7 +286,7 @@ export function Schedule() {
       <Container className="relative z-10">
         <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-4xl lg:pr-24">
           <h2 className="font-display text-4xl font-medium tracking-tighter text-happy-yellow bg-black px-2 py-2 sm:text-5xl">
-            3 días de hackathon para crear soluciones digitales con solana
+            3 días de hackathon para crear soluciones digitales con Solana
             blockchain.
           </h2>
         </div>

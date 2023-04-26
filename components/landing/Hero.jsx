@@ -29,7 +29,7 @@ export function Hero() {
         <div className="mx-auto max-w-2xl lg:max-w-4xl lg:px-12">
           <h1 className="font-display text-5xl font-bold tracking-tighter bg-black px-4 py-4 text-happy-yellow sm:text-7xl">
             <span className="sr-only">Etherfuse hackathon - </span>
-            El hackathon de solana blockchain para CDMX 🇲🇽
+            El hackathon de Solana blockchain para CDMX 🇲🇽
           </h1>
           <div className="mt-6  font-display text-2xl tracking-tight text-black">
             <p className="font-semibold">
@@ -41,7 +41,7 @@ export function Hero() {
             <div className="container space-y-6">
               <p>
                 Un fin de semana para colaborar, aprender y crear soluciones
-                digitales con solana blockchain. Además podrás conocer a
+                digitales con Solana blockchain. Además podrás conocer a
                 mentores nacionales e internacionales.
               </p>
             </div>

@@ -30,7 +30,7 @@ const FaqsPage = () => {
                   Lo ideal es entender cómo funciona todo el tema de blockchain,
                   pero ve el fin de semana de hackathon cómo una oportunidad
                   para aprender nuevas cosas. Si no sabes nada de blockchain y
-                  solana, te preparamos una serie de recursos para que puedas
+                  Solana, te preparamos una serie de recursos para que puedas
                   iniciar en este mundo. Puedes consultarlos dando click{" "}
                   <a href="/resources" className="underline">
                     aquí

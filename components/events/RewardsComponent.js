@@ -16,7 +16,7 @@ const RewardsComponent = () => {
                       🇲🇽 SuperTeamMX Bounties 💰
                     </h2>
                     <p className="italic">
-                      Participa en las recompensas que SuperTeamMX tiene para
+                      Participa en las recompensas que SuperteamMX tiene para
                       ti:
                     </p>
                   </div>
