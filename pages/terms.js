@@ -24,18 +24,14 @@ export default function TermsPage() {
               el participante confirma que tiene al menos 18 años de edad y
               cumple con la edad mínima para acceder a servicios en línea en su
               país de residencia. Si el participante no cumple con la edad
-              mínima, el padre/madre/tutor debe realizar el registro en su
-              nombre y hacerse responsable de la actividad del menor durante
-              toda la duración y estancia del evento. Además, todos aquellos
-              menores de 18 años y mayores de 13 años que deseen participar de
-              manera presencial en el Etherfuse Hackathon, deben ser registrados
-              por sus padres o tutores, quienes serán responsables de ellos
-              durante toda la duración y estancia del evento.
+              mínima, el padre/madre/tutor debe debe hacerse responsable de la
+              actividad del menor durante toda la duración y estancia del
+              evento.
             </p>
             <p className="mt-8 text-xl text-black leading-8">
               Los datos proporcionados por los participantes deben ser
               correctos, veraces y completos, asumiendo toda responsabilidad
-              sobre la falta de veracidad o exactitud de los mismos.
+              sobre la falta de veracidad o inexactitud de los mismos.
             </p>
             <p className="mt-8 text-xl text-black leading-8">
               El participante autoriza a la organización del evento a utilizar
@@ -46,20 +42,15 @@ export default function TermsPage() {
             </p>
             <p className="mt-8 text-xl text-black leading-8">
               Al registrarse en etherfuse hackathon la información de los
-              participantes será compartida al equipo organizador de grizzlython
-              hackathon, para que puedan participar en el evento.
+              participantes será compartida al equipo de superteamMX, así como a
+              los patrocinadores del evento.
             </p>
             <p className="mt-8 text-xl text-black leading-8">
               En el caso de que el evento se lleve a cabo presencialmente en
-              alguna institución, en algunos casos, se proporcionará equipo de
-              cómputo a los participantes. No obstante, es importante tener en
-              cuenta que la disponibilidad y capacidad de este equipo está
-              sujeta a cambios sin previo aviso y puede no cumplir con las
-              necesidades técnicas de los equipos participantes. Por lo tanto,
-              se recomienda que los participantes vengan preparados con su
-              propio software y hardware, para garantizar la continuidad del
-              proceso de desarrollo y presentación de sus proyectos durante el
-              hackathon.
+              alguna institución, se recomienda que los participantes vengan
+              preparados con su propio software y hardware, para garantizar la
+              continuidad del proceso de desarrollo y presentación de sus
+              proyectos durante el hackathon.
             </p>
             <p className="mt-8 text-xl text-black leading-8">
               Los participantes autorizan que la información obtenida a partir
@@ -118,11 +109,12 @@ export default function TermsPage() {
             <p className="mt-8 text-xl text-black leading-8">
               Etherfuse Inc. se encarga de proporcionar de manera gratuita el
               proceso de registro, mentorías, alimentos y premios para los
-              participantes del evento Etherfuse Hackathon. Por otro lado, el
-              IPN es responsable de proporcionar las instalaciones, acceso a
-              internet, equipo de cómputo, servicios médicos en caso de
-              emergencia, seguridad en el evento y todo lo relacionado a los
-              asistentes, incluyendo a los menores de edad.
+              participantes del evento Etherfuse Hackathon. Por otro lado, en
+              caso de que el evento se lleve presencialmente en alguna
+              institución, la institución es responsable de proporcionar las
+              instalaciones, acceso a internet, equipo de cómputo, servicios
+              médicos en caso de emergencia, seguridad en el evento y todo lo
+              relacionado a los asistentes.
             </p>
             <p className="mt-8 text-xl text-black leading-8">
               Nos reservamos el derecho de admisión. En especial denegando el
@@ -140,8 +132,8 @@ export default function TermsPage() {
                 presenten deteriorada o sea ilegible.
               </li>
               <li className="mt-4 text-xl text-black leading-8">
-                No entregue la autorización de su padre/madre/tutor o que sea
-                menor de 13 años y a parte de la autorización, no vaya
+                Sea menor de 13 años, no entregue la autorización de su
+                padre/madre/tutory y/o a parte de la autorización, no vaya
                 acompañado por su madre/padre/tutor/responsable autorizado.
               </li>
               <li className="mt-4 text-xl text-black leading-8">
