@@ -71,8 +71,6 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
         otherInstitution,
       };
 
-      console.log("dataToSend", dataToSend);
-
       //Send data to server
       const response = await axios.post("/api/events/register", dataToSend);
 

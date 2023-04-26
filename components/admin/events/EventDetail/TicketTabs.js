@@ -239,43 +239,6 @@ const TicketTabs = ({ event }) => {
                         {attendees.filter((a) => a.inPerson).length}
                       </p>
                     </li>
-                    <li className="flex justify-between">
-                      <p className="text-xs leading-5 text-gray-500 font-semibold">
-                        🖥 Necesitan Computadora:{" "}
-                        {attendees.filter((a) => a.computerNeeded).length}
-                      </p>
-                    </li>
-
-                    <li className="flex justify-between mt-4">
-                      <p className="text-sm leading-5 text-gray-500 font-semibold">
-                        🐣 Menores de edad:{" "}
-                        {attendees.filter((a) => a.isMinor).length}
-                      </p>
-                    </li>
-                    <li className="flex justify-between">
-                      <p className="text-xs leading-5 text-gray-500 font-semibold">
-                        Menores Virtuales:{" "}
-                        {
-                          attendees.filter((a) => a.isMinor && !a.inPerson)
-                            .length
-                        }
-                      </p>
-                    </li>
-                    <li className="flex justify-between">
-                      <p className="text-xs leading-5 text-gray-500 font-semibold">
-                        Menores Presenciales:{" "}
-                        {
-                          attendees.filter((a) => a.isMinor && a.inPerson)
-                            .length
-                        }
-                      </p>
-                    </li>
-
-                    <li className="flex justify-between mt-4">
-                      <p className="text-sm leading-5 text-gray-500 font-semibold">
-                        Alumnos IPN: {attendees.filter((a) => a.ipnUnit).length}
-                      </p>
-                    </li>
                   </ul>
                 </div>
               ) : (

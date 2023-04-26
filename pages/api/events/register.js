@@ -30,7 +30,7 @@ handler.post(async (req, res) => {
     phoneCountry,
     computerNeeded,
     visitsFrom,
-    isMinor,
+    isMinor = false,
     inPerson,
     otherInstitution,
   } = req.body;
