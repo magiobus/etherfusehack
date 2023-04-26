@@ -3,10 +3,13 @@ import Image from "next/future/image";
 import { Container } from "@/components/landing/Container";
 import logoEtherfuse from "@/public/landingimages/logos/etherfuse.png";
 import logoSolana from "@/public/landingimages/logos/solanalogo.png";
+import hellomoonblack from "@/public/landingimages/logos/hellomoonblack.png";
+import itesm from "@/public/landingimages/logos/itesm.png";
+import superteamlogo from "@/public/landingimages/logos/superteamlogo.png";
+
 import decaf from "@/public/landingimages/logos/decaf.png";
 import megahabilidades from "@/public/landingimages/logos/megahabilidades.png";
 import ottr from "@/public/landingimages/logos/ottr.png";
-import ipn from "@/public/landingimages/logos/ipn.png";
 import blockchainbusinessschool from "@/public/landingimages/logos/blockchainbusinessschool.png";
 import ilum from "@/public/landingimages/logos/ilum.png";
 import upiita from "@/public/landingimages/logos/upiita.png";
@@ -15,7 +18,6 @@ import bitso from "@/public/landingimages/logos/bitso.png";
 import neefter from "@/public/landingimages/logos/neefter.png";
 import agilmentor from "@/public/landingimages/logos/agilmentor.png";
 import mirrorworld from "@/public/landingimages/logos/mirrorworld.png";
-import hellomoonblack from "@/public/landingimages/logos/hellomoonblack.png";
 import wuc from "@/public/landingimages/logos/wuc.png";
 import lbank from "@/public/landingimages/logos/lbank.jpeg";
 
@@ -31,81 +33,77 @@ const mainSponsors = [
     url: "https://solana.com",
   },
   {
-    name: "ipn",
-    logo: ipn,
-    url: "https://www.ipn.mx",
-    extraClassName: "w-6/12 mt-4 sm:mt-0 sm:w-8/12",
+    name: "itesm",
+    logo: itesm,
+    url: "https://tec.mx/es/guadalajara",
   },
 ];
 
 const secondSponsors = [
   {
-    name: "upiita",
-    logo: upiita,
-    url: "https://www.ipn.mx",
-    extraClassName: "w-6/12 mt-4 sm:mt-0 sm:w-8/12",
-  },
-  {
-    name: "megahabilidades",
-    logo: megahabilidades,
-    url: "https://megahabilidades.mx",
-  },
-  {
-    name: "lanib",
-    logo: lanib,
-    url: "https://lanib.mx",
-  },
-  {
-    name: "blockchainbusinessschool",
-    logo: blockchainbusinessschool,
-    url: "https://blockchainbusinessschool.io/",
-  },
-  {
-    name: "decaf",
-    logo: decaf,
-    url: "https://www.decaf.so/",
-  },
-  {
-    name: "ottr",
-    logo: ottr,
-    url: "https://ottr.finance/",
+    name: "superteam",
+    logo: superteamlogo,
+    url: "https://mx.superteam.fun/",
+    extraClassName: "",
   },
   {
     name: "hellomoon",
     logo: hellomoonblack,
     url: "https://hellomoon.io",
   },
-  {
-    name: "neefter",
-    logo: neefter,
-    url: "https://neefter.com",
-  },
-  {
-    name: "lbank",
-    logo: lbank,
-    url: "https://www.lbanklabs.com",
-  },
-  {
-    name: "Web3 University Community",
-    logo: wuc,
-    url: "",
-  },
-  {
-    name: "mirrorworld",
-    logo: mirrorworld,
-    url: "https://mirrorworld.fun",
-  },
-  {
-    name: "agilmentor",
-    logo: agilmentor,
-    url: "https://agilmentor.com",
-  },
+  // {
+  //   name: "megahabilidades",
+  //   logo: megahabilidades,
+  //   url: "https://megahabilidades.mx",
+  // },
+  // {
+  //   name: "lanib",
+  //   logo: lanib,
+  //   url: "https://lanib.mx",
+  // },
 
-  {
-    name: "ilum",
-    logo: ilum,
-    url: "https://www.ilumps.com",
-  },
+  // {
+  //   name: "decaf",
+  //   logo: decaf,
+  //   url: "https://www.decaf.so/",
+  // },
+  // {
+  //   name: "ottr",
+  //   logo: ottr,
+  //   url: "https://ottr.finance/",
+  // },
+
+  // {
+  //   name: "neefter",
+  //   logo: neefter,
+  //   url: "https://neefter.com",
+  // },
+  // {
+  //   name: "lbank",
+  //   logo: lbank,
+  //   url: "https://www.lbanklabs.com",
+  // },
+  // {
+  //   name: "Web3 University Community",
+  //   logo: wuc,
+  //   url: "",
+  // },
+  // {
+  //   name: "mirrorworld",
+  //   logo: mirrorworld,
+  //   url: "https://mirrorworld.fun",
+  // },
+  // {
+  //   name: "agilmentor",
+  //   logo: agilmentor,
+  //   url: "https://agilmentor.com",
+  // },
+
+  // {
+  //   name: "ilum",
+  //   logo: ilum,
+  //   url: "https://www.ilumps.com",
+  // },
 ];
 
 export function Sponsors() {

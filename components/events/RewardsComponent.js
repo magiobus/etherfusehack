@@ -23,36 +23,12 @@ const RewardsComponent = () => {
                   <div className="imagecontainer">
                     <a
                       target="_blank"
-                      href="https://mx.superteam.fun/win-an-open-bounty"
+                      href="https://mx.superteam.fun/bounties"
                       rel="noreferrer"
                     >
                       {" "}
                       <img
                         src="/landingimages/superteam.png"
-                        alt="superteam etherfuse hackathon"
-                        className=" object-cover hover:opacity-90"
-                      />
-                    </a>
-                  </div>
-                </div>
-                <div className="wrapper mx-2" id="tracks">
-                  <div className="title mb-2">
-                    <h2 className="text-2xl font-bold ">
-                      🇲🇽 Solana Challenges 🙌🏼
-                    </h2>
-                    <p className="italic">
-                      Participa en los retos que Solana tiene para ti:
-                    </p>
-                  </div>
-                  <div className="imagecontainer ">
-                    <a
-                      target="_blank"
-                      href="https://dev-challenger.solanau.org/events/etherfuse-superteam-hackathon-mx/challenges"
-                      rel="noreferrer"
-                    >
-                      {" "}
-                      <img
-                        src="/landingimages/challenges.jpg"
                         alt="superteam etherfuse hackathon"
                         className=" object-cover hover:opacity-90"
                       />
