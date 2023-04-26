@@ -12,37 +12,47 @@
   {
     "id": 2,
     "question": "¿Qué necesito llevar?",
-    "answer": "Tu equipo de computo y muchas ganas de construir cosas increíbles. También tendremos algunos equipos en la sede."
+    "answer": "Tu equipo de computo y muchas ganas de construir cosas increíbles."
   },
   {
     "id": 345,
     "question": "¿Puedo participar virtualmente?",
-    "answer": "Sí, el etherfuse hackathon puede ser participado de forma virtual o presencial en IPN Upiita"
+    "answer": "Sí, el etherfuse hackathon puede ser participado de forma virtual o presencial en ITESM GDL"
   },
   {
     "id": 3,
     "question": "¿Me puedo quedar a dormir en el evento presencial?",
-    "answer": "Sí 🙌🏼, sólo toma en cuenta llevar una casa de campaña o al menos cobijas para que no pases frío."
+    "answer": "Sí 🙌🏼, sólo toma en cuenta llevar aunque sea una cobija para que no pases frío."
   },
   {
     "id": 4,
     "question": "¿Me van a dar comida?",
-    "answer": "Si, en la sede presencial en IPN Upiita se proveerá de comida y bebidas para todos los participantes."
+    "answer": "Si, en la sede presencial en ITESM GDL se proveerá de comida y bebidas para todos los participantes."
   },
   {
     "id": 5,
     "question": "¿Cuales son los premios?",
-    "answer": "Hay una bolsa de $10K USDC en premios  + Bounties por parte de superteamMX y challenges por parte de solana."
+    "answer": "Hay una bolsa de más $10K USDC en premios  + Bounties por parte de superteamMX."
   },
   {
     "id": 6,
     "question": "¿A quién va dirigido?",
-    "answer": "Estudiantes, emprendedores, académicos y empresarios de cualquier área."
+    "answer": "Estudiantes, emprendedores, académicos y empresarios de cualquier área que tengan un interes en blockchain"
+  },
+  {
+    "id": 145,
+    "question": "No le muevo ni al excel, aiura!",
+    "answer": "Todo mundo puede participar, te recomendamos que revises https://learn.superteam.mx/ para que vayas aprendiendo sobre solana blockchain y llegues con una idea de lo que quieres hacer"
   },
   {
     "id": 7,
     "question": "¿Cómo se van a conformar los equipos?",
     "answer": "El día del evento se formarán los equipos en el sitio web. Si ya tienes un equipo con amigos, los puedes registrar ese día. Los equipos serán de un máximo de 5 integrantes."
+  },
+  {
+    "id": 7,
+    "question": "¿Cuantás personas pueden estár en un equipo?",
+    "answer": "De 1 a 5 integrantes"
   },
   {
     "id": 7,
@@ -57,6 +67,6 @@
   {
     "id": 9,
     "question": "¿Puedo avanzar antes del hackathon a mi proyecto?",
-    "answer": "Si, sabemos que blockchain y solana son temas complicados, así es que puedes avanzar en tu proyecto desde antes del evento."
+    "answer": "Si, sabemos que blockchain y solana son temas complicados, así es que puedes avanzar en tu proyecto desde dos semanas antes del evento."
   }
 ]
