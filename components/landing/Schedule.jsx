@@ -7,8 +7,8 @@ import { Container } from "@/components/landing/Container";
 
 const schedule = [
   {
-    date: "Febrero 24",
-    dateTime: "2022-11-11",
+    date: "Junio 2",
+    dateTime: "2023-06-02",
     summary: "Primer día de hackathon",
     timeSlots: [
       {
@@ -31,7 +31,7 @@ const schedule = [
       },
       {
         name: "Panel de expertos 🤓🎤",
-        description: "Panel Etherfuse-Decaf-Ottr-Bitso-MH",
+        description: "",
         start: "6:30PM",
         end: "7:30PM",
       },
@@ -56,8 +56,8 @@ const schedule = [
     ],
   },
   {
-    date: "Febrero 25",
-    dateTime: "2022-11-12",
+    date: "Junio 3",
+    dateTime: "2023-06-03",
     summary: "Segundo día de hackathon",
     timeSlots: [
       {
@@ -111,8 +111,8 @@ const schedule = [
     ],
   },
   {
-    date: "Febrero 26",
-    dateTime: "2022-11-13",
+    date: "Junio 4",
+    dateTime: "2023-06-04",
     summary: "Tercer día de hackathon",
     timeSlots: [
       {
@@ -142,9 +142,9 @@ const schedule = [
       {
         name: "Ceremonia de premiación 🏆",
         description:
-          "La premiación se llevará a cabo el día mártes 28 de febrero.",
-        start: "11:00AM",
-        end: "12:00PM",
+          "La premiación se llevará a cabo días despues del hackathon .",
+        start: "",
+        end: "",
       },
     ],
   },

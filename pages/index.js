@@ -202,6 +202,7 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
                   <RewardsComponent />
                   <Instructions />
                   <Speakers />
+                  <Schedule />
                   <Sponsors />
                 </div>
               )}
