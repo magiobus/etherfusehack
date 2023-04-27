@@ -189,7 +189,7 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                                 options={[
                                   {
                                     value: "itesm",
-                                    label: "ITESM",
+                                    label: "Tec de Monterrey",
                                   },
                                   {
                                     value: "unam",
