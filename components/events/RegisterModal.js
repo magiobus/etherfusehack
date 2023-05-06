@@ -11,6 +11,7 @@ import TextArea from "@/components/forms/fields/TextArea";
 import CheckBox from "@/components/forms/fields/CheckBox";
 import TermsCheckBox from "@/components/forms/fields/TermsCheckBox";
 import Select from "@/components/forms/fields/Select";
+import { ipnUnits, itesmUnits } from "@/data/schoolunits";
 
 const shirtSizes = [
   { value: "none", label: "No quiero Playera" },
@@ -217,20 +218,42 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                             </div>
 
                             <div className="inputwrapper my-3">
-                              {/* <Select
-                                  label="¿En qué unidad del IPN estudias?"
-                                  name="ipnUnit"
-                                  options={ipnUnits}
+                              {visitsFromWatch === "itesm" && (
+                                <Select
+                                  label="¿En qué campus del Tec de Mty estudias?"
+                                  name="otherInstitution"
+                                  options={itesmUnits}
                                   register={{
-                                    ...register("ipnUnit", {
+                                    ...register("otherInstitution", {
                                       required: {
                                         value: true,
                                         message: "El Campo es requerido",
                                       },
                                     }),
                                   }}
-                                  errorMessage={errors.ipnUnit?.message}
-                                /> */}
+                                  errorMessage={
+                                    errors.otherInstitution?.message
+                                  }
+                                />
+                              )}
+                              {visitsFromWatch === "ipn" && (
+                                <Select
+                                  label="¿En qué unidad del IPN estudias?"
+                                  name="otherInstitution"
+                                  options={ipnUnits}
+                                  register={{
+                                    ...register("otherInstitution", {
+                                      required: {
+                                        value: true,
+                                        message: "El Campo es requerido",
+                                      },
+                                    }),
+                                  }}
+                                  errorMessage={
+                                    errors.otherInstitution?.message
+                                  }
+                                />
+                              )}
                               {visitsFromWatch === "otro" && (
                                 <div className="my-4 field">
                                   <Input

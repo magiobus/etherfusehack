@@ -156,6 +156,16 @@ const TicketTabs = ({ event }) => {
                                   </p>
                                 )}
 
+                                {attendee?.visitsFrom && (
+                                  <p className="text-xs capitalize leading-5 text-gray-500">
+                                    {" "}
+                                    <span className="font-semibold">
+                                      Visits From:{" "}
+                                    </span>{" "}
+                                    {attendee?.visitsFrom}
+                                  </p>
+                                )}
+
                                 {attendee?.otherInstitution && (
                                   <p className="text-xs capitalize leading-5 text-gray-500">
                                     {" "}

@@ -208,3 +208,18 @@ export const ipnUnits = [
     value: "cet1WalterCross",
   },
 ];
+
+export const itesmUnits = [
+  //make this list with the same format as the other const
+  { label: "Chihuahua", value: "Chihuahua" },
+  { label: "Ciudad de México", value: "cdmx" },
+  { label: "Cuernavaca", value: "cuernavaca" },
+  { label: "Estado de México", value: "estadodemexico" },
+  { label: "Guadalajara", value: "guadalajara" },
+  { label: "Monterrey", value: "monterrey" },
+  { label: "Puebla", value: "puebla" },
+  { label: "Querétaro", value: "queretaro" },
+  { label: "Santa Fe", value: "santafe" },
+  { label: "Sonora Norte", value: "sonoranorte" },
+  { label: "Toluca", value: "toluca" },
+];
