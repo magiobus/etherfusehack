@@ -20,6 +20,7 @@ import agilmentor from "@/public/landingimages/logos/agilmentor.png";
 import mirrorworld from "@/public/landingimages/logos/mirrorworld.png";
 import wuc from "@/public/landingimages/logos/wuc.png";
 import lbank from "@/public/landingimages/logos/lbank.jpeg";
+import hxro from "@/public/landingimages/logos/hxro.png";
 
 const mainSponsors = [
   {
@@ -37,15 +38,20 @@ const mainSponsors = [
     logo: itesm,
     url: "https://tec.mx/es/guadalajara",
   },
-];
-
-const secondSponsors = [
+  {
+    name: "hxro",
+    logo: hxro,
+    url: "https://hxro.com",
+  },
   {
     name: "superteam",
     logo: superteamlogo,
     url: "https://mx.superteam.fun/",
     extraClassName: "",
   },
+];
+
+const secondSponsors = [
   {
     name: "hellomoon",
     logo: hellomoonblack,
@@ -114,7 +120,7 @@ export function Sponsors() {
           Hackathon Sponsors &amp; Aliados
         </h2>
         <div className="logoscontainer md:my-8 ">
-          <div className=" px-4 md:px-0 grid max-w-7xl md:-mb-4 grid-cols-1 place-content-center gap-x-32 md:grid-cols-3  md:gap-x-16 lg:gap-x-32 w-full text-center">
+          <div className="px-4 md:px-0 grid max-w-7xl md:-mb-4 grid-cols-1 place-content-center gap-x-32 md:grid-cols-3 md:gap-x-16 lg:gap-x-32 w-full text-center">
             {mainSponsors.map((sponsor) => (
               <div
                 className="flex justify-center items-center "
@@ -124,7 +130,7 @@ export function Sponsors() {
                   href={sponsor?.url || "#"}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`flex items-center justify-center  ${sponsor.extraClassName}`}
+                  className={`flex items-center justify-center ${sponsor.extraClassName} my-4`}
                 >
                   <Image src={sponsor.logo} alt={sponsor.name} unoptimized />
                 </a>
