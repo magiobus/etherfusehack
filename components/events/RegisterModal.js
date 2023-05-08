@@ -201,6 +201,10 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                                     label: "IPN",
                                   },
                                   {
+                                    value: "itat",
+                                    label: "ITAT",
+                                  },
+                                  {
                                     value: "otro",
                                     label: "Otro",
                                   },
