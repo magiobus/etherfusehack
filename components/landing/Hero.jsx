@@ -27,7 +27,7 @@ export function Hero() {
       </div>
       <Container className="relative">
         <div className="mx-auto max-w-2xl lg:max-w-4xl lg:px-12">
-          <h1 className="font-display text-5xl font-bold tracking-tighter bg-black px-4 py-4 text-happy-yellow sm:text-7xl">
+          <h1 className="font-display text-5xl font-bold tracking-tighter bg-happy-middark px-4 py-4 text-happy-yellow sm:text-7xl">
             <span className="sr-only">Etherfuse hackathon - </span>
             El hackathon de Solana blockchain para CDMX 🇲🇽
           </h1>
@@ -46,7 +46,7 @@ export function Hero() {
               </p>
             </div>
           </div>
-          <div className="mt-10 bg-black w-full flex justify-center items-center rounded-md">
+          <div className="mt-10 bg-happy-middark w-full flex justify-center items-center rounded-md">
             <Link href="/events/63c3713740c2442abc5ae9cf">
               <a className="text-happy-yellow text-center font-bold rounded-md px-4 py-4 text-2xl w-full ">
                 Regístrate

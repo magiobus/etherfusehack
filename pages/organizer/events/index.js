@@ -58,7 +58,7 @@ const OrganizerEvents = () => {
               <div className="bg-white py-6 px-4 space-y-6 sm:p-6">
                 <div>
                   <div className="headercontainer">
-                    <h3 className="text-lg leading-6 font-medium text-happy-yellow bg-black">
+                    <h3 className="text-lg leading-6 font-medium text-happy-yellow bg-happy-middark">
                       Mis Eventos
                     </h3>
                   </div>
@@ -82,7 +82,7 @@ const OrganizerEvents = () => {
                               href={`/organizer/events/${event._id}`}
                             >
                               <a>
-                                <div className="eventcontainer flex flex-col cursor-pointer bg-black rounded-md ">
+                                <div className="eventcontainer flex flex-col cursor-pointer bg-happy-middark rounded-md ">
                                   <Image
                                     src={event?.photo}
                                     alt={event?.name}

@@ -12,7 +12,7 @@ const AdminEventsAdd = () => {
             <div className="shadow sm:rounded-md sm:overflow-hidden">
               <div className="bg-white py-6  space-y-6 ">
                 <div className="flex justify-between px-4 w-full items-center ">
-                  <h3 className="text-lg leading-6 font-medium text-happy-yellow bg-black">
+                  <h3 className="text-lg leading-6 font-medium text-happy-yellow bg-happy-middark">
                     Agrega un evento a Etherfuse Hackathon
                   </h3>
                 </div>

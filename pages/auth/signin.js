@@ -28,17 +28,17 @@ const SignInPage = ({ providers, csrfToken, errorMessage }) => {
                     />
                   </a>
                 </Link>
-                <h2 className="mt-6 text-center text-3xl tracking-tight font-bold text-happy-yellow bg-black px-4 py-2">
+                <h2 className="mt-6 text-center text-3xl tracking-tight font-bold text-happy-yellow bg-happy-middark px-4 py-2">
                   Inicia Sesión
                 </h2>
               </div>
 
               <div className="mt-8">
-                <div className="mt-1 w-full space-y-4 bg-black">
+                <div className="mt-1 w-full space-y-4 bg-happy-middark">
                   {providers.google && (
                     <div>
                       <div
-                        className="cursor-pointer w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-black   text-happy-yellow  text-sm font-medium "
+                        className="cursor-pointer w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-happy-middark   text-happy-yellow  text-sm font-medium "
                         onClick={() => signIn(providers.google.id)}
                       >
                         <svg
@@ -109,7 +109,7 @@ const SignInPage = ({ providers, csrfToken, errorMessage }) => {
                     <div>
                       <button
                         type="submit"
-                        className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-happy-yellow bg-black hover:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black"
+                        className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-happy-yellow bg-happy-middark hover:bg-happy-middark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black"
                       >
                         Iniciar Sesión
                       </button>

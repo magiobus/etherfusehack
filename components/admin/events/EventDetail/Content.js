@@ -36,7 +36,7 @@ const EventDetailCOntent = ({ event, setJustScanned }) => {
           {photo && <Image src={photo} alt={name} width={1280} height={640} />}
           <div className="register w-full mt-4">
             <button
-              className="w-full text-happy-yellow px-2 py-1 bg-black rounded-md"
+              className="w-full text-happy-yellow px-2 py-1 bg-happy-middark rounded-md"
               onClick={() => handleTicketTypeChange()}
             >
               Escanear QR
@@ -44,7 +44,7 @@ const EventDetailCOntent = ({ event, setJustScanned }) => {
             {router.asPath.includes("admin") && (
               <Link href={`${router.asPath}/edit`}>
                 <a>
-                  <p className="wrapperbutton bg-black text-center  px-2 py-1 text-happy-yellow rounded-md w-full my-4">
+                  <p className="wrapperbutton bg-happy-middark text-center  px-2 py-1 text-happy-yellow rounded-md w-full my-4">
                     Editar evento
                   </p>
                 </a>

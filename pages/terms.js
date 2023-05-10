@@ -7,7 +7,7 @@ export default function TermsPage() {
         <div className="relative px-4 sm:px-6 lg:px-8">
           <div className="text-lg max-w-prose mx-auto">
             <div className="text-center">
-              <p className="text-3xl font-extrabold text-happy-yellow bg-black  sm:tracking-tight lg:text-4xl py-2">
+              <p className="text-3xl font-extrabold text-happy-yellow bg-happy-middark  sm:tracking-tight lg:text-4xl py-2">
                 Términos y Condiciones
               </p>
             </div>

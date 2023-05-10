@@ -12,7 +12,7 @@ const EventsPage = ({ upcomingEvents, pastEvents }) => {
           <div className="">
             <div className="max-w-7xl mx-auto mt-12 px-4 sm:py-18 sm:px-6 lg:px-8 ">
               <div className="text-center">
-                <p className="text-3xl font-extrabold text-happy-yellow bg-black  sm:tracking-tight lg:text-4xl py-2">
+                <p className="text-3xl font-extrabold text-happy-yellow bg-happy-middark  sm:tracking-tight lg:text-4xl py-2">
                   Sedes del Hackathon
                 </p>
                 {/* <p className="max-w-xl leading-3 mt-2 mx-auto text-black font-bold mb-8">

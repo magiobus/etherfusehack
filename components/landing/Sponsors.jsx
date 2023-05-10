@@ -116,7 +116,7 @@ export function Sponsors() {
   return (
     <section id="sponsors" aria-label="Sponsors" className="py-32  bg-white ">
       <Container className="bg-white">
-        <h2 className="mx-auto max-w-2xl text-center font-display text-4xl font-medium tracking-tighter text-happy-yellow bg-black py-4 sm:text-5xl">
+        <h2 className="mx-auto max-w-2xl text-center font-display text-4xl font-medium tracking-tighter text-happy-cloralex bg-happy-middark py-4 sm:text-5xl">
           Hackathon Sponsors &amp; Aliados
         </h2>
         <div className="logoscontainer md:my-8 ">

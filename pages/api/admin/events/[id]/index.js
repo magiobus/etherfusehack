@@ -125,7 +125,6 @@ handler.put(async (req, res) => {
       { returnOriginal: false }
     );
 
-    console.info("updatedEvent", updatedEvent);
     res.json(updatedEvent.value);
   } catch (error) {
     console.error("error updating event", error);

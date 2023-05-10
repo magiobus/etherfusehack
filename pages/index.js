@@ -47,7 +47,7 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
             eventData={event}
           />
 
-          <div className="header mt-0 mb-4 md:my-4 flex flex-col lg:flex-row lg:justify-between lg:items-center bg-black">
+          <div className="header mt-0 mb-4 md:my-4 flex flex-col lg:flex-row lg:justify-between lg:items-center bg-happy-middark">
             <Image
               src={photo}
               alt={name}
@@ -56,10 +56,12 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
               className="object-fill"
             />
             <div
-              className="rightsection  flex flex-col justify-center items-start h-full py-4 px-4 w-full lg:w-4/12 mr-4 text-happy-yellow
+              className="rightsection  flex flex-col justify-center items-start h-full py-4 px-4 w-full lg:w-4/12 mr-4 
           "
             >
-              <h1 className="font-bold text-2xl mb-4">{name}</h1>
+              <h1 className="font-bold text-2xl mb-4 text-happy-cloralex">
+                {name}
+              </h1>
               {/* //PLACE */}
               {modality === "irl" && (
                 <p className="capitalize text-white">
@@ -73,7 +75,7 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
 
               {(modality === "irl" || modality === "irl-virtual") && (
                 <>
-                  <p>
+                  <p className="text-happy-cloralex">
                     {" "}
                     @{placeName} - {placeState}, {placeCity} {placeCountry}{" "}
                   </p>
@@ -94,7 +96,9 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
               {/* TODO: DELETE THIS LATER */}
               <p className="mt-4 text-white font-bold">Abierto al público</p>
               {registerCount ? (
-                <p>{registerCount} asistentes registrados</p>
+                <p className="text-happy-cloralex">
+                  {registerCount} asistentes registrados
+                </p>
               ) : (
                 ""
               )}
@@ -104,14 +108,14 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
                     <p className="text-red-400">Este evento ya ha pasado ☹️</p>
                     <a
                       href="#eventprojects"
-                      className="bg-happy-yellow text-black px-2 py-1 my-2"
+                      className="bg-happy-yellow text-happy-text px-2 py-1 my-2"
                     >
                       Ver proyectos de este evento
                     </a>
                   </div>
                 ) : (
                   <button
-                    className="w-full bg-happy-yellow text-black flex items-center justify-center px-8 py-3 border border-transparent text-base rounded-md font-bold bg-happy-yellow-600 hover:bg-happy-yellow-700 md:py-4 md:text-lg md:px-10"
+                    className="w-full bg-happy-yellow flex items-center justify-center px-8 py-3 border border-transparent text-base text-happy-text rounded-md font-bold bg-happy-yellow-600 hover:bg-happy-yellow-700 md:py-4 md:text-lg md:px-10"
                     onClick={() => setModalOpen(true)}
                   >
                     Regístrarse
@@ -182,9 +186,7 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
                       <>
                         <p className="">{placeName}</p>
                         <p className="">{placeAddress}</p>
-                        <p className="capitalize mb-4">
-                          {placeState}, {placeCity} {placeCountry}
-                        </p>
+                        <p className="capitalize mb-4 text-black"></p>
                         <p className="capitalize text-black">
                           Modalidad Virtual Disponible 💻
                         </p>

@@ -1,0 +1,172 @@
+# Query: bg-black
+# Flags: CaseSensitive
+
+93 results - 43 files
+
+etherfusehack • components/admin/events/EventDetail/Content.js:
+  39:               className="w-full text-happy-yellow px-2 py-1 bg-happy-middark rounded-md"
+  47:                   <p className="wrapperbutton bg-happy-middark text-center  px-2 py-1 text-happy-yellow rounded-md w-full my-4">
+
+etherfusehack • components/admin/marketing/PromoteWhatsappModal.js:
+  156:           <div className="fixed w-full inset-0 bg-happy-middark bg-opacity-25" />
+  183:                     <h2 className="text-happy-yellow bg-happy-middark font-bold">
+  235:                           className="my-4 inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-happy-yellow bg-happy-middark hover:bg-happy-pink focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+
+etherfusehack • components/common/Footer.js:
+  29:     <footer className="bg-happy-middark">
+
+etherfusehack • components/errors/NoAccessErrorPage.js:
+  18:                   className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-happy-yellow bg-happy-middark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+
+etherfusehack • components/events/EventsList.js:
+  30:       <div className="thumbitem  cursor-pointer mx-4 mb-4  shadow-md bg-happy-middark rounded-b-lg rounded-t-lg">
+
+etherfusehack • components/events/ProjectsList.js:
+  7:       <h2 className="bg-happy-middark text-happy-yellow text-center text-3xl">
+
+etherfusehack • components/events/RegisterModal.js:
+  110:           <div className="fixed w-full inset-0 bg-happy-middark bg-opacity-25" />
+  141:                           className="text-lg font-medium leading-6 text-happy-yellow bg-happy-middark"
+  372:                               className="inline-flex justify-center rounded-md border border-transparent bg-happy-middark text-happy-yellow px-4 py-2 text-sm font-medium  hover:bg-happy-yellow-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+  390:                         <h1 className="text-3xl font-bold text-happy-yellow bg-happy-middark py-2">
+  417:                         <div className="bannersito bg-happy-middark text-happy-yellow py-1 my-4">
+
+etherfusehack • components/forms/EmptyState.js:
+  21:                 className="inline-flex items-center rounded-md border border-transparent bg-happy-middark px-4 py-2 text-sm font-medium text-happy-yellow shadow-sm hover:bg-happy-middark focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
+
+etherfusehack • components/forms/EventForm.js:
+  485:           className="my-4 inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-happy-yellow bg-happy-middark hover:bg-happy-middark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+
+etherfusehack • components/forms/ProjectForm.js:
+  241:             labelClassName="bg-happy-middark text-happy-yellow"
+  295:             labelClassName="bg-happy-middark text-happy-yellow"
+  390:             labelClassName="bg-happy-middark text-happy-yellow"
+  452:           className="my-4 inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-happy-yellow bg-happy-middark hover:bg-happy-middark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black"
+
+etherfusehack • components/forms/QRModal.js:
+  113:           <div className="fixed w-full inset-0 bg-happy-middark bg-opacity-25" />
+  143:                           className="rounded-lg px-2 py-1 bg-happy-middark text-white"
+  181:                               className="rounded-lg px-2 py-1 bg-happy-middark text-white"
+  273:                               className="rounded-lg px-2 py-1 bg-happy-middark text-white"
+
+etherfusehack • components/forms/fields/CoverImage.js:
+  69:                 className="relative cursor-pointer px-2 font-medium text-happy-yellow hover:text-happy-yellow bg-happy-middark focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
+
+etherfusehack • components/forms/fields/ThumbImage.js:
+  69:                 className="relative cursor-pointer px-2 font-medium text-happy-yellow hover:text-happy-yellow bg-happy-middark focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
+
+etherfusehack • components/landing/Hero.jsx:
+  30:           <h1 className="font-display text-5xl font-bold tracking-tighter bg-happy-middark px-4 py-4 text-happy-yellow sm:text-7xl">
+  49:           <div className="mt-10 bg-happy-middark w-full flex justify-center items-center rounded-md">
+
+etherfusehack • components/landing/LandingHeader.jsx:
+  9:         <div className="bg-happy-middark  text-happy-yellow order-first -mx-4 flex flex-auto basis-full overflow-x-auto whitespace-nowrap border-b border-blue-600/10 py-4 font-mono text-sm  sm:-mx-6 lg:order-none lg:mx-0 lg:basis-auto lg:border-0 lg:py-2">
+
+etherfusehack • components/landing/Schedule.jsx:
+  219:       <h3 className="text-2xl font-semibold tracking-tight text-happy-yellow bg-happy-middark px-2">
+  288:           <h2 className="font-display text-4xl font-medium tracking-tighter text-happy-yellow bg-happy-middark px-2 py-2 sm:text-5xl">
+
+etherfusehack • components/landing/Speakers.jsx:
+  178:             className="font-display text-4xl font-medium tracking-tighter text-happy-yellow bg-happy-middark px-2 py-2 sm:text-5xl"
+  210:                             ? "text-happy-yellow bg-happy-middark px-2"
+  234:                     <div className="group relative h-[17.5rem] transform overflow-hidden rounded-4xl bg-happy-middark">
+
+etherfusehack • components/landing/Sponsors.jsx:
+  119:         <h2 className="mx-auto max-w-2xl text-center font-display text-4xl font-medium tracking-tighter text-happy-yellow bg-happy-middark py-4 sm:text-5xl">
+
+etherfusehack • components/layouts/AccountLayout.js:
+  74:                                 ? "bg-happy-middark text-happy-yellow hover:text-happy-yellow hover:bg-happy-middark"
+
+etherfusehack • components/layouts/AdminLayout.js:
+  91:                                 ? "bg-happy-middark text-happy-yellow hover:text-happy-yellow hover:bg-happy-middark"
+
+etherfusehack • components/layouts/OrganizerLayout.js:
+  72:                                 ? "bg-happy-middark text-happy-yellow hover:text-happy-yellow hover:bg-happy-middark"
+
+etherfusehack • pages/faqs.js:
+  10:             <p className="text-3xl font-extrabold text-happy-yellow bg-happy-middark  sm:tracking-tight lg:text-4xl py-2">
+  94:                     className="text-happy-yellow bg-happy-middark"
+
+etherfusehack • pages/resources.js:
+   14:                   <p className="text-3xl font-extrabold text-happy-yellow bg-happy-middark  sm:tracking-tight lg:text-4xl py-2">
+   46:                       className="bg-happy-middark px-2 py-1 text-happy-yellow"
+   63:                       className="bg-happy-middark px-2 py-1 text-happy-yellow"
+   74:                         <span className="text-happy-yellow bg-happy-middark px-4">
+   82:                 <h3 className="bg-happy-middark text-happy-yellow text-4xl mt-24 text-center">
+  151:                   <h3 className="bg-happy-middark text-happy-yellow text-4xl mt-12 text-center">
+
+etherfusehack • pages/terms.js:
+  10:               <p className="text-3xl font-extrabold text-happy-yellow bg-happy-middark  sm:tracking-tight lg:text-4xl py-2">
+
+etherfusehack • pages/admin/dashboard.js:
+  33:                   <h3 className="text-lg leading-6 font-medium text-happy-yellow bg-happy-middark">
+
+etherfusehack • pages/admin/events/add.js:
+  15:                   <h3 className="text-lg leading-6 font-medium text-happy-yellow bg-happy-middark">
+
+etherfusehack • pages/admin/events/index.js:
+   58:                   <h3 className="text-lg leading-6 font-medium text-happy-yellow bg-happy-middark">
+   65:                       className="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-happy-yellow bg-happy-middark hover:bg-happy-middark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-happy-yellow"
+  167:                                       <a className="text-happy-yellow bg-happy-middark hover:text-happy-yellow px-2 py-1 rounded-md">
+
+etherfusehack • pages/admin/marketing/index.js:
+  28:                     <h3 className="text-lg leading-6 font-medium bg-happy-middark text-happy-yellow px-2">
+  41:                   className=" w-full md:w-auto  bg-happy-pink px-2 py-1 bg-happy-middark  text-happy-yellow my-2 rounded-md"
+
+etherfusehack • pages/admin/users/[id].js:
+  40:                   <h3 className="text-lg leading-6 font-medium text-happy-yellow bg-happy-middark">
+  47:                       className="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-happy-yellow bg-happy-middark hover:bg-happy-middark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-happy-yellow"
+
+etherfusehack • pages/admin/users/add.js:
+  22:                   <h3 className="text-lg leading-6 font-medium text-happy-yellow bg-happy-middark">
+  28:                       className="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-happy-yellow bg-happy-middark  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-happy-yellow"
+
+etherfusehack • pages/admin/users/index.js:
+   60:                   <h3 className="text-lg leading-6 font-medium text-happy-yellow bg-happy-middark">
+   67:                       className="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-happy-yellow bg-happy-middark hover:bg-happy-middark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-happy-yellow"
+  157:                                       <a className="text-happy-yellow bg-happy-middark px-2 rounded-md py-1">
+
+etherfusehack • pages/auth/signin.js:
+   31:                 <h2 className="mt-6 text-center text-3xl tracking-tight font-bold text-happy-yellow bg-happy-middark px-4 py-2">
+   37:                 <div className="mt-1 w-full space-y-4 bg-happy-middark">
+   41:                         className="cursor-pointer w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-happy-middark   text-happy-yellow  text-sm font-medium "
+  112:                         className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-happy-yellow bg-happy-middark hover:bg-happy-middark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black"
+
+etherfusehack • pages/auth/verify-request.js:
+  20:             <h2 className="mt-6 text-center text-3xl tracking-tight font-bold text-happy-yellow bg-happy-middark px-4 py-2">
+  24:           <p className="font-bold text-happy-yellow bg-happy-middark px-2">
+
+etherfusehack • pages/events/[id].js:
+  50:           <div className="header mt-0 mb-4 md:my-4 flex flex-col lg:flex-row lg:justify-between lg:items-center bg-happy-middark">
+
+etherfusehack • pages/events/index.js:
+  15:                 <p className="text-3xl font-extrabold text-happy-yellow bg-happy-middark  sm:tracking-tight lg:text-4xl py-2">
+
+etherfusehack • pages/organizer/events/index.js:
+  61:                     <h3 className="text-lg leading-6 font-medium text-happy-yellow bg-happy-middark">
+  85:                                 <div className="eventcontainer flex flex-col cursor-pointer bg-happy-middark rounded-md ">
+
+etherfusehack • pages/pastevents/index.js:
+  15:                 <p className="text-3xl font-extrabold text-happy-yellow bg-happy-middark  sm:tracking-tight lg:text-4xl py-2">
+
+etherfusehack • pages/projects/[projectId].js:
+  119:             <div className="winner bg-happy-middark text-happy-yellow px-2 py-1 my-2">
+
+etherfusehack • pages/user/profile.js:
+   98:                 <div className="bg-happy-middark text-happy-yellow ">
+  202:                     className="bg-happy-middark border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-happy-yellow hover:bg-happy-middark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-happy-yellow"
+
+etherfusehack • pages/user/tickets.js:
+   61:               <div className="bg-happy-middark text-happy-yellow ">
+  131:                                   className=" text-happy-yellow bg-happy-middark px-2 py-1 rounded-md"
+
+etherfusehack • pages/user/projects/add.js:
+  15:                   <h3 className="text-lg leading-6 font-medium text-happy-yellow bg-happy-middark">
+
+etherfusehack • pages/user/projects/index.js:
+   61:               <div className="bg-happy-middark text-happy-yellow ">
+   75:                         className=" text-happy-yellow bg-happy-middark px-2 py-1 rounded-md"
+  108:                                   className=" text-happy-yellow bg-happy-middark px-2 py-1 rounded-md"
+
+etherfusehack • pages/user/projects/[id]/edit.js:
+  15:                   <h3 className="text-lg leading-6 font-medium text-happy-yellow bg-happy-middark">

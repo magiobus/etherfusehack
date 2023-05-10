@@ -11,7 +11,7 @@ const ResourcesPage = () => {
             <div className="bg-white w-full">
               <div className="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
                 <div className="text-center">
-                  <p className="text-3xl font-extrabold text-happy-yellow bg-black  sm:tracking-tight lg:text-4xl py-2">
+                  <p className="text-3xl font-extrabold text-happy-yellow bg-happy-middark  sm:tracking-tight lg:text-4xl py-2">
                     Recursos
                   </p>
                 </div>
@@ -43,7 +43,7 @@ const ResourcesPage = () => {
                       href="https://build.superteam.fun"
                       target="_blank"
                       rel="noreferrer"
-                      className="bg-black px-2 py-1 text-happy-yellow"
+                      className="bg-happy-middark px-2 py-1 text-happy-yellow"
                     >
                       https://build.superteam.fun
                     </a>
@@ -60,7 +60,7 @@ const ResourcesPage = () => {
                       href="https://learn.superteam.mx/"
                       target="_blank"
                       rel="noreferrer"
-                      className="bg-black px-2 py-1 text-happy-yellow"
+                      className="bg-happy-middark px-2 py-1 text-happy-yellow"
                     >
                       https://learn.superteam.mx/
                     </a>
@@ -71,7 +71,7 @@ const ResourcesPage = () => {
                     <Link href="/">
                       <a>
                         {" "}
-                        <span className="text-happy-yellow bg-black px-4">
+                        <span className="text-happy-yellow bg-happy-middark px-4">
                           click aquí
                         </span>
                       </a>
@@ -79,7 +79,7 @@ const ResourcesPage = () => {
                   </p>
                 </div>
 
-                <h3 className="bg-black text-happy-yellow text-4xl mt-24 text-center">
+                <h3 className="bg-happy-middark text-happy-yellow text-4xl mt-24 text-center">
                   Teoría y Conceptos de WEB 3.0
                 </h3>
 
@@ -148,7 +148,7 @@ const ResourcesPage = () => {
 
                 {/* //CONTENT */}
                 <>
-                  <h3 className="bg-black text-happy-yellow text-4xl mt-12 text-center">
+                  <h3 className="bg-happy-middark text-happy-yellow text-4xl mt-12 text-center">
                     WorkShop EtherFuse (Hackathones pasados)
                   </h3>
                   <div className="container mt-8 grid grid-cols-1 md:grid-cols-2  space-y-8 w-full">

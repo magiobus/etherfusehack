@@ -4,7 +4,7 @@ import Image from "next/image";
 const ProjectsList = ({ projects, label = "Proyectos de este evento" }) => {
   return (
     <div className="container">
-      <h2 className="bg-black text-happy-yellow text-center text-3xl">
+      <h2 className="bg-happy-middark text-happy-yellow text-center text-3xl">
         {projects.length > 0 && `${label} (${projects.length})`}
       </h2>
       {projects && projects.length > 0 ? (

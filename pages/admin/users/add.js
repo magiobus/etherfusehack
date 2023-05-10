@@ -19,13 +19,13 @@ const AdminUsersAddPage = ({ HOST }) => {
             <div className="shadow sm:rounded-md sm:overflow-hidden">
               <div className="bg-white py-6 space-y-8 ">
                 <div className="flex flex-row px-8 w-full justify-between items-center  ">
-                  <h3 className="text-lg leading-6 font-medium text-happy-yellow bg-black">
+                  <h3 className="text-lg leading-6 font-medium text-happy-yellow bg-happy-middark">
                     Add a user
                   </h3>
                   <Link href="/admin/users" passHref>
                     <button
                       type="button"
-                      className="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-happy-yellow bg-black  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-happy-yellow"
+                      className="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-happy-yellow bg-happy-middark  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-happy-yellow"
                     >
                       Back to Users List
                     </button>

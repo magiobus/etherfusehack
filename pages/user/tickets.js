@@ -58,7 +58,7 @@ const ProfilePage = () => {
         <div className="relative bg-white w-full ">
           <div className="shadow sm:rounded-md sm:overflow-hidden">
             <div className="bg-white py-6 px-4 space-y-6 sm:p-6">
-              <div className="bg-black text-happy-yellow ">
+              <div className="bg-happy-middark text-happy-yellow ">
                 <h3 className="text-lg leading-6 font-medium w-full ">
                   Mis Tickets
                 </h3>
@@ -128,7 +128,7 @@ const ProfilePage = () => {
                                   href={ticket?.qrUrl}
                                   target="_blank"
                                   rel="noreferrer"
-                                  className=" text-happy-yellow bg-black px-2 py-1 rounded-md"
+                                  className=" text-happy-yellow bg-happy-middark px-2 py-1 rounded-md"
                                 >
                                   Ver Ticket
                                 </a>

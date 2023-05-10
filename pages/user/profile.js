@@ -95,7 +95,7 @@ const ProfilePage = () => {
           <form onSubmit={handleSubmit(submitHandler)}>
             <div className="shadow sm:rounded-md sm:overflow-hidden">
               <div className="bg-white py-6 px-4 space-y-6 sm:p-6">
-                <div className="bg-black text-happy-yellow ">
+                <div className="bg-happy-middark text-happy-yellow ">
                   <h3 className="text-lg leading-6 font-medium w-full ">
                     Información de mi cuenta
                   </h3>
@@ -199,7 +199,7 @@ const ProfilePage = () => {
                 <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
                   <button
                     type="submit"
-                    className="bg-black border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-happy-yellow hover:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-happy-yellow"
+                    className="bg-happy-middark border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-happy-yellow hover:bg-happy-middark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-happy-yellow"
                   >
                     {isLoading ? <LoadingCircle /> : "Actualizar"}
                   </button>

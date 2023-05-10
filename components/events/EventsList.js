@@ -27,7 +27,7 @@ const EventThumb = ({ data }) => {
 
   return (
     <Link href={`/events/${_id}`} passHref>
-      <div className="thumbitem  cursor-pointer mx-4 mb-4  shadow-md bg-black rounded-b-lg rounded-t-lg">
+      <div className="thumbitem  cursor-pointer mx-4 mb-4  shadow-md bg-happy-middark rounded-b-lg rounded-t-lg">
         <div className="photocontainer ">
           <Image
             src={photo}
