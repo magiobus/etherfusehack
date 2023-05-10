@@ -47,7 +47,7 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
             eventData={event}
           />
 
-          <div className="header mt-0 mb-4 md:my-4 flex flex-col lg:flex-row lg:justify-between lg:items-center bg-black">
+          <div className="header mt-0 mb-4 md:my-4 flex flex-col lg:flex-row lg:justify-between lg:items-center bg-happy-middark">
             <Image
               src={photo}
               alt={name}

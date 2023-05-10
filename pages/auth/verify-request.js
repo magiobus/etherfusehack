@@ -17,11 +17,11 @@ const VerifyRequestPage = () => {
                 />
               </a>
             </Link>
-            <h2 className="mt-6 text-center text-3xl tracking-tight font-bold text-happy-yellow bg-black px-4 py-2">
+            <h2 className="mt-6 text-center text-3xl tracking-tight font-bold text-happy-yellow bg-happy-middark px-4 py-2">
               Inicia Sesión
             </h2>
           </div>
-          <p className="font-bold text-happy-yellow bg-black px-2">
+          <p className="font-bold text-happy-yellow bg-happy-middark px-2">
             Te hemos enviado un email 🙌
           </p>{" "}
           <p>

@@ -25,12 +25,14 @@ const Header = ({ fixed = false }) => {
   const { data: session } = useSession();
 
   return (
-    <Popover className={`relative bg-black `}>
+    <Popover className={`relative bg-happy-middark `}>
       <div
         className={`absolute inset-0 shadow  pointer-events-none `}
         aria-hidden="true"
       />
-      <div className={`${fixed && "fixed z-50"}  bg-black  w-full z-50 `}>
+      <div
+        className={`${fixed && "fixed z-50"}  bg-happy-middark  w-full z-50 `}
+      >
         {/* DESKTOP */}
         <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-5 sm:px-6 sm:py-4 lg:px-8 md:justify-start md:space-x-10 ">
           <div>
@@ -54,7 +56,7 @@ const Header = ({ fixed = false }) => {
             <Popover.Group as="nav" className="flex space-x-10">
               {navigation.pages.map((page) => (
                 <Link key={page.name} href={page.href}>
-                  <a className="text-base font-medium text-happy-yellow">
+                  <a className="text-base font-medium text-happy-text">
                     {page.name}
                   </a>
                 </Link>
@@ -92,7 +94,7 @@ const Header = ({ fixed = false }) => {
           focus
           className="absolute z-30 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
         >
-          <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-black divide-y-2 divide-gray-50">
+          <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-happy-middark divide-y-2 divide-gray-50">
             <div className="pt-5 pb-6 px-5 sm:pb-8 bg-happy-pink">
               <div className="flex items-center justify-between">
                 <div>
@@ -104,7 +106,7 @@ const Header = ({ fixed = false }) => {
                   </Link>
                 </div>
                 <div className="-mr-2">
-                  <Popover.Button className="bg-black rounded-md p-2 inline-flex items-center justify-center text-happy-yellow   focus:outline-none focus:ring-2 focus:ring-inset focus:ring-happy-pink">
+                  <Popover.Button className="bg-happy-middark rounded-md p-2 inline-flex items-center justify-center text-happy-yellow   focus:outline-none focus:ring-2 focus:ring-inset focus:ring-happy-pink">
                     <XIcon className="h-6 w-6" aria-hidden="true" />
                   </Popover.Button>
                 </div>
@@ -169,13 +171,13 @@ const SessionMenu = ({ session }) => {
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95"
           >
-            <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-black ring-1 ring-black ring-opacity-5 focus:outline-none z-40">
+            <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-happy-middark ring-1 ring-black ring-opacity-5 focus:outline-none z-40">
               <Menu.Item>
                 {({ active }) => (
                   <Link href="/user/profile">
                     <a
                       className={classNames(
-                        active ? "bg-black" : "",
+                        active ? "bg-happy-middark" : "",
                         "block px-4 py-2 text-sm text-happy-yellow"
                       )}
                     >
@@ -189,7 +191,7 @@ const SessionMenu = ({ session }) => {
                   <Link href="/user/tickets">
                     <a
                       className={classNames(
-                        active ? "bg-black" : "",
+                        active ? "bg-happy-middark" : "",
                         "block px-4 py-2 text-sm text-happy-yellow"
                       )}
                     >
@@ -203,7 +205,7 @@ const SessionMenu = ({ session }) => {
                   <Link href="/user/projects">
                     <a
                       className={classNames(
-                        active ? "bg-black" : "",
+                        active ? "bg-happy-middark" : "",
                         "block px-4 py-2 text-sm text-happy-yellow"
                       )}
                     >
@@ -219,7 +221,7 @@ const SessionMenu = ({ session }) => {
                     <Link href="/organizer/events">
                       <a
                         className={classNames(
-                          active ? "bg-black" : "",
+                          active ? "bg-happy-middark" : "",
                           "block px-4 py-2 text-sm text-happy-yellow"
                         )}
                       >
@@ -236,7 +238,7 @@ const SessionMenu = ({ session }) => {
                     <Link href="/admin/dashboard">
                       <a
                         className={classNames(
-                          active ? "bg-black" : "",
+                          active ? "bg-happy-middark" : "",
                           "block px-4 py-2 text-sm text-happy-yellow"
                         )}
                       >
@@ -251,7 +253,7 @@ const SessionMenu = ({ session }) => {
                 {({ active }) => (
                   <div
                     className={classNames(
-                      active ? "bg-black" : "",
+                      active ? "bg-happy-middark" : "",
                       "block px-4 py-2 text-sm text-happy-yellow cursor-pointer"
                     )}
                     onClick={() => signOut()}

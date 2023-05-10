@@ -153,7 +153,7 @@ const PromoteWhatsappModal = ({ isOpen = false, setIsOpen }) => {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed w-full inset-0 bg-black bg-opacity-25" />
+          <div className="fixed w-full inset-0 bg-happy-middark bg-opacity-25" />
         </Transition.Child>
 
         <div className="fixed inset-0 overflow-y-auto">
@@ -180,7 +180,7 @@ const PromoteWhatsappModal = ({ isOpen = false, setIsOpen }) => {
                     </button>
                   </div>
                   <div className="content">
-                    <h2 className="text-happy-yellow bg-black font-bold">
+                    <h2 className="text-happy-yellow bg-happy-middark font-bold">
                       Promocionar evento via whatsapp
                     </h2>
                     {sendingMessages ? (
@@ -232,7 +232,7 @@ const PromoteWhatsappModal = ({ isOpen = false, setIsOpen }) => {
                         />
                         <button
                           type="submit"
-                          className="my-4 inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-happy-yellow bg-black hover:bg-happy-pink focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                          className="my-4 inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-happy-yellow bg-happy-middark hover:bg-happy-pink focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                           disabled={buttonLoading}
                         >
                           {buttonLoading ? (

@@ -25,7 +25,7 @@ const AdminMarketing = () => {
               <div className="bg-white py-6 px-4 space-y-6 sm:p-6">
                 <div>
                   <div className="flex justify-between  w-full items-center ">
-                    <h3 className="text-lg leading-6 font-medium bg-black text-happy-yellow px-2">
+                    <h3 className="text-lg leading-6 font-medium bg-happy-middark text-happy-yellow px-2">
                       Marketing
                     </h3>
                   </div>
@@ -38,7 +38,7 @@ const AdminMarketing = () => {
               <div className="content mx-6 py-4">
                 <p className="mb-2">Selecciona una opción</p>
                 <button
-                  className=" w-full md:w-auto  bg-happy-pink px-2 py-1 bg-black  text-happy-yellow my-2 rounded-md"
+                  className=" w-full md:w-auto  bg-happy-pink px-2 py-1 bg-happy-middark  text-happy-yellow my-2 rounded-md"
                   onClick={() => setModalOpen(true)}
                 >
                   Mandar mensajes masivos via whatsapp

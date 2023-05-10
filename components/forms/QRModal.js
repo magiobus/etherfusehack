@@ -110,7 +110,7 @@ const QRModal = ({
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed w-full inset-0 bg-black bg-opacity-25" />
+          <div className="fixed w-full inset-0 bg-happy-middark bg-opacity-25" />
         </Transition.Child>
 
         <div className="fixed inset-0 overflow-y-auto">
@@ -140,7 +140,7 @@ const QRModal = ({
                       </p>
                       <div className="buttoncontainer mt-4 flex justify-center items-center">
                         <button
-                          className="rounded-lg px-2 py-1 bg-black text-white"
+                          className="rounded-lg px-2 py-1 bg-happy-middark text-white"
                           onClick={() => handleCloseModal()}
                         >
                           Cerrar
@@ -178,7 +178,7 @@ const QRModal = ({
                           />
                           <div className="buttoncontainer mt-4 flex justify-center items-center">
                             <button
-                              className="rounded-lg px-2 py-1 bg-black text-white"
+                              className="rounded-lg px-2 py-1 bg-happy-middark text-white"
                               onClick={() => handleCloseModal()}
                             >
                               Cerrar
@@ -270,7 +270,7 @@ const QRModal = ({
 
                           <div className="buttoncontainer mt-4 flex justify-center items-center">
                             <button
-                              className="rounded-lg px-2 py-1 bg-black text-white"
+                              className="rounded-lg px-2 py-1 bg-happy-middark text-white"
                               onClick={() => handleCloseModal(true)}
                             >
                               Cerrar

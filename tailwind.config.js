@@ -8,7 +8,16 @@ module.exports = {
       colors: {
         happy: {
           yellow: {
-            DEFAULT: "#e4ff3f",
+            DEFAULT: "#9a44ff",
+          },
+          text: {
+            DEFAULT: "#ffffff",
+          },
+          cloralex: {
+            DEFAULT: "#09fea9",
+          },
+          middark: {
+            DEFAULT: "#231f27",
           },
         },
       },

@@ -216,7 +216,7 @@ function ScheduleTabbed() {
 function DaySummary({ day }) {
   return (
     <>
-      <h3 className="text-2xl font-semibold tracking-tight text-happy-yellow bg-black px-2">
+      <h3 className="text-2xl font-semibold tracking-tight text-happy-yellow bg-happy-middark px-2">
         <time dateTime={day.dateTime}>{day.date}</time>
       </h3>
       <p className="mt-1.5 text-base tracking-tight text-black">
@@ -285,7 +285,7 @@ export function Schedule() {
     <section id="schedule" aria-label="Schedule" className=" sm:py-20 lg:py-0">
       <Container className="relative z-10">
         <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-4xl lg:pr-24">
-          <h2 className="font-display text-4xl font-medium tracking-tighter text-happy-yellow bg-black px-2 py-2 sm:text-5xl">
+          <h2 className="font-display text-4xl font-medium tracking-tighter text-happy-yellow bg-happy-middark px-2 py-2 sm:text-5xl">
             3 días de hackathon para crear soluciones digitales con Solana
             blockchain.
           </h2>

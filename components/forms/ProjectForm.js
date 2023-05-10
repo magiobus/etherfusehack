@@ -238,7 +238,7 @@ const ProjectForm = ({ type = "new" }) => {
           <Divider
             label="Integrantes de tu equipo"
             className="mt-8 mb-4"
-            labelClassName="bg-black text-happy-yellow"
+            labelClassName="bg-happy-middark text-happy-yellow"
             hideLine={true}
           />
           <p className="italic">Máximo 5 integrantes.</p>
@@ -292,7 +292,7 @@ const ProjectForm = ({ type = "new" }) => {
           <Divider
             label="Información de tu proyecto"
             className="mt-8"
-            labelClassName="bg-black text-happy-yellow"
+            labelClassName="bg-happy-middark text-happy-yellow"
             hideLine={true}
           />
           <div className="inputwrapper my-3">
@@ -387,7 +387,7 @@ const ProjectForm = ({ type = "new" }) => {
           <Divider
             label="Entregables"
             className="mt-8"
-            labelClassName="bg-black text-happy-yellow"
+            labelClassName="bg-happy-middark text-happy-yellow"
             hideLine={true}
           />
           {/* //NEEDS TO START WITH HTTP OR HTTPS, can be any page , and can be root*/}
@@ -449,7 +449,7 @@ const ProjectForm = ({ type = "new" }) => {
 
         <button
           type="submit"
-          className="my-4 inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-happy-yellow bg-black hover:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black"
+          className="my-4 inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-happy-yellow bg-happy-middark hover:bg-happy-middark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black"
           disabled={buttonLoading}
         >
           {buttonLoading ? (

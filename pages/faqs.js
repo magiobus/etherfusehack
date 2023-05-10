@@ -7,7 +7,7 @@ const FaqsPage = () => {
       <div className="bg-white">
         <div className="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
           <div className="text-center">
-            <p className="text-3xl font-extrabold text-happy-yellow bg-black  sm:tracking-tight lg:text-4xl py-2">
+            <p className="text-3xl font-extrabold text-happy-yellow bg-happy-middark  sm:tracking-tight lg:text-4xl py-2">
               Preguntas Frecuentes
             </p>
           </div>
@@ -91,7 +91,7 @@ const FaqsPage = () => {
                 <dd className="mt-2 text-base text-gray-500">
                   Ponte en contacto con nosotros vía email a{" "}
                   <a
-                    className="text-happy-yellow bg-black"
+                    className="text-happy-yellow bg-happy-middark"
                     href="mailto:hello@etherfuse.com"
                   >
                     hello@etherfuse.com

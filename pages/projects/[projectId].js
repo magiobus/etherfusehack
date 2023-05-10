@@ -116,7 +116,7 @@ const ProjectDetailPage = ({ project, event }) => {
           </div>
 
           {winner && (
-            <div className="winner bg-black text-happy-yellow px-2 py-1 my-2">
+            <div className="winner bg-happy-middark text-happy-yellow px-2 py-1 my-2">
               <Link href={`/events/${eventId}`}>
                 <a>Este equipo fue ganador en {eventName} 🎉</a>
               </Link>

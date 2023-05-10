@@ -175,7 +175,7 @@ export function Speakers() {
         <div className="mx-auto max-w-2xl lg:mx-0" id="organizers">
           <h2
             id="speakers-title"
-            className="font-display text-4xl font-medium tracking-tighter text-happy-yellow bg-black px-2 py-2 sm:text-5xl"
+            className="font-display text-4xl font-medium tracking-tighter text-happy-cloralex bg-happy-middark px-2 py-2 sm:text-5xl"
           >
             Organizadores y Mentores
           </h2>
@@ -207,7 +207,7 @@ export function Speakers() {
                         className={clsx(
                           "font-mono text-xl  ",
                           index === selectedIndex
-                            ? "text-happy-yellow bg-black px-2"
+                            ? "text-happy-cloralex bg-happy-middark px-2"
                             : "text-black"
                         )}
                       >
@@ -231,7 +231,7 @@ export function Speakers() {
               >
                 {item.speakers.map((speaker, speakerIndex) => (
                   <div key={speakerIndex}>
-                    <div className="group relative h-[17.5rem] transform overflow-hidden rounded-4xl bg-black">
+                    <div className="group relative h-[17.5rem] transform overflow-hidden rounded-4xl bg-happy-middark">
                       <div
                         className={clsx(
                           "absolute top-0 left-0 right-4 bottom-6 rounded-4xl border transition duration-300 group-hover:scale-95 xl:right-6",

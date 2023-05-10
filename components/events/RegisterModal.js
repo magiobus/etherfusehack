@@ -107,7 +107,7 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed w-full inset-0 bg-black bg-opacity-25" />
+          <div className="fixed w-full inset-0 bg-happy-middark bg-opacity-25" />
         </Transition.Child>
 
         <div className="fixed inset-0 overflow-y-auto">
@@ -138,7 +138,7 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                       <div className="formcontainer w-full max-w-lg justify-center items-center">
                         <Dialog.Title
                           as="h3"
-                          className="text-lg font-medium leading-6 text-happy-yellow bg-black"
+                          className="text-lg font-medium leading-6 text-happy-cloralex bg-happy-middark"
                         >
                           Registro para {name}
                         </Dialog.Title>
@@ -369,7 +369,7 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                           <div className="mt-4">
                             <button
                               type="submit"
-                              className="inline-flex justify-center rounded-md border border-transparent bg-black text-happy-yellow px-4 py-2 text-sm font-medium  hover:bg-happy-yellow-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                              className="inline-flex justify-center rounded-md border border-transparent bg-happy-middark text-happy-text px-4 py-2 text-sm font-medium  hover:bg-happy-yellow-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                               disabled={isLoading}
                             >
                               <div className="loadingcontainer flex justify-center items-center w-full">
@@ -387,7 +387,7 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                   ) : (
                     <div className="flex flex-col items-center justify-center">
                       <div className="text-center">
-                        <h1 className="text-3xl font-bold text-happy-yellow bg-black py-2">
+                        <h1 className="text-3xl font-bold text-happy-cloralex bg-happy-middark py-2">
                           ¡Gracias por registrarte!
                         </h1>
                         <p className="mt-4">
@@ -414,7 +414,7 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                           </span>{" "}
                         </p>
 
-                        <div className="bannersito bg-black text-happy-yellow py-1 my-4">
+                        <div className="bannersito bg-happy-middark text-happy-cloralex py-1 my-4">
                           <p className="mt-4">
                             <span className="font-bold">
                               Acá te dejamos el enlace a Discord:
@@ -423,7 +423,7 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                             <a
                               href="https://discord.gg/S3brFSH"
                               target="blank"
-                              className="underline"
+                              className="underline text-happy-text"
                             >
                               https://discord.gg/S3brFSH
                             </a>
@@ -438,7 +438,7 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                             <a
                               href="https://learn.superteam.mx/"
                               target="blank"
-                              className="underline"
+                              className="underline text-happy-text"
                             >
                               https://learn.superteam.mx/{" "}
                             </a>

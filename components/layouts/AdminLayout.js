@@ -88,7 +88,7 @@ const AdminLayout = ({ title, children, ...props }) => {
                           <a
                             className={classNames(
                               item.current
-                                ? "bg-black text-happy-yellow hover:text-happy-yellow hover:bg-black"
+                                ? "bg-happy-middark text-happy-yellow hover:text-happy-yellow hover:bg-happy-middark"
                                 : "text-gray-900 hover:text-gray-900 hover:bg-gray-50",
                               "group rounded-md px-3 py-2 flex items-center text-sm font-medium"
                             )}
