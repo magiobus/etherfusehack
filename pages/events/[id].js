@@ -93,6 +93,9 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
               <p className="mt-4 text-white font-bold">
                 {price == 0 && "Entrada Gratuita"}
               </p>
+              {/* TODO: DELETE THIS LATER */}
+              <p className="mt-4 text-white font-bold">Abierto al público</p>
+
               {registerCount ? (
                 <p>{registerCount} asistentes registrados</p>
               ) : (
