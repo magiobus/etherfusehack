@@ -6,6 +6,8 @@ import logoSolana from "@/public/landingimages/logos/solanalogo.png";
 import hellomoonblack from "@/public/landingimages/logos/hellomoonblack.png";
 import itesm from "@/public/landingimages/logos/itesm.png";
 import superteamlogo from "@/public/landingimages/logos/superteamlogo.png";
+import escudoingeneria from "@/public/landingimages/logos/escudoingeneria.png";
+import solanau from "@/public/landingimages/logos/solanau.png";
 
 import decaf from "@/public/landingimages/logos/decaf.png";
 import megahabilidades from "@/public/landingimages/logos/megahabilidades.png";
@@ -56,6 +58,18 @@ const secondSponsors = [
     name: "hellomoon",
     logo: hellomoonblack,
     url: "https://hellomoon.io",
+  },
+  {
+    name: "solanau",
+    logo: solanau,
+    url: "https://www.solanau.org/",
+    extraClassName: "",
+  },
+  {
+    name: "escudoingeneria",
+    logo: escudoingeneria,
+    url: "https://www.ingenieria.unam.mx/index.php",
+    extraClassName: "w-2/4",
   },
   // {
   //   name: "megahabilidades",
@@ -137,14 +151,14 @@ export function Sponsors() {
               </div>
             ))}
           </div>
-          <div className="px-4 my-6 md:px-0 grid max-w-7xl grid-cols-2 place-content-center sm:grid-cols-3 lg:grid-cols-4 gap-x-8 md:gap-x-16 lg:gap-x-32">
+          <div className="px-4 my-6 md:px-0 grid max-w-7xl  grid-cols-1 place-content-center sm:grid-cols-3 lg:grid-cols-4 gap-x-8 md:gap-x-16 lg:gap-x-32">
             {secondSponsors.map((sponsor) => (
               <a
                 href={sponsor?.url || "#"}
                 target="_blank"
                 rel="noopener noreferrer"
                 key={sponsor.name}
-                className="flex items-center justify-center my-4"
+                className={`flex items-center justify-center ${sponsor.extraClassName} my-4`}
               >
                 <Image src={sponsor.logo} alt={sponsor.name} unoptimized />
               </a>
