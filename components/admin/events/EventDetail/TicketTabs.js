@@ -1,12 +1,59 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
 import unixToFormat from "@/utils/unixToFormat";
 import { Tab } from "@headlessui/react";
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import { XCircleIcon, CheckCircleIcon } from "@heroicons/react/solid";
+import { useState } from "react";
 
 const TicketTabs = ({ event }) => {
   const { tickets } = event;
   const { attendees } = tickets;
+  const [counts, setCounts] = useState({});
+
+  useEffect(() => {
+    const combinations = getCombinationCounts(attendees);
+    setCounts(combinations);
+  }, [attendees]);
+
+  //sort object by values
+  const sortObjectByValues = (obj) => {
+    const sortedEntries = Object.entries(obj).sort((a, b) => b[1] - a[1]);
+    return Object.fromEntries(sortedEntries);
+  };
+
+  //combinations for attendees
+  const getCombinationCounts = (attendees) => {
+    const counts = {
+      inPerson: {
+        other: 0,
+      },
+      noInPerson: {
+        other: 0,
+      },
+    };
+    attendees.forEach((attendee) => {
+      const { inPerson, visitsFrom, otherInstitution } = attendee;
+      // Determinamos la categoría según si el visitante es inPerson o no
+      const category = inPerson ? "inPerson" : "noInPerson";
+
+      if (visitsFrom === "otro") {
+        // Si visitsFrom es "otro", incrementamos el conteo total de 'other'
+        counts[category].other += 1;
+      } else {
+        // Creamos una clave única con la combinación de visitsFrom y otherInstitution
+        const key = `${visitsFrom}-${otherInstitution}`;
+        // Si la clave ya existe en la categoría correspondiente, incrementamos el conteo, de lo contrario lo inicializamos en 1
+        counts[category][key] = (counts[category][key] || 0) + 1;
+      }
+    });
+
+    // Ordenamos las categorías por sus valores
+    counts.inPerson = sortObjectByValues(counts.inPerson);
+    counts.noInPerson = sortObjectByValues(counts.noInPerson);
+
+    return counts;
+  };
 
   return (
     <>
@@ -224,33 +271,67 @@ const TicketTabs = ({ event }) => {
             <div className="border-t border-gray-200 px-4 py-5 sm:px-6">
               {/* //estadisticas */}
               {attendees.length > 0 ? (
-                <div className="flex flex-col items-start">
-                  <ul className="max-w-sm w-ful">
-                    <li className="flex justify-between">
-                      <p className=" leading-5 text-gray-500 font-semibold">
-                        Total de asistentes: {attendees.length}
-                      </p>
-                    </li>
-                    <li className="flex justify-between mb-2">
-                      <p className=" leading-5 text-gray-500 font-semibold">
-                        Total Escaneados: :{" "}
-                        {attendees.filter((a) => a.used).length}
-                      </p>
-                    </li>
-                    <li className="flex justify-between">
-                      <p className="text-sm leading-5 text-gray-500 font-semibold ">
-                        Asistentes Virtuales:{" "}
-                        {attendees.filter((a) => !a.inPerson).length}
-                      </p>
-                    </li>
-                    <li className="flex justify-between">
-                      <p className="text-sm leading-5 text-gray-500 font-semibold">
-                        Asistentes Presenciales:{" "}
-                        {attendees.filter((a) => a.inPerson).length}
-                      </p>
-                    </li>
-                  </ul>
-                </div>
+                <>
+                  <div className="flex flex-col items-start">
+                    <ul className="max-w-sm w-ful">
+                      <li className="flex justify-between">
+                        <p className=" leading-5 text-gray-500 font-semibold">
+                          Total de asistentes: {attendees.length}
+                        </p>
+                      </li>
+                      <li className="flex justify-between mb-2">
+                        <p className=" leading-5 text-gray-500 font-semibold">
+                          Total Escaneados: :{" "}
+                          {attendees.filter((a) => a.used).length}
+                        </p>
+                      </li>
+                      <li className="flex justify-between">
+                        <p className="text-sm leading-5 text-gray-500 font-semibold ">
+                          Asistentes Virtuales:{" "}
+                          {attendees.filter((a) => !a.inPerson).length}
+                        </p>
+                      </li>
+                      <li className="flex justify-between">
+                        <p className="text-sm leading-5 text-gray-500 font-semibold">
+                          Asistentes Presenciales:{" "}
+                          {attendees.filter((a) => a.inPerson).length}
+                        </p>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="counts my-8">
+                    <p className="font-semibold bg-black text-white text-center">
+                      Conteos por Institución
+                    </p>
+                    <div className="my-2">
+                      <div className="irls mt-8">
+                        <p className="font-semibold italic">IRL</p>
+                        <div className="irlcounts">
+                          {Object.entries(counts.inPerson).map(
+                            ([key, count]) => (
+                              <div key={key} className="tag">
+                                {key}: {count}
+                              </div>
+                            )
+                          )}
+                        </div>
+                      </div>
+                      <div className="notirls mt-8">
+                        <p className="font-semibold italic">Virtuales</p>
+                        <div className="noirlcounts">
+                          {Object.entries(counts.noInPerson).map(
+                            ([key, count]) => (
+                              <div key={key} className="tag">
+                                {key}: {count}
+                              </div>
+                            )
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </>
               ) : (
                 <p>No hay asistentes</p>
               )}
