@@ -308,25 +308,27 @@ const TicketTabs = ({ event }) => {
                       <div className="irls mt-8">
                         <p className="font-semibold italic">IRL</p>
                         <div className="irlcounts">
-                          {Object.entries(counts.inPerson).map(
-                            ([key, count]) => (
-                              <div key={key} className="tag">
-                                {key}: {count}
-                              </div>
-                            )
-                          )}
+                          {counts?.inPerson &&
+                            Object.entries(counts.inPerson).map(
+                              ([key, count]) => (
+                                <div key={key} className="tag">
+                                  {key}: {count}
+                                </div>
+                              )
+                            )}
                         </div>
                       </div>
                       <div className="notirls mt-8">
                         <p className="font-semibold italic">Virtuales</p>
                         <div className="noirlcounts">
-                          {Object.entries(counts.noInPerson).map(
-                            ([key, count]) => (
-                              <div key={key} className="tag">
-                                {key}: {count}
-                              </div>
-                            )
-                          )}
+                          {counts?.noInPerson &&
+                            Object.entries(counts.noInPerson).map(
+                              ([key, count]) => (
+                                <div key={key} className="tag">
+                                  {key}: {count}
+                                </div>
+                              )
+                            )}
                         </div>
                       </div>
                     </div>
