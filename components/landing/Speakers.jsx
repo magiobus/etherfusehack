@@ -9,6 +9,8 @@ import ajtaylor from "@/public/landingimages/avatars/ajtaylor.png";
 import davidandujo from "@/public/landingimages/avatars/davidandujo2.jpeg";
 import magiobustillos from "@/public/landingimages/avatars/magiobustillos.jpeg";
 import daniela from "@/public/landingimages/avatars/daniela.jpeg";
+import yosoybartsolo from "@/public/landingimages/avatars/yosoybartsolo.png";
+import ramon from "@/public/landingimages/avatars/ramon.jpeg";
 import aquiles from "@/public/landingimages/avatars/aquiles.jpeg";
 import nathan from "@/public/landingimages/avatars/nathan.jpeg";
 import scott from "@/public/landingimages/avatars/scott.jpeg";
@@ -97,6 +99,18 @@ const data = [
         role: "Hackathon Facilitator @Etherfuse",
         image: magiobustillos,
         url: "https://twitter.com/magiobus",
+      },
+      {
+        name: "Bart López",
+        role: "Winner of 1st Etherfuse Hackathon ",
+        image: yosoybartsolo,
+        url: "https://twitter.com/yosoybartsolo",
+      },
+      {
+        name: "Ramón Najera",
+        role: "Winner of 1st Etherfuse Hackathon ",
+        image: ramon,
+        url: "",
       },
     ],
   },
