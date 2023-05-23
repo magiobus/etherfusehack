@@ -305,7 +305,7 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
 
                           <div className="inputwrapper my-3">
                             <CheckBox
-                              label="¿Asistirás al evento en persona ?"
+                              label="¿Asistirás al evento en persona en GDL ?"
                               description="Si dejas esta casilla en blanco, participarás en el evento de forma virtual"
                               name="inPerson"
                               register={{

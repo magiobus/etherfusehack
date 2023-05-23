@@ -8,6 +8,9 @@ import itesm from "@/public/landingimages/logos/itesm.png";
 import superteamlogo from "@/public/landingimages/logos/superteamlogo.png";
 import escudoingeneria from "@/public/landingimages/logos/escudoingeneria.png";
 import solanau from "@/public/landingimages/logos/solanau.png";
+import thincrs from "@/public/landingimages/logos/thincrs.jpg";
+import shyft from "@/public/landingimages/logos/shyft.png";
+import circle from "@/public/landingimages/logos/circle.png";
 
 import decaf from "@/public/landingimages/logos/decaf.png";
 import megahabilidades from "@/public/landingimages/logos/megahabilidades.png";
@@ -23,6 +26,8 @@ import mirrorworld from "@/public/landingimages/logos/mirrorworld.png";
 import wuc from "@/public/landingimages/logos/wuc.png";
 import lbank from "@/public/landingimages/logos/lbank.jpeg";
 import hxro from "@/public/landingimages/logos/hxro.png";
+import alldata from "@/public/landingimages/logos/alldata.png";
+import itjimenez from "@/public/landingimages/logos/itjimenez.jpeg";
 
 const mainSponsors = [
   {
@@ -60,15 +65,51 @@ const secondSponsors = [
     url: "https://hellomoon.io",
   },
   {
+    name: "thincrs",
+    logo: thincrs,
+    url: "https://www.thincrs.com/",
+  },
+  {
+    name: "circle",
+    logo: circle,
+    url: "https://www.circle.com/en/",
+    extraClassName: "",
+  },
+  {
+    name: "shyft",
+    logo: shyft,
+    url: "https://shyft.to/",
+    extraClassName: "",
+  },
+  {
     name: "solanau",
     logo: solanau,
     url: "https://www.solanau.org/",
     extraClassName: "",
   },
   {
+    name: "alldata",
+    logo: alldata,
+    url: "https://www.alldata.com/",
+    extraClassName: "",
+  },
+
+  {
+    name: "decaf",
+    logo: decaf,
+    url: "https://www.decaf.so/",
+  },
+
+  {
     name: "escudoingeneria",
     logo: escudoingeneria,
     url: "https://www.ingenieria.unam.mx/index.php",
+    extraClassName: "w-2/4",
+  },
+  {
+    name: "itjimenez",
+    logo: itjimenez,
+    url: "http://www.cdjimenez.tecnm.mx/index.html",
     extraClassName: "w-2/4",
   },
   // {
@@ -82,11 +123,6 @@ const secondSponsors = [
   //   url: "https://lanib.mx",
   // },
 
-  // {
-  //   name: "decaf",
-  //   logo: decaf,
-  //   url: "https://www.decaf.so/",
-  // },
   // {
   //   name: "ottr",
   //   logo: ottr,

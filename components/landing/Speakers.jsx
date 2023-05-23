@@ -33,37 +33,6 @@ import pam from "@/public/landingimages/avatars/pam.jpeg";
 
 const data = [
   {
-    name: "Mentores",
-    date: "",
-    dateTime: "",
-    speakers: [
-      {
-        name: "David Taylor",
-        role: "CEO @Etherfuse",
-        image: davidtaylor,
-        url: "https://www.linkedin.com/in/lifehug/",
-      },
-      {
-        name: "AJ Taylor",
-        role: "CTO @Etherfuse",
-        image: ajtaylor,
-        url: "https://www.linkedin.com/in/aj-taylor-977a5481/",
-      },
-      {
-        name: "David Andujo",
-        role: "COO @Etherfuse",
-        image: davidandujo,
-        url: "https://www.linkedin.com/in/andujo/",
-      },
-      {
-        name: "Magio Bustillos",
-        role: "Hackathon Facilitator @Etherfuse",
-        image: magiobustillos,
-        url: "https://twitter.com/magiobus",
-      },
-    ],
-  },
-  {
     name: "Team ",
     date: "",
     dateTime: "",
@@ -100,6 +69,38 @@ const data = [
       },
     ],
   },
+  {
+    name: "Mentores",
+    date: "",
+    dateTime: "",
+    speakers: [
+      {
+        name: "David Taylor",
+        role: "CEO @Etherfuse",
+        image: davidtaylor,
+        url: "https://www.linkedin.com/in/lifehug/",
+      },
+      {
+        name: "AJ Taylor",
+        role: "CTO @Etherfuse",
+        image: ajtaylor,
+        url: "https://www.linkedin.com/in/aj-taylor-977a5481/",
+      },
+      {
+        name: "David Andujo",
+        role: "COO @Etherfuse",
+        image: davidandujo,
+        url: "https://www.linkedin.com/in/andujo/",
+      },
+      {
+        name: "Magio Bustillos",
+        role: "Hackathon Facilitator @Etherfuse",
+        image: magiobustillos,
+        url: "https://twitter.com/magiobus",
+      },
+    ],
+  },
+
   {
     name: "Jueces",
     date: "",
