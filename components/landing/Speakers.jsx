@@ -11,6 +11,10 @@ import magiobustillos from "@/public/landingimages/avatars/magiobustillos.jpeg";
 import daniela from "@/public/landingimages/avatars/daniela.jpeg";
 import yosoybartsolo from "@/public/landingimages/avatars/yosoybartsolo.png";
 import ramon from "@/public/landingimages/avatars/ramon.jpeg";
+import alex from "@/public/landingimages/avatars/alex.jpeg";
+import oliver from "@/public/landingimages/avatars/oliver.jpeg";
+import victor from "@/public/landingimages/avatars/victor.jpeg";
+
 import aquiles from "@/public/landingimages/avatars/aquiles.jpeg";
 import nathan from "@/public/landingimages/avatars/nathan.jpeg";
 import scott from "@/public/landingimages/avatars/scott.jpeg";
@@ -95,10 +99,22 @@ const data = [
         url: "https://www.linkedin.com/in/andujo/",
       },
       {
-        name: "Magio Bustillos",
-        role: "Hackathon Facilitator @Etherfuse",
-        image: magiobustillos,
-        url: "https://twitter.com/magiobus",
+        name: "Luis Oliver",
+        role: "Winner of mobile 3rd Grizzlython Hackathon ",
+        image: oliver,
+        url: "https://twitter.com/Oliver_edd",
+      },
+      {
+        name: "Victor Alta",
+        role: "Winner of mobile 3rd Grizzlython Hackathon ",
+        image: victor,
+        url: "https://twitter.com/Victor_alta",
+      },
+      {
+        name: "Alejandro Sanchez ",
+        role: "Winner of mobile 3rd Grizzlython Hackathon ",
+        image: alex,
+        url: "https://twitter.com/alexsanc25",
       },
       {
         name: "Bart López",
@@ -111,6 +127,12 @@ const data = [
         role: "Winner of 1st Etherfuse Hackathon ",
         image: ramon,
         url: "",
+      },
+      {
+        name: "Magio Bustillos",
+        role: "Hackathon Facilitator @Etherfuse",
+        image: magiobustillos,
+        url: "https://twitter.com/magiobus",
       },
     ],
   },
