@@ -228,7 +228,7 @@ ${
 
 <p style="color: #000000; margin: 0; font-size: 14px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 17px; margin-top: 0; margin-bottom: 0;"><strong>Es importante que te unas a nuestra comunidad de Discord en el siguiente enlace:</strong></p> 
 <br/>
-<a href="https://discord.gg/S3brFSH" target="_blank" style="color: #0068A5; font-size:2em; margin: 2em 0;">https://discord.gg/S3brFSH</a><br/>
+<a href="https://discord.gg/7NBUWVthPR" target="_blank" style="color: #0068A5; font-size:2em; margin: 2em 0;">https://discord.gg/7NBUWVthPR</a><br/>
 
 <p style="color: #000000; margin: 0; font-size: 14px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 17px; margin-top: 1em; margin-bottom: 0;"><strong>También puedes aprender a programar en solana blockchain con el curso de Solana para noobs por parte de SuperteamMX 👇</strong></p> <br/>
 <a href="https://learn.superteam.mx/" target="_blank" style="color: #0068A5; font-size:2em; margin: 2em 0;">https://learn.superteam.mx/</a><br/>

@@ -421,11 +421,11 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                             </span>
                             <br />
                             <a
-                              href="https://discord.gg/S3brFSH"
+                              href="https://discord.gg/7NBUWVthPR"
                               target="blank"
                               className="underline text-happy-text"
                             >
-                              https://discord.gg/S3brFSH
+                              https://discord.gg/7NBUWVthPR
                             </a>
                           </p>
 
