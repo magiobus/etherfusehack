@@ -29,12 +29,7 @@ const schedule = [
         start: "6:00PM",
         end: "6:30PM",
       },
-      {
-        name: "Panel de expertos 🤓🎤",
-        description: "",
-        start: "6:30PM",
-        end: "7:30PM",
-      },
+
       {
         name: "Comida 🌯",
         description: "Sin comida no hay hackathon",
@@ -42,7 +37,7 @@ const schedule = [
         end: "8:00PM",
       },
       {
-        name: "Creación de equipos 🤝",
+        name: "Registra de equipos 🤝",
         description: "Forma tu equipo para trabajar",
         start: "8:00PM",
         end: " 9:00PM",
@@ -73,9 +68,15 @@ const schedule = [
         end: "12:00PM",
       },
       {
-        name: "Mentorías 🧑‍🏫",
-        description: "Obtén ayuda de mentores",
+        name: "Shyft WorkShop 🤓",
+        description: "Ve a discord y aprende de los mejores",
         start: "12:00PM",
+        end: "1:00PM",
+      },
+      {
+        name: "Circle WorkShop 🤓",
+        description: "Ve a discord y aprende de los mejores",
+        start: "1:00PM",
         end: "2:00PM",
       },
       {
@@ -85,14 +86,14 @@ const schedule = [
         end: "3:00PM",
       },
       {
-        name: "Hacking 🚀",
-        description: "Continúa trabajando en tu proyecto",
+        name: "Mentorías 🧑‍🏫",
+        description: "Obtén ayuda de mentores",
         start: "3:00PM",
         end: "5:00PM",
       },
       {
-        name: "Mentorías 🧑‍🏫",
-        description: "Obtén ayuda de mentores",
+        name: "Hacking 🚀",
+        description: "Continúa trabajando en tu proyecto",
         start: "5:00PM",
         end: "8:00PM",
       },
@@ -238,7 +239,7 @@ function TimeSlots({ day, className }) {
       {day.timeSlots.map((timeSlot, timeSlotIndex) => (
         <li
           key={timeSlot.start}
-          aria-label={`${timeSlot.name} talking about ${timeSlot.description} at ${timeSlot.start} - ${timeSlot.end} GMT-6`}
+          aria-label={`${timeSlot.name} talking about ${timeSlot.description} at ${timeSlot.start} - ${timeSlot.end} CST`}
         >
           {timeSlotIndex > 0 && (
             <div className="mx-auto mb-8 h-px w-48 bg-indigo-500/10" />
@@ -259,7 +260,7 @@ function TimeSlots({ day, className }) {
             <time dateTime={`${day.dateTime}T${timeSlot.end}-08:00`}>
               {timeSlot.end}
             </time>{" "}
-            GMT-6
+            CST
           </p>
         </li>
       ))}
