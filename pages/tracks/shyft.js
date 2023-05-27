@@ -1,58 +1,57 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/jsx-no-target-blank */
 import MainLayout from "@/components/layouts/MainLayout";
-const MirrorWorldTrack = () => {
+const ShyftTrack = () => {
   return (
     <MainLayout title="Tracks">
       <div className="w-full flex justify-center items-center my-4 mx-2">
-        <div className="max-w-7xl w-full md:px-8 lg:px-0 lg:mt-8">
+        <div className="max-w-2xl w-full md:px-8 lg:px-0 lg:mt-8">
           <div className="content flex justify-start  items-center w-full">
             <div className="max-w-7xl w-full mx-auto justify-start  items-center  px-4 sm:py-18 sm:px-6 lg:px-8 xl:px-0  ">
               <img
-                src="/landingimages/logos/mirrorworld.png"
+                src="/landingimages/logos/shyft.png"
                 className="w-6/12 lg:w-2/12 mx-auto mb-4"
-                alt="Mirror World"
+                alt="Shyft"
               />
               <h1 className="text-center text-2xl font-bold uppercase">
-                Mirror World Track: $2500 USDC Prize 🏆
+                Shyft Track: $1000 USDC Prize 🏆
               </h1>
               <div className="content my-4">
                 <p className="text-center text-base font-semibold">
-                  Utiliza Mirror World en tu proyecto y gana $2500USDC
+                  Participa en el Shyft Track y tendrás la oportunidad de ganar
+                  $1000 en USD para tu proyecto.{" "}
                 </p>
                 <div className="quote">
                   <div className="w-full flex flex-col items-center justify-center my-4">
                     <p className="italic w-full text-center max-w-lg">
-                      Smart Platform de Mirror World es la primera plataforma de
-                      desarrollo de aplicaciones Web3 todo en uno que ayuda a
-                      los desarrolladores a resolver el proceso de onboarding de
-                      usuarios y activation conversion. Hasta la fecha, Smart
-                      Platform ha ayudado a más de 250 proyectos que han logrado
-                      excelentes conversiones al proporcionar una plataforma
-                      todo en uno con módulos incorporados amigables para los
-                      desarrolladores, como un ecommerce integrado (como
-                      Shopify), gestión de NFTs, autenticación social y un
-                      wallet MPC con agregación on-ramp y soporte mobile
+                      Shyft es una plataforma que ofrece un SDK para la creación
+                      de aplicaciones descentralizadas (dApps). El SDK de Shyft
+                      te permite integrar estas capacidades en tu proyecto de
+                      manera sencilla y rápida.
                     </p>
                     <p className="my-4 font-semibold">
-                      El mejor proyecto que utilice Mirror World Smart Platform
-                      - SDK/API en su proyecto ganará $2500USDC
+                      El proyecto que mejor utilice el SDK de Shyft será el
+                      ganador del premio de $1000 en USD
                     </p>
                   </div>
                 </div>
               </div>
-
               <div className="ideaswelove text-center font-bold">
-                Puedes revisar la documentación de Mirror World en{" "}
+                Puedes revisar la documentación de Shyft en{" "}
                 <a
                   target="_blank"
-                  href="https://mirrorworld.fun/#Intro"
+                  href="https://docs.shyft.to/"
                   className="underline"
                 >
-                  https://mirrorworld.fun/#Intro
+                  https://docs.shyft.to/
                 </a>
               </div>
-
+              <p className="text-center">
+                Además, todos los participantes del Shyft Track recibirán
+                créditos en la plataforma de Shyft. Una vez que te encuentres en
+                el servidor de Discord del evento, dirígete al canal de Shyft y
+                solicita el formulario para aplicar por tus créditos.
+              </p>
               <div className="howtoapply my-4">
                 <p className="ideaswelove text-center font-bold">
                   Si quieres aplicar a este track, regístrate en{" "}
@@ -77,4 +76,4 @@ const MirrorWorldTrack = () => {
   );
 };
 
-export default MirrorWorldTrack;
+export default ShyftTrack;

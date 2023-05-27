@@ -12,21 +12,21 @@ const EventDetailPage = () => {
               <div className="w-full">
                 <div className="w-full flex flex-col text-center items-center justify-center">
                   <h1 className="text-2xl md:text-3xl font-bold">
-                    Recompensas Etherfuse Hack
+                    Premios Solana Hackathon
                   </h1>
                   <div className="subtitle">
                     <p className="mt-4">
-                      Acá puedes ver las recompensas que hay en el hackathon.
+                      Acá puedes ver los premios que hay en el hackathon.
                     </p>
                     <p>
                       {" "}
-                      Los tracks son parte de la bolsa de premios, superteam
-                      tiene algunos premios extras así como solana.
+                      Hay premios por parte de SuperteamMX y tracks por parte de
+                      nuestros sponsors.
                     </p>
                   </div>
                   <div className="howtoapply my-4">
                     <p className="ideaswelove text-center font-bold">
-                      Si aún no te registras a etherfuse hack, regístrate en{" "}
+                      Si aún no te registras a solana hackathon, regístrate en{" "}
                       <a
                         href="https://hackathon.etherfuse.com"
                         className="underline"

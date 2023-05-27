@@ -4,55 +4,19 @@ import {
   DeviceMobileIcon,
   ChartBarIcon,
   LightningBoltIcon,
+  CodeIcon,
 } from "@heroicons/react/outline";
 
 const actions = [
   {
-    title: "Payments 💸",
-    href: "/tracks/payments",
-    icon: CreditCardIcon,
+    title: "Shyft 💸",
+    href: "/tracks/shyft",
+    icon: CodeIcon,
     iconForeground: "text-black",
     iconBackground: "bg-happy-yellow",
     description:
-      "¿Cómo podemos mejorar la experiencia de pagos usando blockchain?",
-    subdescription: "Aplica y gana $2000 USDC",
-  },
-  {
-    title: "Remittances 💸",
-    href: "/tracks/remittances",
-    icon: CashIcon,
-    iconForeground: "text-black",
-    iconBackground: "bg-happy-yellow",
-    description:
-      "¿Cómo podemos mejorar la experiencia de remesas usando blockchain?",
-    subdescription: "Aplica y gana $2000 USDC",
-  },
-  {
-    title: "Mirror World SDK 🌍",
-    href: "/tracks/mirrorworld",
-    icon: DeviceMobileIcon,
-    iconForeground: "text-black",
-    iconBackground: "bg-happy-yellow",
-    description: "Utiliza Mirror World SDK/API para crear tu aplicación",
-    subdescription: "Aplica y gana $2500 USDC",
-  },
-  {
-    title: "Hello Moon API 📊",
-    href: "/tracks/hellomoon",
-    icon: ChartBarIcon,
-    iconForeground: "text-black",
-    iconBackground: "bg-happy-yellow",
-    description: "Utiliza Hello Moon SDK/API para crear tu aplicación",
-    subdescription: "Aplica y gana $2500 USDC",
-  },
-  {
-    title: "Etherfuse's Best of the Best 🏆",
-    href: "/tracks/etherfuse",
-    icon: LightningBoltIcon,
-    iconForeground: "text-black",
-    iconBackground: "bg-happy-yellow",
-    description: "Los mejores proyectos del evento 🤓",
-    subdescription: "Hasta $2500 USDC para los mejores proyectos",
+      "El proyecto que mejor utilice el SDK de Shyft será el ganador del premio de $1000 en USD",
+    subdescription: "Aplica y gana $1000 USDC",
   },
 ];
 
