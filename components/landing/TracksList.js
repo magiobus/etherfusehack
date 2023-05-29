@@ -28,6 +28,26 @@ const actions = [
       "Los proyectos que hagan el mejor uso del SDK/API de HXRO, podrán ser ganadores de premios en tokens $HXRO",
     subdescription: "Aplica y gana hasta 45k en tokens $HXRO",
   },
+  {
+    title: "Hxro Dexterity Focused 😎",
+    href: "/tracks/dexterity",
+    icon: CodeIcon,
+    iconForeground: "text-black",
+    iconBackground: "bg-happy-yellow",
+    description:
+      "El proyecto que haga el mejor uso de las herramientas de Hxro Dexterity, podrá ganar hasta 33.3k $HXRO tokens",
+    subdescription: "Aplica y gana 33.3k en tokens $HXRO",
+  },
+  {
+    title: "Hxro Parimutuel Focused 😎",
+    href: "/tracks/dexterity",
+    icon: CodeIcon,
+    iconForeground: "text-black",
+    iconBackground: "bg-happy-yellow",
+    description:
+      "El proyecto que haga el mejor uso de las herramientas de Hxro Dexterity, podrá ganar hasta 33.3k $HXRO tokens",
+    subdescription: "Aplica y gana 33.3k en tokens $HXRO",
+  },
 ];
 
 function classNames(...classes) {
