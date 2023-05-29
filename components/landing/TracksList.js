@@ -18,6 +18,16 @@ const actions = [
       "El proyecto que mejor utilice el SDK de Shyft será el ganador del premio de $1000 en USD",
     subdescription: "Aplica y gana $1000 USDC",
   },
+  {
+    title: "HXRO's Best of the Best 🏆",
+    href: "/tracks/hxro",
+    icon: CodeIcon,
+    iconForeground: "text-black",
+    iconBackground: "bg-happy-yellow",
+    description:
+      "Los proyectos que hagan el mejor uso del SDK/API de HXRO, podrán ser ganadores de premios en tokens $HXRO",
+    subdescription: "Aplica y gana hasta 45k en tokens $HXRO",
+  },
 ];
 
 function classNames(...classes) {
