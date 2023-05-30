@@ -11,6 +11,7 @@ import solanau from "@/public/landingimages/logos/solanau.png";
 import thincrs from "@/public/landingimages/logos/thincrs.jpg";
 import shyft from "@/public/landingimages/logos/shyft.png";
 import circle from "@/public/landingimages/logos/circle.png";
+import escuelanegocios from "@/public/landingimages/logos/escuelanegocios.png";
 
 import decaf from "@/public/landingimages/logos/decaf.png";
 import megahabilidades from "@/public/landingimages/logos/megahabilidades.png";
@@ -43,6 +44,11 @@ const mainSponsors = [
   {
     name: "itesm",
     logo: itesm,
+    url: "https://tec.mx/es/guadalajara",
+  },
+  {
+    name: "escuelanegocios",
+    logo: escuelanegocios,
     url: "https://tec.mx/es/guadalajara",
   },
   {

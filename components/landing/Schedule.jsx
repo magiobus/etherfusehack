@@ -79,10 +79,16 @@ const schedule = [
         end: "12:30PM",
       },
       {
-        name: "Circle WorkShop 🤓",
+        name: "HXRO WorkShop 🤓",
         description: "Ve a discord y aprende de los mejores",
         start: "12:30PM",
-        end: "1:00PM",
+        end: "1:30PM",
+      },
+      {
+        name: "Circle WorkShop 🤓",
+        description: "Ve a discord y aprende de los mejores",
+        start: "1:30PM",
+        end: "2:00PM",
       },
       {
         name: "Comida 🍙",
