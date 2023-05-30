@@ -14,7 +14,7 @@ import ramon from "@/public/landingimages/avatars/ramon.jpeg";
 import alex from "@/public/landingimages/avatars/alex.jpeg";
 import oliver from "@/public/landingimages/avatars/oliver.jpeg";
 import victor from "@/public/landingimages/avatars/victor.jpeg";
-
+import corey from "@/public/landingimages/avatars/corey.jpg";
 import aquiles from "@/public/landingimages/avatars/aquiles.jpeg";
 import nathan from "@/public/landingimages/avatars/nathan.jpeg";
 import scott from "@/public/landingimages/avatars/scott.jpeg";
@@ -97,6 +97,12 @@ const data = [
         role: "COO @Etherfuse",
         image: davidandujo,
         url: "https://www.linkedin.com/in/andujo/",
+      },
+      {
+        name: "Corey Cooper",
+        role: "Circle Developer Relations and Ecosystem Manager of Americas",
+        image: corey,
+        url: "https://www.linkedin.com/in/ccooper82",
       },
       {
         name: "Luis Oliver",
