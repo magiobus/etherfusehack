@@ -16,10 +16,20 @@ import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 
 const tracksOptions = [
-  { label: "Decaf Payments ☕️💳", value: "decafpayments" },
-  { label: "Decaf Remittances ☕️💸", value: "decafremittences" },
-  { label: "Mirror World 🪞🌍", value: "mirrorworld" },
-  { label: "Hello Moon API 🌝", value: "hellomoon" },
+  { label: "Decaf Payments/Remittances ☕️💳", value: "decafpayments" },
+  { label: "Shyft", value: "shyft" },
+  {
+    label: "Hxro's Best of the Best",
+    value: "hxrobestofthebest",
+  },
+  {
+    label: "Hxro Dexterity Focused",
+    value: "hxrodexterityfocused",
+  },
+  {
+    label: "Hxro Parimutuel Focused",
+    value: "hxroparimutuelfocused",
+  },
 ];
 
 const ProjectForm = ({ type = "new" }) => {

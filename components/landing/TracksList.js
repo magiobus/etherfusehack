@@ -9,6 +9,16 @@ import {
 
 const actions = [
   {
+    title: "Decaf Pagos y Remesas 💸",
+    href: "/tracks/decaf",
+    icon: CodeIcon,
+    iconForeground: "text-black",
+    iconBackground: "bg-happy-yellow",
+    description:
+      "El mejor proyecto enfocado a pagos y remesas se lleva $1000 en USDC",
+    subdescription: "Aplica y gana $1000 USDC",
+  },
+  {
     title: "Shyft 💸",
     href: "/tracks/shyft",
     icon: CodeIcon,
