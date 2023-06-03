@@ -96,11 +96,18 @@ const schedule = [
         start: "2:00PM",
         end: "2:30PM",
       },
+
       {
         name: "Mentorías 🧑‍🏫",
         description: "Obtén ayuda de mentores",
         start: "2:30PM",
         end: "5:00PM",
+      },
+      {
+        name: "HXRO Workshop2 ",
+        description: "Ve a discord y aprende de los mejores",
+        start: "3:00PM",
+        end: "4:00PM",
       },
       {
         name: "Hacking 🚀",
