@@ -34,10 +34,10 @@ const DecafTrack = () => {
                       interesa la finanza descentralizada (DeFi) y tienes
                       habilidades para crear aplicaciones funcionales, este
                       desafío es para ti. Estamos emocionados de anunciar el
-                      desafío "Aprovechando Solana para Pagos y Remesas
-                      Fluidas", donde tienes la oportunidad de tener un impacto
-                      en el espacio de pagos y remesas utilizando la blockchain
-                      de Solana.
+                      desafío &quot;Aprovechando Solana para Pagos y Remesas
+                      Fluidas&quot;, donde tienes la oportunidad de tener un
+                      impacto en el espacio de pagos y remesas utilizando la
+                      blockchain de Solana.
                     </p>
                     <p className="my-2">
                       El objetivo es aprovechar la velocidad, escalabilidad y
