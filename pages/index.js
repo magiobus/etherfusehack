@@ -201,7 +201,7 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
               </div>
 
               {/* //TODO: MIGHT DELETE THIS SECTIoN LATER... */}
-              {event._id === "644872f40a4195997e430784" && (
+              {/* {event._id === "644872f40a4195997e430784" && (
                 <div className="w-full">
                   <RewardsComponent />
                   <Instructions />
@@ -209,13 +209,13 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
                   <Schedule />
                   <Sponsors />
                 </div>
-              )}
-
+              )} */}
+              {/* 
               {projects && projects.length > 0 && (
                 <div className="my-8" id="eventprojects">
                   <ProjectsList projects={projects} />
                 </div>
-              )}
+              )} */}
             </div>
           </div>
         </div>
@@ -227,7 +227,7 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
 export default EventDetailPage;
 
 export async function getStaticProps() {
-  const mainEventId = "644872f40a4195997e430784";
+  const mainEventId = "64f4287da927b9b11090490d";
   const client = await clientPromise;
   const db = client.db();
   const { ObjectId } = require("mongodb");

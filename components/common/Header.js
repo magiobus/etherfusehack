@@ -12,11 +12,11 @@ const navigation = {
   categories: [],
   pages: [
     { name: "Sedes", href: "/events" },
-    { name: "Agenda", href: "/#schedule" },
-    { name: "Sponsors", href: "/#sponsors" },
-    { name: "Team", href: "/#organizers" },
-    { name: "Faqs", href: "/faqs" },
-    { name: "Premios", href: "/rewards" },
+    // { name: "Agenda", href: "/#schedule" },
+    // { name: "Sponsors", href: "/#sponsors" },
+    // { name: "Team", href: "/#organizers" },
+    // { name: "Faqs", href: "/faqs" },
+    // { name: "Premios", href: "/rewards" },
     { name: "Recursos", href: "/resources" },
   ],
 };
