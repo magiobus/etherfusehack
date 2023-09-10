@@ -390,7 +390,7 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                         <h1 className="text-3xl font-bold text-happy-cloralex bg-happy-middark py-2">
                           ¡Gracias por registrarte!
                         </h1>
-                        <p className="mt-4">
+                        {/* <p className="mt-4">
                           Nos vemos {!inPersonWatch && "virtualmente "} el{" "}
                           <span className="font-bold">
                             {unixToFormat(
@@ -398,7 +398,7 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                               "d 'de' MMMM yyyy h:mm aa"
                             )}{" "}
                           </span>
-                        </p>
+                        </p> */}
 
                         <p className="mt-4 font-bold">
                           Te mandamos un email con{" "}
