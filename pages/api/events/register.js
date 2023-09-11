@@ -33,6 +33,14 @@ handler.post(async (req, res) => {
     isMinor = false,
     inPerson,
     otherInstitution,
+    discordId,
+    githubUrl,
+    country,
+    role,
+    skills,
+    tracks,
+    hyperstudent,
+    hyperschool,
   } = req.body;
 
   try {
@@ -109,7 +117,15 @@ handler.post(async (req, res) => {
       visitsFrom,
       computerNeeded,
       isMinor,
-      otherInstitution
+      otherInstitution,
+      discordId,
+      githubUrl,
+      country,
+      role,
+      skills,
+      tracks,
+      hyperstudent,
+      hyperschool
     );
 
     try {

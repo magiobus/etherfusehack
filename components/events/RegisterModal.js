@@ -36,6 +36,7 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
 
   const inPersonWatch = watch("inPerson");
   const visitsFromWatch = watch("visitsFrom");
+  const hyperstudentWatch = watch("hyperstudent");
 
   if (!isOpen) {
     return null;
@@ -54,6 +55,14 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
       visitsFrom,
       inPerson,
       otherInstitution = "",
+      discordId,
+      githubUrl,
+      country,
+      role,
+      skills,
+      tracks,
+      hyperstudent,
+      hyperschool,
     } = data;
 
     try {
@@ -70,13 +79,19 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
         visitsFrom,
         inPerson: inPerson ? inPerson : false,
         otherInstitution,
+        discordId,
+        githubUrl,
+        country,
+        role,
+        skills,
+        tracks,
+        hyperstudent,
+        hyperschool,
       };
 
       //Send data to server
       const response = await axios.post("/api/events/register", dataToSend);
-
       setOrderId(response.data.orderId);
-
       //if success, show success message in modal
       setIsRegistered(true);
     } catch (error) {
@@ -183,7 +198,230 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                               />
                             </div>
 
-                            <div className="inputwrapper my-3">
+                            <div className="my-4 field">
+                              <Input
+                                label="¿Cual es tu ID de Discord?"
+                                name="discordId"
+                                type="text"
+                                register={{
+                                  ...register("discordId", {
+                                    required: {
+                                      value: true,
+                                      message: "Discord ID es requerido",
+                                    },
+                                  }),
+                                }}
+                                errorMessage={errors.discordId?.message}
+                              />
+                            </div>
+
+                            <div className="my-4 field">
+                              <Input
+                                label="¿Cuál es tu URL de GitHub?"
+                                name="githubUrl"
+                                type="text"
+                                register={{
+                                  ...register("githubUrl", {
+                                    required: {
+                                      value: true,
+                                      message: "URL de GitHub es requerido",
+                                    },
+                                  }),
+                                }}
+                                errorMessage={errors.githubUrl?.message}
+                              />
+                            </div>
+
+                            <div className="my-4 field">
+                              <Select
+                                label="¿De dónde nos visitas?"
+                                name="country"
+                                options={[
+                                  {
+                                    value: "estadosunidos",
+                                    label: "Estados Unidos",
+                                  },
+                                  { value: "mexico", label: "México" },
+                                  { value: "colombia", label: "Colombia" },
+                                  { value: "argentina", label: "Argentina" },
+                                  { value: "bolivia", label: "Bolivia" },
+                                  { value: "brasil", label: "Brasil" },
+                                  { value: "chile", label: "Chile" },
+                                  { value: "costa-rica", label: "Costa Rica" },
+                                  { value: "cuba", label: "Cuba" },
+                                  {
+                                    value: "republicadominicana",
+                                    label: "República Dominicana",
+                                  },
+                                  { value: "ecuador", label: "Ecuador" },
+                                  {
+                                    value: "el-salvador",
+                                    label: "El Salvador",
+                                  },
+                                  { value: "guatemala", label: "Guatemala" },
+                                  { value: "honduras", label: "Honduras" },
+                                  { value: "nicaragua", label: "Nicaragua" },
+                                  { value: "panama", label: "Panamá" },
+                                  { value: "paraguay", label: "Paraguay" },
+                                  { value: "peru", label: "Perú" },
+                                  {
+                                    value: "puertorico",
+                                    label: "Puerto Rico",
+                                  },
+                                  { value: "uruguay", label: "Uruguay" },
+                                  { value: "venezuela", label: "Venezuela" },
+                                  { value: "canada", label: "Canada" },
+                                ]}
+                                register={{
+                                  ...register("country", {
+                                    required: {
+                                      value: true,
+                                      message: "País es requerido",
+                                    },
+                                  }),
+                                }}
+                                errorMessage={errors.country?.message}
+                              />
+                            </div>
+
+                            <div className="my-4 field">
+                              <Select
+                                label="¿En que rol encajas mejor?"
+                                name="role"
+                                options={[
+                                  {
+                                    value: "engineering",
+                                    label: "Ingeniero",
+                                  },
+                                  { value: "product", label: "Producto" },
+                                  { value: "design", label: "Diseño" },
+                                  {
+                                    value: "business development",
+                                    label: "Negocios",
+                                  },
+                                  { value: "marketing", label: "Marketing" },
+                                ]}
+                                register={{
+                                  ...register("role", {
+                                    required: {
+                                      value: true,
+                                      message: "Rol es requerido",
+                                    },
+                                  }),
+                                }}
+                                errorMessage={errors.role?.message}
+                              />
+                            </div>
+
+                            <div className="my-4 field">
+                              <Input
+                                label="¿Qué habilidades o lenguajes de programación sabes?"
+                                name="skills"
+                                type="text"
+                                register={{
+                                  ...register("skills", {
+                                    required: {
+                                      value: true,
+                                      message: "Habilidades son requeridas",
+                                    },
+                                  }),
+                                }}
+                                errorMessage={errors.skills?.message}
+                              />
+                            </div>
+
+                            <div className="my-4 field">
+                              <Select
+                                label="¿Que tracks te interesan? (Puedes seleccionar varios)"
+                                name="tracks"
+                                multiple
+                                options={[
+                                  {
+                                    value: "finance",
+                                    label: "Finanzas y pagos",
+                                  },
+                                  {
+                                    value: "ai",
+                                    label: "Inteligencia Artificial",
+                                  },
+                                  {
+                                    value: "mobile",
+                                    label:
+                                      "Aplicaciones móviles para consumidores",
+                                  },
+                                  {
+                                    value: "crypto",
+                                    label: "Infraestructura criptográfica",
+                                  },
+                                  {
+                                    value: "daos",
+                                    label: "DAOs y estados de red",
+                                  },
+                                  {
+                                    value: "physical",
+                                    label: "Infraestructura física de redes",
+                                  },
+                                  {
+                                    value: "games",
+                                    label: "Juegos y entretenimiento",
+                                  },
+                                  {
+                                    value: "notsure",
+                                    label: "No estoy seguro todavía",
+                                  },
+                                ]}
+                                register={{
+                                  ...register("tracks", {
+                                    required: {
+                                      value: true,
+                                      message: "Tracks son requeridos",
+                                    },
+                                  }),
+                                }}
+                                errorMessage={errors.tracks?.message}
+                              />
+                            </div>
+
+                            <div className="my-4 field">
+                              <Select
+                                label="Eres estudiante?"
+                                name="hyperstudent"
+                                options={[
+                                  { value: "yes", label: "Sí" },
+                                  { value: "no", label: "No" },
+                                ]}
+                                register={{
+                                  ...register("hyperstudent", {
+                                    required: {
+                                      value: true,
+                                      message: "Campo requerido",
+                                    },
+                                  }),
+                                }}
+                                errorMessage={errors.hyperstudent?.message}
+                              />
+                            </div>
+
+                            {hyperstudentWatch === "yes" && (
+                              <div className="my-4 field">
+                                <Input
+                                  label="¿En qué escuela estudias?"
+                                  name="hyperschool"
+                                  type="text"
+                                  register={{
+                                    ...register("hyperschool", {
+                                      required: {
+                                        value: true,
+                                        message: "Campo requerido",
+                                      },
+                                    }),
+                                  }}
+                                  errorMessage={errors.hyperschool?.message}
+                                />
+                              </div>
+                            )}
+
+                            {/* <div className="inputwrapper my-3">
                               <Select
                                 label="¿De dónde nos visitas?"
                                 name="visitsFrom"
@@ -219,9 +457,9 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                                 }}
                                 errorMessage={errors.visitsFrom?.message}
                               />
-                            </div>
+                            </div> */}
 
-                            <div className="inputwrapper my-3">
+                            {/* <div className="inputwrapper my-3">
                               {visitsFromWatch === "itesm" && (
                                 <Select
                                   label="¿En qué campus del Tec de Mty estudias?"
@@ -278,9 +516,9 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                                   />
                                 </div>
                               )}
-                            </div>
+                            </div> */}
 
-                            <div className="field my-4">
+                            {/* <div className="field my-4">
                               <TextArea
                                 label="Cuentanos sobre tí"
                                 name="about"
@@ -300,7 +538,7 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                                   }),
                                 }}
                               />
-                            </div>
+                            </div> */}
                           </div>
 
                           {/* <div className="inputwrapper my-3">
@@ -347,6 +585,12 @@ const RegisterModal = ({ isOpen = false, setIsOpen, eventData }) => {
                               errorMessage={errors.isMinor?.message}
                             />
                           </div> */}
+
+                          <p className="text-sm text-black italic">
+                            Si estas trabajando en equipo, por favor asegurate
+                            que cada miembro de tu equipo se registre
+                            individualmente.
+                          </p>
 
                           <div className="inputwrapper my-3">
                             <TermsCheckBox
