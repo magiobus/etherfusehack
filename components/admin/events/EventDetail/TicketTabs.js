@@ -22,6 +22,59 @@ const TicketTabs = ({ event }) => {
     return Object.fromEntries(sortedEntries);
   };
 
+  //download csv
+  const downloadCSV = (attendees) => {
+    const csvData = attendees.map((attendee) => {
+      const {
+        userEmail,
+        user,
+        discordId,
+        githubUrl,
+        country,
+        role,
+        skills,
+        tracks,
+        hyperschool,
+        hyperstudent,
+        createdAt,
+      } = attendee;
+
+      const parsedTracks = tracks
+        ? tracks.map((track) => track).join(" - ")
+        : "";
+
+      const parsedSkills = skills ? skills.replace(/,/g, " - ") : "";
+
+      return {
+        createdAt: unixToFormat(createdAt, "PP"),
+        name: user.name || "-",
+        userEmail,
+        discordId: discordId || "-",
+        githubUrl: githubUrl || "-",
+        country: country || "-",
+        role: role || "-",
+        hyperstudent: hyperstudent || "-",
+        hyperschool: hyperschool || "-",
+        tracks: parsedTracks || "-",
+        skills: parsedSkills || "-",
+      };
+    });
+
+    const csvHeaders = Object.keys(csvData[0]).join(",");
+    const csvRows = csvData.map((data) => Object.values(data).join(","));
+    const csvContent = `${csvHeaders}\n${csvRows.join("\n")}`;
+
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.setAttribute("href", url);
+    link.setAttribute("download", "attendees.csv");
+    link.style.visibility = "hidden";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   //combinations for attendees
   const getCombinationCounts = (attendees) => {
     const counts = {
@@ -300,7 +353,7 @@ const TicketTabs = ({ event }) => {
                     </ul>
                   </div>
 
-                  <div className="counts my-8">
+                  {/* <div className="counts my-8">
                     <p className="font-semibold bg-black text-white text-center">
                       Conteos por Institución
                     </p>
@@ -332,6 +385,14 @@ const TicketTabs = ({ event }) => {
                         </div>
                       </div>
                     </div>
+                  </div> */}
+                  <div className="buttoncontainer w-96 my-4">
+                    <button
+                      className="w-full text-happy-yellow px-2 py-1 bg-happy-middark rounded-md"
+                      onClick={() => downloadCSV(attendees)}
+                    >
+                      Descargar Asistentes (.csv)
+                    </button>
                   </div>
                 </>
               ) : (
