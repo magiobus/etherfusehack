@@ -133,7 +133,7 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
                       {description.split("\n").map((item, key) => {
                         return (
                           <>
-                            <p className=" mt-5  text-xl text-black" key={key}>
+                            <p className=" my-5  text-xl text-black" key={key}>
                               {item}
                             </p>
                           </>
@@ -142,6 +142,7 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
                     </>
                   )}{" "}
                 </div>
+
                 <div className="rightsection flex flex-col  w-full  mt-8 lg:mt-0 px-0 lg:px-8 lg:w-4/12">
                   <div className="infocontainer">
                     <div className="title flex items-center space-x-1 mb-2">
@@ -200,6 +201,13 @@ const EventDetailPage = ({ event, expired, registerCount }) => {
                   />
                 </div>
               </div>
+
+              {/* //Xolos */}
+              {event._id === "6513725b78e08b60a078f1fc" && (
+                <div className="w-full mt-12 mb-24 ">
+                  <Schedule />
+                </div>
+              )}
 
               {/* //TODO: MIGHT DELETE THIS SECTIoN LATER... */}
               {event._id === "63c3713740c2442abc5ae9cf" && (
