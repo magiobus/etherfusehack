@@ -79,17 +79,13 @@ const schedule = [
         start: "1:00PM",
         end: "2:00PM",
       },
-      {
-        name: "Evaluación de proyectos",
-        description: "",
-        start: "2:00PM",
-        end: "3:00PM",
-      },
+
       {
         name: "Ceremonia de premiación 🏆",
-        description: "",
-        start: "3:00PM",
-        end: "3:30PM",
+        description:
+          "La ceremonia de premiación se llevará a cabo el día 20 de octubre 2023",
+        start: "---",
+        end: "---",
       },
     ],
   },
